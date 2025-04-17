@@ -1,103 +1,114 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <section className="max-w-4xl mx-auto py-12 px-6 text-gray-800">
+      {/* Header */}
+      <h1 className="text-4xl font-bold mb-2">Zulfiqar Ali Mir</h1>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
+      <p className="mb-4">
+        <a href="mailto:mir.global.academy@gmail.com" className="text-blue-600 hover:underline">
+          mir.global.academy@gmail.com
+        </a>{" "}
+        | Phone: +92 322 5150501
+      </p>
+
+      <ul className="space-y-2 mb-8 text-md">
+        <li>
+          <strong>LinkedIn:</strong>{" "}
           <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://www.linkedin.com/in/zulfiqar-ali-mir/"
+            className="text-blue-600 hover:underline"
             target="_blank"
-            rel="noopener noreferrer"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
+            linkedin.com/in/zulfiqar-ali-mir
           </a>
+        </li>
+        <li>
+          <strong>GitHub:</strong>{" "}
           <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://github.com/zulfiqaralimir"
+            className="text-blue-600 hover:underline"
             target="_blank"
-            rel="noopener noreferrer"
           >
-            Read our docs
+            github.com/zulfiqaralimir
           </a>
+        </li>
+        <li>
+          <strong>LeetCode:</strong>{" "}
+          <a
+            href="https://leetcode.com/u/xBe6uVINLF/"
+            className="text-blue-600 hover:underline"
+            target="_blank"
+          >
+            leetcode.com/u/xBe6uVINLF
+          </a>
+        </li>
+      </ul>
+
+      {/* Education Section */}
+      <h2 className="text-3xl font-bold mb-6">Education</h2>
+      <div className="space-y-10">
+        <div>
+          <div className="flex justify-between font-semibold">
+            <span>World Quant University</span>
+            <span>USA · Jan 2025</span>
+          </div>
+          <p>Master's in Financial Engineering (In Progress)</p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        <div>
+          <div className="flex justify-between font-semibold">
+            <span>Pakistan Institute of Development Economics</span>
+            <span>Islamabad, PK · Aug 2016 – Aug 2022</span>
+          </div>
+          <p>Ph.D. in Econometrics. CGPA 3.50</p>
+          <p>
+            <strong>Thesis:</strong> Causal Discovery using Modified Riz-PC Algorithm from Observational and Latent Variables Data: A Monte Carlo Simulation Experiment And Application
+          </p>
+        </div>
+
+        <div>
+          <div className="flex justify-between font-semibold">
+            <span>Pakistan Institute of Development Economics</span>
+            <span>Islamabad, PK · Aug 2014 – Aug 2016</span>
+          </div>
+          <p>M.Phil. in Economics and Finance. CGPA 3.21</p>
+          <p>
+            <strong>Thesis:</strong>{" "}
+            <a
+              href="https://example.com"
+              className="text-blue-600 hover:underline"
+              target="_blank"
+            >
+              The Impact of Macroeconomic Volatility on Stock Returns Volatility: Evidence from Pakistani Stock Market
+            </a>
+          </p>
+        </div>
+
+        <div>
+          <div className="flex justify-between font-semibold">
+            <span>Allama Iqbal Open University</span>
+            <span>Islamabad, PK · Aug 2006 – Sept 2009</span>
+          </div>
+          <p>MBA in Human Resource Management</p>
+          <p><strong>Thesis:</strong> Report on Bank Alfalah Limited</p>
+        </div>
+
+        <div>
+          <div className="flex justify-between font-semibold">
+            <span>Institute of Cost and Management Accountants in Pakistan</span>
+            <span>2006 – 2010</span>
+          </div>
+          <p>Master, Chartered Management Accountant</p>
+        </div>
+
+        <div>
+          <div className="flex justify-between font-semibold">
+            <span>F.G. Degree College</span>
+            <span>Wah Cantt, PK · June 1990 – June 1992</span>
+          </div>
+          <p>B.Sc. in Mathematics & Statistics</p>
+        </div>
+      </div>
+    </section>
   );
 }
