@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export default function Home() {
   return (
     <motion.section
-      className="max-w-4xl mx-auto py-12 px-6 text-gray-800"
+      className="max-w-4xl mx-auto py-12 px-6 text-gray-800 bg-gray-50 rounded-xl shadow-md"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
@@ -24,13 +24,13 @@ export default function Home() {
           alt="Zulfiqar Ali Mir"
           width={128}
           height={128}
-          className="rounded-full shadow-lg border-2 border-gray-300"
+          className="rounded-full shadow-lg border-4 border-white"
         />
       </motion.div>
 
       {/* Header */}
       <motion.h1
-        className="text-4xl font-bold mb-2 text-center"
+        className="text-4xl font-extrabold text-center text-indigo-700 font-serif mb-2"
         initial={{ opacity: 0, y: -10 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -40,7 +40,7 @@ export default function Home() {
       </motion.h1>
 
       <motion.p
-        className="mb-4 text-center"
+        className="mb-4 text-center text-gray-600"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.1 }}
@@ -48,7 +48,7 @@ export default function Home() {
       >
         <a
           href="mailto:mir.global.academy@gmail.com"
-          className="text-blue-600 hover:underline"
+          className="text-indigo-600 hover:underline transition duration-300"
         >
           mir.global.academy@gmail.com
         </a>{" "}
@@ -69,7 +69,7 @@ export default function Home() {
             target="_blank"
             whileHover={{ scale: 1.1, rotate: 2 }}
             transition={{ type: "spring", stiffness: 300 }}
-            className="text-blue-600 hover:underline inline-block"
+            className="text-indigo-600 hover:underline inline-block transition duration-300"
           >
             linkedin.com/in/zulfiqar-ali-mir
           </motion.a>
@@ -81,7 +81,7 @@ export default function Home() {
             target="_blank"
             whileHover={{ scale: 1.1, rotate: 2 }}
             transition={{ type: "spring", stiffness: 300 }}
-            className="text-blue-600 hover:underline inline-block"
+            className="text-indigo-600 hover:underline inline-block transition duration-300"
           >
             github.com/zulfiqaralimir
           </motion.a>
@@ -93,7 +93,7 @@ export default function Home() {
             target="_blank"
             whileHover={{ scale: 1.1, rotate: 2 }}
             transition={{ type: "spring", stiffness: 300 }}
-            className="text-blue-600 hover:underline inline-block"
+            className="text-indigo-600 hover:underline inline-block transition duration-300"
           >
             leetcode.com/u/xBe6uVINLF
           </motion.a>
@@ -102,7 +102,7 @@ export default function Home() {
 
       {/* Experience Section */}
       <motion.h2
-        className="text-3xl font-bold mt-12 mb-6 border-b border-gray-300 pb-2"
+        className="text-3xl font-bold mt-12 mb-6 border-b border-gray-300 pb-2 text-indigo-700"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
@@ -119,7 +119,7 @@ export default function Home() {
         viewport={{ once: true }}
       >
         {/* Turing */}
-        <div>
+        <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
           <div className="flex justify-between font-semibold">
             <span>Turing</span>
             <span>Remote · Sept 2024 – Present</span>
@@ -128,7 +128,7 @@ export default function Home() {
           <p>Data / Business Analytics, LLM Trainer, Research Analyst – Advanced Mathematics Subject Matter Expert</p>
           <p>Client: Apple; Meta</p>
           <p className="mt-2">
-            As an LLM Trainer and Research Analyst in Mathematics, I employ cutting-edge techniques like Reinforcement Learning with Human Feedback (RLHF) and Supervised Fine-Tuning (SFT) to refine AI models in solving advanced mathematical problems. I assess AI-generated mathematical solutions, deliver feedback, and shape models to meet human expectations. <span className="text-blue-600">I concentrate on enhancing</span> clarity, accuracy, and practicality.
+            As an LLM Trainer and Research Analyst in Mathematics, I employ cutting-edge techniques like Reinforcement Learning with Human Feedback (RLHF) and Supervised Fine-Tuning (SFT) to refine AI models in solving advanced mathematical problems. I assess AI-generated mathematical solutions, deliver feedback, and shape models to meet human expectations. <span className="text-indigo-600">I concentrate on enhancing</span> clarity, accuracy, and practicality.
             <br />
             <strong>Client:</strong> Anthropic (Data Science)
             <br />
@@ -137,7 +137,7 @@ export default function Home() {
         </div>
 
         {/* Mir Global */}
-        <div>
+        <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
           <div className="flex justify-between font-semibold">
             <span>Mir Global Soft Private Limited</span>
             <span>Islamabad, PK · 2019 – Present</span>
@@ -155,7 +155,7 @@ export default function Home() {
         </div>
 
         {/* Other Jobs */}
-        <div>
+        <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
           <div className="flex justify-between font-semibold">
             <span>Super Nova Academy</span>
             <span>Islamabad, PK · 2010 – Present</span>
@@ -163,7 +163,7 @@ export default function Home() {
           <p>Teacher - Mathematics, Statistics & SAT</p>
         </div>
 
-        <div>
+        <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
           <div className="flex justify-between font-semibold">
             <span>Beaconhouse School System, BMI</span>
             <span>Islamabad, PK · Aug 2017 – Sept 2022</span>
@@ -171,7 +171,7 @@ export default function Home() {
           <p>Teacher of Mathematics</p>
         </div>
 
-        <div>
+        <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
           <div className="flex justify-between font-semibold">
             <span>Bank Alfalah Limited</span>
             <span>Wah Cantt, PK · June 2008 – July 2010</span>
@@ -179,7 +179,7 @@ export default function Home() {
           <p>Operations Officer</p>
         </div>
 
-        <div>
+        <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
           <div className="flex justify-between font-semibold">
             <span>UNIX Securities (Pvt.) Limited</span>
             <span>Islamabad, PK · May 2006 – May 2007</span>
@@ -187,7 +187,7 @@ export default function Home() {
           <p>Equity Manager</p>
         </div>
 
-        <div>
+        <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
           <div className="flex justify-between font-semibold">
             <span>City Lights Trading</span>
             <span>Dubai, UAE · Jan 2005 – Dec 2005</span>
@@ -195,7 +195,7 @@ export default function Home() {
           <p>Credit Controller</p>
         </div>
 
-        <div>
+        <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
           <div className="flex justify-between font-semibold">
             <span>Islamabad Stock Exchange</span>
             <span>Islamabad, PK · 1999 – 2004</span>
