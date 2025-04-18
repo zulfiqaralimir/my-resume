@@ -64,33 +64,39 @@ export default function Home() {
       >
         <li>
           <strong>LinkedIn:</strong>{" "}
-          <a
+          <motion.a
             href="https://www.linkedin.com/in/zulfiqar-ali-mir/"
-            className="text-blue-600 hover:underline"
             target="_blank"
+            whileHover={{ scale: 1.1, rotate: 2 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            className="text-blue-600 hover:underline inline-block"
           >
             linkedin.com/in/zulfiqar-ali-mir
-          </a>
+          </motion.a>
         </li>
         <li>
           <strong>GitHub:</strong>{" "}
-          <a
+          <motion.a
             href="https://github.com/zulfiqaralimir"
-            className="text-blue-600 hover:underline"
             target="_blank"
+            whileHover={{ scale: 1.1, rotate: 2 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            className="text-blue-600 hover:underline inline-block"
           >
             github.com/zulfiqaralimir
-          </a>
+          </motion.a>
         </li>
         <li>
           <strong>LeetCode:</strong>{" "}
-          <a
+          <motion.a
             href="https://leetcode.com/u/xBe6uVINLF/"
-            className="text-blue-600 hover:underline"
             target="_blank"
+            whileHover={{ scale: 1.1, rotate: 2 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            className="text-blue-600 hover:underline inline-block"
           >
             leetcode.com/u/xBe6uVINLF
-          </a>
+          </motion.a>
         </li>
       </motion.ul>
 
@@ -107,8 +113,8 @@ export default function Home() {
 
       <motion.div
         className="space-y-10 text-gray-800"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ x: 100, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
@@ -200,4 +206,3 @@ export default function Home() {
     </motion.section>
   );
 }
-
