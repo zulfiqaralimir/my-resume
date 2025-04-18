@@ -52,12 +52,12 @@ export default function Home() {
             <span>World Quant University</span>
             <span>USA · Jan 2025</span>
           </div>
-          <p>Master's in Financial Engineering (In Progress)</p>
+          <p>Master in Financial Engineering -In Progress</p>
         </div>
 
         <div>
           <div className="flex justify-between font-semibold">
-            <span>Pakistan Institute of Development Economics</span>
+            <span>Pakistan Institute of Development Economics (PIDE)</span>
             <span>Islamabad, PK · Aug 2016 – Aug 2022</span>
           </div>
           <p>Ph.D. in Econometrics. CGPA 3.50</p>
