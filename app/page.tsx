@@ -1,21 +1,51 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <section className="max-w-4xl mx-auto py-12 px-6 text-gray-800">
+    <motion.section
+      className="max-w-4xl mx-auto py-12 px-6 text-gray-800"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+    >
       {/* Profile Image */}
-      <div className="flex justify-center mb-6">
+      <motion.div
+        className="flex justify-center mb-6"
+        initial={{ opacity: 0, y: -30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         <Image
           src="/profile.jpg"
           alt="Zulfiqar Ali Mir"
-          className="w-32 h-32 rounded-full shadow-lg border-2 border-gray-300"
+          width={128}
+          height={128}
+          className="rounded-full shadow-lg border-2 border-gray-300"
         />
-      </div>
+      </motion.div>
 
       {/* Header */}
-      <h1 className="text-4xl font-bold mb-2 text-center">Zulfiqar Ali Mir</h1>
+      <motion.h1
+        className="text-4xl font-bold mb-2 text-center"
+        initial={{ opacity: 0, y: -10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
+        Zulfiqar Ali Mir
+      </motion.h1>
 
-      <p className="mb-4 text-center">
+      <motion.p
+        className="mb-4 text-center"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+        viewport={{ once: true }}
+      >
         <a
           href="mailto:mir.global.academy@gmail.com"
           className="text-blue-600 hover:underline"
@@ -23,9 +53,15 @@ export default function Home() {
           mir.global.academy@gmail.com
         </a>{" "}
         | Phone: +92 322 5150501
-      </p>
+      </motion.p>
 
-      <ul className="space-y-2 mb-8 text-md text-center">
+      <motion.ul
+        className="space-y-2 mb-8 text-md text-center"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         <li>
           <strong>LinkedIn:</strong>{" "}
           <a
@@ -56,14 +92,27 @@ export default function Home() {
             leetcode.com/u/xBe6uVINLF
           </a>
         </li>
-      </ul>
+      </motion.ul>
 
       {/* Experience Section */}
-      <h2 className="text-3xl font-bold mt-12 mb-6 border-b border-gray-300 pb-2">
+      <motion.h2
+        className="text-3xl font-bold mt-12 mb-6 border-b border-gray-300 pb-2"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         Experience
-      </h2>
+      </motion.h2>
 
-      <div className="space-y-10 text-gray-800">
+      <motion.div
+        className="space-y-10 text-gray-800"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        {/* Turing */}
         <div>
           <div className="flex justify-between font-semibold">
             <span>Turing</span>
@@ -81,6 +130,7 @@ export default function Home() {
           </p>
         </div>
 
+        {/* Mir Global */}
         <div>
           <div className="flex justify-between font-semibold">
             <span>Mir Global Soft Private Limited</span>
@@ -98,6 +148,7 @@ export default function Home() {
           </ul>
         </div>
 
+        {/* Other Jobs */}
         <div>
           <div className="flex justify-between font-semibold">
             <span>Super Nova Academy</span>
@@ -145,7 +196,7 @@ export default function Home() {
           </div>
           <p>Equity Investment and Portfolio Management</p>
         </div>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }
