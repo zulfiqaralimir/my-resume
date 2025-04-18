@@ -123,31 +123,92 @@ export default function Home() {
       {/* Experience Section */}
       <h2 className="text-3xl font-bold mt-12 mb-6 text-center">Experience</h2>
 
-      <div className="space-y-6 text-gray-800">
-        <div className="flex justify-between items-start font-semibold">
-          <div>
-            <p className="text-lg">Turing</p>
-            <p>Quality Analyst / Team Lead</p>
-            <p>
-              Data / Business Analytics, LLM Trainer, Research Analyst – Advanced Mathematics Subject Matter Expert
-            </p>
-            <p>Sept 2024 – Present</p>
-            <p>Client: Apple; Meta</p>
+      <div className="space-y-10 text-gray-800">
+
+        {/* Turing */}
+        <div>
+          <div className="flex justify-between font-semibold">
+            <span>Turing</span>
+            <span>Remote · Sept 2024 – Present</span>
           </div>
-          <div className="text-right">Remote</div>
+          <p>Quality Analyst / Team Lead</p>
+          <p>Data / Business Analytics, LLM Trainer, Research Analyst – Advanced Mathematics Subject Matter Expert</p>
+          <p>Client: Apple; Meta</p>
+          <p className="mt-2">
+            As an LLM Trainer and Research Analyst in Mathematics, I employ cutting-edge techniques like Reinforcement Learning with Human Feedback (RLHF) and Supervised Fine-Tuning (SFT) to refine AI models in solving advanced mathematical problems. I assess AI-generated mathematical solutions, deliver feedback, and shape models to meet human expectations. <span className="text-blue-600">I concentrate on enhancing</span> clarity, accuracy, and practicality.
+            <br />
+            <strong>Client:</strong> Anthropic (Data Science)
+            <br />
+            <strong>Skills:</strong> Maths, Statistics, Problem Solving, Data Analysis, Generative AI, Prompt Engineering, Markdown, LaTeX
+          </p>
         </div>
 
-        <p>
-          As an LLM Trainer and Research Analyst in Mathematics, I employ cutting-edge techniques like Reinforcement Learning with Human Feedback (RLHF) and Supervised Fine-Tuning (SFT) to refine AI models in solving advanced mathematical problems. My responsibilities include assessing AI-generated mathematical solutions, delivering precise feedback, and directing the model’s training to meet human expectations. I{" "}
-          <span className="text-blue-600 font-medium">concentrate on enhancing</span> the solutions’ clarity, accuracy, and practicality, ensuring robust mathematical reasoning. Furthermore, I play a key role in identifying areas for improvement and shaping AI systems to function ethically and effectively, particularly in educational settings where precision is crucial.
-        </p>
+        {/* Mir Global */}
+        <div>
+          <div className="flex justify-between font-semibold">
+            <span>Mir Global Soft Private Limited</span>
+            <span>Islamabad, PK · 2019 – Present</span>
+          </div>
+          <p>Director</p>
+          <ul className="list-disc pl-5 mt-1 space-y-1 text-sm">
+            <li>Leading data analysis and analytics for the equity market</li>
+            <li>Conducting economic research and market trend analysis</li>
+            <li>Overseeing research and development in applied generative AI</li>
+            <li>Engaged in AI software, fintech, and tech innovations</li>
+            <li>Business intelligence initiatives and leadership</li>
+            <li>Created a <strong>Stock Market Index</strong> for the Tech Sector</li>
+            <li>Spearheaded <strong>Stock Market Analysis</strong> and <strong>Portfolio Management</strong> using 15+ years of expertise</li>
+          </ul>
+        </div>
 
-        <p className="mt-2">
-          <strong>Client:</strong> Anthropic (Data Science)
-        </p>
-        <p>
-          <strong>Skills:</strong> Maths; Stat; Reasoning; Problem Solving; Data Analysis; Generative AI; Prompt Engineering; Markdown; LaTeX
-        </p>
+        {/* Other Jobs */}
+        <div>
+          <div className="flex justify-between font-semibold">
+            <span>Super Nova Academy</span>
+            <span>Islamabad, PK · 2010 – Present</span>
+          </div>
+          <p>Teacher - Mathematics, Statistics & SAT</p>
+        </div>
+
+        <div>
+          <div className="flex justify-between font-semibold">
+            <span>Beaconhouse School System, BMI</span>
+            <span>Islamabad, PK · Aug 2017 – Sept 2022</span>
+          </div>
+          <p>Teacher of Mathematics</p>
+        </div>
+
+        <div>
+          <div className="flex justify-between font-semibold">
+            <span>Bank Alfalah Limited</span>
+            <span>Wah Cantt, PK · June 2008 – July 2010</span>
+          </div>
+          <p>Operations Officer</p>
+        </div>
+
+        <div>
+          <div className="flex justify-between font-semibold">
+            <span>UNIX Securities (Pvt.) Limited</span>
+            <span>Islamabad, PK · May 2006 – May 2007</span>
+          </div>
+          <p>Equity Manager</p>
+        </div>
+
+        <div>
+          <div className="flex justify-between font-semibold">
+            <span>City Lights Trading</span>
+            <span>Dubai, UAE · Jan 2005 – Dec 2005</span>
+          </div>
+          <p>Credit Controller</p>
+        </div>
+
+        <div>
+          <div className="flex justify-between font-semibold">
+            <span>Islamabad Stock Exchange</span>
+            <span>Islamabad, PK · 1999 – 2004</span>
+          </div>
+          <p>Equity Investment and Portfolio Management</p>
+        </div>
       </div>
     </section>
   );
