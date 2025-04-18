@@ -121,8 +121,8 @@ export default function Home() {
       </div>
 
       {/* Experience Section */}
-      <h2 className="text-3xl font-bold mt-12 mb-6 text-center">Experience</h2>
-
+      <h2 className="text-3xl font-bold mb-6">Experience</h2>
+       
       <div className="space-y-10 text-gray-800">
 
         {/* Turing */}
