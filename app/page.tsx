@@ -48,7 +48,9 @@ export default function Home() {
       </ul>
 
       {/* Education Section */}
-      <h2 className="text-3xl font-bold mb-6">Education</h2>
+      <h2 className="text-3xl font-bold mt-12 mb-6 border-b border-gray-300 pb-2">
+        Education
+      </h2>
       <div className="space-y-10">
         <div>
           <div className="flex justify-between font-semibold">
@@ -121,8 +123,10 @@ export default function Home() {
       </div>
 
       {/* Experience Section */}
-      <h2 className="text-3xl font-bold mb-6">Experience</h2>
-       
+      <h2 className="text-3xl font-bold mt-12 mb-6 border-b border-gray-300 pb-2">
+        Experience
+      </h2>
+
       <div className="space-y-10 text-gray-800">
 
         {/* Turing */}
