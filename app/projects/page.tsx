@@ -2,6 +2,25 @@
 
 import { motion } from "framer-motion";
 
+const featuredProject = {
+  title: "BlackIronTimes – Quantitative Financial Intelligence Platform",
+  url: "https://lackirontimes.com",
+  bullets: [
+    "Developed a quantitative financial intelligence platform integrating macroeconomic analysis, market data pipelines, and research-grade reporting",
+    "Engineered a scalable data architecture using Next.js, Supabase, and Cloudflare R2, enabling efficient handling of high-frequency financial content and datasets",
+    "Designed market data pipelines for storing and analyzing time-series data (prices, returns, % changes), supporting real-time and historical financial analysis",
+    "Implemented hybrid rendering + caching strategy (ISR + dynamic execution) to optimize latency-sensitive financial data delivery while maintaining scalability to 100K+ daily requests",
+    "Built real-time financial dashboards for monitoring market indicators, aligning with quantitative trading and portfolio monitoring workflows",
+    "Developed structured research outputs (long-form reports, macro insights) similar to institutional research used in hedge funds and asset management",
+    "Applied vector-based semantic retrieval (pgvector) to enable intelligent search across financial research and historical analyses",
+    "Architected a multi-agent AI research pipeline (Market Agent, News Agent, Research Agent, Visualization Agent) using LangGraph and Claude Haiku for automated signal extraction and report generation",
+    "Designed relational schemas for financial time-series data, research metadata, and multilingual datasets, supporting extensibility for econometric modeling",
+    "Integrated multilingual financial data dissemination (English, Urdu, Arabic) for broader market accessibility and emerging market coverage",
+    "Optimized system under resource constraints (free-tier infra), demonstrating cost-efficient scaling — critical for systematic strategy deployment environments",
+  ],
+  stack: ["Next.js", "Supabase", "Cloudflare R2", "pgvector", "LangGraph", "Claude Haiku", "ISR", "TypeScript"],
+};
+
 const researchProjects = [
   {
     title: "Climate Justice RIZPC Algorithm Analysis (2024)",
@@ -135,10 +154,46 @@ export default function ProjectsPage() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-      {/* Research Projects */}
-      <h1 className="text-4xl font-bold mb-8 border-b pb-2 text-indigo-700">
-        Research &amp; Coding Projects
+      {/* Featured Project */}
+      <h1 className="text-4xl font-bold mb-6 border-b pb-2 text-indigo-700">
+        Featured Project
       </h1>
+      <motion.div
+        className="bg-white border-2 border-indigo-300 p-6 rounded-xl shadow-lg mb-14"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
+          <h2 className="text-xl font-bold text-indigo-700">{featuredProject.title}</h2>
+          <a
+            href={featuredProject.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-indigo-600 hover:underline font-medium whitespace-nowrap"
+          >
+            {featuredProject.url.replace("https://", "")} ↗
+          </a>
+        </div>
+        <ul className="list-disc pl-5 space-y-1.5 text-sm text-gray-700 mb-4">
+          {featuredProject.bullets.map((b, i) => (
+            <li key={i}>{b}</li>
+          ))}
+        </ul>
+        <div className="flex flex-wrap gap-2 mt-3">
+          {featuredProject.stack.map((s, i) => (
+            <span key={i} className="bg-indigo-50 text-indigo-700 text-xs font-medium px-3 py-1 rounded-full border border-indigo-200">
+              {s}
+            </span>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* Research Projects */}
+      <h2 className="text-4xl font-bold mb-8 border-b pb-2 text-indigo-700">
+        Research &amp; Coding Projects
+      </h2>
       <div className="space-y-4 mb-14">
         {researchProjects.map((p, i) => (
           <motion.div
