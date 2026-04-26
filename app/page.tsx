@@ -1,216 +1,240 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
+
+const badges = [
+  "National AI FinTech Winner 2025",
+  "Stanford Section Leader",
+  "Ph.D. Econometrics",
+  "LLM Trainer · Turing",
+  "HEC AI Judge 2026",
+];
+
+const jobs = [
+  {
+    org: "Turing (Palo Alto, California)",
+    period: "Sept 2024 – Present",
+    title: "Research Analyst / LLM Trainer / Advanced Maths Subject Expert",
+    detail: "RLHF and SFT for Apple, Meta, and Anthropic — refining AI models in advanced mathematics.",
+  },
+  {
+    org: "Stanford University",
+    period: "May 2025 – June 2025",
+    title: "Section Leader – Python Programming",
+    detail: "",
+  },
+  {
+    org: "Mir Global Soft Private Limited · Islamabad",
+    period: "2020 – Present",
+    title: "Senior Research Analyst & Financial Strategist",
+    detail: "Equity research, quant-driven investment strategies, financial modeling, portfolio optimization.",
+  },
+  {
+    org: "iCodeGuru · San Jose, California",
+    period: "June 2024 – Present",
+    title: "Teacher and Trainer",
+    detail: "IELTS, GRE, LeetCode, Python, ML, Data Analysis.",
+  },
+  {
+    org: "Super Nova Academy · Islamabad",
+    period: "2010 – Present",
+    title: "Teacher – Mathematics, Statistics & SAT",
+    detail: "",
+  },
+  {
+    org: "Beaconhouse School System, BMI · Islamabad",
+    period: "Aug 2017 – Sept 2022",
+    title: "Teacher of Mathematics",
+    detail: "",
+  },
+  {
+    org: "Bank Alfalah Limited · Wah Cantt",
+    period: "June 2008 – July 2010",
+    title: "Operations Officer",
+    detail: "",
+  },
+  {
+    org: "City Lights Trading · Dubai",
+    period: "Jan 2005 – Dec 2005",
+    title: "Credit Controller",
+    detail: "",
+  },
+  {
+    org: "Pakistan Stock Exchange · Islamabad",
+    period: "1999 – 2004",
+    title: "Equity Investment and Portfolio Management",
+    detail: "",
+  },
+];
 
 export default function Home() {
   return (
-    <motion.section
-      className="max-w-4xl mx-auto py-12 px-6 text-gray-800 bg-gray-50 rounded-xl shadow-md"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-    >
-      {/* Profile Image */}
-      <motion.div
-        className="flex justify-center mb-6"
-        initial={{ opacity: 0, y: -30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-      >
-        <Image
-          src="/profile.jpg"
-          alt="Zulfiqar Ali Mir"
-          width={128}
-          height={128}
-          className="rounded-full shadow-lg border-4 border-white"
-        />
-      </motion.div>
+    <div className="max-w-4xl mx-auto px-6 py-10 text-gray-800">
 
-      {/* Header */}
-      <motion.h1
-        className="text-4xl font-extrabold text-center text-indigo-700 font-serif mb-2"
-        initial={{ opacity: 0, y: -10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
+      {/* ── HERO ── */}
+      <motion.section
+        className="relative bg-gradient-to-br from-indigo-700 via-indigo-600 to-indigo-500 rounded-2xl shadow-xl px-8 py-12 mb-14 text-white overflow-hidden"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
       >
-        Zulfiqar Ali Mir
-      </motion.h1>
+        {/* subtle background circles */}
+        <div className="absolute -top-10 -right-10 w-64 h-64 bg-white/10 rounded-full" />
+        <div className="absolute -bottom-16 -left-10 w-80 h-80 bg-white/5 rounded-full" />
 
-      <motion.p
-        className="mb-4 text-center text-gray-600"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-        viewport={{ once: true }}
-      >
-        <a
-          href="mailto:manager.equity.finance@gmail.com"
-          className="text-indigo-600 hover:underline transition duration-300"
+        <div className="relative flex flex-col sm:flex-row items-center gap-8">
+          {/* Photo */}
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="shrink-0"
+          >
+            <Image
+              src="/profile.jpg"
+              alt="Zulfiqar Ali Mir"
+              width={120}
+              height={120}
+              className="rounded-full border-4 border-white/80 shadow-lg"
+            />
+          </motion.div>
+
+          {/* Text */}
+          <div className="text-center sm:text-left">
+            <motion.h1
+              className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-2"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              Zulfiqar Ali Mir
+            </motion.h1>
+
+            <motion.p
+              className="text-indigo-100 text-lg sm:text-xl font-medium mb-5"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.45 }}
+            >
+              Quantitative Researcher · AI Engineer · Financial Strategist
+            </motion.p>
+
+            {/* Badges */}
+            <motion.div
+              className="flex flex-wrap justify-center sm:justify-start gap-2 mb-6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.55 }}
+            >
+              {badges.map((b, i) => (
+                <span
+                  key={i}
+                  className="bg-white/20 border border-white/30 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-sm"
+                >
+                  {b}
+                </span>
+              ))}
+            </motion.div>
+
+            {/* CTAs */}
+            <motion.div
+              className="flex flex-wrap justify-center sm:justify-start gap-3"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.65 }}
+            >
+              <Link
+                href="/projects"
+                className="bg-white text-indigo-700 font-semibold text-sm px-5 py-2.5 rounded-lg shadow hover:bg-indigo-50 transition"
+              >
+                View Projects
+              </Link>
+              <a
+                href="mailto:manager.equity.finance@gmail.com"
+                className="border border-white/60 text-white font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-white/10 transition"
+              >
+                Contact Me
+              </a>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Contact row */}
+        <motion.div
+          className="relative mt-8 pt-6 border-t border-white/20 flex flex-wrap justify-center sm:justify-start gap-x-6 gap-y-2 text-sm text-indigo-100"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.75 }}
         >
-          manager.equity.finance@gmail.com
-        </a>{" "}
-        | Phone: +92 322 5150501
-      </motion.p>
+          <a href="mailto:manager.equity.finance@gmail.com" className="hover:text-white transition">
+            ✉ manager.equity.finance@gmail.com
+          </a>
+          <span>📞 +92 322 5150501</span>
+          <a href="https://www.linkedin.com/in/zulfiqar-ali-mir/" target="_blank" className="hover:text-white transition">
+            LinkedIn ↗
+          </a>
+          <a href="https://github.com/zulfiqaralimir" target="_blank" className="hover:text-white transition">
+            GitHub ↗
+          </a>
+          <a href="https://leetcode.com/u/xBe6uVINlF/" target="_blank" className="hover:text-white transition">
+            LeetCode ↗
+          </a>
+        </motion.div>
+      </motion.section>
 
-      <motion.ul
-        className="space-y-2 mb-8 text-md text-center"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-      >
-        <li>
-          <strong>LinkedIn:</strong>{" "}
-          <motion.a
-            href="https://www.linkedin.com/in/zulfiqar-ali-mir/"
-            target="_blank"
-            whileHover={{ scale: 1.1, rotate: 2 }}
-            transition={{ type: "spring", stiffness: 300 }}
-            className="text-indigo-600 hover:underline inline-block transition duration-300"
-          >
-            linkedin.com/in/zulfiqar-ali-mir
-          </motion.a>
-        </li>
-        <li>
-          <strong>GitHub:</strong>{" "}
-          <motion.a
-            href="https://github.com/zulfiqaralimir"
-            target="_blank"
-            whileHover={{ scale: 1.1, rotate: 2 }}
-            transition={{ type: "spring", stiffness: 300 }}
-            className="text-indigo-600 hover:underline inline-block transition duration-300"
-          >
-            github.com/zulfiqaralimir
-          </motion.a>
-        </li>
-        <li>
-          <strong>LeetCode:</strong>{" "}
-          <motion.a
-            href="https://leetcode.com/u/xBe6uVINlF/"
-            target="_blank"
-            whileHover={{ scale: 1.1, rotate: 2 }}
-            transition={{ type: "spring", stiffness: 300 }}
-            className="text-indigo-600 hover:underline inline-block transition duration-300"
-          >
-            leetcode.com/u/xBe6uVINlF
-          </motion.a>
-        </li>
-      </motion.ul>
-
-      {/* Key Qualifications */}
+      {/* ── QUICK STATS ── */}
       <motion.div
-        className="bg-indigo-50 border border-indigo-200 rounded-lg p-4 mb-10 text-center"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-14"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <p className="text-sm text-gray-700 space-x-4">
-          <span><strong>Typing Speed:</strong> 70 WPM</span>
-          <span>·</span>
-          <span><strong>IELTS Speaking:</strong> 7.5 &nbsp;|&nbsp; Overall: 6.5</span>
-          <span>·</span>
-          <span><strong>GRE:</strong> Under Preparation</span>
-        </p>
+        {[
+          { label: "Typing Speed", value: "70 WPM" },
+          { label: "IELTS Speaking", value: "7.5" },
+          { label: "Ph.D. CGPA", value: "3.36" },
+          { label: "Experience", value: "25+ yrs" },
+        ].map((s, i) => (
+          <div key={i} className="bg-white rounded-xl shadow p-4 text-center border border-gray-100">
+            <p className="text-2xl font-extrabold text-indigo-600">{s.value}</p>
+            <p className="text-xs text-gray-500 mt-1">{s.label}</p>
+          </div>
+        ))}
       </motion.div>
 
-      {/* Experience Summary */}
+      {/* ── EXPERIENCE ── */}
       <motion.h2
-        className="text-3xl font-bold mt-12 mb-6 border-b border-gray-300 pb-2 text-indigo-700"
+        className="text-3xl font-bold mb-6 border-b border-gray-200 pb-2 text-indigo-700"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
         Experience
       </motion.h2>
 
-      <motion.div
-        className="space-y-6 text-gray-800"
-        initial={{ x: 100, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
-          <div className="flex justify-between font-semibold">
-            <span>Turing (Palo Alto, California)</span>
-            <span>Remote · Sept 2024 – Present</span>
-          </div>
-          <p className="text-sm text-gray-600">Research Analyst / LLM Trainer / Advanced Maths Subject Expert</p>
-          <p className="mt-2 text-sm">
-            RLHF and SFT for clients including Apple, Meta, and Anthropic — refining AI models in advanced mathematics problem-solving.
-          </p>
-        </div>
-
-        <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
-          <div className="flex justify-between font-semibold">
-            <span>Stanford University</span>
-            <span>May 2025 – June 2025</span>
-          </div>
-          <p className="text-sm text-gray-600">Section Leader – Python Programming</p>
-        </div>
-
-        <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
-          <div className="flex justify-between font-semibold">
-            <span>Mir Global Soft Private Limited</span>
-            <span>Islamabad, PK · 2020 – Present</span>
-          </div>
-          <p className="text-sm text-gray-600">Senior Research Analyst & Financial Strategist</p>
-          <p className="text-sm mt-1">Equity research, quant-driven investment strategies, financial modeling, portfolio optimization.</p>
-        </div>
-
-        <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
-          <div className="flex justify-between font-semibold">
-            <span>iCodeGuru (San Jose, California)</span>
-            <span>June 2024 – Present</span>
-          </div>
-          <p className="text-sm text-gray-600">Teacher and Trainer – IELTS, GRE, LeetCode, Python, ML, Data Analysis</p>
-        </div>
-
-        <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
-          <div className="flex justify-between font-semibold">
-            <span>Super Nova Academy</span>
-            <span>Islamabad, PK · 2010 – Present</span>
-          </div>
-          <p className="text-sm text-gray-600">Teacher – Mathematics, Statistics & SAT</p>
-        </div>
-
-        <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
-          <div className="flex justify-between font-semibold">
-            <span>Beaconhouse School System, BMI</span>
-            <span>Islamabad, PK · Aug 2017 – Sept 2022</span>
-          </div>
-          <p className="text-sm text-gray-600">Teacher of Mathematics</p>
-        </div>
-
-        <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
-          <div className="flex justify-between font-semibold">
-            <span>Bank Alfalah Limited</span>
-            <span>Wah Cantt, PK · June 2008 – July 2010</span>
-          </div>
-          <p className="text-sm text-gray-600">Operations Officer</p>
-        </div>
-
-        <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
-          <div className="flex justify-between font-semibold">
-            <span>City Lights Trading</span>
-            <span>Dubai, UAE · Jan 2005 – Dec 2005</span>
-          </div>
-          <p className="text-sm text-gray-600">Credit Controller</p>
-        </div>
-
-        <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
-          <div className="flex justify-between font-semibold">
-            <span>Pakistan Stock Exchange</span>
-            <span>Islamabad, PK · 1999 – 2004</span>
-          </div>
-          <p className="text-sm text-gray-600">Equity Investment and Portfolio Management</p>
-        </div>
-      </motion.div>
-    </motion.section>
+      <div className="space-y-4">
+        {jobs.map((job, i) => (
+          <motion.div
+            key={i}
+            className="bg-white p-4 rounded-lg shadow hover:shadow-md transition"
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: i * 0.05 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
+              <span className="font-semibold text-indigo-700">{job.org}</span>
+              <span className="text-xs text-gray-400 sm:text-right whitespace-nowrap">{job.period}</span>
+            </div>
+            <p className="text-sm font-medium text-gray-700 mt-0.5">{job.title}</p>
+            {job.detail && <p className="text-sm text-gray-500 mt-1">{job.detail}</p>}
+          </motion.div>
+        ))}
+      </div>
+    </div>
   );
 }
