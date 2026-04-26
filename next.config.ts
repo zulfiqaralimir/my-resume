@@ -1,12 +1,10 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true, // helps catch errors in development
-  experimental: {
-    serverActions: false, // disables experimental features that may break on Vercel
-  },
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  reactStrictMode: true,
   images: {
-    domains: [], // add domains if you load remote images
+    domains: [],
   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;
