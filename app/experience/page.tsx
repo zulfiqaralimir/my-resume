@@ -109,7 +109,7 @@ export default function ExperiencePage() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-      <h1 className="text-4xl font-bold mb-8 border-b pb-2 text-indigo-700">
+      <h1 className="text-4xl font-bold mb-8 border-b pb-2 text-amber-700">
         Professional Experience
       </h1>
 
@@ -123,7 +123,7 @@ export default function ExperiencePage() {
             transition={{ duration: 0.5, delay: i * 0.05 }}
             viewport={{ once: true }}
           >
-            <div className="flex justify-between font-semibold text-indigo-700">
+            <div className="flex justify-between font-semibold text-amber-700">
               <span>{job.org}</span>
               <span className="text-sm text-gray-500">{job.location} · {job.period}</span>
             </div>

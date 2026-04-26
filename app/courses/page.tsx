@@ -111,7 +111,7 @@ export default function CoursesPage() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-      <h1 className="text-4xl font-bold mb-8 border-b pb-2 text-indigo-700">
+      <h1 className="text-4xl font-bold mb-8 border-b pb-2 text-amber-700">
         Certifications &amp; Training
       </h1>
 
@@ -125,7 +125,7 @@ export default function CoursesPage() {
             transition={{ duration: 0.5, delay: i * 0.06 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-semibold text-indigo-700 mb-3">{group.category}</h2>
+            <h2 className="font-semibold text-amber-700 mb-3">{group.category}</h2>
             <ul className="list-disc pl-5 space-y-1 text-sm text-gray-700">
               {group.items.map((item, j) => (
                 <li key={j}>{item}</li>

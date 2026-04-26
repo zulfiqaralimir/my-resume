@@ -65,7 +65,7 @@ export default function HonorsPage() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-      <h1 className="text-4xl font-bold mb-8 border-b pb-2 text-indigo-700">
+      <h1 className="text-4xl font-bold mb-8 border-b pb-2 text-amber-700">
         Honors &amp; Distinctions
       </h1>
 
@@ -79,7 +79,7 @@ export default function HonorsPage() {
             transition={{ duration: 0.5, delay: i * 0.06 }}
             viewport={{ once: true }}
           >
-            <p className="font-semibold text-indigo-700">{h.title}</p>
+            <p className="font-semibold text-amber-700">{h.title}</p>
             <p className="text-sm text-gray-500 mt-0.5">{h.org}</p>
             {h.details && <p className="text-sm text-gray-600 mt-2">{h.details}</p>}
           </motion.div>

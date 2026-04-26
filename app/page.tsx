@@ -75,7 +75,7 @@ export default function Home() {
 
       {/* ── HERO ── */}
       <motion.section
-        className="relative bg-gradient-to-br from-indigo-700 via-indigo-600 to-indigo-500 rounded-2xl shadow-xl px-8 py-12 mb-14 text-white overflow-hidden"
+        className="relative bg-gradient-to-br from-amber-700 via-amber-600 to-amber-500 rounded-2xl shadow-xl px-8 py-12 mb-14 text-white overflow-hidden"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
@@ -113,7 +113,7 @@ export default function Home() {
             </motion.h1>
 
             <motion.p
-              className="text-indigo-100 text-lg sm:text-xl font-medium mb-5"
+              className="text-amber-100 text-lg sm:text-xl font-medium mb-5"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.45 }}
@@ -147,7 +147,7 @@ export default function Home() {
             >
               <Link
                 href="/projects"
-                className="bg-white text-indigo-700 font-semibold text-sm px-5 py-2.5 rounded-lg shadow hover:bg-indigo-50 transition"
+                className="bg-white text-amber-700 font-semibold text-sm px-5 py-2.5 rounded-lg shadow hover:bg-amber-50 transition"
               >
                 View Projects
               </Link>
@@ -163,7 +163,7 @@ export default function Home() {
 
         {/* Contact row */}
         <motion.div
-          className="relative mt-8 pt-6 border-t border-white/20 flex flex-wrap justify-center sm:justify-start gap-x-6 gap-y-2 text-sm text-indigo-100"
+          className="relative mt-8 pt-6 border-t border-white/20 flex flex-wrap justify-center sm:justify-start gap-x-6 gap-y-2 text-sm text-amber-100"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.75 }}
@@ -193,13 +193,13 @@ export default function Home() {
         viewport={{ once: true }}
       >
         {[
-          { label: "Typing Speed", value: "70 WPM" },
-          { label: "IELTS Speaking", value: "7.5" },
-          { label: "Ph.D. CGPA", value: "3.36" },
           { label: "Experience", value: "25+ yrs" },
+          { label: "Books Published", value: "3" },
+          { label: "Hackathons Led", value: "9+" },
+          { label: "Daily Requests", value: "100K+" },
         ].map((s, i) => (
           <div key={i} className="bg-white rounded-xl shadow p-4 text-center border border-gray-100">
-            <p className="text-2xl font-extrabold text-indigo-600">{s.value}</p>
+            <p className="text-2xl font-extrabold text-amber-600">{s.value}</p>
             <p className="text-xs text-gray-500 mt-1">{s.label}</p>
           </div>
         ))}
@@ -207,7 +207,7 @@ export default function Home() {
 
       {/* ── EXPERIENCE ── */}
       <motion.h2
-        className="text-3xl font-bold mb-6 border-b border-gray-200 pb-2 text-indigo-700"
+        className="text-3xl font-bold mb-6 border-b border-gray-200 pb-2 text-amber-700"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
@@ -227,7 +227,7 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
-              <span className="font-semibold text-indigo-700">{job.org}</span>
+              <span className="font-semibold text-amber-700">{job.org}</span>
               <span className="text-xs text-gray-400 sm:text-right whitespace-nowrap">{job.period}</span>
             </div>
             <p className="text-sm font-medium text-gray-700 mt-0.5">{job.title}</p>

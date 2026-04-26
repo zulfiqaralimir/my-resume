@@ -20,13 +20,13 @@ export default function Navbar() {
   return (
     <nav className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
       <div className="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
-        <h1 className="font-bold text-xl text-indigo-700">Zulfiqar Ali Mir</h1>
+        <h1 className="font-bold text-xl text-amber-700">Zulfiqar Ali Mir</h1>
 
         {/* Desktop */}
         <ul className="hidden md:flex space-x-5 text-sm font-medium text-gray-700">
           {links.map((l) => (
             <li key={l.href}>
-              <Link href={l.href} className="hover:text-indigo-600 transition-colors">
+              <Link href={l.href} className="hover:text-amber-600 transition-colors">
                 {l.label}
               </Link>
             </li>
@@ -56,7 +56,7 @@ export default function Navbar() {
             <li key={l.href}>
               <Link
                 href={l.href}
-                className="block py-1 hover:text-indigo-600 transition-colors"
+                className="block py-1 hover:text-amber-600 transition-colors"
                 onClick={() => setOpen(false)}
               >
                 {l.label}

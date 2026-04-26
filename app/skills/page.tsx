@@ -47,7 +47,7 @@ export default function SkillsPage() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-      <h1 className="text-4xl font-bold mb-8 border-b pb-2 text-indigo-700">Technical Skills</h1>
+      <h1 className="text-4xl font-bold mb-8 border-b pb-2 text-amber-700">Technical Skills</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {skillGroups.map((group, i) => (
@@ -59,12 +59,12 @@ export default function SkillsPage() {
             transition={{ duration: 0.5, delay: i * 0.08 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-semibold text-indigo-700 mb-3">{group.category}</h2>
+            <h2 className="font-semibold text-amber-700 mb-3">{group.category}</h2>
             <div className="flex flex-wrap gap-2">
               {group.items.map((skill, j) => (
                 <span
                   key={j}
-                  className="bg-indigo-50 text-indigo-700 text-xs font-medium px-3 py-1 rounded-full border border-indigo-200"
+                  className="bg-amber-50 text-amber-700 text-xs font-medium px-3 py-1 rounded-full border border-amber-200"
                 >
                   {skill}
                 </span>
