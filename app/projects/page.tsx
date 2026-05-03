@@ -22,6 +22,14 @@ const featuredProjects = [
     stack: ["Next.js", "Supabase", "Cloudflare R2", "pgvector", "LangGraph", "Claude Haiku", "ISR", "TypeScript"],
   },
   {
+    title: "Quantara – Personal Hedge Fund Research Platform",
+    url: "https://quantara-nine.vercel.app/",
+    bullets: [
+      "Developed Quantara, a personal hedge fund research platform enforcing a disciplined fundamental value investment process — including structured diligence checklists, bull/base/bear scenario analysis, and valuation frameworks across SaaS, semiconductors, specialty finance, and medtech",
+    ],
+    stack: [],
+  },
+  {
     title: "ByteWise – CS Education Platform",
     url: "",
     bullets: [
