@@ -30,6 +30,17 @@ const featuredProjects = [
     stack: [],
   },
   {
+    title: "IGCSE Math AI Tutor – RAG-Powered Tutoring System",
+    url: "",
+    bullets: [
+      "Built a full-stack AI tutoring system for IGCSE Mathematics (Sets): students ask questions in natural language and receive step-by-step explanations, Venn diagram visualisations, and graded answer evaluation",
+      "Implemented a RAG pipeline using pgvector (cosine similarity) to retrieve semantically relevant past-paper questions and inject them as context before calling the LLM, improving answer quality and curriculum alignment",
+      "Shipped an admin CMS with AI-assisted tag generation, post-validation of LLM outputs with auto-retry on malformed responses, and an ElevenLabs TTS voice layer for audio explanations",
+      "Designed a difficulty-tiered question bank with structured mark-scheme grading, mirroring the pedagogical structure of IGCSE examinations",
+    ],
+    stack: ["Next.js 14", "FastAPI", "Supabase", "pgvector", "OpenAI", "ElevenLabs", "TypeScript", "Python"],
+  },
+  {
     title: "ByteWise – CS Education Platform",
     url: "",
     bullets: [
