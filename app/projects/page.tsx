@@ -35,7 +35,7 @@ const featuredProjects = [
     bullets: [
       "Built an AI tutoring system for IGCSE Mathematics (Sets): students ask questions in natural language and receive step-by-step explanations, Venn diagram visualisations, and graded answer evaluation",
       "Surfaces semantically relevant past-paper questions to improve answer accuracy and curriculum alignment",
-      "Shipped an admin CMS with AI-assisted content tagging, automatic output validation with retry, and a text-to-speech voice layer for audio explanations",
+      "Built an admin panel with AI-assisted content tagging, automatic output validation with retry, and a text-to-speech voice layer for audio explanations",
       "Designed a difficulty-tiered question bank with structured mark-scheme grading, mirroring the pedagogical structure of IGCSE examinations",
     ],
     stack: [],
