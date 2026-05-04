@@ -23,15 +23,26 @@ export default function Navbar() {
         <h1 className="font-bold text-xl text-amber-700">Zulfiqar Ali Mir</h1>
 
         {/* Desktop */}
-        <ul className="hidden md:flex space-x-5 text-sm font-medium text-gray-700">
-          {links.map((l) => (
-            <li key={l.href}>
-              <Link href={l.href} className="hover:text-amber-600 transition-colors">
-                {l.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <div className="hidden md:flex items-center gap-5">
+          <ul className="flex space-x-5 text-sm font-medium text-gray-700">
+            {links.map((l) => (
+              <li key={l.href}>
+                <Link href={l.href} className="hover:text-amber-600 transition-colors">
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <Link
+            href="/resume"
+            className="flex items-center gap-1.5 bg-amber-600 hover:bg-amber-700 text-white text-sm font-semibold px-4 py-1.5 rounded-lg transition"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            Download CV
+          </Link>
+        </div>
 
         {/* Mobile toggle */}
         <button
@@ -63,6 +74,15 @@ export default function Navbar() {
               </Link>
             </li>
           ))}
+          <li>
+            <Link
+              href="/resume"
+              className="block py-1 text-amber-600 font-semibold hover:text-amber-700 transition-colors"
+              onClick={() => setOpen(false)}
+            >
+              Download CV
+            </Link>
+          </li>
         </ul>
       )}
     </nav>
