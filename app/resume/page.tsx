@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 const badges = [
   "National AI FinTech Winner 2025",
@@ -110,8 +111,20 @@ export default function ResumePage() {
   return (
     <div className="max-w-4xl mx-auto px-6 py-8 text-gray-800 print-container">
 
+      {/* Specialised CV links – hidden when printing */}
+      <div className="no-print flex flex-wrap items-center justify-between gap-3 mb-6">
+        <div className="flex flex-wrap gap-2">
+          <span className="text-sm text-gray-500 self-center">Specialised CVs:</span>
+          <Link
+            href="/resume/teaching-math"
+            className="text-sm bg-amber-50 border border-amber-200 text-amber-700 font-medium px-3 py-1 rounded-full hover:bg-amber-100 transition"
+          >
+            Teaching Mathematics (IGCSE &amp; A-Level)
+          </Link>
+        </div>
+
       {/* Download button – hidden when printing */}
-      <div className="no-print flex justify-end mb-6">
+      <div className="flex justify-end">
         <button
           onClick={() => window.print()}
           className="bg-amber-600 hover:bg-amber-700 text-white font-semibold px-6 py-2.5 rounded-lg shadow transition flex items-center gap-2"
@@ -121,6 +134,7 @@ export default function ResumePage() {
           </svg>
           Download PDF
         </button>
+      </div>
       </div>
 
       {/* ── HEADER ── */}
