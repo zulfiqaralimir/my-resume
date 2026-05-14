@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRef, useState } from "react";
 
 const badges = [
   "Cambridge O-Level Mathematics Certified",
@@ -153,153 +154,349 @@ const teachingVideos = [
   { title: "Data Structures and Algorithms", platform: "iCodeGuru", date: "June 11, 2024" },
 ];
 
-export default function TeachingMathResumePage() {
-  return (
-    <div className="max-w-4xl mx-auto px-6 py-8 text-gray-800 print-container">
+async function downloadPDF(element: HTMLElement) {
+  const html2canvas = (await import("html2canvas")).default;
+  const { jsPDF } = await import("jspdf");
 
-      {/* Nav row – hidden when printing */}
-      <div className="no-print flex items-center justify-between mb-6">
+  const canvas = await html2canvas(element, {
+    scale: 2,
+    useCORS: true,
+    logging: false,
+    backgroundColor: "#ffffff",
+  });
+
+  const pdf = new jsPDF({ orientation: "p", unit: "mm", format: "a4" });
+  const pdfWidth = pdf.internal.pageSize.getWidth();
+  const pdfHeight = pdf.internal.pageSize.getHeight();
+  const scaledHeight = (canvas.height * pdfWidth) / canvas.width;
+  const imgData = canvas.toDataURL("image/png");
+
+  pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, scaledHeight);
+  let heightLeft = scaledHeight - pdfHeight;
+  let offset = -pdfHeight;
+
+  while (heightLeft > 0) {
+    pdf.addPage();
+    pdf.addImage(imgData, "PNG", 0, offset, pdfWidth, scaledHeight);
+    offset -= pdfHeight;
+    heightLeft -= pdfHeight;
+  }
+
+  pdf.save("Zulfiqar-Ali-Mir-Teaching-Mathematics-CV.pdf");
+}
+
+async function downloadDocx() {
+  const { Document, Paragraph, TextRun, Packer, AlignmentType, BorderStyle } = await import("docx");
+
+  const heading = (text: string) =>
+    new Paragraph({
+      children: [new TextRun({ text, bold: true, size: 22, color: "92400e" })],
+      spacing: { before: 240, after: 80 },
+      border: { bottom: { color: "e5e7eb", space: 1, style: BorderStyle.SINGLE, size: 4 } },
+    });
+
+  const children = [
+    new Paragraph({
+      children: [new TextRun({ text: "Zulfiqar Ali Mir", bold: true, size: 36, color: "92400e" })],
+      alignment: AlignmentType.CENTER,
+    }),
+    new Paragraph({
+      children: [new TextRun({ text: "Mathematics Educator · IGCSE & A-Level Specialist · Cambridge Certified", size: 22 })],
+      alignment: AlignmentType.CENTER,
+    }),
+    new Paragraph({
+      children: [new TextRun({ text: badges.join(" · "), size: 18, color: "b45309" })],
+      alignment: AlignmentType.CENTER,
+    }),
+    new Paragraph({
+      children: [new TextRun({ text: "manager.equity.finance@gmail.com | +92 322 5150501 | linkedin.com/in/zulfiqar-ali-mir | Islamabad, Pakistan", size: 18, color: "6b7280" })],
+      alignment: AlignmentType.CENTER,
+      spacing: { after: 200 },
+    }),
+
+    heading("PROFILE"),
+    new Paragraph({
+      children: [new TextRun({
+        text: "Dedicated mathematics educator with over 15 years of classroom experience teaching Cambridge IGCSE and A-Level Mathematics in Pakistan's leading schools. Holds a Ph.D. in Econometrics and a B.Sc. in Mathematics & Statistics, providing deep subject-matter expertise far beyond the syllabus. Cambridge-certified (O-Level Mathematics 4024), experienced in designing rigorous lesson plans, coaching exam technique, and achieving strong student outcomes. Equally comfortable in traditional classrooms and online environments, with a track record of mentoring students for high-stakes international examinations.",
+        size: 18,
+        color: "374151",
+      })],
+    }),
+
+    heading("TEACHING EXPERIENCE"),
+    ...teachingExperience.flatMap((job) => [
+      new Paragraph({
+        children: [
+          new TextRun({ text: job.org, bold: true, size: 20 }),
+          new TextRun({ text: `   ${job.location} · ${job.period}`, size: 18, color: "9ca3af" }),
+        ],
+        spacing: { before: 120 },
+      }),
+      new Paragraph({ children: [new TextRun({ text: job.title, size: 20, color: "b45309", bold: true })] }),
+      ...job.bullets.map(
+        (b) =>
+          new Paragraph({
+            children: [new TextRun({ text: `• ${b}`, size: 18, color: "4b5563" })],
+            indent: { left: 360 },
+          })
+      ),
+    ]),
+
+    heading("EDUCATION"),
+    ...education.flatMap((e) => [
+      new Paragraph({
+        children: [
+          new TextRun({ text: e.school, bold: true, size: 20 }),
+          new TextRun({ text: `   ${e.period}`, size: 18, color: "9ca3af" }),
+        ],
+        spacing: { before: 120 },
+      }),
+      new Paragraph({ children: [new TextRun({ text: e.degree, size: 20, color: "b45309" })] }),
+      ...(e.thesis
+        ? [new Paragraph({ children: [new TextRun({ text: `Thesis: ${e.thesis}`, size: 18, color: "6b7280", italics: true })] })]
+        : []),
+    ]),
+
+    heading("SUBJECT KNOWLEDGE & SKILLS"),
+    ...mathSkills.map(
+      (g) =>
+        new Paragraph({
+          children: [
+            new TextRun({ text: `${g.category}: `, bold: true, size: 18 }),
+            new TextRun({ text: g.items.join(", "), size: 18, color: "4b5563" }),
+          ],
+          spacing: { before: 80 },
+        })
+    ),
+
+    heading("TEACHING CERTIFICATIONS"),
+    ...teachingCerts.map(
+      (c) =>
+        new Paragraph({
+          children: [new TextRun({ text: `• ${c}`, size: 18, color: "4b5563" })],
+          indent: { left: 360 },
+          spacing: { before: 60 },
+        })
+    ),
+
+    heading("HONORS & RECOGNITION"),
+    ...honors.flatMap((h) => [
+      new Paragraph({
+        children: [
+          new TextRun({ text: h.title, bold: true, size: 20 }),
+          new TextRun({ text: ` — ${h.org}`, size: 20, color: "6b7280" }),
+        ],
+        spacing: { before: 120 },
+      }),
+      ...(h.details ? [new Paragraph({ children: [new TextRun({ text: h.details, size: 18, color: "4b5563" })] })] : []),
+    ]),
+
+    heading("TEACHING CONTENT & VIDEOS"),
+    ...teachingVideos.map(
+      (v) =>
+        new Paragraph({
+          children: [
+            new TextRun({ text: v.title, size: 18 }),
+            new TextRun({ text: `   ${v.platform}${v.date ? ` · ${v.date}` : ""}`, size: 16, color: "9ca3af" }),
+          ],
+          spacing: { before: 60 },
+        })
+    ),
+  ];
+
+  const doc = new Document({ sections: [{ children }] });
+  const blob = await Packer.toBlob(doc);
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "Zulfiqar-Ali-Mir-Teaching-Mathematics-CV.docx";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+export default function TeachingMathResumePage() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [generating, setGenerating] = useState<"pdf" | "docx" | null>(null);
+
+  const handlePDF = async () => {
+    if (!containerRef.current) return;
+    setGenerating("pdf");
+    try {
+      await downloadPDF(containerRef.current);
+    } finally {
+      setGenerating(null);
+    }
+  };
+
+  const handleDocx = async () => {
+    setGenerating("docx");
+    try {
+      await downloadDocx();
+    } finally {
+      setGenerating(null);
+    }
+  };
+
+  return (
+    <div className="max-w-4xl mx-auto px-6 py-8 text-gray-800">
+
+      {/* Nav row + download buttons */}
+      <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
         <Link href="/resume" className="text-sm text-amber-600 hover:text-amber-700 font-medium transition">
           ← All CVs
         </Link>
 
-      {/* Download button */}
-      <div className="flex justify-end">
-        <button
-          onClick={() => window.print()}
-          className="bg-amber-600 hover:bg-amber-700 text-white font-semibold px-6 py-2.5 rounded-lg shadow transition flex items-center gap-2"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-          </svg>
-          Download PDF
-        </button>
-      </div>
+        <div className="flex gap-2">
+          <button
+            onClick={handlePDF}
+            disabled={generating !== null}
+            className="bg-amber-600 hover:bg-amber-700 disabled:opacity-60 text-white font-semibold px-5 py-2 rounded-lg shadow transition flex items-center gap-2 text-sm"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            {generating === "pdf" ? "Generating…" : "Download PDF"}
+          </button>
+          <button
+            onClick={handleDocx}
+            disabled={generating !== null}
+            className="bg-white hover:bg-gray-50 disabled:opacity-60 text-amber-700 font-semibold px-5 py-2 rounded-lg shadow border border-amber-300 transition flex items-center gap-2 text-sm"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            {generating === "docx" ? "Generating…" : "Download DOCX"}
+          </button>
+        </div>
       </div>
 
-      {/* ── HEADER ── */}
-      <div className="flex items-center gap-6 mb-6 pb-5 border-b-2 border-amber-600">
-        <Image
-          src="/profile.jpg"
-          alt="Zulfiqar Ali Mir"
-          width={90}
-          height={90}
-          className="rounded-full border-2 border-amber-600 shrink-0"
-        />
-        <div>
-          <h1 className="text-3xl font-extrabold text-amber-700 tracking-tight">Zulfiqar Ali Mir</h1>
-          <p className="text-gray-600 mt-0.5 font-medium">Mathematics Educator · IGCSE &amp; A-Level Specialist · Cambridge Certified</p>
-          <div className="flex flex-wrap gap-1.5 mt-2">
-            {badges.map((b, i) => (
-              <span key={i} className="bg-amber-50 border border-amber-200 text-amber-700 text-xs font-medium px-2 py-0.5 rounded-full">{b}</span>
+      {/* Resume content captured for PDF */}
+      <div ref={containerRef}>
+
+        {/* ── HEADER ── */}
+        <div className="flex items-center gap-6 mb-6 pb-5 border-b-2 border-amber-600">
+          <Image
+            src="/profile.jpg"
+            alt="Zulfiqar Ali Mir"
+            width={90}
+            height={90}
+            className="rounded-full border-2 border-amber-600 shrink-0"
+          />
+          <div>
+            <h1 className="text-3xl font-extrabold text-amber-700 tracking-tight">Zulfiqar Ali Mir</h1>
+            <p className="text-gray-600 mt-0.5 font-medium">Mathematics Educator · IGCSE &amp; A-Level Specialist · Cambridge Certified</p>
+            <div className="flex flex-wrap gap-1.5 mt-2">
+              {badges.map((b, i) => (
+                <span key={i} className="bg-amber-50 border border-amber-200 text-amber-700 text-xs font-medium px-2 py-0.5 rounded-full">{b}</span>
+              ))}
+            </div>
+            <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-xs text-gray-500">
+              <span>manager.equity.finance@gmail.com</span>
+              <span>+92 322 5150501</span>
+              <span>linkedin.com/in/zulfiqar-ali-mir</span>
+              <span>Islamabad, Pakistan</span>
+            </div>
+          </div>
+        </div>
+
+        {/* ── PROFILE SUMMARY ── */}
+        <section className="mb-6">
+          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-2 border-b border-gray-200 pb-1">Profile</h2>
+          <p className="text-sm text-gray-700 leading-relaxed">
+            Dedicated mathematics educator with over 15 years of classroom experience teaching Cambridge IGCSE and A-Level Mathematics in Pakistan&apos;s leading schools.
+            Holds a Ph.D. in Econometrics and a B.Sc. in Mathematics &amp; Statistics, providing deep subject-matter expertise far beyond the syllabus.
+            Cambridge-certified (O-Level Mathematics 4024), experienced in designing rigorous lesson plans, coaching exam technique, and achieving strong student outcomes.
+            Equally comfortable in traditional classrooms and online environments, with a track record of mentoring students for high-stakes international examinations.
+          </p>
+        </section>
+
+        {/* ── TEACHING EXPERIENCE ── */}
+        <section className="mb-6">
+          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Teaching Experience</h2>
+          <div className="space-y-3">
+            {teachingExperience.map((job, i) => (
+              <div key={i} className="text-sm">
+                <div className="flex justify-between items-start">
+                  <span className="font-semibold text-gray-800">{job.org}</span>
+                  <span className="text-xs text-gray-400 text-right shrink-0 ml-2">{job.location} · {job.period}</span>
+                </div>
+                <p className="text-amber-700 font-medium">{job.title}</p>
+                {job.bullets.length > 0 && (
+                  <ul className="list-disc pl-4 mt-1 space-y-0.5 text-gray-600">
+                    {job.bullets.map((b, j) => <li key={j}>{b}</li>)}
+                  </ul>
+                )}
+              </div>
             ))}
           </div>
-          <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-xs text-gray-500">
-            <span>manager.equity.finance@gmail.com</span>
-            <span>+92 322 5150501</span>
-            <span>linkedin.com/in/zulfiqar-ali-mir</span>
-            <span>Islamabad, Pakistan</span>
+        </section>
+
+        {/* ── EDUCATION ── */}
+        <section className="mb-6">
+          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Education</h2>
+          <div className="space-y-2">
+            {education.map((e, i) => (
+              <div key={i} className="text-sm">
+                <div className="flex justify-between items-start">
+                  <span className="font-semibold text-gray-800">{e.school}</span>
+                  <span className="text-xs text-gray-400 shrink-0 ml-2">{e.period}</span>
+                </div>
+                <p className="text-amber-700">{e.degree}</p>
+                {e.thesis && <p className="text-gray-500 text-xs mt-0.5">Thesis: {e.thesis}</p>}
+              </div>
+            ))}
           </div>
-        </div>
+        </section>
+
+        {/* ── SKILLS ── */}
+        <section className="mb-6">
+          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Subject Knowledge &amp; Skills</h2>
+          <div className="grid grid-cols-2 gap-x-6 gap-y-2">
+            {mathSkills.map((g, i) => (
+              <div key={i} className="text-sm">
+                <span className="font-semibold text-gray-700">{g.category}: </span>
+                <span className="text-gray-600">{g.items.join(", ")}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── TEACHING CERTIFICATIONS ── */}
+        <section className="mb-6">
+          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Teaching Certifications</h2>
+          <ul className="list-disc pl-4 space-y-1 text-sm text-gray-700">
+            {teachingCerts.map((c, i) => <li key={i}>{c}</li>)}
+          </ul>
+        </section>
+
+        {/* ── HONORS ── */}
+        <section className="mb-6">
+          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Honors &amp; Recognition</h2>
+          <div className="space-y-2">
+            {honors.map((h, i) => (
+              <div key={i} className="text-sm">
+                <span className="font-semibold text-gray-800">{h.title}</span>
+                <span className="text-gray-500"> — {h.org}</span>
+                {h.details && <p className="text-gray-600 text-xs mt-0.5">{h.details}</p>}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── TEACHING VIDEOS ── */}
+        <section className="mb-6">
+          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Teaching Content &amp; Videos</h2>
+          <div className="space-y-1">
+            {teachingVideos.map((v, i) => (
+              <div key={i} className="text-sm">
+                <span className="text-gray-800">{v.title}</span>
+                <span className="text-gray-400 ml-2 text-xs">{v.platform}{v.date ? ` · ${v.date}` : ""}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
       </div>
-
-      {/* ── PROFILE SUMMARY ── */}
-      <section className="mb-6">
-        <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-2 border-b border-gray-200 pb-1">Profile</h2>
-        <p className="text-sm text-gray-700 leading-relaxed">
-          Dedicated mathematics educator with over 15 years of classroom experience teaching Cambridge IGCSE and A-Level Mathematics in Pakistan&apos;s leading schools.
-          Holds a Ph.D. in Econometrics and a B.Sc. in Mathematics &amp; Statistics, providing deep subject-matter expertise far beyond the syllabus.
-          Cambridge-certified (O-Level Mathematics 4024), experienced in designing rigorous lesson plans, coaching exam technique, and achieving strong student outcomes.
-          Equally comfortable in traditional classrooms and online environments, with a track record of mentoring students for high-stakes international examinations.
-        </p>
-      </section>
-
-      {/* ── TEACHING EXPERIENCE ── */}
-      <section className="mb-6">
-        <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Teaching Experience</h2>
-        <div className="space-y-3">
-          {teachingExperience.map((job, i) => (
-            <div key={i} className="text-sm">
-              <div className="flex justify-between items-start">
-                <span className="font-semibold text-gray-800">{job.org}</span>
-                <span className="text-xs text-gray-400 text-right shrink-0 ml-2">{job.location} · {job.period}</span>
-              </div>
-              <p className="text-amber-700 font-medium">{job.title}</p>
-              {job.bullets.length > 0 && (
-                <ul className="list-disc pl-4 mt-1 space-y-0.5 text-gray-600">
-                  {job.bullets.map((b, j) => <li key={j}>{b}</li>)}
-                </ul>
-              )}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── EDUCATION ── */}
-      <section className="mb-6">
-        <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Education</h2>
-        <div className="space-y-2">
-          {education.map((e, i) => (
-            <div key={i} className="text-sm">
-              <div className="flex justify-between items-start">
-                <span className="font-semibold text-gray-800">{e.school}</span>
-                <span className="text-xs text-gray-400 shrink-0 ml-2">{e.period}</span>
-              </div>
-              <p className="text-amber-700">{e.degree}</p>
-              {e.thesis && <p className="text-gray-500 text-xs mt-0.5">Thesis: {e.thesis}</p>}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── SKILLS ── */}
-      <section className="mb-6">
-        <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Subject Knowledge &amp; Skills</h2>
-        <div className="grid grid-cols-2 gap-x-6 gap-y-2">
-          {mathSkills.map((g, i) => (
-            <div key={i} className="text-sm">
-              <span className="font-semibold text-gray-700">{g.category}: </span>
-              <span className="text-gray-600">{g.items.join(", ")}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── TEACHING CERTIFICATIONS ── */}
-      <section className="mb-6">
-        <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Teaching Certifications</h2>
-        <ul className="list-disc pl-4 space-y-1 text-sm text-gray-700">
-          {teachingCerts.map((c, i) => <li key={i}>{c}</li>)}
-        </ul>
-      </section>
-
-      {/* ── HONORS ── */}
-      <section className="mb-6">
-        <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Honors &amp; Recognition</h2>
-        <div className="space-y-2">
-          {honors.map((h, i) => (
-            <div key={i} className="text-sm">
-              <span className="font-semibold text-gray-800">{h.title}</span>
-              <span className="text-gray-500"> — {h.org}</span>
-              {h.details && <p className="text-gray-600 text-xs mt-0.5">{h.details}</p>}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── TEACHING VIDEOS ── */}
-      <section className="mb-6">
-        <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Teaching Content &amp; Videos</h2>
-        <div className="space-y-1">
-          {teachingVideos.map((v, i) => (
-            <div key={i} className="text-sm">
-              <span className="text-gray-800">{v.title}</span>
-              <span className="text-gray-400 ml-2 text-xs">{v.platform}{v.date ? ` · ${v.date}` : ""}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
     </div>
   );
 }
