@@ -4,6 +4,20 @@ import { motion } from "framer-motion";
 
 const featuredProjects = [
   {
+    title: "Gulf SWF SEC Filings Agent – AI-Powered Regulatory Intelligence",
+    url: "https://frontend-blue-eta-10.vercel.app",
+    github: "https://github.com/zulfiqaralimir/gulf-swf-agent",
+    bullets: [
+      "Built a full-stack AI agent that autonomously tracks and analyzes SEC filings from Gulf Sovereign Wealth Funds (ADIA, PIF, QIA, Mubadala) — monitoring 13F, 13D/G, and SC filings for portfolio shifts and activist positions",
+      "Engineered the agentic layer using Gemini 2.5 Flash and Google Cloud Agent Development Kit (ADK), enabling natural-language querying of filing data with reasoning-backed responses",
+      "Designed a FastAPI backend with MongoDB Atlas for structured storage of parsed SEC EDGAR filings, supporting efficient querying by fund, filing type, date range, and holding",
+      "Built a Next.js frontend deployed to Vercel, providing a clean research interface for exploring fund activity, position changes, and filing timelines",
+      "Deployed the backend to Google Cloud Run for serverless, auto-scaling execution — handling burst workloads from EDGAR polling and agent inference without idle costs",
+      "Delivered the complete system — agent, API, database, and frontend — in 10 days, from architecture design to production deployment",
+    ],
+    stack: ["Gemini 2.5 Flash", "Google Cloud ADK", "FastAPI", "Next.js", "MongoDB Atlas", "Cloud Run", "Vercel", "Python", "SEC EDGAR"],
+  },
+  {
     title: "BlackIronTimes – Quantitative Financial Intelligence Platform",
     url: "https://lackirontimes.com",
     bullets: [
@@ -202,16 +216,28 @@ export default function ProjectsPage() {
           >
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
               <h2 className="text-xl font-bold text-amber-700">{project.title}</h2>
-              {project.url && (
-                <a
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-amber-600 hover:underline font-medium whitespace-nowrap"
-                >
-                  {project.url.replace("https://", "")} ↗
-                </a>
-              )}
+              <div className="flex gap-3 items-center">
+                {project.url && (
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-amber-600 hover:underline font-medium whitespace-nowrap"
+                  >
+                    {project.url.replace("https://", "")} ↗
+                  </a>
+                )}
+                {"github" in project && project.github && (
+                  <a
+                    href={project.github as string}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-gray-500 hover:text-amber-600 hover:underline font-medium whitespace-nowrap"
+                  >
+                    GitHub ↗
+                  </a>
+                )}
+              </div>
             </div>
             <ul className="list-disc pl-5 space-y-1.5 text-sm text-gray-700 mb-4">
               {project.bullets.map((b, i) => (
