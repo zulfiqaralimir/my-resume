@@ -18,6 +18,18 @@ const featuredProjects = [
     stack: ["Gemini 2.5 Flash", "Google Cloud ADK", "FastAPI", "Next.js", "MongoDB Atlas", "Cloud Run", "Vercel", "Python", "SEC EDGAR"],
   },
   {
+    title: "zam-webtool — Agent-Safe Web Browsing Tool (2026)",
+    github: "https://github.com/zulfiqaralimir/zam-webtool",
+    url: "",
+    bullets: [
+      "Built a controlled browser execution layer for agentic AI systems enforcing strict agent-browser decoupling — preventing agents from directly manipulating browser state and enabling safe, auditable web interactions",
+      "Implemented hard action limits (MAX_STEPS=20), mandatory audit logging, and abuse prevention mechanisms designed for enterprise-grade safety in production AI workflows",
+      "Designed for compatibility with CrewAI, LangGraph, and Anthropic tool-use patterns — enabling plug-and-play integration across major agentic frameworks without framework-specific rewrites",
+      "Published as an installable open-source Python package via GitHub, with a clean API surface designed for rapid adoption in AI agent pipelines",
+    ],
+    stack: ["Python", "Playwright", "Firefox", "LangChain", "CrewAI", "LangGraph", "Anthropic Tool Use"],
+  },
+  {
     title: "BlackIronTimes – Quantitative Financial Intelligence Platform",
     url: "https://lackirontimes.com",
     bullets: [
