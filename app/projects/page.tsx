@@ -18,6 +18,18 @@ const featuredProjects = [
     stack: ["Gemini 2.5 Flash", "Google Cloud ADK", "FastAPI", "Next.js", "MongoDB Atlas", "Cloud Run", "Vercel", "Python", "SEC EDGAR"],
   },
   {
+    title: "Gulf SWF Filing Intelligence Agent – Web Data UNLOCKED Hackathon (May 2026)",
+    url: "https://databright-gulf-swf-agent.vercel.app",
+    github: "https://github.com/zulfiqaralimir/databright_gulf-swf-agent",
+    bullets: [
+      "Built a real-time SEC EDGAR filing monitor for 5 Gulf Sovereign Wealth Funds (ADIA, PIF, QIA, Mubadala, ADQ) managing $4T+ AUM — tracking 13F, 13D/G, and SC filings for live portfolio intelligence",
+      "Bypassed EDGAR bot detection and rate limits using Bright Data's 400M+ residential IP network via MCP Server, enabling reliable real-time data extraction at scale",
+      "Generated institutional-grade investment intelligence (BEARISH/BULLISH/NEUTRAL signals, sector analysis, EXIT/MAINTAIN action recommendations) on 87+ live filings using Gemini 2.0 Flash",
+      "Deployed production full stack: FastAPI backend on Hugging Face Spaces, Next.js dashboard on Vercel, and MongoDB Atlas for structured filing storage",
+    ],
+    stack: ["Bright Data MCP", "Gemini 2.0 Flash", "LangChain", "MongoDB Atlas", "FastAPI", "Next.js", "Python", "Hugging Face Spaces", "SEC EDGAR"],
+  },
+  {
     title: "zam-webtool — Agent-Safe Web Browsing Tool (2026)",
     github: "https://github.com/zulfiqaralimir/zam-webtool",
     url: "",
@@ -148,6 +160,12 @@ const conferences = [
 ];
 
 const hackathons = [
+  {
+    event: "Web Data UNLOCKED Hackathon",
+    org: "lablab.ai × Bright Data",
+    period: "May 2026",
+    project: "Gulf SWF Filing Intelligence Agent — real-time SEC EDGAR monitor for $4T+ AUM funds using Bright Data MCP, Gemini 2.0 Flash, FastAPI, and Next.js",
+  },
   {
     event: "Sketch & Search Hackathon",
     org: "Google DeepMind × Qdrant × Freepik",
