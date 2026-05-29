@@ -74,7 +74,7 @@ const skillGroups = [
 ];
 
 const honors = [
-  { title: "National Winner – AI FinTech Projects (2025)", org: "National Technology Fund (MoITT) & Asian Development Bank (ADB)", details: "Built AFIW–ZulfiQode: Agentic Financial Intelligence Wrapper. Technologies: LangGraph, FastAPI, Neo4j. Features: RAG pipelines for financial statement summarization and ESG scoring, RLHF and SFT for adaptive reasoning, ML and econometric models for volatility, causal, rumour, and reversal detection." },
+  { title: "National Winner – AI FinTech Projects (2025)", org: "National Technology Fund (MoITT) & Asian Development Bank (ADB)", details: "Built AFIW–ZulfiQode: Agentic Financial Intelligence Wrapper. Technologies: LangGraph, FastAPI, Neo4j. Features: RAG pipelines for financial statement summarization and ESG scoring, RLHF and SFT for adaptive reasoning, ML and econometric models for volatility, causal, rumour, and reversal detection, Streamlit dashboards with real-time monitoring." },
   { title: "Create Apps Championship 2025–26", org: "Dubai Chamber of Digital Economy, UAE", details: "Certificate of Participation." },
   { title: "Judge – HEC Generative AI Cohort 2 (2026)", org: "Higher Education Commission (HEC) Pakistan", details: "Evaluated AI innovation projects under NCEAC, Pak Angels, iCodeGuru, and ASPIRE Pakistan collaboration." },
   { title: "Judge – AI Innovation & Prompt Engineering", org: "All Pakistan Prompt Engineering Competition (APPEC) – ETL Online", details: "" },
@@ -93,19 +93,251 @@ const books = [
 ];
 
 const press = [
-  { title: "Ensuring Ethical and Secure AI", outlet: "Pakistan Observer", date: "May 25, 2024" },
-  { title: "Insights into Pakistan Stock Exchange's recent record high triumph", outlet: "The Financial Daily International", date: "March 30, 2024" },
-  { title: "Navigate the psychological maze of inflation and make smarter investment decisions", outlet: "The Financial Daily International", date: "March 10, 2024" },
-  { title: "Penny Wise Pound Foolish Approach", outlet: "The Financial Daily International", date: "July 2022" },
+  { title: "Ensuring Ethical and Secure AI", outlet: "Pakistan Observer", date: "May 25, 2024", desc: "Comprehensive Guide to AI Audits and Foundational LLMs." },
+  { title: "Insights into Pakistan Stock Exchange's recent record high triumph", outlet: "The Financial Daily International", date: "March 30, 2024", desc: "" },
+  { title: "Navigate the psychological maze of inflation and make smarter investment decisions", outlet: "The Financial Daily International", date: "March 10, 2024", desc: "" },
+  { title: "Penny Wise Pound Foolish Approach", outlet: "The Financial Daily International", date: "July 2022", desc: "" },
+];
+
+const videos = [
+  { title: "Workshop on Building Neural Networks from Scratch using Python", platform: "iCodeGuru", date: "Sept 8, 2024" },
+  { title: "Machine Learning from Scratch and its Privacy Implications", platform: "iCodeGuru", date: "Aug 19, 2024" },
+  { title: "IELTS Prep For Fully Funded Scholarships", platform: "iCodeGuru", date: "July 22, 2024" },
+  { title: "Python for Absolute Beginners", platform: "iCodeGuru", date: "July 4, 2024" },
+  { title: "Advance Data Analysis with Python for International Jobs", platform: "iCodeGuru", date: "July 1, 2024" },
+  { title: "Data Structures and Algorithms", platform: "iCodeGuru", date: "June 11, 2024" },
+  { title: "Pak Angels Gen AI Cohort 2 – Module 2: Online Dev Platforms & Python with ChatGPT", platform: "Pak Angels", date: "" },
+  { title: "Module 3 – Python for Beginners", platform: "Pak Angels", date: "" },
+  { title: "Module 5 Day 1 – Hands-on with Generative AI Models", platform: "Pak Angels", date: "" },
+  { title: "Module 3–4 Practice Session: Developing Calculator using ChatGPT, VS Code, GitHub", platform: "Pak Angels", date: "" },
+  { title: "Mastering Shading Venn Diagram with Tick Rule for 3 Sets", platform: "IGCSE / A-Level", date: "" },
+  { title: "How To Complete The Square and Write a Quadratic Expression in the Form (x+a)²+b", platform: "IGCSE / A-Level", date: "" },
+  { title: "Bootstrap Sampling Using Excel", platform: "IGCSE / A-Level", date: "" },
 ];
 
 const certGroups = [
-  { category: "AI & Agent Frameworks", items: ["Generative AI Application Developer | Pak Angels (July–Sept 2024)", "LangGraph | LangChain Academy", "CrewAI", "OpenAI Agents SDK", "Cloud Applied Generative AI Engineering (GenEng) | PIAIC (2024)", "NetLogo – Agent-Based Modelling (In Progress)"] },
-  { category: "Banking, Finance & Quantitative Modeling", items: ["Construct Stock Market Indices | Coursera Project Network (Aug 2023)", "Introduction to Fundamental Analysis | Pakistan Stock Exchange", "Stock Market Basics | Pakistan Stock Exchange", "Banking Certificates | Bank Alfalah Limited", "Public Financial Management System Workshop | ICMAP (Dec 2012)"] },
-  { category: "Cloud Computing & Infrastructure", items: ["Introduction to Cloud Computing | IBM (Sept 2023)", "Azure Cloud Computing | Microsoft", "Microsoft Azure AI Fundamentals | Microsoft (June 23, 2024)", "Microsoft Azure AI Services: Fundamentals of Machine Learning | Microsoft", "Microsoft Azure AI Services: Fundamentals of Computer Vision | Microsoft"] },
-  { category: "Big Data, Data Science & AI", items: ["Neo4j Fundamentals | Graph Academy (Dec 2024)", "Generative AI for Everyone | DeepLearning.AI (Nov 2023)", "Introduction to Generative AI Studio | Google Cloud Skills Boost (2024)", "Building Your Own Database Agent | DeepLearning.AI", "Multi AI Agent Systems with CrewAI | DeepLearning.AI (2024)", "Data Analysis with R Programming | Google (Jan 2022)", "Foundations: Data, Data, Everywhere | Google (Jan 2021)", "Apache Spark Programming in Python", "FastAPI Fundamentals"] },
-  { category: "Programming & Algorithms", items: ["AI Python for Beginners: Basics of AI Python Coding | DeepLearning.AI", "Introduction to Programming with MATLAB | Vanderbilt University (Oct 2021)", "LeetCode – Data Structures and Algorithms", "Programming for Everybody (Getting Started with Python) | University of Michigan (Jan 2016)"] },
-  { category: "Teaching Certifications", items: ["Extension Cambridge O Level Mathematics (4024) | Cambridge Assessment International Education (Feb 2018)", "Gen AI Application Instructor/Mentor | Pakistan Engineering Council (March 2025)", "Instructor – Python for Mathematicians | COMSATS University (Oct 2024)"] },
+  {
+    category: "AI & Agent Frameworks",
+    items: [
+      "Generative AI Application Developer | Pak Angels (July–Sept 2024)",
+      "LangGraph | LangChain Academy",
+      "CrewAI",
+      "OpenAI Agents SDK",
+      "Cloud Applied Generative AI Engineering (GenEng) | PIAIC (2024)",
+      "NetLogo – Agent-Based Modelling (In Progress)",
+    ],
+  },
+  {
+    category: "Banking, Finance & Quantitative Modeling",
+    items: [
+      "Construct Stock Market Indices | Coursera Project Network (Aug 2023)",
+      "Introduction to Fundamental Analysis | Pakistan Stock Exchange",
+      "Stock Market Basics | Pakistan Stock Exchange",
+      "Banking Certificates | Bank Alfalah Limited",
+      "Public Financial Management System Workshop | ICMAP (Dec 2012)",
+    ],
+  },
+  {
+    category: "Big Data, Data Science & AI",
+    items: [
+      "Neo4j Fundamentals | Graph Academy (Dec 2024)",
+      "Generative AI for Everyone | DeepLearning.AI (Nov 2023)",
+      "Introduction to Generative AI Studio | Google Cloud Skills Boost (2024)",
+      "Building Your Own Database Agent | DeepLearning.AI",
+      "Multi AI Agent Systems with CrewAI | DeepLearning.AI (2024)",
+      "Data Analysis with R Programming | Google (Jan 2022)",
+      "Foundations: Data, Data, Everywhere | Google (Jan 2021)",
+      "Share Data Through the Art of Visualization | Google (Jan 2022)",
+      "Applied Data Science (Housing in Mexico & Buenos Aires)",
+      "Power BI Essential Training | Udemy (Aug 2020)",
+      "Big Data 101 | IBM (Aug 2020)",
+      "SQL and Relational Databases | IBM (Aug 2020)",
+      "Binary Prediction of Poisonous Mushrooms | Kaggle (Machine Learning)",
+      "Apache Spark Programming in Python",
+      "FastAPI Fundamentals",
+      "Pydantic",
+    ],
+  },
+  {
+    category: "Programming & Algorithms",
+    items: [
+      "AI Python for Beginners: Basics of AI Python Coding | DeepLearning.AI",
+      "AI for Web Designers | Udemy (2023)",
+      "Introduction to Programming with MATLAB | Vanderbilt University (Oct 2021)",
+      "LeetCode – Data Structures and Algorithms",
+      "Programming for Everybody (Getting Started with Python) | University of Michigan (Jan 2016)",
+      "Python Data Structures | University of Michigan (Feb 2016)",
+    ],
+  },
+  {
+    category: "Cloud Computing & Infrastructure",
+    items: [
+      "Introduction to Cloud Computing | IBM (Sept 2023)",
+      "Azure Cloud Computing | Microsoft",
+      "Microsoft Azure AI Fundamentals | Microsoft (June 23, 2024)",
+      "Microsoft Azure AI Services: Fundamentals of Machine Learning | Microsoft",
+      "Microsoft Azure AI Services: Fundamentals of Computer Vision | Microsoft",
+    ],
+  },
+  {
+    category: "Cybersecurity & Digital Safety",
+    items: ["Cybersecurity & Cybersecurity Awareness | Udemy (2023)"],
+  },
+  {
+    category: "Emerging Tech & Digital Innovation",
+    items: [
+      "Become Metaverse Master: The Ultimate Guide | Udemy (2023)",
+      "Internet of Things (IoT): Fundamental Course | Udemy (2023)",
+    ],
+  },
+  {
+    category: "Teaching Certifications",
+    items: [
+      "Extension Cambridge O Level Mathematics (4024) | Cambridge Assessment International Education (Feb 2018)",
+      "Teaching Online with Google Suite | Beaconhouse (April 2021)",
+      "Mind Mapping Mastery | Beaconhouse (April 2021)",
+      "How to Teach Online | Beaconhouse (Jan 2021)",
+      "Gen AI Application Instructor/Mentor | Pakistan Engineering Council (March 2025)",
+      "Instructor – Python for Mathematicians | COMSATS University (Oct 2024)",
+      "Microsoft Excel – From Beginner to Expert | Beaconhouse (April 2021)",
+    ],
+  },
+  {
+    category: "Research Training & Workshops",
+    items: [
+      "Introduction to CGE Modeling | PIDE (Feb 2024)",
+      "Applied Research Methods for Economics and Finance Workshop | PIDE (2022)",
+      "Data Visualization Using ggplot2 in R | PIDE (2017)",
+      "MATLAB Programming | PIDE (2020)",
+      "LaTeX & Markdown for Academic Writing | PIDE (2022)",
+      "Use SurveyMonkey to Create a Survey and Analyze Results | Coursera (Oct 2021)",
+      "Linux (CentOS): File System, Permissions, Ownership, Shell Commands",
+    ],
+  },
+];
+
+const featuredProjects = [
+  {
+    title: "Gulf SWF SEC Filings Agent – AI-Powered Regulatory Intelligence",
+    url: "https://frontend-blue-eta-10.vercel.app",
+    github: "https://github.com/zulfiqaralimir/gulf-swf-agent",
+    bullets: [
+      "Built a full-stack AI agent that autonomously tracks and analyzes SEC filings from Gulf Sovereign Wealth Funds (ADIA, PIF, QIA, Mubadala) — monitoring 13F, 13D/G, and SC filings for portfolio shifts and activist positions",
+      "Engineered the agentic layer using Gemini 2.5 Flash and Google Cloud Agent Development Kit (ADK), enabling natural-language querying of filing data with reasoning-backed responses",
+      "Designed a FastAPI backend with MongoDB Atlas for structured storage of parsed SEC EDGAR filings",
+      "Built a Next.js frontend deployed to Vercel; backend deployed to Google Cloud Run for serverless, auto-scaling execution",
+      "Delivered the complete system — agent, API, database, and frontend — in 10 days",
+    ],
+    stack: ["Gemini 2.5 Flash", "Google Cloud ADK", "FastAPI", "Next.js", "MongoDB Atlas", "Cloud Run", "Vercel", "Python", "SEC EDGAR"],
+  },
+  {
+    title: "Gulf SWF Filing Intelligence Agent – Web Data UNLOCKED Hackathon (May 2026)",
+    url: "https://databright-gulf-swf-agent.vercel.app",
+    github: "https://github.com/zulfiqaralimir/databright_gulf-swf-agent",
+    bullets: [
+      "Built a real-time SEC EDGAR filing monitor for 5 Gulf Sovereign Wealth Funds (ADIA, PIF, QIA, Mubadala, ADQ) managing $4T+ AUM — tracking 13F, 13D/G, and SC filings",
+      "Bypassed EDGAR bot detection and rate limits using Bright Data's 400M+ residential IP network via MCP Server",
+      "Generated institutional-grade investment intelligence (BEARISH/BULLISH/NEUTRAL signals, sector analysis) on 87+ live filings using Gemini 2.0 Flash",
+      "Deployed production full stack: FastAPI on Hugging Face Spaces, Next.js on Vercel, MongoDB Atlas for structured filing storage",
+    ],
+    stack: ["Bright Data MCP", "Gemini 2.0 Flash", "LangChain", "MongoDB Atlas", "FastAPI", "Next.js", "Python", "Hugging Face Spaces", "SEC EDGAR"],
+  },
+  {
+    title: "zam-webtool — Agent-Safe Web Browsing Tool (2026)",
+    url: "",
+    github: "https://github.com/zulfiqaralimir/zam-webtool",
+    bullets: [
+      "Built a controlled browser execution layer for agentic AI systems enforcing strict agent-browser decoupling — preventing agents from directly manipulating browser state and enabling safe, auditable web interactions",
+      "Implemented hard action limits (MAX_STEPS=20), mandatory audit logging, and abuse prevention mechanisms for enterprise-grade safety",
+      "Designed for compatibility with CrewAI, LangGraph, and Anthropic tool-use patterns — plug-and-play integration across major agentic frameworks",
+      "Published as an installable open-source Python package via GitHub",
+    ],
+    stack: ["Python", "Playwright", "Firefox", "LangChain", "CrewAI", "LangGraph", "Anthropic Tool Use"],
+  },
+  {
+    title: "BlackIronTimes – Quantitative Financial Intelligence Platform",
+    url: "https://lackirontimes.com",
+    github: "",
+    bullets: [
+      "Developed a quantitative financial intelligence platform integrating macroeconomic analysis, market data pipelines, and research-grade reporting",
+      "Engineered a scalable data architecture using Next.js, Supabase, and Cloudflare R2 supporting 100K+ daily requests",
+      "Architected a multi-agent AI research pipeline (Market Agent, News Agent, Research Agent, Visualization Agent) using LangGraph and Claude Haiku",
+      "Applied vector-based semantic retrieval (pgvector) and integrated multilingual data dissemination (English, Urdu, Arabic)",
+    ],
+    stack: ["Next.js", "Supabase", "Cloudflare R2", "pgvector", "LangGraph", "Claude Haiku", "ISR", "TypeScript"],
+  },
+  {
+    title: "Quantara – Personal Hedge Fund Research Platform",
+    url: "https://quantara-nine.vercel.app/",
+    github: "",
+    bullets: [
+      "Developed a personal hedge fund research platform enforcing a disciplined fundamental value investment process — including structured diligence checklists, bull/base/bear scenario analysis, and valuation frameworks across SaaS, semiconductors, specialty finance, and medtech",
+    ],
+    stack: [],
+  },
+  {
+    title: "IGCSE Math AI Tutor",
+    url: "",
+    github: "",
+    bullets: [
+      "Built an AI tutoring system for IGCSE Mathematics (Sets): students ask questions in natural language and receive step-by-step explanations, Venn diagram visualisations, and graded answer evaluation",
+      "Surfaces semantically relevant past-paper questions; designed a difficulty-tiered question bank with structured mark-scheme grading",
+    ],
+    stack: [],
+  },
+  {
+    title: "ByteWise – CS Education Platform",
+    url: "",
+    github: "",
+    bullets: [
+      "Built and authored a full-stack CS education platform (Next.js 16, React 19, TypeScript, Tailwind CSS v4, MDX) featuring 20+ long-form technical articles across 8 topic areas",
+      "Designed a custom MDX content pipeline with math rendering (KaTeX), syntax highlighting, and reusable React components",
+      "Authored deep-dive content: OSI networking stack, algorithms, design patterns (SOLID, GoF), distributed systems, ML, and agentic AI",
+    ],
+    stack: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS v4", "MDX", "KaTeX", "rehype-highlight"],
+  },
+];
+
+const researchProjects = [
+  { title: "Climate Justice RIZPC Algorithm Analysis (2024)", desc: "First quantitative causal analysis of emissions → loss & damage. Statistical proof showing 24:1 ratio disparity." },
+  { title: "Environmental Risk Mapping for Sustainable Finance", desc: "Satellite-based ESG framework using NDVI and land surface temperature." },
+  { title: "Hidden Links in Environment, Energy, Economy Nexus: FCI Approach", desc: "VAR modeling and ARDL bounds testing for causal discovery." },
+  { title: "Penalized Regression Methods for Exchange Rate Forecasting", desc: "Evidence from U.S. Dollar Index." },
+  { title: "Causal Discovery in Stock Market Data using PC Algorithms", desc: "Structural learning approach." },
+  { title: "Multi-Agent System for Portfolio Optimization", desc: "Via OpenAI Agents SDK." },
+  { title: "Yield Curve & ETF Analysis", desc: "" },
+  { title: "Application of Geospatial Data", desc: "Hurricane Irene's path analysis." },
+  { title: "Intelligent Approach for Stock Market Movement Prediction", desc: "Optimized technical indicators and neural networks for emerging markets." },
+  { title: "ZulfiQode: Computational Approach to Systematic Theme Mining of Financial Ethics", desc: "" },
+  { title: "Business Climate and Inequality", desc: "Panel IV–Quantile Regression evidence." },
+  { title: "Cointegration and Error Correction – Apple and Microsoft", desc: "Time-series modeling of long-run relationships." },
+  { title: "Agricultural Subsidy Reform: CGE Modelling Approach", desc: "Pakistan case study." },
+];
+
+const conferences = [
+  {
+    title: "5th SPRC Social Policy Conference (2025)",
+    paper: "Challenges of Social Policy Financing in Pakistan: Evidence from NFC Allocations and Provincial Expenditure Patterns",
+    details: "",
+  },
+  {
+    title: "6th International Applied Economics Conference (Oct 22–23, 2025)",
+    paper: "Bridging Gaps in Pakistan's Fertilizer Sector: A Power BI Framework for Governance, Input–Output Linkages, and Food Loss Mitigation",
+    details: "Organized by Quaid-i-Azam University. Location: NARC, Islamabad. Supported by ACIAR (Australia).",
+  },
+];
+
+const hackathons = [
+  { event: "Web Data UNLOCKED Hackathon", org: "lablab.ai × Bright Data", period: "May 2026", project: "Gulf SWF Filing Intelligence Agent — real-time SEC EDGAR monitor for $4T+ AUM funds using Bright Data MCP, Gemini 2.0 Flash, FastAPI, and Next.js" },
+  { event: "Sketch & Search Hackathon", org: "Google DeepMind × Qdrant × Freepik", period: "", project: "Multi-View Interpreter: CPU-only sketch interpretation with FastAPI and Gradio" },
+  { event: "LangGraph Agentic Chatbot", org: "lablab.ai", period: "Oct 11–13, 2024", project: "Build Fast Ship Fast with Replit & Cursor Hackathon" },
+  { event: "AI Agents Hackathon (FinTech)", org: "lablab.ai", period: "Sep 13–15, 2024", project: "Agentic Flow of System for Financial Analysis with ChatGPT — Team Leader" },
+  { event: "Generative AI Hackathon with IBM Watsonx", org: "lablab.ai", period: "Aug 23–26, 2024", project: "Personalized Diabetes Management App (Glyco Fit) — Team Leader" },
+  { event: "Falcon Hackathon", org: "lablab.ai", period: "July 26 – Aug 5, 2024", project: "AI-Powered Economics Tutor — Team Leader" },
+  { event: "Llama 3 Hackathon", org: "lablab.ai", period: "July 19–21, 2024", project: "AI Driven Social Media Post Optimizer — Team Leader" },
+  { event: "Langflow Hackathon", org: "lablab.ai", period: "July 12–14, 2024", project: "CodeMate — Team Member" },
+  { event: "Codestral Hackathon", org: "lablab.ai", period: "June 16–17, 2024", project: "CodeMate – Your Coding Companion — Team Leader" },
+  { event: "Hello GPT-4o AI Challenge", org: "lablab.ai", period: "May 31 – June 2, 2024", project: "System for Financial Analysis with ChatGPT-4o — Team Leader" },
 ];
 
 async function downloadPDF(element: HTMLElement) {
@@ -214,6 +446,73 @@ async function downloadDocx() {
         })
     ),
 
+    heading("FEATURED PROJECTS"),
+    ...featuredProjects.flatMap((p) => [
+      new Paragraph({
+        children: [
+          new TextRun({ text: p.title, bold: true, size: 20 }),
+          ...(p.url ? [new TextRun({ text: `   ${p.url}`, size: 16, color: "9ca3af" })] : []),
+          ...(p.github ? [new TextRun({ text: `   GitHub: ${p.github}`, size: 16, color: "9ca3af" })] : []),
+        ],
+        spacing: { before: 120 },
+      }),
+      ...p.bullets.map(
+        (b) =>
+          new Paragraph({
+            children: [new TextRun({ text: `• ${b}`, size: 18, color: "4b5563" })],
+            indent: { left: 360 },
+          })
+      ),
+      ...(p.stack.length > 0
+        ? [
+            new Paragraph({
+              children: [
+                new TextRun({ text: "Stack: ", bold: true, size: 16 }),
+                new TextRun({ text: p.stack.join(", "), size: 16, color: "b45309" }),
+              ],
+              indent: { left: 360 },
+            }),
+          ]
+        : []),
+    ]),
+
+    heading("RESEARCH & CODING PROJECTS"),
+    ...researchProjects.map(
+      (p) =>
+        new Paragraph({
+          children: [
+            new TextRun({ text: p.title, bold: true, size: 18 }),
+            ...(p.desc ? [new TextRun({ text: ` — ${p.desc}`, size: 18, color: "4b5563" })] : []),
+          ],
+          spacing: { before: 80 },
+        })
+    ),
+
+    heading("CONFERENCE PRESENTATIONS"),
+    ...conferences.flatMap((c) => [
+      new Paragraph({
+        children: [new TextRun({ text: c.title, bold: true, size: 20 })],
+        spacing: { before: 120 },
+      }),
+      new Paragraph({ children: [new TextRun({ text: c.paper, size: 18, italics: true, color: "4b5563" })] }),
+      ...(c.details
+        ? [new Paragraph({ children: [new TextRun({ text: c.details, size: 16, color: "6b7280" })] })]
+        : []),
+    ]),
+
+    heading("AI PROJECTS & HACKATHONS"),
+    ...hackathons.map(
+      (h) =>
+        new Paragraph({
+          children: [
+            new TextRun({ text: h.event, bold: true, size: 18 }),
+            new TextRun({ text: ` | ${h.org}${h.period ? ` · ${h.period}` : ""}`, size: 18, color: "6b7280" }),
+            new TextRun({ text: `\n• ${h.project}`, size: 16, color: "4b5563" }),
+          ],
+          spacing: { before: 80 },
+        })
+    ),
+
     heading("HONORS & DISTINCTIONS"),
     ...honors.flatMap((h) => [
       new Paragraph({
@@ -245,6 +544,18 @@ async function downloadDocx() {
           children: [
             new TextRun({ text: p.title, size: 18 }),
             new TextRun({ text: `   ${p.outlet} · ${p.date}`, size: 16, color: "9ca3af" }),
+            ...(p.desc ? [new TextRun({ text: `   ${p.desc}`, size: 16, color: "6b7280" })] : []),
+          ],
+          spacing: { before: 60 },
+        })
+    ),
+    new Paragraph({ children: [new TextRun({ text: "Teaching Videos", bold: true, size: 20 })], spacing: { before: 100 } }),
+    ...videos.map(
+      (v) =>
+        new Paragraph({
+          children: [
+            new TextRun({ text: v.title, size: 18 }),
+            new TextRun({ text: `   ${v.platform}${v.date ? ` · ${v.date}` : ""}`, size: 16, color: "9ca3af" }),
           ],
           spacing: { before: 60 },
         })
@@ -415,9 +726,77 @@ export default function ResumePage() {
           </div>
         </section>
 
+        {/* ── FEATURED PROJECTS ── */}
+        <section className="mb-6">
+          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Featured Projects</h2>
+          <div className="space-y-4">
+            {featuredProjects.map((p, i) => (
+              <div key={i} className="text-sm">
+                <p className="font-semibold text-gray-800">{p.title}</p>
+                {(p.url || p.github) && (
+                  <p className="text-xs text-gray-400 mt-0.5">
+                    {p.url && <span>{p.url}</span>}
+                    {p.url && p.github && <span> · </span>}
+                    {p.github && <span>GitHub: {p.github}</span>}
+                  </p>
+                )}
+                <ul className="list-disc pl-4 mt-1 space-y-0.5 text-gray-600">
+                  {p.bullets.map((b, j) => <li key={j}>{b}</li>)}
+                </ul>
+                {p.stack.length > 0 && (
+                  <p className="text-xs text-amber-700 mt-1">Stack: {p.stack.join(", ")}</p>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── RESEARCH PROJECTS ── */}
+        <section className="mb-6">
+          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Research &amp; Coding Projects</h2>
+          <div className="space-y-1">
+            {researchProjects.map((p, i) => (
+              <div key={i} className="text-sm">
+                <span className="font-semibold text-gray-800">{p.title}</span>
+                {p.desc && <span className="text-gray-500"> — {p.desc}</span>}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── CONFERENCE PRESENTATIONS ── */}
+        <section className="mb-6">
+          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Conference Presentations</h2>
+          <div className="space-y-2">
+            {conferences.map((c, i) => (
+              <div key={i} className="text-sm">
+                <p className="font-semibold text-gray-800">{c.title}</p>
+                <p className="text-gray-600 italic">{c.paper}</p>
+                {c.details && <p className="text-gray-500 text-xs mt-0.5">{c.details}</p>}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── HACKATHONS ── */}
+        <section className="mb-6">
+          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">AI Projects &amp; Hackathons</h2>
+          <div className="space-y-2">
+            {hackathons.map((h, i) => (
+              <div key={i} className="text-sm">
+                <div className="flex justify-between items-start">
+                  <span className="font-semibold text-gray-800">{h.event}</span>
+                  <span className="text-xs text-gray-400 shrink-0 ml-2">{h.org}{h.period ? ` · ${h.period}` : ""}</span>
+                </div>
+                <p className="text-gray-600">{h.project}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* ── HONORS ── */}
         <section className="mb-6">
-          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Honors & Distinctions</h2>
+          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Honors &amp; Distinctions</h2>
           <div className="space-y-2">
             {honors.map((h, i) => (
               <div key={i} className="text-sm">
@@ -442,11 +821,21 @@ export default function ResumePage() {
             ))}
           </div>
           <p className="text-sm font-semibold text-gray-700 mb-1">Press</p>
-          <div className="space-y-1">
+          <div className="space-y-1 mb-3">
             {press.map((p, i) => (
               <div key={i} className="text-sm">
                 <span className="text-gray-800">{p.title}</span>
                 <span className="text-gray-400 ml-2 text-xs">{p.outlet} · {p.date}</span>
+                {p.desc && <span className="text-gray-500 ml-2 text-xs">{p.desc}</span>}
+              </div>
+            ))}
+          </div>
+          <p className="text-sm font-semibold text-gray-700 mb-1">Teaching Videos</p>
+          <div className="space-y-1">
+            {videos.map((v, i) => (
+              <div key={i} className="text-sm">
+                <span className="text-gray-800">{v.title}</span>
+                <span className="text-gray-400 ml-2 text-xs">{v.platform}{v.date ? ` · ${v.date}` : ""}</span>
               </div>
             ))}
           </div>
@@ -454,7 +843,7 @@ export default function ResumePage() {
 
         {/* ── CERTIFICATIONS ── */}
         <section className="mb-6">
-          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Certifications & Training</h2>
+          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Certifications &amp; Training</h2>
           <div className="space-y-2">
             {certGroups.map((g, i) => (
               <div key={i} className="text-sm">
