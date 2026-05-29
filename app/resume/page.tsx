@@ -340,35 +340,202 @@ const hackathons = [
   { event: "Hello GPT-4o AI Challenge", org: "lablab.ai", period: "May 31 – June 2, 2024", project: "System for Financial Analysis with ChatGPT-4o — Team Leader" },
 ];
 
-async function downloadPDF(element: HTMLElement) {
-  const html2canvas = (await import("html2canvas")).default;
+async function downloadPDF() {
   const { jsPDF } = await import("jspdf");
 
-  const canvas = await html2canvas(element, {
-    scale: 2,
-    useCORS: true,
-    logging: false,
-    backgroundColor: "#ffffff",
+  const doc = new jsPDF({ orientation: "p", unit: "mm", format: "a4" });
+  const W = doc.internal.pageSize.getWidth();
+  const H = doc.internal.pageSize.getHeight();
+  const M = 14;
+  const CW = W - 2 * M;
+  let y = M;
+
+  // amber-700, gray-800, gray-600, gray-500, gray-400
+  const AMBER: [number, number, number] = [180, 83, 9];
+  const G800: [number, number, number] = [31, 41, 55];
+  const G600: [number, number, number] = [75, 85, 99];
+  const G500: [number, number, number] = [107, 114, 128];
+  const G400: [number, number, number] = [156, 163, 175];
+
+  const br = (min = 6) => {
+    if (y + min > H - M) { doc.addPage(); y = M; }
+  };
+
+  const style = (size: number, bold: boolean, color: [number, number, number]) => {
+    doc.setFontSize(size);
+    doc.setFont("helvetica", bold ? "bold" : "normal");
+    doc.setTextColor(...color);
+  };
+
+  const wrappedLines = (text: string, maxW: number): string[] =>
+    doc.splitTextToSize(text, maxW) as string[];
+
+  const writeWrapped = (text: string, x: number, maxW: number, lh: number) => {
+    const lines = wrappedLines(text, maxW);
+    lines.forEach((line: string) => { br(lh); doc.text(line, x, y); y += lh; });
+  };
+
+  const section = (title: string) => {
+    br(12); y += 3;
+    style(11, true, AMBER);
+    doc.text(title, M, y); y += 2;
+    doc.setDrawColor(209, 213, 219);
+    doc.setLineWidth(0.3);
+    doc.line(M, y, W - M, y); y += 4;
+  };
+
+  // ── HEADER ──
+  style(20, true, AMBER);
+  doc.text("Zulfiqar Ali Mir", W / 2, y, { align: "center" }); y += 8;
+  style(10, false, G600);
+  doc.text("Quantitative Researcher · AI Engineer · Financial Strategist", W / 2, y, { align: "center" }); y += 5;
+  style(8.5, false, AMBER);
+  writeWrapped(badges.join(" · "), M, CW, 4);
+  style(8, false, G500);
+  doc.text("manager.equity.finance@gmail.com  |  +92 322 5150501", W / 2, y, { align: "center" }); y += 3.5;
+  doc.text("linkedin.com/in/zulfiqar-ali-mir  |  github.com/zulfiqaralimir", W / 2, y, { align: "center" }); y += 7;
+
+  // ── EXPERIENCE ──
+  section("PROFESSIONAL EXPERIENCE");
+  jobs.forEach(job => {
+    br(12);
+    style(10, true, G800);
+    doc.text(job.org, M, y);
+    style(8, false, G400);
+    doc.text(`${job.location} · ${job.period}`, W - M, y, { align: "right" }); y += 4.5;
+    style(9.5, true, AMBER);
+    writeWrapped(job.title, M, CW, 4.2);
+    job.bullets.forEach(b => { style(8.5, false, G600); writeWrapped(`• ${b}`, M + 3, CW - 3, 4); });
+    y += 1.5;
   });
 
-  const pdf = new jsPDF({ orientation: "p", unit: "mm", format: "a4" });
-  const pdfWidth = pdf.internal.pageSize.getWidth();
-  const pdfHeight = pdf.internal.pageSize.getHeight();
-  const scaledHeight = (canvas.height * pdfWidth) / canvas.width;
-  const imgData = canvas.toDataURL("image/png");
+  // ── EDUCATION ──
+  section("EDUCATION");
+  education.forEach(e => {
+    br(12);
+    style(10, true, G800);
+    doc.text(e.school, M, y);
+    style(8, false, G400);
+    doc.text(e.period, W - M, y, { align: "right" }); y += 4.5;
+    style(9.5, false, AMBER);
+    doc.text(e.degree, M, y); y += 4.5;
+    if (e.thesis) { style(8, false, G500); doc.setFont("helvetica", "italic"); writeWrapped(`Thesis: ${e.thesis}`, M, CW, 3.8); }
+    y += 1.5;
+  });
 
-  pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, scaledHeight);
-  let heightLeft = scaledHeight - pdfHeight;
-  let offset = -pdfHeight;
+  // ── SKILLS ──
+  section("TECHNICAL SKILLS");
+  skillGroups.forEach(g => {
+    br(5);
+    style(8.5, true, G800);
+    const label = `${g.category}: `;
+    const lw = doc.getTextWidth(label);
+    doc.text(label, M, y);
+    style(8.5, false, G600);
+    writeWrapped(g.items.join(", "), M + lw, CW - lw, 4);
+  });
+  y += 2;
 
-  while (heightLeft > 0) {
-    pdf.addPage();
-    pdf.addImage(imgData, "PNG", 0, offset, pdfWidth, scaledHeight);
-    offset -= pdfHeight;
-    heightLeft -= pdfHeight;
-  }
+  // ── FEATURED PROJECTS ──
+  section("FEATURED PROJECTS");
+  featuredProjects.forEach(p => {
+    br(14);
+    style(10, true, G800);
+    writeWrapped(p.title, M, CW, 4.5);
+    if (p.url || p.github) {
+      style(7.5, false, G400);
+      const meta = [p.url, p.github ? `GitHub: ${p.github}` : ""].filter(Boolean).join("  |  ");
+      writeWrapped(meta, M, CW, 3.5);
+    }
+    p.bullets.forEach(b => { style(8.5, false, G600); writeWrapped(`• ${b}`, M + 3, CW - 3, 4); });
+    if (p.stack.length > 0) { style(7.5, true, AMBER); writeWrapped(`Stack: ${p.stack.join(", ")}`, M + 3, CW - 3, 3.5); }
+    y += 2;
+  });
 
-  pdf.save("Zulfiqar-Ali-Mir-Resume.pdf");
+  // ── RESEARCH PROJECTS ──
+  section("RESEARCH & CODING PROJECTS");
+  researchProjects.forEach(p => {
+    br(5);
+    style(8.5, true, G800);
+    doc.text(p.title, M, y); y += 4;
+    if (p.desc) { style(8.5, false, G600); writeWrapped(p.desc, M + 3, CW - 3, 3.8); }
+  });
+  y += 2;
+
+  // ── CONFERENCES ──
+  section("CONFERENCE PRESENTATIONS");
+  conferences.forEach(c => {
+    br(12);
+    style(10, true, G800);
+    doc.text(c.title, M, y); y += 4.5;
+    style(9, false, G600); doc.setFont("helvetica", "italic");
+    writeWrapped(c.paper, M, CW, 4);
+    if (c.details) { style(8, false, G500); writeWrapped(c.details, M, CW, 3.5); }
+    y += 2;
+  });
+
+  // ── HACKATHONS ──
+  section("AI PROJECTS & HACKATHONS");
+  hackathons.forEach(h => {
+    br(8);
+    style(9, true, G800);
+    doc.text(h.event, M, y);
+    style(8, false, G400);
+    doc.text(`${h.org}${h.period ? ` · ${h.period}` : ""}`, W - M, y, { align: "right" }); y += 4;
+    style(8.5, false, G600);
+    writeWrapped(h.project, M + 3, CW - 3, 4);
+    y += 1;
+  });
+
+  // ── HONORS ──
+  section("HONORS & DISTINCTIONS");
+  honors.forEach(h => {
+    br(10);
+    style(9.5, true, G800);
+    writeWrapped(h.title, M, CW, 4.2);
+    style(8.5, false, G500);
+    writeWrapped(h.org, M, CW, 3.8);
+    if (h.details) { style(8, false, G600); writeWrapped(h.details, M, CW, 3.5); }
+    y += 1.5;
+  });
+
+  // ── PUBLICATIONS ──
+  section("PUBLICATIONS");
+  style(9, true, G800); doc.text("Books", M, y); y += 4;
+  books.forEach(b => {
+    br(5); style(8.5, false, G800);
+    const bLines = wrappedLines(b.title, CW * 0.8);
+    doc.text(bLines, M, y);
+    style(8, false, G400); doc.text(b.date, W - M, y, { align: "right" });
+    y += bLines.length * 4;
+  });
+  y += 3;
+  style(9, true, G800); doc.text("Press", M, y); y += 4;
+  press.forEach(p => {
+    br(7); style(8.5, false, G800); writeWrapped(p.title, M, CW, 4);
+    style(8, false, G400);
+    writeWrapped(`${p.outlet} · ${p.date}${p.desc ? `  —  ${p.desc}` : ""}`, M, CW, 3.5);
+  });
+  y += 3;
+  style(9, true, G800); doc.text("Teaching Videos", M, y); y += 4;
+  videos.forEach(v => {
+    br(5); style(8.5, false, G800);
+    const vLines = wrappedLines(v.title, CW * 0.72);
+    doc.text(vLines, M, y);
+    style(8, false, G400); doc.text(`${v.platform}${v.date ? ` · ${v.date}` : ""}`, W - M, y, { align: "right" });
+    y += vLines.length * 3.8;
+  });
+  y += 2;
+
+  // ── CERTIFICATIONS ──
+  section("CERTIFICATIONS & TRAINING");
+  certGroups.forEach(g => {
+    br(8); style(9, true, G800); doc.text(g.category, M, y); y += 4;
+    g.items.forEach(item => { style(8.5, false, G600); writeWrapped(`• ${item}`, M + 3, CW - 3, 3.8); });
+    y += 2;
+  });
+
+  doc.save("Zulfiqar-Ali-Mir-Resume.pdf");
 }
 
 async function downloadDocx() {
@@ -589,10 +756,9 @@ export default function ResumePage() {
   const [generating, setGenerating] = useState<"pdf" | "docx" | null>(null);
 
   const handlePDF = async () => {
-    if (!containerRef.current) return;
     setGenerating("pdf");
     try {
-      await downloadPDF(containerRef.current);
+      await downloadPDF();
     } finally {
       setGenerating(null);
     }
