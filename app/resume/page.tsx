@@ -4,6 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
 
+function renderBullet(text: string) {
+  const parts = text.split(/\*\*(.+?)\*\*/g);
+  if (parts.length === 1) return text;
+  return parts.map((p, i) => i % 2 === 1 ? <strong key={i} className="font-semibold text-gray-800">{p}</strong> : p);
+}
+
 const badges = [
   "National AI FinTech Winner 2025",
   "Stanford Section Leader",
@@ -31,7 +37,7 @@ const jobs = [
     period: "2024 – Present",
     title: "Subject Matter Expert (Mathematics) & AI Evaluator – Pelican Paper STEM Project (Paper Assist)",
     bullets: [
-      "Selected from a strong pool of talented candidates to contribute to the advancement of state-of-the-art Large Language Models (LLMs).",
+      "**Selected from a strong pool of talented candidates** to contribute to the advancement of state-of-the-art Large Language Models (LLMs).",
       "Served as a Subject Matter Expert (Mathematics), applying advanced mathematical knowledge to evaluate and improve AI model outputs.",
       "Participated in the Pelican Paper STEM Project (Paper Assist), supporting AI evaluation, benchmarking, and quality assurance initiatives.",
       "Assessed AI-generated responses for mathematical accuracy, logical reasoning, problem-solving quality, and instruction adherence.",
@@ -433,7 +439,7 @@ async function downloadPDF() {
     doc.text(`${job.location} · ${job.period}`, W - M, y, { align: "right" }); y += 4.5;
     style(9.5, true, AMBER);
     writeWrapped(job.title, M, CW, 4.2);
-    job.bullets.forEach(b => { style(8.5, false, G600); writeWrapped(`• ${b}`, M + 3, CW - 3, 4); });
+    job.bullets.forEach(b => { style(8.5, false, G600); writeWrapped(`• ${b.replace(/\*\*(.+?)\*\*/g, "$1")}`, M + 3, CW - 3, 4); });
     y += 1.5;
   });
 
@@ -608,7 +614,7 @@ async function downloadDocx() {
       ...job.bullets.map(
         (b) =>
           new Paragraph({
-            children: [new TextRun({ text: `• ${b}`, size: 18, color: "4b5563" })],
+            children: [new TextRun({ text: `• ${b.replace(/\*\*(.+?)\*\*/g, "$1")}`, size: 18, color: "4b5563" })],
             indent: { left: 360 },
           })
       ),
@@ -882,7 +888,7 @@ export default function ResumePage() {
                 <p className="text-amber-700 font-medium">{job.title}</p>
                 {job.bullets.length > 0 && (
                   <ul className="list-disc pl-4 mt-1 space-y-0.5 text-gray-600">
-                    {job.bullets.map((b, j) => <li key={j}>{b}</li>)}
+                    {job.bullets.map((b, j) => <li key={j}>{renderBullet(b)}</li>)}
                   </ul>
                 )}
               </div>

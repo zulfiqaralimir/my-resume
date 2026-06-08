@@ -21,7 +21,7 @@ const jobs = [
     period: "2024 – Present",
     title: "Subject Matter Expert (Mathematics) & AI Evaluator – Pelican Paper STEM Project (Paper Assist)",
     bullets: [
-      "Selected from a strong pool of talented candidates to contribute to the advancement of state-of-the-art Large Language Models (LLMs).",
+      <><strong className="font-semibold text-gray-800">Selected from a strong pool of talented candidates</strong> to contribute to the advancement of state-of-the-art Large Language Models (LLMs).</>,
       "Served as a Subject Matter Expert (Mathematics), applying advanced mathematical knowledge to evaluate and improve AI model outputs.",
       "Participated in the Pelican Paper STEM Project (Paper Assist), supporting AI evaluation, benchmarking, and quality assurance initiatives.",
       "Assessed AI-generated responses for mathematical accuracy, logical reasoning, problem-solving quality, and instruction adherence.",
