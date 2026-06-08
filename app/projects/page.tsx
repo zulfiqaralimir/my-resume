@@ -30,6 +30,19 @@ const featuredProjects = [
     stack: ["Bright Data MCP", "Gemini 2.0 Flash", "LangChain", "MongoDB Atlas", "FastAPI", "Next.js", "Python", "Hugging Face Spaces", "SEC EDGAR"],
   },
   {
+    title: "PSX Intraday Intelligence System – Black Iron Quantum AI (2026)",
+    url: "",
+    bullets: [
+      "Engineered a Python web scraper extracting 12 OHLCV fields from dps.psx.com.pk for 7 PSX-listed equities (KEL, OGDC, PPL, HBL, ENGRO, OBOY, FCEPL) — building a fully automated end-to-end financial data pipeline and visualization system",
+      "Designed a dual-sheet Google Sheets architecture — live snapshot table + append-only price history — via Google Sheets API and service account authentication, enabling persistent intraday OHLCV storage",
+      "Implemented intraday OHLCV aggregation across 6 hourly intervals (Mon–Thu) and 5 Friday intervals with Jummah prayer break logic, accurately modeling PSX's market session structure",
+      "Deployed on GitHub Actions with 15 cron triggers (UTC-converted PKT schedule) — fully serverless and PC-independent, running reliably without local infrastructure",
+      "Built interactive candlestick charts with gap detection using Plotly — identifying intraday price gaps with PKR and % annotations for actionable intraday signal analysis",
+      "Integrated Looker Studio dashboard with live data refresh, Change % bar chart, and multi-field stock comparison table for real-time equity monitoring",
+    ],
+    stack: ["Python", "BeautifulSoup4", "gspread", "Plotly", "GitHub Actions", "Google Sheets API", "Looker Studio", "Pandas", "Windows Task Scheduler"],
+  },
+  {
     title: "zam-webtool — Agent-Safe Web Browsing Tool (2026)",
     github: "https://github.com/zulfiqaralimir/zam-webtool",
     url: "",
