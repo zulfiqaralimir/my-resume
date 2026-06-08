@@ -16,6 +16,20 @@ const jobs = [
     ],
   },
   {
+    org: "Turing (Palo Alto, California)",
+    location: "Remote",
+    period: "2024 – Present",
+    title: "Subject Matter Expert (Mathematics) & AI Evaluator – Pelican Paper STEM Project (Paper Assist)",
+    bullets: [
+      "Selected from a strong pool of talented candidates to contribute to the advancement of state-of-the-art Large Language Models (LLMs).",
+      "Served as a Subject Matter Expert (Mathematics), applying advanced mathematical knowledge to evaluate and improve AI model outputs.",
+      "Participated in the Pelican Paper STEM Project (Paper Assist), supporting AI evaluation, benchmarking, and quality assurance initiatives.",
+      "Assessed AI-generated responses for mathematical accuracy, logical reasoning, problem-solving quality, and instruction adherence.",
+      "Collaborated with reviewers and project stakeholders through Taiga and evaluation platforms to maintain high-quality standards.",
+      "Contributed to research and development efforts aimed at improving the reliability, reasoning capabilities, and performance of next-generation AI systems.",
+    ],
+  },
+  {
     org: "Stanford University",
     location: "Remote",
     period: "May 2025 – June 2025",
