@@ -44,13 +44,12 @@ const jobs = [
     bullets: [],
   },
   {
-    org: "NCEAC–HEC Generative AI Training Cohort 2 (Pak Angels / iCodeGuru / ASPIRE Pakistan)",
+    org: "Education Group, Karachi (Name TBC)",
     location: "Remote",
-    period: "Jan–Feb 2026",
+    period: "2026",
     title: "Trainer and Instructor – Generative AI (Advanced RAG)",
     bullets: [
       "Delivered training on Advanced RAG systems: Naive vs Production-Grade RAG, Hybrid Search, Query Expansion, HyDE, Reranking, RAGAS evaluation (Context Precision, Recall, Faithfulness), and LangSmith observability.",
-      "Collaborated with iCodeGuru, Pak Angels, ASPIRE Pakistan, HEC Pakistan, NCEAC, and UETIANS Lahore Endowment Foundation (ULEF), USA.",
     ],
   },
   {

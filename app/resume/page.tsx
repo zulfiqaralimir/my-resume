@@ -47,7 +47,7 @@ const jobs = [
   },
   { org: "Stanford University", location: "Remote", period: "May 2025 – June 2025", title: "Section Leader – Python Programming", bullets: [] },
   { org: "COMSATS University", location: "Islamabad, PK", period: "Oct 2024", title: "Instructor – Python for Mathematicians", bullets: [] },
-  { org: "NCEAC–HEC Generative AI Training Cohort 2 (Pak Angels / iCodeGuru / ASPIRE Pakistan)", location: "Remote", period: "Jan–Feb 2026", title: "Trainer and Instructor – Generative AI (Advanced RAG)", bullets: ["Delivered training on Advanced RAG: Naive vs Production-Grade RAG, Hybrid Search, Query Expansion, HyDE, Reranking, RAGAS evaluation (Context Precision, Recall, Faithfulness), and LangSmith observability.", "Collaborated with iCodeGuru, Pak Angels, ASPIRE Pakistan, HEC Pakistan, NCEAC, and UETIANS Lahore Endowment Foundation (ULEF), USA."] },
+  { org: "Education Group, Karachi (Name TBC)", location: "Remote", period: "2026", title: "Trainer and Instructor – Generative AI (Advanced RAG)", bullets: ["Delivered training on Advanced RAG: Naive vs Production-Grade RAG, Hybrid Search, Query Expansion, HyDE, Reranking, RAGAS evaluation (Context Precision, Recall, Faithfulness), and LangSmith observability."] },
   { org: "Pakistan Engineering Council", location: "Islamabad, PK", period: "Dec 2024 – Jan 2025", title: "Mentor and Instructor – PEC Generative AI Training", bullets: [] },
   { org: "Pak Angels (San Jose, California)", location: "Remote", period: "Aug – Sept 2024", title: "Mentor and Judge – Essential Generative AI Training", bullets: [] },
   {
@@ -121,7 +121,7 @@ const press = [
 ];
 
 const videos = [
-  { title: "From Naive RAG to Production-Grade RAG: A Journey into Advanced Retrieval Systems", platform: "NCEAC–HEC GenAI Training Cohort 2 (Pak Angels / iCodeGuru)", date: "Jan–Feb 2026" },
+  { title: "From Naive RAG to Production-Grade RAG: A Journey into Advanced Retrieval Systems", platform: "Education Group, Karachi (Name TBC)", date: "2026" },
   { title: "Workshop on Building Neural Networks from Scratch using Python", platform: "iCodeGuru", date: "Sept 8, 2024" },
   { title: "Machine Learning from Scratch and its Privacy Implications", platform: "iCodeGuru", date: "Aug 19, 2024" },
   { title: "IELTS Prep For Fully Funded Scholarships", platform: "iCodeGuru", date: "July 22, 2024" },
