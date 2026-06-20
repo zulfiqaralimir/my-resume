@@ -19,6 +19,12 @@ const books = [
 
 const press = [
   {
+    title: "From Naive RAG to Production-Grade RAG: A Journey into Advanced Retrieval Systems",
+    outlet: "LinkedIn Article",
+    date: "2026",
+    desc: "Covers why Naive RAG fails, Advanced Retrieval techniques (Hybrid Search, Query Expansion, HyDE, Reranking), RAG evaluation with RAGAS (Context Precision, Recall, Faithfulness), debugging with LangSmith, and production requirements including Conversational Memory, Intelligent Chunking, and Observability.",
+  },
+  {
     title: "Ensuring Ethical and Secure AI",
     outlet: "Pakistan Observer",
     date: "May 25, 2024",
