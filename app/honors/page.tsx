@@ -19,6 +19,7 @@ const honors = [
     org: "Higher Education Commission (HEC) Pakistan & National Computing Education Accreditation Council (NCEAC)",
     details:
       "Recognized for contributions as Instructor, Mentor, and Judge for the NCEAC–HEC Generative AI Training Cohort 2 (Jan–Feb 2026). Helped aspiring professionals build practical Generative AI skills and evaluated AI innovation projects. Collaborating partners: iCodeGuru, Pak Angels, ASPIRE Pakistan, HEC Pakistan, NCEAC, and UETIANS Lahore Endowment Foundation (ULEF), USA.",
+    bold: "UETIANS Lahore Endowment Foundation (ULEF), USA",
   },
   {
     title: "Judge – AI Innovation & Prompt Engineering",
@@ -81,7 +82,17 @@ export default function HonorsPage() {
           >
             <p className="font-semibold text-amber-700">{h.title}</p>
             <p className="text-sm text-gray-500 mt-0.5">{h.org}</p>
-            {h.details && <p className="text-sm text-gray-600 mt-2">{h.details}</p>}
+            {h.details && (
+              <p className="text-sm text-gray-600 mt-2">
+                {h.bold
+                  ? h.details.split(h.bold).flatMap((part, idx, arr) =>
+                      idx < arr.length - 1
+                        ? [part, <strong key={idx}>{h.bold}</strong>]
+                        : [part]
+                    )
+                  : h.details}
+              </p>
+            )}
           </motion.div>
         ))}
       </div>

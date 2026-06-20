@@ -96,7 +96,7 @@ const skillGroups = [
 const honors = [
   { title: "National Winner – AI FinTech Projects (2025)", org: "National Technology Fund (MoITT) & Asian Development Bank (ADB)", details: "Built AFIW–ZulfiQode: Agentic Financial Intelligence Wrapper. Technologies: LangGraph, FastAPI, Neo4j. Features: RAG pipelines for financial statement summarization and ESG scoring, RLHF and SFT for adaptive reasoning, ML and econometric models for volatility, causal, rumour, and reversal detection, Streamlit dashboards with real-time monitoring." },
   { title: "Create Apps Championship 2025–26", org: "Dubai Chamber of Digital Economy, UAE", details: "Certificate of Participation." },
-  { title: "Generative AI Instructor / Mentor / Judge Certificate – NCEAC–HEC Cohort 2 (Jan–Feb 2026)", org: "Higher Education Commission (HEC) Pakistan & National Computing Education Accreditation Council (NCEAC)", details: "Recognized for contributions as Instructor, Mentor, and Judge for the NCEAC–HEC Generative AI Training Cohort 2 (Jan–Feb 2026). Helped aspiring professionals build practical Generative AI skills and evaluated AI innovation projects. Collaborating partners: iCodeGuru, Pak Angels, ASPIRE Pakistan, HEC Pakistan, NCEAC, and UETIANS Lahore Endowment Foundation (ULEF), USA." },
+  { title: "Generative AI Instructor / Mentor / Judge Certificate – NCEAC–HEC Cohort 2 (Jan–Feb 2026)", org: "Higher Education Commission (HEC) Pakistan & National Computing Education Accreditation Council (NCEAC)", details: "Recognized for contributions as Instructor, Mentor, and Judge for the NCEAC–HEC Generative AI Training Cohort 2 (Jan–Feb 2026). Helped aspiring professionals build practical Generative AI skills and evaluated AI innovation projects. Collaborating partners: iCodeGuru, Pak Angels, ASPIRE Pakistan, HEC Pakistan, NCEAC, and UETIANS Lahore Endowment Foundation (ULEF), USA.", bold: "UETIANS Lahore Endowment Foundation (ULEF), USA" },
   { title: "Judge – AI Innovation & Prompt Engineering", org: "All Pakistan Prompt Engineering Competition (APPEC) – ETL Online", details: "" },
   { title: "Participant / Contributor – Strategic Foresight & Governance", org: "The Futures Forum 2025 (UNESCO World Futures Day – Society 5.0)", details: "" },
   { title: "McKinsey Forward Program Participant", org: "McKinsey & Company", details: "Dec 2024. Focus: Problem-solving, leadership, digital transformation skills." },
@@ -113,7 +113,7 @@ const books = [
 ];
 
 const press = [
-  { title: "From Naive RAG to Production-Grade RAG: A Journey into Advanced Retrieval Systems", outlet: "LinkedIn Article", date: "2026", desc: "Covers why Naive RAG fails, Advanced Retrieval techniques (Hybrid Search, Query Expansion, HyDE, Reranking), RAG evaluation with RAGAS (Context Precision, Recall, Faithfulness), debugging with LangSmith, and production requirements including Conversational Memory, Intelligent Chunking, and Observability." },
+  { title: "From Naive RAG to Production-Grade RAG: A Journey into Advanced Retrieval Systems", outlet: "LinkedIn Article", date: "2026", desc: "Prepared and delivered as a training session for the NCEAC–HEC Generative AI Training Cohort 2 (Jan–Feb 2026). Covers why Naive RAG fails, Advanced Retrieval techniques (Hybrid Search, Query Expansion, HyDE, Reranking), RAG evaluation with RAGAS (Context Precision, Recall, Faithfulness), debugging with LangSmith, and production requirements including Conversational Memory, Intelligent Chunking, and Observability." },
   { title: "Ensuring Ethical and Secure AI", outlet: "Pakistan Observer", date: "May 25, 2024", desc: "Comprehensive Guide to AI Audits and Foundational LLMs." },
   { title: "Insights into Pakistan Stock Exchange's recent record high triumph", outlet: "The Financial Daily International", date: "March 30, 2024", desc: "" },
   { title: "Navigate the psychological maze of inflation and make smarter investment decisions", outlet: "The Financial Daily International", date: "March 10, 2024", desc: "" },
@@ -1003,7 +1003,17 @@ export default function ResumePage() {
               <div key={i} className="text-sm">
                 <span className="font-semibold text-gray-800">{h.title}</span>
                 <span className="text-gray-500"> — {h.org}</span>
-                {h.details && <p className="text-gray-600 text-xs mt-0.5">{h.details}</p>}
+                {h.details && (
+                  <p className="text-gray-600 text-xs mt-0.5">
+                    {h.bold
+                      ? h.details.split(h.bold).flatMap((part, idx, arr) =>
+                          idx < arr.length - 1
+                            ? [part, <strong key={idx}>{h.bold}</strong>]
+                            : [part]
+                        )
+                      : h.details}
+                  </p>
+                )}
               </div>
             ))}
           </div>
