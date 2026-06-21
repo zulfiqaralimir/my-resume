@@ -4,6 +4,20 @@ import { motion } from "framer-motion";
 
 const jobs = [
   {
+    org: "Black Iron Quantum AI (Private) Limited",
+    location: "Islamabad, PK",
+    period: "2026 – Present",
+    title: "Director – Accounting ERP SaaS Platform Development",
+    bullets: [
+      "Leading design and development of a cloud-based Accounting ERP SaaS platform for SMBs — covering General Ledger (GL), Accounts Receivable (AR), Accounts Payable (AP), Cash Management, Budgeting, and Financial Reporting modules.",
+      "Designing financial dashboards, KPI tracking systems, and business intelligence (BI) reports to support data-driven decision-making for CFOs, controllers, and finance managers.",
+      "Developing automated accounting workflows — invoicing, reconciliation, journal entries, and financial close — to eliminate manual bookkeeping and improve financial accuracy.",
+      "Integrating AI-powered financial analysis, forecasting, and FP&A advisory capabilities to enhance financial planning and business performance for SMB clients.",
+      "Architecting a scalable SaaS platform focused on accounting automation, financial visibility, compliance, and operational efficiency — purpose-built for SMB finance, bookkeeping, and CFO advisory use cases.",
+      "Building controller-level financial reporting, cash flow management, and reconciliation tools to empower finance managers, accountants, and business owners with actionable financial intelligence.",
+    ],
+  },
+  {
     org: "Turing (Palo Alto, California)",
     location: "Remote",
     period: "Sept 2024 – Present",

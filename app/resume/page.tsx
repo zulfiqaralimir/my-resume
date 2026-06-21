@@ -20,6 +20,20 @@ const badges = [
 
 const jobs = [
   {
+    org: "Black Iron Quantum AI (Private) Limited",
+    location: "Islamabad, PK",
+    period: "2026 – Present",
+    title: "Director – Accounting ERP SaaS Platform Development",
+    bullets: [
+      "Leading design and development of a cloud-based Accounting ERP SaaS platform for SMBs — covering General Ledger (GL), Accounts Receivable (AR), Accounts Payable (AP), Cash Management, Budgeting, and Financial Reporting modules.",
+      "Designing financial dashboards, KPI tracking systems, and business intelligence (BI) reports to support data-driven decision-making for CFOs, controllers, and finance managers.",
+      "Developing automated accounting workflows — invoicing, reconciliation, journal entries, and financial close — to eliminate manual bookkeeping and improve financial accuracy.",
+      "Integrating AI-powered financial analysis, forecasting, and FP&A advisory capabilities to enhance financial planning and business performance for SMB clients.",
+      "Architecting a scalable SaaS platform focused on accounting automation, financial visibility, compliance, and operational efficiency — purpose-built for SMB finance, bookkeeping, and CFO advisory use cases.",
+      "Building controller-level financial reporting, cash flow management, and reconciliation tools to empower finance managers, accountants, and business owners with actionable financial intelligence.",
+    ],
+  },
+  {
     org: "Turing (Palo Alto, California)",
     location: "Remote",
     period: "Sept 2024 – Present",
@@ -103,10 +117,10 @@ const skillGroups = [
   { category: "Programming Languages", items: ["Python (Advanced)", "R", "TypeScript", "JavaScript", "SQL", "Next.js", "Tailwind CSS", "FastAPI"] },
   { category: "Statistical & Analytical Software", items: ["MATLAB", "STATA", "EViews", "SPSS", "OxMatrix", "Power BI", "Tableau", "MS Office"] },
   { category: "AI / ML Frameworks", items: ["LangChain", "LangGraph", "CrewAI", "OpenAI Agents SDK", "PyTorch (Fine Tuning)", "Streamlit", "FastAPI"] },
-  { category: "Technologies & Specializations", items: ["Machine Learning", "Deep Learning", "NLP", "Applied Generative AI", "MLOps", "FinTech", "Cloud-Native Gen AI Engineering", "Full-Stack Development", "Google AI Studio"] },
+  { category: "Technologies & Specializations", items: ["Machine Learning", "Deep Learning", "NLP", "Applied Generative AI", "MLOps", "FinTech", "Cloud-Native Gen AI Engineering", "Full-Stack Development", "SaaS Product Development", "Business Intelligence", "Google AI Studio"] },
   { category: "Cloud & Dev Tools", items: ["Azure", "AWS", "MS Project", "Neo4j", "Apache Spark", "Oracle VM VirtualBox", "Linux (CentOS)", "LaTeX", "Markdown"] },
   { category: "Data Science Libraries", items: ["Pydantic", "LeetCode DSA", "Kaggle", "Jupyter", "ggplot2"] },
-  { category: "Finance & Accounting", items: ["Tally ERP / Tally Accounting Software", "Microsoft Access", "Advanced Microsoft Excel", "Accounts Receivable Management", "Credit Control & Collections", "Financial Reporting"] },
+  { category: "Finance & Accounting", items: ["Accounting ERP Systems", "General Ledger (GL)", "Accounts Receivable (AR)", "Accounts Payable (AP)", "Cash Flow Management", "Budgeting", "Financial Planning & Analysis (FP&A)", "Financial Analysis", "Financial Forecasting", "Financial Reporting", "Financial Dashboards", "Reconciliation", "Invoicing", "Accounting Automation", "CFO Advisory", "SMB Finance", "Credit Control & Collections", "Tally ERP / Tally Accounting Software", "Microsoft Access", "Advanced Microsoft Excel"] },
 ];
 
 const honors = [
