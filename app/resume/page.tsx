@@ -104,6 +104,22 @@ const jobs = [
   { org: "Pakistan Stock Exchange", location: "Islamabad, PK", period: "1999 – 2004", title: "Equity Investment and Portfolio Management", bullets: [] },
 ];
 
+const fellowships = [
+  {
+    org: "Social Policy Resource Center (SPRC)",
+    location: "Islamabad, PK",
+    period: "2026 – Present",
+    title: "Research Fellow",
+    bullets: [
+      "Selected for a competitive Research Fellowship at SPRC — a leading public policy and social development think tank committed to evidence-based policymaking in Pakistan.",
+      "Conduct policy-oriented research on social protection, public finance, poverty, inequality, governance, and sustainable development to inform evidence-based policy.",
+      "Apply advanced econometric and quantitative research methods to analyze economic and social datasets, evaluate policy outcomes, and assess development interventions.",
+      "Contribute to policy briefs, working papers, research reports, and stakeholder presentations addressing socioeconomic challenges through interdisciplinary research.",
+      "Collaborate with researchers, policymakers, and development sector professionals on high-impact public policy analysis and impact evaluation projects.",
+    ],
+  },
+];
+
 const education = [
   { school: "World Quant University (USA)", period: "Jan 2025 – Present", degree: "Master's in Financial Engineering (In Progress)" },
   { school: "Pakistan Institute of Development Economics (PIDE)", period: "Aug 2016 – Aug 2022", degree: "Ph.D., Econometrics · CGPA 3.36", thesis: "Causal Discovery using Modified Riz PC Algorithm from Observational and Latent Variables Data" },
@@ -121,6 +137,7 @@ const skillGroups = [
   { category: "Cloud & Dev Tools", items: ["Azure", "AWS", "MS Project", "Neo4j", "Apache Spark", "Oracle VM VirtualBox", "Linux (CentOS)", "LaTeX", "Markdown"] },
   { category: "Data Science Libraries", items: ["Pydantic", "LeetCode DSA", "Kaggle", "Jupyter", "ggplot2"] },
   { category: "Finance & Accounting", items: ["Accounting ERP Systems", "General Ledger (GL)", "Accounts Receivable (AR)", "Accounts Payable (AP)", "Cash Flow Management", "Budgeting", "Financial Planning & Analysis (FP&A)", "Financial Analysis", "Financial Forecasting", "Financial Reporting", "Financial Dashboards", "Reconciliation", "Invoicing", "Accounting Automation", "CFO Advisory", "SMB Finance", "Credit Control & Collections", "Tally ERP / Tally Accounting Software", "Microsoft Access", "Advanced Microsoft Excel"] },
+  { category: "Research & Policy", items: ["Policy Research", "Social Policy", "Public Finance", "Development Economics", "Econometrics", "Quantitative Research", "Evidence-Based Policy", "Public Policy Analysis", "Social Protection", "Poverty Analysis", "Governance", "Impact Evaluation", "Economic Policy", "Think Tank Research"] },
 ];
 
 const honors = [
@@ -488,6 +505,20 @@ async function downloadPDF() {
     y += 1.5;
   });
 
+  // ── RESEARCH FELLOWSHIPS ──
+  section("RESEARCH FELLOWSHIPS");
+  fellowships.forEach(f => {
+    br(12);
+    style(10, true, G800);
+    doc.text(f.org, M, y);
+    style(8, false, G400);
+    doc.text(`${f.location} · ${f.period}`, W - M, y, { align: "right" }); y += 4.5;
+    style(9.5, true, AMBER);
+    writeWrapped(f.title, M, CW, 4.2);
+    f.bullets.forEach(b => { style(8.5, false, G600); writeWrapped(`• ${b}`, M + 3, CW - 3, 4); });
+    y += 1.5;
+  });
+
   // ── EDUCATION ──
   section("EDUCATION");
   education.forEach(e => {
@@ -660,6 +691,25 @@ async function downloadDocx() {
         (b) =>
           new Paragraph({
             children: [new TextRun({ text: `• ${b.replace(/\*\*(.+?)\*\*/g, "$1")}`, size: 18, color: "4b5563" })],
+            indent: { left: 360 },
+          })
+      ),
+    ]),
+
+    heading("RESEARCH FELLOWSHIPS"),
+    ...fellowships.flatMap((f) => [
+      new Paragraph({
+        children: [
+          new TextRun({ text: f.org, bold: true, size: 20 }),
+          new TextRun({ text: `   ${f.location} · ${f.period}`, size: 18, color: "9ca3af" }),
+        ],
+        spacing: { before: 120 },
+      }),
+      new Paragraph({ children: [new TextRun({ text: f.title, size: 20, color: "b45309", bold: true })] }),
+      ...f.bullets.map(
+        (b) =>
+          new Paragraph({
+            children: [new TextRun({ text: `• ${b}`, size: 18, color: "4b5563" })],
             indent: { left: 360 },
           })
       ),
@@ -934,6 +984,27 @@ export default function ResumePage() {
                 {job.bullets.length > 0 && (
                   <ul className="list-disc pl-4 mt-1 space-y-0.5 text-gray-600">
                     {job.bullets.map((b, j) => <li key={j}>{renderBullet(b)}</li>)}
+                  </ul>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── RESEARCH FELLOWSHIPS ── */}
+        <section className="mb-6">
+          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Research Fellowships</h2>
+          <div className="space-y-3">
+            {fellowships.map((f, i) => (
+              <div key={i} className="text-sm">
+                <div className="flex justify-between items-start">
+                  <span className="font-semibold text-gray-800">{f.org}</span>
+                  <span className="text-xs text-gray-400 text-right shrink-0 ml-2">{f.location} · {f.period}</span>
+                </div>
+                <p className="text-amber-700 font-medium">{f.title}</p>
+                {f.bullets.length > 0 && (
+                  <ul className="list-disc pl-4 mt-1 space-y-0.5 text-gray-600">
+                    {f.bullets.map((b, j) => <li key={j}>{b}</li>)}
                   </ul>
                 )}
               </div>

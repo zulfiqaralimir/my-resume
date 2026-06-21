@@ -40,6 +40,25 @@ const skillGroups = [
     items: ["Pydantic", "LeetCode DSA", "Kaggle", "Jupyter", "ggplot2"],
   },
   {
+    category: "Research & Policy",
+    items: [
+      "Policy Research",
+      "Social Policy",
+      "Public Finance",
+      "Development Economics",
+      "Econometrics",
+      "Quantitative Research",
+      "Evidence-Based Policy",
+      "Public Policy Analysis",
+      "Social Protection",
+      "Poverty Analysis",
+      "Governance",
+      "Impact Evaluation",
+      "Economic Policy",
+      "Think Tank Research",
+    ],
+  },
+  {
     category: "Finance & Accounting",
     items: [
       "Accounting ERP Systems",

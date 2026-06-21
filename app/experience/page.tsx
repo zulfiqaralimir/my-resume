@@ -146,6 +146,22 @@ const jobs = [
   },
 ];
 
+const fellowships = [
+  {
+    org: "Social Policy Resource Center (SPRC)",
+    location: "Islamabad, PK",
+    period: "2026 – Present",
+    title: "Research Fellow",
+    bullets: [
+      "Selected for a competitive Research Fellowship at SPRC — a leading public policy and social development think tank committed to evidence-based policymaking in Pakistan.",
+      "Conduct policy-oriented research on social protection, public finance, poverty, inequality, governance, and sustainable development to inform evidence-based policy.",
+      "Apply advanced econometric and quantitative research methods to analyze economic and social datasets, evaluate policy outcomes, and assess development interventions.",
+      "Contribute to policy briefs, working papers, research reports, and stakeholder presentations addressing socioeconomic challenges through interdisciplinary research.",
+      "Collaborate with researchers, policymakers, and development sector professionals on high-impact public policy analysis and impact evaluation projects.",
+    ],
+  },
+];
+
 export default function ExperiencePage() {
   return (
     <motion.section
@@ -176,6 +192,35 @@ export default function ExperiencePage() {
             {job.bullets.length > 0 && (
               <ul className="list-disc pl-5 mt-2 space-y-1 text-sm text-gray-600">
                 {job.bullets.map((b, j) => (
+                  <li key={j}>{b}</li>
+                ))}
+              </ul>
+            )}
+          </motion.div>
+        ))}
+      </div>
+
+      <h1 className="text-4xl font-bold mt-12 mb-8 border-b pb-2 text-amber-700">
+        Research Fellowships
+      </h1>
+      <div className="space-y-6">
+        {fellowships.map((f, i) => (
+          <motion.div
+            key={i}
+            className="bg-white p-5 rounded-lg shadow hover:shadow-md transition"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: i * 0.05 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex justify-between font-semibold text-amber-700">
+              <span>{f.org}</span>
+              <span className="text-sm text-gray-500">{f.location} · {f.period}</span>
+            </div>
+            <p className="mt-1 font-medium text-gray-700">{f.title}</p>
+            {f.bullets.length > 0 && (
+              <ul className="list-disc pl-5 mt-2 space-y-1 text-sm text-gray-600">
+                {f.bullets.map((b, j) => (
                   <li key={j}>{b}</li>
                 ))}
               </ul>
