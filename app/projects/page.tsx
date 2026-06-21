@@ -43,6 +43,18 @@ const featuredProjects = [
     stack: ["Python", "BeautifulSoup4", "gspread", "Plotly", "GitHub Actions", "Google Sheets API", "Looker Studio", "Pandas", "Windows Task Scheduler"],
   },
   {
+    title: "WellServe HR Payroll System – Black Iron Quantum AI",
+    url: "",
+    bullets: [
+      "Engineered a full-stack HR Payroll platform for WellServe Oilfield Services (Islamabad) — computing monthly payroll for 190+ employees across 15 departments with NUMERIC(12,2) precision: Gross (Basic + HRA 40% + Utility 5% + Conveyance 5% + OT + Rig Bonus + Travelling + Arrears) minus EOBI, FBR income tax slabs, Provident Fund, loans, absent days, and LWP.",
+      "Automated Excel payroll data ingestion via a 5-sheet workbook (Employees, Salary Rates, OT Rates, Rig Bonus, Monthly Input) using SheetJS, with real-time folder watching (chokidar) that auto-detects new files and triggers a fast bulk import — updating master and monthly tables in a single operation.",
+      "Built a Puppeteer-powered PDF payslip generation pipeline with automated per-employee email delivery via Nodemailer — enabling individual and bulk payslip distribution across 190+ employees per payroll cycle.",
+      "Implemented JWT-secured role-based access control (Admin, HR Manager, CFO) with a CFO approval workflow that locks payroll until reviewed and approved — backed by a full audit log capturing every action (who, what, when).",
+      "Delivered complete accounting and compliance outputs: bank transfer lists (FBL, HMB, Cash), Journal Voucher (JV) generation for GL posting, EOBI & Provident Fund reports, and department-wise payroll summaries — underpinned by a 17-table PostgreSQL schema (10 master + 7 derived) with soft delete on all records.",
+    ],
+    stack: ["React.js", "Tailwind CSS", "Node.js", "Express.js", "PostgreSQL", "SheetJS", "Puppeteer", "JWT", "Nodemailer", "chokidar"],
+  },
+  {
     title: "zam-webtool — Agent-Safe Web Browsing Tool (2026)",
     github: "https://github.com/zulfiqaralimir/zam-webtool",
     url: "",
