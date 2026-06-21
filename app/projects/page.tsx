@@ -166,6 +166,10 @@ const researchProjects = [
     desc: "Time-series modeling of long-run relationships.",
   },
   {
+    title: "How to Read a Social Accounting Matrix (SAM) – Pakistan 2007-08 (Working Paper)",
+    desc: "Practitioner's guide on SAM reading conventions and CGE modeling foundations; cell-by-cell breakdown of Pakistan's 9-account SAM covering production, income distribution, household expenditure, government transactions, and trade/external sector flows; research roadmap: temporal analysis (2007-08 to 2019-20), cross-country South Asian comparison, SAM invariance to inflation — targeting 3-4 peer-reviewed publications; shared with Dr. Husnain Naqvi for academic collaboration.",
+  },
+  {
     title: "Agricultural Subsidy Reform: CGE Modelling Approach",
     desc: "Pakistan case study.",
   },
