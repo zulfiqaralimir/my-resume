@@ -113,7 +113,15 @@ const jobs = [
     location: "Dubai, UAE",
     period: "Jan 2005 – Dec 2005",
     title: "Credit Controller",
-    bullets: [],
+    bullets: [
+      "Managed accounts receivable, credit limits, collections, and payment reconciliations to maintain healthy cash flow across key client accounts.",
+      "Maintained accounting records, ledgers, invoicing, and financial transactions using Tally Accounting Software.",
+      "Developed and maintained financial databases and reporting systems using Microsoft Access.",
+      "Built advanced Excel models and dashboards leveraging pivot tables, VLOOKUP, and financial data analysis techniques.",
+      "Prepared management reports, credit assessments, and financial performance summaries to support decision-making.",
+      "Coordinated with finance, sales, and management teams to monitor outstanding receivables and improve collection efficiency.",
+      "Supported month-end reconciliation and financial close reporting activities.",
+    ],
   },
   {
     org: "Pakistan Stock Exchange",

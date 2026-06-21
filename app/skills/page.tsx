@@ -37,6 +37,10 @@ const skillGroups = [
     category: "Data Science Libraries",
     items: ["Pydantic", "LeetCode DSA", "Kaggle", "Jupyter", "ggplot2"],
   },
+  {
+    category: "Finance & Accounting",
+    items: ["Tally ERP / Tally Accounting Software", "Microsoft Access", "Advanced Microsoft Excel", "Accounts Receivable Management", "Credit Control & Collections", "Financial Reporting"],
+  },
 ];
 
 export default function SkillsPage() {

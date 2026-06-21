@@ -72,7 +72,21 @@ const jobs = [
   { org: "Super Nova Academy", location: "Islamabad, PK", period: "2010 – Present", title: "Teacher – Mathematics, Statistics & SAT", bullets: [] },
   { org: "Beaconhouse School System, BMI", location: "Islamabad, PK", period: "Aug 2017 – Sept 2022", title: "Teacher of Mathematics", bullets: [] },
   { org: "Bank Alfalah Limited", location: "Wah Cantt, PK", period: "June 2008 – July 2010", title: "Operations Officer", bullets: [] },
-  { org: "City Lights Trading", location: "Dubai, UAE", period: "Jan 2005 – Dec 2005", title: "Credit Controller", bullets: [] },
+  {
+    org: "City Lights Trading",
+    location: "Dubai, UAE",
+    period: "Jan 2005 – Dec 2005",
+    title: "Credit Controller",
+    bullets: [
+      "Managed accounts receivable, credit limits, collections, and payment reconciliations to maintain healthy cash flow across key client accounts.",
+      "Maintained accounting records, ledgers, invoicing, and financial transactions using Tally Accounting Software.",
+      "Developed and maintained financial databases and reporting systems using Microsoft Access.",
+      "Built advanced Excel models and dashboards leveraging pivot tables, VLOOKUP, and financial data analysis techniques.",
+      "Prepared management reports, credit assessments, and financial performance summaries to support decision-making.",
+      "Coordinated with finance, sales, and management teams to monitor outstanding receivables and improve collection efficiency.",
+      "Supported month-end reconciliation and financial close reporting activities.",
+    ],
+  },
   { org: "Pakistan Stock Exchange", location: "Islamabad, PK", period: "1999 – 2004", title: "Equity Investment and Portfolio Management", bullets: [] },
 ];
 
@@ -92,6 +106,7 @@ const skillGroups = [
   { category: "Technologies & Specializations", items: ["Machine Learning", "Deep Learning", "NLP", "Applied Generative AI", "MLOps", "FinTech", "Cloud-Native Gen AI Engineering", "Full-Stack Development", "Google AI Studio"] },
   { category: "Cloud & Dev Tools", items: ["Azure", "AWS", "MS Project", "Neo4j", "Apache Spark", "Oracle VM VirtualBox", "Linux (CentOS)", "LaTeX", "Markdown"] },
   { category: "Data Science Libraries", items: ["Pydantic", "LeetCode DSA", "Kaggle", "Jupyter", "ggplot2"] },
+  { category: "Finance & Accounting", items: ["Tally ERP / Tally Accounting Software", "Microsoft Access", "Advanced Microsoft Excel", "Accounts Receivable Management", "Credit Control & Collections", "Financial Reporting"] },
 ];
 
 const honors = [
