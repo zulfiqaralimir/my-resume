@@ -67,6 +67,27 @@ const featuredProjects = [
     stack: ["Python", "Playwright", "Firefox", "LangChain", "CrewAI", "LangGraph", "Anthropic Tool Use"],
   },
   {
+    title: "GWP1: Multi-Asset Deep Learning Return Prediction & Backtesting – MScFE 642, WorldQuant University (Group 15829)",
+    url: "",
+    bullets: [
+      "Built and compared MLP, LSTM, GRU, and CNN-GAF (Gramian Angular Field) architectures to predict 25-day forward returns across three ETFs (SPY, TLT, GLD) — systematically benchmarking which architecture best captures cross-asset temporal dynamics",
+      "Applied data-driven lag selection via grid search with TimeSeriesSplit cross-validation, identifying 3 trading days as the optimal look-back window and eliminating arbitrary hyperparameter choices from the pipeline",
+      "Engineered technical indicator features (RSI, momentum, volatility, z-score) and built a multi-output LSTM to model cross-asset return dependencies in a single network",
+      "Backtested long-short and proportional-sizing strategies over 2018–2022; best performer (GRU + proportional sizing) achieved +59.29% total return and 0.683 Sharpe ratio versus +21.48% / 0.457 Sharpe for an equal-weight buy-and-hold benchmark",
+    ],
+    stack: ["Python", "TensorFlow/Keras", "scikit-learn", "pyts", "TimeSeriesSplit", "CNN-GAF", "LSTM", "GRU"],
+  },
+  {
+    title: "GWP2: Information Leakage & Walk-Forward Validation in Financial ML – MScFE 642, WorldQuant University (Group 15829)",
+    url: "",
+    bullets: [
+      "Designed a controlled experiment isolating the effect of data leakage on backtest reliability — deliberately introduced leakage (full-sample scaling, global rolling features), then progressively corrected it via non-anchored walk-forward validation and an embargo-period method (López de Prado methodology)",
+      "Quantified leakage-driven backtest inflation of up to 506 percentage points in total return across validation designs, using LSTM and CNN-GAF models on SPY as the test bed",
+      "Demonstrated that validation protocol design — not architecture choice — is the primary determinant of whether a backtest result is trustworthy, with implications for how ML-based strategies should be evaluated before deployment",
+    ],
+    stack: ["Python", "TensorFlow/Keras", "scikit-learn", "pyts", "Walk-Forward Validation", "CNN-GAF", "LSTM", "López de Prado"],
+  },
+  {
     title: "BlackIronTimes – Quantitative Financial Intelligence Platform",
     url: "https://lackirontimes.com",
     bullets: [
