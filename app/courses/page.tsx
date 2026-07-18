@@ -32,6 +32,7 @@ const certGroups = [
       "Introduction to Generative AI Studio | Google Cloud Skills Boost (2024)",
       "Building Your Own Database Agent | DeepLearning.AI",
       "Multi AI Agent Systems with CrewAI | DeepLearning.AI (2024)",
+      "Fast LLM Inference with Cerebras | DeepLearning.AI (2026)",
       "Data Analysis with R Programming | Google (Jan 2022)",
       "Foundations: Data, Data, Everywhere | Google (Jan 2021)",
       "Share Data Through the Art of Visualization | Google (Jan 2022)",
