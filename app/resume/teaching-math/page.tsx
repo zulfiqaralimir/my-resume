@@ -74,6 +74,20 @@ const teachingExperience = [
   },
 ];
 
+const edTechProjects = [
+  {
+    title: "IGCSE MathLab – Web-Based Math Tutoring Platform",
+    org: "Independent",
+    period: "2026",
+    url: "igcse-mathlab.vercel.app",
+    bullets: [
+      "Built and maintain a web-based tutoring platform for Cambridge IGCSE (0580/0607) Mathematics students and teachers, covering interactive lessons, worksheets, and practice tests across all syllabus topics — algebra, geometry, statistics, probability, trigonometry, and more",
+      "Designed role-based accounts for students, teachers, and admins, with teacher-graded test results and a permissions system controlling which topics each student can access",
+      "Added a notification system so teachers can alert students about assignments, tests, and events — students are automatically notified the moment a test is graded or solutions are unlocked",
+    ],
+  },
+];
+
 const education = [
   {
     school: "Pakistan Institute of Development Economics (PIDE)",
@@ -234,6 +248,25 @@ async function downloadDocx() {
       }),
       new Paragraph({ children: [new TextRun({ text: job.title, size: 20, color: "b45309", bold: true })] }),
       ...job.bullets.map(
+        (b) =>
+          new Paragraph({
+            children: [new TextRun({ text: `• ${b}`, size: 18, color: "4b5563" })],
+            indent: { left: 360 },
+          })
+      ),
+    ]),
+
+    heading("EDUCATIONAL PLATFORMS BUILT"),
+    ...edTechProjects.flatMap((p) => [
+      new Paragraph({
+        children: [
+          new TextRun({ text: p.title, bold: true, size: 20 }),
+          new TextRun({ text: `   ${p.org} · ${p.period}`, size: 18, color: "9ca3af" }),
+        ],
+        spacing: { before: 120 },
+      }),
+      ...(p.url ? [new Paragraph({ children: [new TextRun({ text: p.url, size: 18, color: "b45309" })] })] : []),
+      ...p.bullets.map(
         (b) =>
           new Paragraph({
             children: [new TextRun({ text: `• ${b}`, size: 18, color: "4b5563" })],
@@ -426,6 +459,25 @@ export default function TeachingMathResumePage() {
                     {job.bullets.map((b, j) => <li key={j}>{b}</li>)}
                   </ul>
                 )}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── EDUCATIONAL PLATFORMS BUILT ── */}
+        <section className="mb-6">
+          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Educational Platforms Built</h2>
+          <div className="space-y-3">
+            {edTechProjects.map((p, i) => (
+              <div key={i} className="text-sm">
+                <div className="flex justify-between items-start">
+                  <span className="font-semibold text-gray-800">{p.title}</span>
+                  <span className="text-xs text-gray-400 text-right shrink-0 ml-2">{p.org} · {p.period}</span>
+                </div>
+                {p.url && <p className="text-amber-700 text-xs font-medium">{p.url}</p>}
+                <ul className="list-disc pl-4 mt-1 space-y-0.5 text-gray-600">
+                  {p.bullets.map((b, j) => <li key={j}>{b}</li>)}
+                </ul>
               </div>
             ))}
           </div>
