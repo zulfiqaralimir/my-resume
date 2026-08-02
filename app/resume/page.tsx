@@ -326,6 +326,20 @@ const featuredProjects = [
     stack: ["Python", "BeautifulSoup4", "gspread", "Plotly", "GitHub Actions", "Google Sheets API", "Looker Studio", "Pandas"],
   },
   {
+    title: "IGCSE MathLab – Web-Based Math Tutoring Platform for Cambridge IGCSE Students & Teachers",
+    url: "https://igcse-mathlab.vercel.app",
+    github: "",
+    bullets: [
+      "Built a full-stack web platform delivering interactive lessons, worksheets, and practice tests across all Cambridge IGCSE Mathematics (0580/0607) topics — algebra, geometry, statistics, probability, trigonometry, and more",
+      "Implemented role-based accounts (student/teacher/admin) with a granular permissions system controlling which topics each student can access, plus teacher-graded test results",
+      "Designed the data layer on Supabase (Postgres + Auth) with Row Level Security policies enforcing per-role, per-user data access at the database level",
+      "Built an in-app and Web Push notification system letting teachers send assignment, test, and event alerts to students individually or via broadcast, with a notification bell and full history in the student UI",
+      "Automated notification triggers so grading a test or unlocking solutions instantly notifies the affected student, removing manual teacher follow-up",
+      "Implemented real browser/OS push delivery (not just in-app) via a service worker and VAPID keys, backed by security-definer Postgres RPCs for safe cross-user fan-out — verified working in Chrome and Edge",
+    ],
+    stack: ["Next.js 16", "React 19", "TypeScript", "Supabase", "PostgreSQL", "Row Level Security", "Tailwind CSS", "Vercel", "Web Push API", "Service Workers"],
+  },
+  {
     title: "WellServe HR Payroll System – Black Iron Quantum AI",
     url: "",
     github: "",
