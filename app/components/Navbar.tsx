@@ -17,7 +17,7 @@ const links = [
 const cvOptions = [
   { href: "/resume", label: "Comprehensive Resume" },
   { href: "/resume/teaching-math", label: "Maths Teacher IGCSE & A' Levels" },
-  { href: "/resume-qia.pdf", label: "QIA / Gulf SWF Focus (PDF)", download: true },
+  { href: "/resume-qia.pdf", label: "Quantitative Research Analyst / Risk & Financial Modeling Analyst", download: true },
 ];
 
 export default function Navbar() {

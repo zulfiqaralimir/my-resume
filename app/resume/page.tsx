@@ -976,7 +976,7 @@ export default function ResumePage() {
             download
             className="text-sm bg-amber-50 border border-amber-200 text-amber-700 font-medium px-3 py-1 rounded-full hover:bg-amber-100 transition"
           >
-            QIA / Gulf SWF Focus (PDF)
+            Quantitative Research Analyst / Risk &amp; Financial Modeling Analyst (PDF)
           </a>
         </div>
 
