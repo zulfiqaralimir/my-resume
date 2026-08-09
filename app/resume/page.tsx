@@ -293,6 +293,19 @@ const certGroups = [
 
 const featuredProjects = [
   {
+    title: "AuditIQ AI – AI-Powered General Ledger Anomaly Detection for Audit Workflows",
+    url: "https://auditiq-mvp.vercel.app/",
+    github: "https://github.com/zulfiqaralimir/auditiq-mvp",
+    tagline: "**React · Python · Vercel · Groq LLM (Llama 3.3 70B)**",
+    bullets: [
+      "Built AuditIQ AI, an AI-powered general ledger anomaly detection tool for audit workflows — auditors upload a general ledger (CSV) and get automatic anomaly detection across all transactions",
+      "Combined statistical fraud-detection heuristics — Benford's Law first-digit deviation, z-score outlier detection on transaction amounts, and weekend-posting risk weighting — into a single risk score, scoring each transaction High/Medium/Low in an interactive dashboard and flag table",
+      "Built an \"Explain\" feature calling the Groq API (Llama 3.3 70B) to generate a plain-English explanation of why a specific transaction was flagged, making the output usable by non-technical auditors",
+      "Architected a single unified Vercel deployment serving both the React/Vite frontend and Python serverless backend from one domain",
+    ],
+    stack: ["React", "Vite", "Tailwind CSS", "Python", "Vercel Serverless Functions", "Vercel", "Groq API (Llama 3.3 70B)", "pandas", "numpy"],
+  },
+  {
     title: "FLUX – Real-Time Multi-Asset Market Dashboard",
     url: "https://flux-gold-tracker.vercel.app",
     github: "",
