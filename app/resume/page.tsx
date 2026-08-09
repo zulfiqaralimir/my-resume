@@ -971,13 +971,12 @@ export default function ResumePage() {
           >
             Teaching Mathematics (IGCSE &amp; A-Level)
           </Link>
-          <a
-            href="/resume-qia.pdf"
-            download
+          <Link
+            href="/resume/qia"
             className="text-sm bg-amber-50 border border-amber-200 text-amber-700 font-medium px-3 py-1 rounded-full hover:bg-amber-100 transition"
           >
-            Quantitative Research Analyst / Risk &amp; Financial Modeling Analyst (PDF)
-          </a>
+            Quantitative Research Analyst / Risk &amp; Financial Modeling Analyst
+          </Link>
         </div>
 
         <div className="flex gap-2">

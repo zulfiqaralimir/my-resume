@@ -17,7 +17,7 @@ const links = [
 const cvOptions = [
   { href: "/resume", label: "Comprehensive Resume" },
   { href: "/resume/teaching-math", label: "Maths Teacher IGCSE & A' Levels" },
-  { href: "/resume-qia.pdf", label: "Quantitative Research Analyst / Risk & Financial Modeling Analyst", download: true },
+  { href: "/resume/qia", label: "Quantitative Research Analyst / Risk & Financial Modeling Analyst" },
 ];
 
 export default function Navbar() {
@@ -69,28 +69,16 @@ export default function Navbar() {
 
             {cvOpen && (
               <div className="absolute right-0 mt-1 w-64 bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden z-50">
-                {cvOptions.map((cv) =>
-                  cv.download ? (
-                    <a
-                      key={cv.href}
-                      href={cv.href}
-                      download
-                      className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-amber-50 hover:text-amber-700 transition-colors"
-                      onClick={() => setCvOpen(false)}
-                    >
-                      {cv.label}
-                    </a>
-                  ) : (
-                    <Link
-                      key={cv.href}
-                      href={cv.href}
-                      className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-amber-50 hover:text-amber-700 transition-colors"
-                      onClick={() => setCvOpen(false)}
-                    >
-                      {cv.label}
-                    </Link>
-                  )
-                )}
+                {cvOptions.map((cv) => (
+                  <Link
+                    key={cv.href}
+                    href={cv.href}
+                    className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-amber-50 hover:text-amber-700 transition-colors"
+                    onClick={() => setCvOpen(false)}
+                  >
+                    {cv.label}
+                  </Link>
+                ))}
               </div>
             )}
           </div>
@@ -128,28 +116,16 @@ export default function Navbar() {
           ))}
           <li className="pt-1 border-t border-gray-100">
             <p className="text-xs text-gray-400 mb-1.5">Download CV</p>
-            {cvOptions.map((cv) =>
-              cv.download ? (
-                <a
-                  key={cv.href}
-                  href={cv.href}
-                  download
-                  className="block py-1 text-amber-600 font-semibold hover:text-amber-700 transition-colors"
-                  onClick={() => setOpen(false)}
-                >
-                  {cv.label}
-                </a>
-              ) : (
-                <Link
-                  key={cv.href}
-                  href={cv.href}
-                  className="block py-1 text-amber-600 font-semibold hover:text-amber-700 transition-colors"
-                  onClick={() => setOpen(false)}
-                >
-                  {cv.label}
-                </Link>
-              )
-            )}
+            {cvOptions.map((cv) => (
+              <Link
+                key={cv.href}
+                href={cv.href}
+                className="block py-1 text-amber-600 font-semibold hover:text-amber-700 transition-colors"
+                onClick={() => setOpen(false)}
+              >
+                {cv.label}
+              </Link>
+            ))}
           </li>
         </ul>
       )}
