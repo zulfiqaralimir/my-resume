@@ -4,6 +4,18 @@ import { motion } from "framer-motion";
 
 const featuredProjects = [
   {
+    title: "FLUX – Real-Time Multi-Asset Market Dashboard",
+    url: "https://flux-gold-tracker.vercel.app",
+    bullets: [
+      "Built and deployed FLUX, a live market-monitoring web app tracking equities, indices, crypto, and commodities via animated gauge dashboards displaying entry/exit market-timing signals derived from ZULFIQODE, a proprietary signal algorithm developed under Black Iron Quantum AI, my own quant research initiative",
+      "Architected a two-tier access model — a public gauge page open to any visitor plus an authentication-gated deeper analysis dashboard for private use — with a config-driven asset list, so new assets can be added without structural changes",
+      "Built the frontend in vanilla HTML/CSS/JavaScript with Chart.js for data visualization, and engineered a custom spring-damper physics simulation to drive gauge needle animation with natural accelerate/decelerate motion in place of linear CSS transitions",
+      "Engineered Node.js serverless functions on Vercel, consolidating multiple per-ticker API endpoints into a single parameterized function to operate within Vercel's Hobby-plan function limits, and integrated external market data and news APIs with server-side API key handling to eliminate client-side key exposure",
+      "Deployed on Vercel with CI-style auto-deploy from git, plus custom Open Graph/Twitter meta tags and a thumbnail image for link-preview sharing",
+    ],
+    stack: ["JavaScript", "Chart.js", "Node.js", "Vercel Serverless Functions", "Vercel", "HTML/CSS"],
+  },
+  {
     title: "Gulf SWF SEC Filings Agent – AI-Powered Regulatory Intelligence",
     url: "https://frontend-blue-eta-10.vercel.app",
     github: "https://github.com/zulfiqaralimir/gulf-swf-agent",
