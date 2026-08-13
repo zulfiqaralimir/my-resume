@@ -12,6 +12,7 @@ const links = [
   { href: "/courses", label: "Certifications" },
   { href: "/honors", label: "Honors" },
   { href: "/publications", label: "Publications" },
+  { href: "/documents", label: "Documents" },
 ];
 
 const cvOptions = [

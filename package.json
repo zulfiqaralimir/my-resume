@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate:docx": "node scripts/generate-docx/biqai-training-response.js"
   },
   "dependencies": {
     "docx": "^9.6.1",

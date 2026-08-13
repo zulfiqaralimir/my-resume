@@ -1,0 +1,151 @@
+{
+  "id": "biqai-training-response",
+  "meta": {
+    "docTitle": "AI, Data Science & Functional Training Response",
+    "subtitle": "AI, Data Science & Functional (Training / Certifications / Executive Programs)",
+    "byline": "Submitted by Black Iron Quantum AI (Private) Limited, Islamabad, Pakistan",
+    "headerText": "Black Iron Quantum AI (Private) Limited — Supplier Response",
+    "outputFileName": "BIQAI-Training-Certification-Response.docx"
+  },
+  "sections": [
+    {
+      "heading": "1. Scope of Work",
+      "subsections": [
+        {
+          "heading": "1.1 Supplier Skillset and Experience",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Black Iron Quantum AI (Private) Limited possesses direct, verifiable skillset and delivery experience in providing AI, Data Science, and technical/functional training — spanning digital products, technical software and tools, coding languages, AI, big data, machine learning, data analytics, data science, data mining, cybersecurity, and data governance — to audiences at senior leadership, middle management, and individual-contributor levels. This experience is anchored in the credentials of the firm's Founder and Chairman, Zulfiqar Ali Mir (Ph.D. Econometrics), summarised below."
+            },
+            {
+              "type": "heading3",
+              "text": "Table: Lead Trainer Profile"
+            },
+            {
+              "type": "table",
+              "columns": ["Attribute", "Detail"],
+              "rows": [
+                ["Name", "Zulfiqar Ali Mir"],
+                ["Qualification", "Ph.D., Econometrics; M.Phil., Economics & Finance; MBA, HRM; Management Accountant (ICMAP)."],
+                ["Current Roles", "Founder & Chairman, Black Iron Quantum AI (Private) Limited; Research Analyst / LLM Trainer, USA — clients include Apple, Meta, and Anthropic; Research Fellow, Social Policy Resource Center (SPRC)"],
+                ["Recognitions", "National AI FinTech Winner 2025 (National Technology Fund / ADB); HEC–NCEAC Generative AI Instructor, Mentor & Judge (Cohort 2, 2026); Section Leader - Python for Stanford University USA."]
+              ]
+            },
+            {
+              "type": "heading3",
+              "text": "Evidence of Delivery — Corporate, Institutional & Executive Training"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Turing (Palo Alto, California) — RLHF and Supervised Fine-Tuning (SFT) of frontier AI models in advanced mathematics; structured AI-output evaluation and model-behaviour shaping for enterprise clients (Sept 2024–Present).",
+                "Higher Education Commission (HEC) Pakistan & NCEAC — Instructor, Mentor and Judge, Generative AI Training Cohort 2 (Jan–Feb 2026).",
+                "Pakistan Engineering Council (PEC) — Mentor and Instructor, Generative AI Training (Dec 2024–Jan 2025), engineering-professional audience.",
+                "Education Group, Karachi — Trainer, Advanced RAG for corporate/technical learners: naive vs. production-grade RAG, hybrid search, query expansion, HyDE, reranking, RAGAS evaluation, and LangSmith observability (2026).",
+                "Stanford University (Remote) — Section Leader, Python Programming (May–June 2025).",
+                "COMSATS University — Instructor, Python for Mathematicians (Oct 2024).",
+                "Pak Angels (San Jose) — Mentor and Judge, Essential Generative AI Training (Aug–Sept 2024).",
+                "Virtual Platform (San Jose) — Teacher/Trainer across Python, Machine Learning and Data Analysis (June 2024–Present); recorded modules include Neural Networks from Scratch, ML Privacy Implications, and Advanced Data Analysis with Python.",
+                "McKinsey & Company — McKinsey Forward Program (Dec 2024): problem-solving, leadership and digital-transformation skills applicable to senior-leadership curriculum design.",
+                "Governance and compliance grounding: Research Fellow at SPRC applying econometric methods to public-finance and governance evaluation.",
+                "Direct hands-on delivery of Accounting ERP, GL/AR/AP, and audit-anomaly-detection systems (AuditIQ AI) that inform data-governance and controls-focused training content."
+              ]
+            },
+            {
+              "type": "heading3",
+              "text": "Table: Technical Breadth Underpinning Curriculum Design"
+            },
+            {
+              "type": "table",
+              "columns": ["Domain", "Demonstrated Coverage"],
+              "rows": [
+                ["Programming & Coding Languages", "Python (Advanced), R, TypeScript, JavaScript, SQL, MATLAB"],
+                ["AI / Machine Learning / Deep Learning", "LangChain, LangGraph, CrewAI, OpenAI Agents SDK, PyTorch (fine-tuning), NLP, RLHF/SFT, RAG architectures"],
+                ["Big Data & Data Science", "Apache Spark, Neo4j, pgvector, Jupyter, pandas, ggplot2, applied data-science case studies"],
+                ["Data Analytics & Visualisation", "Power BI, Tableau, Looker Studio, EViews, STATA, SPSS"],
+                ["Cloud & MLOps", "Azure (AI Fundamentals, ML, Computer Vision), AWS, Google Cloud (ADK, Generative AI Studio), MLOps practices"],
+                ["Cybersecurity Awareness", "Cybersecurity & Cybersecurity Awareness training; secure, auditable agent-tooling design (zam-webtool)"],
+                ["Data Governance & Controls", "Row-Level Security data architectures, audit-log/approval-workflow systems, GL anomaly detection (Benford's Law, z-score outlier detection)"],
+                ["Product & Project Management", "SaaS product architecture and delivery (multiple platforms shipped end-to-end); MS Project"]
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "1.2 List of Training Programs / Certifications",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The following curriculum is proposed across three audience tiers — Senior Leadership, Middle Managers, and Individual Contributors — covering Technical/Digital Skills and Governance, per the scope of work. Formats can be delivered as instructor-led workshops, cohort-based programs, or blended executive sessions, and can be mapped to recognised third-party certification pathways where indicated."
+            },
+            {
+              "type": "heading3",
+              "text": "Table A: Senior Leadership Programs"
+            },
+            {
+              "type": "table",
+              "columns": ["Program", "Focus Areas", "Suggested Format"],
+              "rows": [
+                ["AI & Generative AI Strategy for Executives", "Enterprise AI adoption roadmaps, build-vs-buy, ROI framing, LLM capability landscape", "1–2-day executive workshop"],
+                ["AI Governance, Risk & Responsible AI", "AI risk frameworks, model governance, regulatory landscape, ethics-by-design", "1 day seminar"],
+                ["Data-Driven Decision Making", "Interpreting dashboards/BI, KPI design, data literacy for non-technical leaders", "1 day workshop"],
+                ["Digital Transformation Leadership", "Change management, digital operating models, cross-functional AI enablement", "2-day program"]
+              ]
+            },
+            {
+              "type": "heading3",
+              "text": "Table B: Middle Management Programs"
+            },
+            {
+              "type": "table",
+              "columns": ["Program", "Focus Areas", "Suggested Format"],
+              "rows": [
+                ["Applied Data Analytics for Managers", "Power BI / Tableau, KPI dashboards, data storytelling", "3–5-day cohort"],
+                ["AI-Enabled Product & Project Management", "Agile delivery with AI tooling, prompt-based workflow design, vendor evaluation", "3-day workshop"],
+                ["Data Governance & Compliance Essentials", "Data quality, access controls, audit trails, policy design", "2-day workshop"],
+                ["Cybersecurity Awareness for Managers", "Threat landscape, secure data handling, incident escalation", "1 day workshop"],
+                ["FP&A and Financial Reporting Automation", "Dashboarding, reconciliation automation, forecasting basics for managers", "2-day workshop"]
+              ]
+            },
+            {
+              "type": "heading3",
+              "text": "Table C: Individual Contributor / Technical Programs"
+            },
+            {
+              "type": "table",
+              "columns": ["Program", "Focus Areas", "Suggested Format"],
+              "rows": [
+                ["Python for Data Science & AI", "Core Python, pandas, NumPy, data wrangling, visualisation", "4–6-week cohort"],
+                ["Machine Learning & Deep Learning Foundations", "Supervised/unsupervised ML, neural networks, PyTorch fundamentals", "6–8-week cohort"],
+                ["Generative AI & LLM Engineering", "Prompt engineering, RAG (naive to production-grade), fine-tuning, evaluation (RAGAS)", "4-week cohort"],
+                ["Agentic AI Systems", "LangChain, LangGraph, CrewAI, OpenAI Agents SDK, multi-agent orchestration", "4-week cohort"],
+                ["SQL, Databases & Big Data Tooling", "SQL, relational design, Apache Spark, graph databases (Neo4j)", "3–4-week cohort"],
+                ["Data Analysis & Visualisation", "Power BI, Tableau, ggplot2, statistical analysis (SPSS/EViews/STATA)", "3-week cohort"],
+                ["Cloud & MLOps Fundamentals", "Azure/AWS/Google Cloud AI services, deployment pipelines, MLOps basics", "3-week cohort"],
+                ["Cybersecurity Fundamentals", "Secure coding practices, data protection, cyber hygiene", "1–2-week module"],
+                ["Data Structures & Algorithms / Coding Proficiency", "DSA in Python, problem solving, coding interview readiness", "4–6-week cohort"]
+              ]
+            },
+            {
+              "type": "heading3",
+              "text": "D. Third-Party Certification Pathways (Facilitated / Proctored)"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Microsoft Azure AI Fundamentals; Azure AI Services (Machine Learning, Computer Vision)",
+                "Google Cloud Generative AI Studio / Google Cloud Skills Boost tracks",
+                "DeepLearning.AI specialisations (Generative AI for Everyone, Multi-Agent Systems, LLM Inference)",
+                "IBM Data Science / Big Data 101 / SQL & Relational Databases",
+                "Neo4j Graph Academy — Graph Data Fundamentals",
+                "Coursera / University-partnered programs (e.g., stock/financial-index and quantitative modelling tracks)"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "note": "The programs above can be customised in duration, sequencing, and depth to the client's specific competency framework and delivered on-site, remotely, or in blended cohort format."
+}
