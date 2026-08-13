@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { downloadableDocuments } from "../documents/documentsConfig";
 
 const links = [
   { href: "/", label: "Home" },
@@ -80,6 +81,24 @@ export default function Navbar() {
                     {cv.label}
                   </Link>
                 ))}
+                {downloadableDocuments.length > 0 && (
+                  <>
+                    <p className="px-4 pt-2.5 pb-1 text-xs font-semibold text-gray-400 border-t border-gray-100">
+                      Documents
+                    </p>
+                    {downloadableDocuments.map((doc) => (
+                      <a
+                        key={doc.id}
+                        href={doc.fileUrl}
+                        download
+                        className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-amber-50 hover:text-amber-700 transition-colors"
+                        onClick={() => setCvOpen(false)}
+                      >
+                        {doc.title}
+                      </a>
+                    ))}
+                  </>
+                )}
               </div>
             )}
           </div>
@@ -127,6 +146,22 @@ export default function Navbar() {
                 {cv.label}
               </Link>
             ))}
+            {downloadableDocuments.length > 0 && (
+              <>
+                <p className="text-xs text-gray-400 mb-1.5 mt-2">Documents</p>
+                {downloadableDocuments.map((doc) => (
+                  <a
+                    key={doc.id}
+                    href={doc.fileUrl}
+                    download
+                    className="block py-1 text-amber-600 font-semibold hover:text-amber-700 transition-colors"
+                    onClick={() => setOpen(false)}
+                  >
+                    {doc.title}
+                  </a>
+                ))}
+              </>
+            )}
           </li>
         </ul>
       )}
