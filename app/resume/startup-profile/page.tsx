@@ -55,7 +55,7 @@ const bio =
   "Zulfiqar Ali Mir is an econometrician, management accountant and AI engineer with 25+ years in finance, markets and research. His expertise spans data science, machine and deep learning, and computational finance. As Founder and Chairman of Black Iron Quantum AI, a startup incubated at the National Incubation Center (NIC) Islamabad, he builds AI-powered governance, risk, compliance and audit solutions, including AuditIQ AI for ledger anomaly detection. He serves as Research Analyst, LLM Trainer and Advanced Mathematics Subject Expert at Turing Inc., USA, and as a Researcher at SPRC, conducting policy-oriented research. He is the National AI FinTech Winner 2025.";
 
 async function downloadPDF(element: HTMLElement) {
-  const html2canvas = (await import("html2canvas")).default;
+  const html2canvas = (await import("html2canvas-pro")).default;
   const { jsPDF } = await import("jspdf");
 
   const canvas = await html2canvas(element, {
@@ -86,7 +86,9 @@ async function downloadPDF(element: HTMLElement) {
 }
 
 async function downloadDocx() {
-  const { Document, Paragraph, TextRun, Packer, AlignmentType, BorderStyle } = await import("docx");
+  const { Document, Paragraph, TextRun, Packer, AlignmentType, BorderStyle, ImageRun } = await import("docx");
+
+  const photoData = await fetch("/profile-startup.jpg").then((r) => r.arrayBuffer());
 
   const heading = (text: string) =>
     new Paragraph({
@@ -96,6 +98,17 @@ async function downloadDocx() {
     });
 
   const children = [
+    new Paragraph({
+      children: [
+        new ImageRun({
+          type: "jpg",
+          data: photoData,
+          transformation: { width: 100, height: 100 },
+        }),
+      ],
+      alignment: AlignmentType.CENTER,
+      spacing: { after: 120 },
+    }),
     new Paragraph({
       children: [new TextRun({ text: "Zulfiqar Ali Mir", bold: true, size: 36, color: "92400e" })],
       alignment: AlignmentType.CENTER,
@@ -259,11 +272,11 @@ export default function StartupProfilePage() {
         {/* ── HEADER ── */}
         <div className="flex items-center gap-6 mb-6 pb-5 border-b-2 border-amber-600">
           <Image
-            src="/profile.jpg"
+            src="/profile-startup.jpg"
             alt="Zulfiqar Ali Mir"
             width={90}
             height={90}
-            className="rounded-full border-2 border-amber-600 shrink-0"
+            className="rounded-full border-2 border-amber-600 shrink-0 object-cover"
           />
           <div>
             <h1 className="text-3xl font-extrabold text-amber-700 tracking-tight">Zulfiqar Ali Mir</h1>
