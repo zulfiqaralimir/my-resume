@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 const badges = [
   "Founder & Chairman, Black Iron Quantum AI",
@@ -54,35 +54,114 @@ const recognition = [
 const bio =
   "Zulfiqar Ali Mir is an econometrician, management accountant and AI engineer with 25+ years in finance, markets and research. His expertise spans data science, machine and deep learning, and computational finance. As Founder and Chairman of Black Iron Quantum AI, a startup incubated at the National Incubation Center (NIC) Islamabad, he builds AI-powered governance, risk, compliance and audit solutions, including AuditIQ AI for ledger anomaly detection. He serves as Research Analyst, LLM Trainer and Advanced Mathematics Subject Expert at Turing Inc., USA, and as a Researcher at SPRC, conducting policy-oriented research. He is the National AI FinTech Winner 2025.";
 
-async function downloadPDF(element: HTMLElement) {
-  const html2canvas = (await import("html2canvas-pro")).default;
+async function downloadPDF() {
   const { jsPDF } = await import("jspdf");
 
-  const canvas = await html2canvas(element, {
-    scale: 2,
-    useCORS: true,
-    logging: false,
-    backgroundColor: "#ffffff",
+  const doc = new jsPDF({ orientation: "p", unit: "mm", format: "a4" });
+  const W = doc.internal.pageSize.getWidth();
+  const H = doc.internal.pageSize.getHeight();
+  const M = 14;
+  const CW = W - 2 * M;
+  let y = M;
+
+  const AMBER: [number, number, number] = [180, 83, 9];
+  const G800: [number, number, number] = [31, 41, 55];
+  const G600: [number, number, number] = [75, 85, 99];
+  const G500: [number, number, number] = [107, 114, 128];
+
+  const br = (min = 6) => {
+    if (y + min > H - M) { doc.addPage(); y = M; }
+  };
+
+  const style = (size: number, bold: boolean, color: [number, number, number]) => {
+    doc.setFontSize(size);
+    doc.setFont("helvetica", bold ? "bold" : "normal");
+    doc.setTextColor(...color);
+  };
+
+  const wrappedLines = (text: string, maxW: number): string[] =>
+    doc.splitTextToSize(text, maxW) as string[];
+
+  const writeWrapped = (text: string, x: number, maxW: number, lh: number) => {
+    const lines = wrappedLines(text, maxW);
+    lines.forEach((line: string) => { br(lh); doc.text(line, x, y); y += lh; });
+  };
+
+  const section = (title: string) => {
+    br(12); y += 3;
+    style(12, true, AMBER);
+    doc.text(title, M, y); y += 2;
+    doc.setDrawColor(209, 213, 219);
+    doc.setLineWidth(0.3);
+    doc.line(M, y, W - M, y); y += 5;
+  };
+
+  // ── HEADER ──
+  try {
+    const photoData = await fetch("/profile-startup.jpg").then((r) => r.blob()).then((b) => new Promise<string>((resolve) => {
+      const reader = new FileReader();
+      reader.onloadend = () => resolve(reader.result as string);
+      reader.readAsDataURL(b);
+    }));
+    doc.addImage(photoData, "JPEG", M, y, 24, 24);
+  } catch {
+    // photo optional — continue without it if it fails to load
+  }
+  const textX = M + 30;
+  const textW = CW - 30;
+  let hy = y + 4;
+  style(16, true, AMBER);
+  doc.text("Zulfiqar Ali Mir", textX, hy); hy += 5.5;
+  style(8.5, false, G600);
+  wrappedLines(
+    "Founder & Chairman, Black Iron Quantum AI (Pvt.) Ltd. — Incubated at National Incubation Center (NIC), Islamabad",
+    textW
+  ).forEach((line) => { doc.text(line, textX, hy); hy += 3.8; });
+  hy += 0.8;
+  style(8.5, true, AMBER);
+  doc.text("Quantitative Researcher · AI Engineer · Financial Strategist", textX, hy); hy += 4.5;
+  style(7.5, false, G500);
+  doc.text("manager.equity.finance@gmail.com | +92 322 5150501", textX, hy); hy += 3.5;
+  doc.text("linkedin.com/in/zulfiqar-ali-mir | github.com/zulfiqaralimir", textX, hy); hy += 3.5;
+
+  y = Math.max(hy, y + 24) + 4;
+  style(7.5, false, AMBER);
+  writeWrapped(badges.join(" · "), M, CW, 3.8);
+
+  // ── SHORT BIO ──
+  section("SHORT BIO");
+  style(9, false, G600);
+  writeWrapped(bio, M, CW, 4.2);
+
+  // ── EDUCATION ──
+  section("EDUCATION");
+  education.forEach((e) => { style(9, false, G600); writeWrapped(`• ${e}`, M + 3, CW - 3, 4.2); });
+
+  // ── CORE EXPERTISE ──
+  section("CORE EXPERTISE");
+  coreExpertise.forEach((e) => { style(9, false, G600); writeWrapped(`• ${e}`, M + 3, CW - 3, 4.2); });
+
+  // ── EXPERIENCE ──
+  section("EXPERIENCE");
+  experience.forEach((e) => { style(9, false, G600); writeWrapped(`• ${e}`, M + 3, CW - 3, 4.2); });
+
+  // ── KEY GRC & AI PROJECTS ──
+  section("KEY GRC & AI PROJECTS");
+  grcProjects.forEach((p) => {
+    br(6);
+    style(9, true, G800);
+    const label = `${p.title}: `;
+    const lw = doc.getTextWidth(label);
+    doc.text(label, M, y);
+    style(9, false, G600);
+    writeWrapped(p.desc, M + lw, CW - lw, 4.2);
   });
 
-  const pdf = new jsPDF({ orientation: "p", unit: "mm", format: "a4" });
-  const pdfWidth = pdf.internal.pageSize.getWidth();
-  const pdfHeight = pdf.internal.pageSize.getHeight();
-  const scaledHeight = (canvas.height * pdfWidth) / canvas.width;
-  const imgData = canvas.toDataURL("image/png");
+  // ── RECOGNITION ──
+  section("RECOGNITION");
+  recognition.forEach((r) => { style(9, false, G600); writeWrapped(`• ${r}`, M + 3, CW - 3, 4.2); });
 
-  pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, scaledHeight);
-  let heightLeft = scaledHeight - pdfHeight;
-  let offset = -pdfHeight;
-
-  while (heightLeft > 0) {
-    pdf.addPage();
-    pdf.addImage(imgData, "PNG", 0, offset, pdfWidth, scaledHeight);
-    offset -= pdfHeight;
-    heightLeft -= pdfHeight;
-  }
-
-  pdf.save("Zulfiqar-Ali-Mir-Startup-Profile.pdf");
+  doc.save("Zulfiqar-Ali-Mir-Startup-Profile.pdf");
 }
 
 async function downloadDocx() {
@@ -211,14 +290,12 @@ async function downloadDocx() {
 }
 
 export default function StartupProfilePage() {
-  const containerRef = useRef<HTMLDivElement>(null);
   const [generating, setGenerating] = useState<"pdf" | "docx" | null>(null);
 
   const handlePDF = async () => {
-    if (!containerRef.current) return;
     setGenerating("pdf");
     try {
-      await downloadPDF(containerRef.current);
+      await downloadPDF();
     } finally {
       setGenerating(null);
     }
@@ -266,8 +343,7 @@ export default function StartupProfilePage() {
         </div>
       </div>
 
-      {/* Resume content captured for PDF */}
-      <div ref={containerRef}>
+      <div>
 
         {/* ── HEADER ── */}
         <div className="flex items-center gap-6 mb-6 pb-5 border-b-2 border-amber-600">
