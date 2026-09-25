@@ -966,6 +966,12 @@ export default function ResumePage() {
         <div className="flex flex-wrap gap-2">
           <span className="text-sm text-gray-500 self-center">Specialised CVs:</span>
           <Link
+            href="/resume/startup-profile"
+            className="text-sm bg-amber-50 border border-amber-200 text-amber-700 font-medium px-3 py-1 rounded-full hover:bg-amber-100 transition"
+          >
+            Startup Profile — Black Iron Quantum AI
+          </Link>
+          <Link
             href="/resume/teaching-math"
             className="text-sm bg-amber-50 border border-amber-200 text-amber-700 font-medium px-3 py-1 rounded-full hover:bg-amber-100 transition"
           >

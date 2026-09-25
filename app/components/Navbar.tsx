@@ -18,6 +18,7 @@ const links = [
 
 const cvOptions = [
   { href: "/resume", label: "Comprehensive Resume" },
+  { href: "/resume/startup-profile", label: "Startup Profile — Black Iron Quantum AI" },
   { href: "/resume/teaching-math", label: "Maths Teacher IGCSE & A' Levels" },
   { href: "/resume/qia", label: "Quantitative Research Analyst / Risk & Financial Modeling Analyst" },
 ];
