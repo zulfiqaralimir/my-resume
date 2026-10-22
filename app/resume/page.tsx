@@ -1240,6 +1240,17 @@ export default function ResumePage() {
           </div>
         </section>
 
+        {/* ── WORKING PAPERS ── */}
+        <section className="mb-6">
+          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Working Papers</h2>
+          <p className="text-sm text-gray-800">
+            <strong>Mir, Z. A.</strong>, Naqvi, H. A., &amp; Abbas, A. (2026). <em>Hormuz Energy Shock and Pakistan: A CGE Analysis.</em> SSRN Working Paper No. 7653420.{" "}
+            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7653420" className="text-amber-700 underline break-all">
+              https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7653420
+            </a>
+          </p>
+        </section>
+
         {/* ── CERTIFICATIONS ── */}
         <section className="mb-6">
           <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Certifications &amp; Training</h2>
