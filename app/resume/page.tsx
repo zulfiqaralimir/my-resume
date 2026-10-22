@@ -583,6 +583,33 @@ async function downloadPDF() {
     y += 1.5;
   });
 
+  // ── RESEARCH & PUBLICATIONS ──
+  section("RESEARCH & PUBLICATIONS");
+  // entry with bold lead ("Mir, Z. A.") followed by regular text, wrapped
+  const boldLeadEntry = (lead: string, rest: string) => {
+    style(8.5, true, G800);
+    const leadW = doc.getTextWidth(lead);
+    style(8.5, false, G800);
+    const firstLine = wrappedLines(rest, CW - leadW)[0];
+    br(4);
+    style(8.5, true, G800); doc.text(lead, M, y);
+    style(8.5, false, G800); doc.text(firstLine, M + leadW, y); y += 4;
+    const remainder = rest.slice(firstLine.length).trim();
+    if (remainder) writeWrapped(remainder, M, CW, 4);
+    y += 1.5;
+  };
+  style(9, true, G800); doc.text("Working Papers (SSRN)", M, y); y += 4;
+  boldLeadEntry("Mir, Z. A.", ", Naqvi, H. A., & Abbas, A. (2026). Hormuz energy shock and Pakistan: A CGE analysis. SSRN Working Paper. https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7653420");
+  y += 1.5;
+  br(8); style(9, true, G800); doc.text("Conference Papers", M, y); y += 4;
+  boldLeadEntry("Mir, Z. A.", " (2026). Algorithmic inclusion: AI-driven targeting and adaptive delivery for Pakistan's social protection system. Accepted for presentation at the SPRC 6th Annual Conference, \"Need of New Social Protection Paradigms,\" Social Policy Resource Centre, Islamabad, 30 December 2026.");
+  y += 1.5;
+  br(8); style(9, true, G800); doc.text("Research Profiles", M, y); y += 4;
+  style(8.5, false, G800);
+  writeWrapped("Google Scholar: https://scholar.google.com/citations?user=esWyOI4AAAAJ", M, CW, 4);
+  writeWrapped("arXiv: zambiz01", M, CW, 4);
+  y += 2;
+
   // ── SKILLS ──
   section("TECHNICAL SKILLS");
   skillGroups.forEach(g => {
@@ -692,23 +719,6 @@ async function downloadPDF() {
   });
   y += 2;
 
-  // ── WORKING PAPERS ──
-  section("WORKING PAPERS");
-  {
-    const lead = "Mir, Z. A.";
-    const rest = ", Naqvi, H. A., & Abbas, A. (2026). Hormuz Energy Shock and Pakistan: A CGE Analysis. SSRN Working Paper No. 7653420. https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7653420";
-    style(8.5, true, G800);
-    const leadW = doc.getTextWidth(lead);
-    style(8.5, false, G800);
-    const firstLine = wrappedLines(rest, CW - leadW)[0];
-    br(4);
-    style(8.5, true, G800); doc.text(lead, M, y);
-    style(8.5, false, G800); doc.text(firstLine, M + leadW, y); y += 4;
-    const remainder = rest.slice(firstLine.length).trim();
-    if (remainder) writeWrapped(remainder, M, CW, 4);
-    y += 2;
-  }
-
   // ── CERTIFICATIONS ──
   section("CERTIFICATIONS & TRAINING");
   certGroups.forEach(g => {
@@ -801,6 +811,29 @@ async function downloadDocx() {
         ? [new Paragraph({ children: [new TextRun({ text: `Thesis: ${e.thesis}`, size: 18, color: "6b7280", italics: true })] })]
         : []),
     ]),
+
+    heading("RESEARCH & PUBLICATIONS"),
+    new Paragraph({ children: [new TextRun({ text: "Working Papers (SSRN)", bold: true, size: 20 })], spacing: { before: 80 } }),
+    new Paragraph({
+      children: [
+        new TextRun({ text: "Mir, Z. A.", bold: true, size: 18 }),
+        new TextRun({ text: ", Naqvi, H. A., & Abbas, A. (2026). Hormuz energy shock and Pakistan: A CGE analysis. ", size: 18 }),
+        new TextRun({ text: "SSRN Working Paper", italics: true, size: 18 }),
+        new TextRun({ text: ". https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7653420", size: 18 }),
+      ],
+      spacing: { before: 60 },
+    }),
+    new Paragraph({ children: [new TextRun({ text: "Conference Papers", bold: true, size: 20 })], spacing: { before: 100 } }),
+    new Paragraph({
+      children: [
+        new TextRun({ text: "Mir, Z. A.", bold: true, size: 18 }),
+        new TextRun({ text: " (2026). Algorithmic inclusion: AI-driven targeting and adaptive delivery for Pakistan's social protection system. Accepted for presentation at the SPRC 6th Annual Conference, “Need of New Social Protection Paradigms,” Social Policy Resource Centre, Islamabad, 30 December 2026.", size: 18 }),
+      ],
+      spacing: { before: 60 },
+    }),
+    new Paragraph({ children: [new TextRun({ text: "Research Profiles", bold: true, size: 20 })], spacing: { before: 100 } }),
+    new Paragraph({ children: [new TextRun({ text: "Google Scholar: https://scholar.google.com/citations?user=esWyOI4AAAAJ", size: 18 })], spacing: { before: 60 } }),
+    new Paragraph({ children: [new TextRun({ text: "arXiv: zambiz01", size: 18 })], spacing: { before: 60 } }),
 
     heading("TECHNICAL SKILLS"),
     ...skillGroups.map(
@@ -931,17 +964,6 @@ async function downloadDocx() {
           spacing: { before: 60 },
         })
     ),
-
-    heading("WORKING PAPERS"),
-    new Paragraph({
-      children: [
-        new TextRun({ text: "Mir, Z. A.", bold: true, size: 18 }),
-        new TextRun({ text: ", Naqvi, H. A., & Abbas, A. (2026). ", size: 18 }),
-        new TextRun({ text: "Hormuz Energy Shock and Pakistan: A CGE Analysis.", italics: true, size: 18 }),
-        new TextRun({ text: " SSRN Working Paper No. 7653420. https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7653420", size: 18 }),
-      ],
-      spacing: { before: 60 },
-    }),
 
     heading("CERTIFICATIONS & TRAINING"),
     ...certGroups.flatMap((g) => [
@@ -1127,6 +1149,32 @@ export default function ResumePage() {
           </div>
         </section>
 
+        {/* ── RESEARCH & PUBLICATIONS ── */}
+        <section className="mb-6">
+          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Research &amp; Publications</h2>
+          <p className="text-sm font-semibold text-gray-700 mb-1">Working Papers (SSRN)</p>
+          <p className="text-sm text-gray-800 mb-3">
+            <strong>Mir, Z. A.</strong>, Naqvi, H. A., &amp; Abbas, A. (2026). Hormuz energy shock and Pakistan: A CGE analysis. <em>SSRN Working Paper</em>.{" "}
+            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7653420" className="text-amber-700 underline break-all">
+              https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7653420
+            </a>
+          </p>
+          <p className="text-sm font-semibold text-gray-700 mb-1">Conference Papers</p>
+          <p className="text-sm text-gray-800 mb-3">
+            <strong>Mir, Z. A.</strong> (2026). Algorithmic inclusion: AI-driven targeting and adaptive delivery for Pakistan&apos;s social protection system. Accepted for presentation at the SPRC 6th Annual Conference, &ldquo;Need of New Social Protection Paradigms,&rdquo; Social Policy Resource Centre, Islamabad, 30 December 2026.
+          </p>
+          <p className="text-sm font-semibold text-gray-700 mb-1">Research Profiles</p>
+          <ul className="text-sm text-gray-800 space-y-0.5">
+            <li>
+              Google Scholar:{" "}
+              <a href="https://scholar.google.com/citations?user=esWyOI4AAAAJ" className="text-amber-700 underline break-all">
+                https://scholar.google.com/citations?user=esWyOI4AAAAJ
+              </a>
+            </li>
+            <li>arXiv: zambiz01</li>
+          </ul>
+        </section>
+
         {/* ── SKILLS ── */}
         <section className="mb-6">
           <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Technical Skills</h2>
@@ -1266,17 +1314,6 @@ export default function ResumePage() {
               </div>
             ))}
           </div>
-        </section>
-
-        {/* ── WORKING PAPERS ── */}
-        <section className="mb-6">
-          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Working Papers</h2>
-          <p className="text-sm text-gray-800">
-            <strong>Mir, Z. A.</strong>, Naqvi, H. A., &amp; Abbas, A. (2026). <em>Hormuz Energy Shock and Pakistan: A CGE Analysis.</em> SSRN Working Paper No. 7653420.{" "}
-            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7653420" className="text-amber-700 underline break-all">
-              https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7653420
-            </a>
-          </p>
         </section>
 
         {/* ── CERTIFICATIONS ── */}
