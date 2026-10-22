@@ -692,6 +692,23 @@ async function downloadPDF() {
   });
   y += 2;
 
+  // ── WORKING PAPERS ──
+  section("WORKING PAPERS");
+  {
+    const lead = "Mir, Z. A.";
+    const rest = ", Naqvi, H. A., & Abbas, A. (2026). Hormuz Energy Shock and Pakistan: A CGE Analysis. SSRN Working Paper No. 7653420. https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7653420";
+    style(8.5, true, G800);
+    const leadW = doc.getTextWidth(lead);
+    style(8.5, false, G800);
+    const firstLine = wrappedLines(rest, CW - leadW)[0];
+    br(4);
+    style(8.5, true, G800); doc.text(lead, M, y);
+    style(8.5, false, G800); doc.text(firstLine, M + leadW, y); y += 4;
+    const remainder = rest.slice(firstLine.length).trim();
+    if (remainder) writeWrapped(remainder, M, CW, 4);
+    y += 2;
+  }
+
   // ── CERTIFICATIONS ──
   section("CERTIFICATIONS & TRAINING");
   certGroups.forEach(g => {
@@ -914,6 +931,17 @@ async function downloadDocx() {
           spacing: { before: 60 },
         })
     ),
+
+    heading("WORKING PAPERS"),
+    new Paragraph({
+      children: [
+        new TextRun({ text: "Mir, Z. A.", bold: true, size: 18 }),
+        new TextRun({ text: ", Naqvi, H. A., & Abbas, A. (2026). ", size: 18 }),
+        new TextRun({ text: "Hormuz Energy Shock and Pakistan: A CGE Analysis.", italics: true, size: 18 }),
+        new TextRun({ text: " SSRN Working Paper No. 7653420. https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7653420", size: 18 }),
+      ],
+      spacing: { before: 60 },
+    }),
 
     heading("CERTIFICATIONS & TRAINING"),
     ...certGroups.flatMap((g) => [
