@@ -10,10 +10,10 @@ function renderBold(text: string) {
 
 const jobs = [
   {
-    org: "Policy Research and Consulting — Independent, non-partisan economic policy think tank",
+    org: "Lead Economist and Technical Adviser, Trade Policy and Economic Modelling (Consultant)",
     location: "Islamabad, PK",
     period: "Oct 2026 – Present",
-    title: "Lead Economist and Technical Adviser, Trade Policy and Economic Modelling (Consultant)",
+    title: "Policy Research and Consulting — Independent, non-partisan economic policy think tank",
     project: "**Project:** Evidence-based alternative to the **federal commerce ministry's** national trade policy framework, 2026–31",
     bullets: [] as string[],
     groups: [
