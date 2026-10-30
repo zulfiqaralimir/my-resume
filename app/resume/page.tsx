@@ -26,6 +26,25 @@ const badges = [
 
 const jobs = [
   {
+    org: "Independent, non-partisan economic policy think tank",
+    location: "Islamabad, PK",
+    period: "Oct 2026 – Present",
+    title: "Lead Economist and Technical Adviser, Trade Policy and Economic Modelling (Consultant)",
+    bullets: [
+      "**Project:** Evidence-based alternative to the federal commerce ministry's national trade policy framework, 2026–31.",
+      "Provided technical leadership to the project team, resolving key modelling and data challenges that enabled delivery of the framework.",
+      "Led the economic modelling behind the framework's export, import and trade-balance targets for FY2026–31.",
+      "Built three growth scenarios using Pakistan's historical growth patterns (1976–2025), with a 3-year moving average and a 44-cycle robustness test; tested the projection method against FY2025 actual exports.",
+      "Turned policy measures (energy costs, tax, duties, export finance, DLTL, solar, import replacement) into numbers for exports and the trade balance.",
+      "Benchmarked projections against the federal government's Strategic Trade Policy Framework 2020–25.",
+      "Linked trade outcomes to GDP growth, jobs, labour productivity, poverty and income per person.",
+      "Ran stress tests for oil-price (Strait of Hormuz), inflation and interest-rate, global-demand and remittance shocks, and designed protective measures.",
+      "Developing (in progress) a computable general equilibrium (CGE) model of Pakistan in GAMS, based on the IFPRI standard model; aggregated and validated the 2020-21 Social Accounting Matrix (60 sectors → 8, fully reversible) against World Bank data, and linked HIES household survey data for welfare and poverty analysis.",
+      "Wrote the modelling chapter, technical annex and executive-summary inputs; prepared plain-language briefing decks for senior policymakers.",
+      "Skills: CGE modelling (GAMS, IFPRI), Social Accounting Matrix, trade elasticities, scenario and stress testing, Python, policy writing.",
+    ],
+  },
+  {
     org: "Black Iron Quantum AI (Private) Limited",
     location: "Islamabad, PK",
     period: "2026 – Present",
