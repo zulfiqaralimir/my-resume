@@ -56,6 +56,16 @@ const honors = [
     org: "UC Berkeley",
     details: "Dec 2024. Focus: Reasoning and Problem-solving.",
   },
+  {
+    title: "Claude Partner Network — Registered Partner",
+    org: "Black Iron Quantum AI (Private) Limited",
+    details: "Accepted into the Claude Partner Network, expanding engagement with the Claude ecosystem and supporting the company's work in AI applications, agentic systems, and production-oriented AI solutions.",
+  },
+  {
+    title: "Startup Accelerator Graduate (2026)",
+    org: "Founder Institute, Islamabad Chapter",
+    details: "Completed FI's structured founder program covering idea validation, business model design, go-to-market and fundraising. Member of the global FI alumni network.",
+  },
 ];
 
 export default function HonorsPage() {

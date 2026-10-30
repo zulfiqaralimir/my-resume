@@ -2,7 +2,48 @@
 
 import { motion } from "framer-motion";
 
+function renderBold(text: string) {
+  return text.split(/\*\*(.+?)\*\*/g).map((p, i) =>
+    i % 2 === 1 ? <strong key={i} className="font-semibold text-gray-800">{p}</strong> : p
+  );
+}
+
 const jobs = [
+  {
+    org: "Policy Research and Consulting — Independent, non-partisan economic policy think tank",
+    location: "Islamabad, PK",
+    period: "Oct 2026 – Present",
+    title: "Lead Economist and Technical Adviser, Trade Policy and Economic Modelling (Consultant)",
+    project: "**Project:** Evidence-based alternative to the **federal commerce ministry's** national trade policy framework, 2026–31",
+    bullets: [] as string[],
+    groups: [
+      { color: [37, 99, 235] as [number, number, number], icon: "🔵", heading: "Leadership", bullets: [
+        "Provided **technical leadership** to the project team, resolving key **modelling and data challenges** that enabled delivery of the framework.",
+      ] },
+      { color: [37, 99, 235] as [number, number, number], icon: "🔵", heading: "Trade and macro projections", bullets: [
+        "Led the **economic modelling** behind the framework's **export, import and trade-balance targets** for FY2026–31.",
+        "Built **three growth scenarios** using Pakistan's historical growth patterns (1976–2025), with a **3-year moving average** and a **44-cycle robustness test**.",
+        "Tested the projection method against **FY2025 actual exports**.",
+        "Turned **policy measures** (energy costs, tax, duties, export finance, DLTL, solar, import replacement) into numbers for exports and the trade balance.",
+        "Benchmarked projections against the **federal government's Strategic Trade Policy Framework 2020–25**.",
+      ] },
+      { color: [22, 163, 74] as [number, number, number], icon: "🟢", heading: "Economic and social impact", bullets: [
+        "Linked trade outcomes to **GDP growth, jobs, labour productivity, poverty and income per person**.",
+        "Ran **stress tests** for oil-price (Strait of Hormuz), inflation and interest-rate, global-demand and remittance shocks, and **designed protective measures**.",
+      ] },
+      { color: [234, 88, 12] as [number, number, number], icon: "🟠", heading: "CGE modelling (in progress)", bullets: [
+        "Developing a **computable general equilibrium (CGE) model of Pakistan in GAMS**, based on the **IFPRI standard model**.",
+        "Aggregated and validated the **2020-21 Social Accounting Matrix** (60 sectors → 8, fully reversible) against World Bank data.",
+        "Linked **HIES household survey data** for welfare and poverty analysis.",
+      ] },
+      { color: [147, 51, 234] as [number, number, number], icon: "🟣", heading: "Writing and communication", bullets: [
+        "Wrote the **modelling chapter, technical annex and executive-summary inputs**.",
+        "Prepared **plain-language briefing decks** for senior policymakers.",
+      ] },
+    ],
+    publication: "Mir, Z.A., Naqvi, H.A. & Abbas, A. (2026). Hormuz Energy Shock and Pakistan: A CGE Analysis. SSRN Working Paper No. 7653420.",
+    skills: "CGE modelling (GAMS, IFPRI), Social Accounting Matrix, trade elasticities, scenario and stress testing, Python, policy writing.",
+  },
   {
     org: "Black Iron Quantum AI (Private) Limited",
     location: "Islamabad, PK",
@@ -189,6 +230,28 @@ export default function ExperiencePage() {
               <span className="text-sm text-gray-500">{job.location} · {job.period}</span>
             </div>
             <p className="mt-1 font-medium text-gray-700">{job.title}</p>
+            {job.project && <p className="mt-2 text-sm text-gray-700">{renderBold(job.project)}</p>}
+            {job.groups?.map((g, gi) => (
+              <div key={gi} className="mt-3 text-sm">
+                <p className="font-semibold text-gray-800">{g.icon} {g.heading}</p>
+                <ul className="list-disc pl-5 mt-1 space-y-1 text-gray-600">
+                  {g.bullets.map((b, j) => (
+                    <li key={j}>{renderBold(b)}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+            {job.publication && (
+              <div className="mt-3 text-sm">
+                <p className="font-semibold text-gray-800">📄 Publications / Working Papers</p>
+                <p className="text-gray-600">{job.publication}</p>
+              </div>
+            )}
+            {job.skills && (
+              <p className="mt-3 text-sm text-gray-600">
+                <strong className="font-semibold text-gray-800">Skills:</strong> {job.skills}
+              </p>
+            )}
             {job.bullets.length > 0 && (
               <ul className="list-disc pl-5 mt-2 space-y-1 text-sm text-gray-600">
                 {job.bullets.map((b, j) => (

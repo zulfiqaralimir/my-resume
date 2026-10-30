@@ -69,6 +69,30 @@ export default function PublicationsPage() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
+      {/* Working Papers */}
+      <h1 className="text-4xl font-bold mb-8 border-b pb-2 text-amber-700">Research &amp; Working Papers</h1>
+      <div className="space-y-4 mb-14">
+        <div className="bg-white p-5 rounded-lg shadow">
+          <p className="font-semibold text-gray-800">Working Papers (SSRN)</p>
+          <p className="text-sm text-gray-600 mt-1">
+            <strong>Mir, Z. A.</strong>, Naqvi, H. A., &amp; Abbas, A. (2026). Hormuz energy shock and Pakistan: A CGE analysis. <em>SSRN Working Paper</em>.{" "}
+            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7653420" target="_blank" rel="noopener noreferrer" className="text-amber-700 underline">SSRN</a>
+          </p>
+        </div>
+        <div className="bg-white p-5 rounded-lg shadow">
+          <p className="font-semibold text-gray-800">Conference Papers</p>
+          <p className="text-sm text-gray-600 mt-1">
+            <strong>Mir, Z. A.</strong> (2026). Algorithmic inclusion: AI-driven targeting and adaptive delivery for Pakistan&apos;s social protection system. Accepted for presentation at the SPRC 6th Annual Conference, &ldquo;Need of New Social Protection Paradigms,&rdquo; Social Policy Resource Centre, Islamabad, 30 December 2026.
+          </p>
+        </div>
+        <div className="bg-white p-5 rounded-lg shadow">
+          <p className="font-semibold text-gray-800">Research Profiles</p>
+          <p className="text-sm text-gray-600 mt-1">
+            <a href="https://scholar.google.com/citations?user=esWyOI4AAAAJ" target="_blank" rel="noopener noreferrer" className="text-amber-700 underline">Google Scholar</a> · arXiv: zambiz01
+          </p>
+        </div>
+      </div>
+
       {/* Books */}
       <h1 className="text-4xl font-bold mb-8 border-b pb-2 text-amber-700">Book Publications</h1>
       <div className="space-y-4 mb-14">

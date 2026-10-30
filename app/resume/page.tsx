@@ -26,23 +26,39 @@ const badges = [
 
 const jobs = [
   {
-    org: "Independent, non-partisan economic policy think tank",
+    org: "Policy Research and Consulting — Independent, non-partisan economic policy think tank",
     location: "Islamabad, PK",
     period: "Oct 2026 – Present",
     title: "Lead Economist and Technical Adviser, Trade Policy and Economic Modelling (Consultant)",
-    bullets: [
-      "**Project:** Evidence-based alternative to the federal commerce ministry's national trade policy framework, 2026–31.",
-      "Provided technical leadership to the project team, resolving key modelling and data challenges that enabled delivery of the framework.",
-      "Led the economic modelling behind the framework's export, import and trade-balance targets for FY2026–31.",
-      "Built three growth scenarios using Pakistan's historical growth patterns (1976–2025), with a 3-year moving average and a 44-cycle robustness test; tested the projection method against FY2025 actual exports.",
-      "Turned policy measures (energy costs, tax, duties, export finance, DLTL, solar, import replacement) into numbers for exports and the trade balance.",
-      "Benchmarked projections against the federal government's Strategic Trade Policy Framework 2020–25.",
-      "Linked trade outcomes to GDP growth, jobs, labour productivity, poverty and income per person.",
-      "Ran stress tests for oil-price (Strait of Hormuz), inflation and interest-rate, global-demand and remittance shocks, and designed protective measures.",
-      "Developing (in progress) a computable general equilibrium (CGE) model of Pakistan in GAMS, based on the IFPRI standard model; aggregated and validated the 2020-21 Social Accounting Matrix (60 sectors → 8, fully reversible) against World Bank data, and linked HIES household survey data for welfare and poverty analysis.",
-      "Wrote the modelling chapter, technical annex and executive-summary inputs; prepared plain-language briefing decks for senior policymakers.",
-      "Skills: CGE modelling (GAMS, IFPRI), Social Accounting Matrix, trade elasticities, scenario and stress testing, Python, policy writing.",
+    project: "**Project:** Evidence-based alternative to the **federal commerce ministry's** national trade policy framework, 2026–31",
+    bullets: [] as string[],
+    groups: [
+      { color: [37, 99, 235] as [number, number, number], icon: "🔵", heading: "Leadership", bullets: [
+        "Provided **technical leadership** to the project team, resolving key **modelling and data challenges** that enabled delivery of the framework.",
+      ] },
+      { color: [37, 99, 235] as [number, number, number], icon: "🔵", heading: "Trade and macro projections", bullets: [
+        "Led the **economic modelling** behind the framework's **export, import and trade-balance targets** for FY2026–31.",
+        "Built **three growth scenarios** using Pakistan's historical growth patterns (1976–2025), with a **3-year moving average** and a **44-cycle robustness test**.",
+        "Tested the projection method against **FY2025 actual exports**.",
+        "Turned **policy measures** (energy costs, tax, duties, export finance, DLTL, solar, import replacement) into numbers for exports and the trade balance.",
+        "Benchmarked projections against the **federal government's Strategic Trade Policy Framework 2020–25**.",
+      ] },
+      { color: [22, 163, 74] as [number, number, number], icon: "🟢", heading: "Economic and social impact", bullets: [
+        "Linked trade outcomes to **GDP growth, jobs, labour productivity, poverty and income per person**.",
+        "Ran **stress tests** for oil-price (Strait of Hormuz), inflation and interest-rate, global-demand and remittance shocks, and **designed protective measures**.",
+      ] },
+      { color: [234, 88, 12] as [number, number, number], icon: "🟠", heading: "CGE modelling (in progress)", bullets: [
+        "Developing a **computable general equilibrium (CGE) model of Pakistan in GAMS**, based on the **IFPRI standard model**.",
+        "Aggregated and validated the **2020-21 Social Accounting Matrix** (60 sectors → 8, fully reversible) against World Bank data.",
+        "Linked **HIES household survey data** for welfare and poverty analysis.",
+      ] },
+      { color: [147, 51, 234] as [number, number, number], icon: "🟣", heading: "Writing and communication", bullets: [
+        "Wrote the **modelling chapter, technical annex and executive-summary inputs**.",
+        "Prepared **plain-language briefing decks** for senior policymakers.",
+      ] },
     ],
+    publication: "Mir, Z.A., Naqvi, H.A. & Abbas, A. (2026). Hormuz Energy Shock and Pakistan: A CGE Analysis. SSRN Working Paper No. 7653420.",
+    skills: "CGE modelling (GAMS, IFPRI), Social Accounting Matrix, trade elasticities, scenario and stress testing, Python, policy writing.",
   },
   {
     org: "Black Iron Quantum AI (Private) Limited",
@@ -570,6 +586,20 @@ async function downloadPDF() {
     doc.text(`${job.location} · ${job.period}`, W - M, y, { align: "right" }); y += 4.5;
     style(9.5, true, AMBER);
     writeWrapped(job.title, M, CW, 4.2);
+    const plain = (t: string) => t.replace(/\*\*(.+?)\*\*/g, "$1");
+    if (job.project) { style(8.5, true, G800); writeWrapped(plain(job.project), M, CW, 4); }
+    job.groups?.forEach(g => {
+      br(10);
+      doc.setFillColor(g.color[0], g.color[1], g.color[2]);
+      doc.circle(M + 1.2, y - 1, 1, "F");
+      style(8.5, true, G800); doc.text(g.heading, M + 4, y); y += 4;
+      g.bullets.forEach(b => { style(8.5, false, G600); writeWrapped(`• ${plain(b)}`, M + 3, CW - 3, 4); });
+    });
+    if (job.publication) {
+      br(10); style(8.5, true, G800); doc.text("Publications / Working Papers", M, y); y += 4;
+      style(8.5, false, G600); writeWrapped(job.publication, M + 3, CW - 3, 4);
+    }
+    if (job.skills) { style(8.5, true, G800); writeWrapped(`Skills: ${job.skills}`, M, CW, 4); }
     job.bullets.forEach(b => { style(8.5, false, G600); writeWrapped(`• ${b.replace(/\*\*(.+?)\*\*/g, "$1")}`, M + 3, CW - 3, 4); });
     y += 1.5;
   });
@@ -752,6 +782,8 @@ async function downloadPDF() {
 async function downloadDocx() {
   const { Document, Paragraph, TextRun, Packer, AlignmentType, BorderStyle } = await import("docx");
 
+  const boldRuns = (text: string, color: string) =>
+    text.split(/\*\*(.+?)\*\*/g).map((p, i) => new TextRun({ text: p, bold: i % 2 === 1, size: 18, color }));
   const heading = (text: string) =>
     new Paragraph({
       children: [new TextRun({ text, bold: true, size: 22, color: "92400e" })],
@@ -788,6 +820,26 @@ async function downloadDocx() {
         spacing: { before: 120 },
       }),
       new Paragraph({ children: [new TextRun({ text: job.title, size: 20, color: "b45309", bold: true })] }),
+      ...(job.project ? [new Paragraph({ children: boldRuns(job.project, "1f2937"), spacing: { before: 40 } })] : []),
+      ...(job.groups ?? []).flatMap((g) => [
+        new Paragraph({ children: [new TextRun({ text: `${g.icon} ${g.heading}`, bold: true, size: 18 })], spacing: { before: 80 } }),
+        ...g.bullets.map(
+          (b) =>
+            new Paragraph({
+              children: [new TextRun({ text: "• ", size: 18, color: "4b5563" }), ...boldRuns(b, "4b5563")],
+              indent: { left: 360 },
+            })
+        ),
+      ]),
+      ...(job.publication
+        ? [
+            new Paragraph({ children: [new TextRun({ text: "📄 Publications / Working Papers", bold: true, size: 18 })], spacing: { before: 80 } }),
+            new Paragraph({ children: [new TextRun({ text: job.publication, size: 18, color: "4b5563" })], indent: { left: 360 } }),
+          ]
+        : []),
+      ...(job.skills
+        ? [new Paragraph({ children: [new TextRun({ text: "Skills: ", bold: true, size: 18 }), new TextRun({ text: job.skills, size: 18, color: "4b5563" })], spacing: { before: 80 } })]
+        : []),
       ...job.bullets.map(
         (b) =>
           new Paragraph({
@@ -1120,6 +1172,22 @@ export default function ResumePage() {
                   <span className="text-xs text-gray-400 text-right shrink-0 ml-2">{job.location} · {job.period}</span>
                 </div>
                 <p className="text-amber-700 font-medium">{job.title}</p>
+                {job.project && <p className="text-gray-700 mt-1">{renderBullet(job.project)}</p>}
+                {job.groups?.map((g, gi) => (
+                  <div key={gi} className="mt-2">
+                    <p className="font-semibold text-gray-800">{g.icon} {g.heading}</p>
+                    <ul className="list-disc pl-4 mt-0.5 space-y-0.5 text-gray-600">
+                      {g.bullets.map((b, j) => <li key={j}>{renderBullet(b)}</li>)}
+                    </ul>
+                  </div>
+                ))}
+                {job.publication && (
+                  <div className="mt-2">
+                    <p className="font-semibold text-gray-800">📄 Publications / Working Papers</p>
+                    <p className="text-gray-600">{job.publication}</p>
+                  </div>
+                )}
+                {job.skills && <p className="text-gray-600 mt-2"><strong className="font-semibold text-gray-800">Skills:</strong> {job.skills}</p>}
                 {job.bullets.length > 0 && (
                   <ul className="list-disc pl-4 mt-1 space-y-0.5 text-gray-600">
                     {job.bullets.map((b, j) => <li key={j}>{renderBullet(b)}</li>)}
