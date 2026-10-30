@@ -43,8 +43,14 @@ const jobs = [
         "Turned **policy measures** (energy costs, tax, duties, export finance, DLTL, solar, import replacement) into numbers for exports and the trade balance.",
         "Benchmarked projections against the **federal government's Strategic Trade Policy Framework 2020–25**.",
       ] },
+      { color: [13, 148, 136] as [number, number, number], icon: "🔷", heading: "Policy design", bullets: [
+        "Shaped **costed policy options** for decision-makers: **lower power, finance and tax costs** for exporters; **new non-textile exports** (pharma, engineering, processed food); **IT and services** as a growth pillar; **human resource development** (technology, skills, productivity).",
+        "Modelled **import replacement** (local energy, edible oil, cotton, solar) and **new markets** (Africa, ASEAN, GCC, Central Asia).",
+        "Built targets **bottom-up from what districts can produce and sell**, with **district-led delivery**, clear owners and yearly reviews, and **tested them against shocks** rather than setting them top-down.",
+      ] },
       { color: [22, 163, 74] as [number, number, number], icon: "🟢", heading: "Economic and social impact", bullets: [
         "Linked trade outcomes to **GDP growth, jobs, labour productivity, poverty and income per person**.",
+        "Showed the path from a **large trade deficit to balanced trade**, with **more jobs, lower poverty, higher income per person and productivity**, and **stronger resilience** to oil and global shocks.",
         "Ran **stress tests** for oil-price (Strait of Hormuz), inflation and interest-rate, global-demand and remittance shocks, and **designed protective measures**.",
       ] },
       { color: [234, 88, 12] as [number, number, number], icon: "🟠", heading: "CGE modelling (in progress)", bullets: [
