@@ -537,9 +537,9 @@ async function downloadPDF() {
   const CW = W - 2 * M;
   let y = M;
 
-  // navy-700, gray-800, gray-600, gray-500, gray-400
-  const AMBER: [number, number, number] = [180, 83, 9];
-  const G800: [number, number, number] = [31, 41, 55];
+  // navy-700, charcoal, gray-600, gray-600, gray-500, gray-400
+  const NAVY: [number, number, number] = [20, 40, 75];
+  const G800: [number, number, number] = [43, 47, 54];
   const G600: [number, number, number] = [75, 85, 99];
   const G500: [number, number, number] = [107, 114, 128];
   const G400: [number, number, number] = [156, 163, 175];
@@ -564,19 +564,20 @@ async function downloadPDF() {
 
   const section = (title: string) => {
     br(12); y += 3;
-    style(11, true, AMBER);
+    style(11, true, NAVY);
     doc.text(title, M, y); y += 2;
-    doc.setDrawColor(209, 213, 219);
-    doc.setLineWidth(0.3);
+    doc.setDrawColor(20, 40, 75);
+    doc.setLineWidth(0.4);
     doc.line(M, y, W - M, y); y += 4;
   };
 
   // ── HEADER ──
-  style(20, true, AMBER);
+  style(22, true, NAVY);
+  doc.setFont("times", "bold"); // closest built-in serif to Playfair Display
   doc.text("Zulfiqar Ali Mir", W / 2, y, { align: "center" }); y += 8;
   style(10, false, G600);
   doc.text("Quantitative Researcher · AI Engineer · Financial Strategist", W / 2, y, { align: "center" }); y += 5;
-  style(8.5, false, AMBER);
+  style(8.5, false, NAVY);
   writeWrapped(badges.join(" · "), M, CW, 4);
   style(8, false, G500);
   doc.text("manager.equity.finance@gmail.com  |  +92 322 5150501", W / 2, y, { align: "center" }); y += 3.5;
@@ -590,7 +591,7 @@ async function downloadPDF() {
     doc.text(job.org, M, y);
     style(8, false, G400);
     doc.text(`${job.location} · ${job.period}`, W - M, y, { align: "right" }); y += 4.5;
-    style(9.5, true, AMBER);
+    style(9.5, true, NAVY);
     writeWrapped(job.title, M, CW, 4.2);
     const plain = (t: string) => t.replace(/\*\*(.+?)\*\*/g, "$1");
     if (job.project) { style(8.5, true, G800); writeWrapped(plain(job.project), M, CW, 4); }
@@ -618,7 +619,7 @@ async function downloadPDF() {
     doc.text(f.org, M, y);
     style(8, false, G400);
     doc.text(`${f.location} · ${f.period}`, W - M, y, { align: "right" }); y += 4.5;
-    style(9.5, true, AMBER);
+    style(9.5, true, NAVY);
     writeWrapped(f.title, M, CW, 4.2);
     f.bullets.forEach(b => { style(8.5, false, G600); writeWrapped(`• ${b}`, M + 3, CW - 3, 4); });
     y += 1.5;
@@ -632,7 +633,7 @@ async function downloadPDF() {
     doc.text(e.school, M, y);
     style(8, false, G400);
     doc.text(e.period, W - M, y, { align: "right" }); y += 4.5;
-    style(9.5, false, AMBER);
+    style(9.5, false, NAVY);
     doc.text(e.degree, M, y); y += 4.5;
     if (e.thesis) { style(8, false, G500); doc.setFont("helvetica", "italic"); writeWrapped(`Thesis: ${e.thesis}`, M, CW, 3.8); }
     y += 1.5;
@@ -690,12 +691,12 @@ async function downloadPDF() {
       writeWrapped(meta, M, CW, 3.5);
     }
     if ("tagline" in p && p.tagline) {
-      style(8, false, AMBER);
+      style(8, false, NAVY);
       doc.setFont("helvetica", "italic");
       writeWrapped(p.tagline.replace(/\*\*(.+?)\*\*/g, "$1"), M, CW, 3.8);
     }
     p.bullets.forEach(b => { style(8.5, false, G600); writeWrapped(`• ${b}`, M + 3, CW - 3, 4); });
-    if (p.stack.length > 0) { style(7.5, true, AMBER); writeWrapped(`Stack: ${p.stack.join(", ")}`, M + 3, CW - 3, 3.5); }
+    if (p.stack.length > 0) { style(7.5, true, NAVY); writeWrapped(`Stack: ${p.stack.join(", ")}`, M + 3, CW - 3, 3.5); }
     y += 2;
   });
 
