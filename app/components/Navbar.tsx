@@ -40,7 +40,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="sticky top-0 z-50 bg-navy-800 border-b border-[#d4a73a]/40 shadow-md">
+    <nav className="sticky top-0 z-50 bg-navy-600 border-b border-[#d4a73a]/50 shadow-md">
       <div className="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-3">
           <Image src="/logo-128.png" alt="ZAM logo" width={44} height={44} className="rounded-full" />
@@ -49,7 +49,7 @@ export default function Navbar() {
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-5">
-          <ul className="flex space-x-5 text-sm font-medium text-navy-100">
+          <ul className="flex space-x-5 text-sm font-medium text-white">
             {links.map((l) => (
               <li key={l.href}>
                 <Link href={l.href} className="hover:text-[#f2d27a] transition-colors">
@@ -127,7 +127,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <ul className="md:hidden px-4 pb-4 space-y-2 text-sm font-medium text-navy-100 bg-navy-800 border-t border-white/10">
+        <ul className="md:hidden px-4 pb-4 space-y-2 text-sm font-medium text-white bg-navy-600 border-t border-white/10">
           {links.map((l) => (
             <li key={l.href}>
               <Link
@@ -139,13 +139,13 @@ export default function Navbar() {
               </Link>
             </li>
           ))}
-          <li className="pt-1 border-t border-gray-100">
-            <p className="text-xs text-gray-400 mb-1.5">Download CV</p>
+          <li className="pt-1 border-t border-white/20">
+            <p className="text-xs text-navy-200 mb-1.5">Download CV</p>
             {cvOptions.map((cv) => (
               <Link
                 key={cv.href}
                 href={cv.href}
-                className="block py-1 text-navy-600 font-semibold hover:text-navy-700 transition-colors"
+                className="block py-1 text-[#f2d27a] font-semibold hover:text-white transition-colors"
                 onClick={() => setOpen(false)}
               >
                 {cv.label}
@@ -153,13 +153,13 @@ export default function Navbar() {
             ))}
             {downloadableDocuments.length > 0 && (
               <>
-                <p className="text-xs text-gray-400 mb-1.5 mt-2">Documents</p>
+                <p className="text-xs text-navy-200 mb-1.5 mt-2">Documents</p>
                 {downloadableDocuments.map((doc) => (
                   <a
                     key={doc.id}
                     href={doc.fileUrl}
                     download
-                    className="block py-1 text-navy-600 font-semibold hover:text-navy-700 transition-colors"
+                    className="block py-1 text-[#f2d27a] font-semibold hover:text-white transition-colors"
                     onClick={() => setOpen(false)}
                   >
                     {doc.title}
