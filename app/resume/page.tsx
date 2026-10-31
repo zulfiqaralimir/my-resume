@@ -541,7 +541,7 @@ async function downloadPDF() {
   let y = M;
 
   // navy-700, charcoal, gray-600, gray-600, gray-500, gray-400
-  const NAVY: [number, number, number] = [20, 40, 75];
+  const NAVY: [number, number, number] = [11, 36, 71];
   const G800: [number, number, number] = [43, 47, 54];
   const G600: [number, number, number] = [75, 85, 99];
   const G500: [number, number, number] = [107, 114, 128];
@@ -569,7 +569,7 @@ async function downloadPDF() {
     br(12); y += 3;
     style(11, true, NAVY);
     doc.text(title, M, y); y += 2;
-    doc.setDrawColor(20, 40, 75);
+    doc.setDrawColor(11, 36, 71);
     doc.setLineWidth(0.4);
     doc.line(M, y, W - M, y); y += 4;
   };

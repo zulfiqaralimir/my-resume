@@ -3,20 +3,61 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import {
+  Award,
+  Briefcase,
+  BookOpen,
+  Building2,
+  Clock,
+  Code,
+  ExternalLink,
+  FileText,
+  Handshake,
+  Landmark,
+  Mail,
+  Phone,
+  Presentation,
+  Rocket,
+  Trophy,
+  Users,
+  Link2,
+} from "lucide-react";
 import HeroBackground from "./components/HeroBackground";
 
 const badges = [
   "National AI FinTech Winner 2025",
   "Stanford Section Leader",
   "Ph.D. Econometrics",
-  "Trade Policy Consultant",
+  "Lead Economist · Trade Policy",
   "LLM Trainer · Turing",
   "Author · 3 Books",
   "Educator · 15+ Yrs",
   "HEC AI Judge 2026",
 ];
 
+const achievements = [
+  { Icon: Landmark, date: "Oct 2026", title: "Lead Economist and Technical Adviser", desc: "Trade policy and economic modelling for a national trade policy framework, 2026–31." },
+  { Icon: FileText, date: "2026", title: "SSRN Working Paper", desc: "Hormuz Energy Shock and Pakistan: A CGE Analysis (No. 7653420)." },
+  { Icon: Presentation, date: "30 Dec 2026", title: "SPRC 6th Annual Conference", desc: "Paper accepted: Algorithmic Inclusion — AI-driven targeting for Pakistan's social protection system." },
+  { Icon: Handshake, date: "2026", title: "Claude Partner Network", desc: "Registered Partner through Black Iron Quantum AI (Private) Limited." },
+  { Icon: Rocket, date: "2026", title: "Startup Accelerator Graduate", desc: "Founder Institute, Islamabad Chapter." },
+  { Icon: Users, date: "Jan–Feb 2026", title: "GenAI Instructor, Mentor and Judge", desc: "NCEAC–HEC Cohort 2, Higher Education Commission Pakistan." },
+  { Icon: Trophy, date: "2025", title: "National Winner – AI FinTech", desc: "National Technology Fund (MoITT) and Asian Development Bank (ADB)." },
+];
+
 const jobs = [
+  {
+    org: "Independent Economic Policy Think Tank · Islamabad",
+    period: "Oct 2026 – Present",
+    title: "Lead Economist and Technical Adviser, Trade Policy and Economic Modelling (Consultant)",
+    detail: "Led the economic modelling behind an evidence-based national trade policy framework, 2026–31: export, import and trade-balance projections, costed policy options, stress tests, and a CGE model of Pakistan in GAMS.",
+  },
+  {
+    org: "Black Iron Quantum AI (Private) Limited · Islamabad",
+    period: "2026 – Present",
+    title: "Director – Accounting ERP SaaS Platform Development",
+    detail: "Leading a cloud-based accounting ERP SaaS platform for SMBs with AI-powered financial analysis and FP&A advisory.",
+  },
   {
     org: "Turing (Palo Alto, California)",
     period: "Sept 2024 – Present",
@@ -109,7 +150,7 @@ export default function Home() {
           {/* Text */}
           <div className="text-center sm:text-left">
             <motion.h1
-              className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-2"
+              className="font-display text-4xl sm:text-5xl tracking-tight mb-2"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -189,17 +230,17 @@ export default function Home() {
           transition={{ duration: 0.5, delay: 0.75 }}
         >
           <a href="mailto:manager.equity.finance@gmail.com" className="hover:text-white transition">
-            ✉ manager.equity.finance@gmail.com
+            <Mail size={15} className="inline -mt-0.5 mr-1.5" />manager.equity.finance@gmail.com
           </a>
-          <span>📞 +92 322 5150501</span>
+          <span><Phone size={15} className="inline -mt-0.5 mr-1.5" />+92 322 5150501</span>
           <a href="https://www.linkedin.com/in/zulfiqar-ali-mir/" target="_blank" className="hover:text-white transition">
-            LinkedIn ↗
+            <Link2 size={15} className="inline -mt-0.5 mr-1.5" />LinkedIn <ExternalLink size={12} className="inline -mt-0.5" />
           </a>
           <a href="https://github.com/zulfiqaralimir" target="_blank" className="hover:text-white transition">
-            GitHub ↗
+            <Code size={15} className="inline -mt-0.5 mr-1.5" />GitHub <ExternalLink size={12} className="inline -mt-0.5" />
           </a>
           <a href="https://leetcode.com/u/xBe6uVINlF/" target="_blank" className="hover:text-white transition">
-            LeetCode ↗
+            <Trophy size={15} className="inline -mt-0.5 mr-1.5" />LeetCode <ExternalLink size={12} className="inline -mt-0.5" />
           </a>
         </motion.div>
       </motion.section>
@@ -213,27 +254,61 @@ export default function Home() {
         viewport={{ once: true }}
       >
         {[
-          { label: "Experience", value: "25+ yrs" },
-          { label: "Books Published", value: "3" },
-          { label: "Hackathons Led", value: "9+" },
-          { label: "Daily Requests", value: "100K+" },
+          { label: "Experience", value: "25+ yrs", Icon: Clock },
+          { label: "Books Published", value: "3", Icon: BookOpen },
+          { label: "Hackathons Led", value: "9+", Icon: Award },
+          { label: "Daily Requests", value: "100K+", Icon: Rocket },
         ].map((s, i) => (
           <div key={i} className="bg-white rounded-xl shadow p-4 text-center border border-gray-100">
-            <p className="text-2xl font-extrabold text-navy-600">{s.value}</p>
+            <s.Icon size={22} className="mx-auto mb-1.5 text-[#d4a73a]" />
+            <p className="font-heading text-2xl text-navy-700">{s.value}</p>
             <p className="text-xs text-gray-500 mt-1">{s.label}</p>
           </div>
         ))}
       </motion.div>
 
-      {/* ── EXPERIENCE ── */}
+      {/* ── LATEST ACHIEVEMENTS ── */}
       <motion.h2
-        className="text-3xl font-bold mb-6 border-b border-gray-200 pb-2 text-navy-700"
+        className="font-heading text-2xl mb-6 border-b border-gray-200 pb-2 text-navy-700 flex items-center gap-2"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        Experience
+        <Award size={24} className="text-[#d4a73a]" /> Latest Achievements
+      </motion.h2>
+
+      <div className="grid sm:grid-cols-2 gap-4 mb-14">
+        {achievements.map((a, i) => (
+          <motion.div
+            key={i}
+            className="flex gap-3 bg-white p-4 rounded-lg shadow hover:shadow-md transition border-l-4 border-[#d4a73a]"
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: i * 0.05 }}
+            viewport={{ once: true }}
+          >
+            <span className="shrink-0 flex items-center justify-center w-10 h-10 rounded-full bg-navy-800 text-[#f2d27a]">
+              <a.Icon size={20} />
+            </span>
+            <div>
+              <p className="font-semibold text-navy-700">{a.title}</p>
+              <p className="text-xs text-gray-400 mb-0.5">{a.date}</p>
+              <p className="text-sm text-gray-600">{a.desc}</p>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* ── EXPERIENCE ── */}
+      <motion.h2
+        className="font-heading text-2xl mb-6 border-b border-gray-200 pb-2 text-navy-700 flex items-center gap-2"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
+        <Briefcase size={24} className="text-[#d4a73a]" /> Experience
       </motion.h2>
 
       <div className="space-y-4">
@@ -247,7 +322,7 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
-              <span className="font-semibold text-navy-700">{job.org}</span>
+              <span className="font-semibold text-navy-700 flex items-center gap-2"><Building2 size={16} className="text-[#d4a73a] shrink-0" />{job.org}</span>
               <span className="text-xs text-gray-400 sm:text-right whitespace-nowrap">{job.period}</span>
             </div>
             <p className="text-sm font-medium text-gray-700 mt-0.5">{job.title}</p>

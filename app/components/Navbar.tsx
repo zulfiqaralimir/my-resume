@@ -40,19 +40,19 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+    <nav className="sticky top-0 z-50 bg-navy-800 border-b border-[#d4a73a]/40 shadow-md">
       <div className="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-3">
           <Image src="/logo-128.png" alt="ZAM logo" width={44} height={44} className="rounded-full" />
-          <h1 className="font-bold text-xl text-navy-700">Zulfiqar Ali Mir</h1>
+          <h1 className="font-display font-bold text-xl text-[#f2d27a]">Zulfiqar Ali Mir</h1>
         </Link>
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-5">
-          <ul className="flex space-x-5 text-sm font-medium text-gray-700">
+          <ul className="flex space-x-5 text-sm font-medium text-navy-100">
             {links.map((l) => (
               <li key={l.href}>
-                <Link href={l.href} className="hover:text-navy-600 transition-colors">
+                <Link href={l.href} className="hover:text-[#f2d27a] transition-colors">
                   {l.label}
                 </Link>
               </li>
@@ -63,7 +63,7 @@ export default function Navbar() {
           <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setCvOpen(!cvOpen)}
-              className="flex items-center gap-1.5 bg-navy-600 hover:bg-navy-700 text-white text-sm font-semibold px-4 py-1.5 rounded-lg transition"
+              className="flex items-center gap-1.5 bg-[#d4a73a] hover:bg-[#f2d27a] text-navy-900 text-sm font-semibold px-4 py-1.5 rounded-lg transition"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -111,7 +111,7 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-gray-700 focus:outline-none"
+          className="md:hidden text-[#f2d27a] focus:outline-none"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -127,12 +127,12 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <ul className="md:hidden px-4 pb-4 space-y-2 text-sm font-medium text-gray-700 bg-white border-t border-gray-100">
+        <ul className="md:hidden px-4 pb-4 space-y-2 text-sm font-medium text-navy-100 bg-navy-800 border-t border-white/10">
           {links.map((l) => (
             <li key={l.href}>
               <Link
                 href={l.href}
-                className="block py-1 hover:text-navy-600 transition-colors"
+                className="block py-1 hover:text-[#f2d27a] transition-colors"
                 onClick={() => setOpen(false)}
               >
                 {l.label}
