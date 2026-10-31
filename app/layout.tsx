@@ -23,7 +23,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "My Resume",
+  title: "ZAM CV | Zulfiqar Ali Mir",
   description: "Personal resume built with Next.js",
 };
 
