@@ -70,13 +70,13 @@ export default function PublicationsPage() {
       transition={{ duration: 0.8 }}
     >
       {/* Working Papers */}
-      <h1 className="text-4xl font-bold mb-8 border-b pb-2 text-amber-700">Research &amp; Working Papers</h1>
+      <h1 className="text-4xl font-bold mb-8 border-b pb-2 text-navy-700">Research &amp; Working Papers</h1>
       <div className="space-y-4 mb-14">
         <div className="bg-white p-5 rounded-lg shadow">
           <p className="font-semibold text-gray-800">Working Papers (SSRN)</p>
           <p className="text-sm text-gray-600 mt-1">
             <strong>Mir, Z. A.</strong>, Naqvi, H. A., &amp; Abbas, A. (2026). Hormuz energy shock and Pakistan: A CGE analysis. <em>SSRN Working Paper</em>.{" "}
-            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7653420" target="_blank" rel="noopener noreferrer" className="text-amber-700 underline">SSRN</a>
+            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7653420" target="_blank" rel="noopener noreferrer" className="text-navy-700 underline">SSRN</a>
           </p>
         </div>
         <div className="bg-white p-5 rounded-lg shadow">
@@ -88,13 +88,13 @@ export default function PublicationsPage() {
         <div className="bg-white p-5 rounded-lg shadow">
           <p className="font-semibold text-gray-800">Research Profiles</p>
           <p className="text-sm text-gray-600 mt-1">
-            <a href="https://scholar.google.com/citations?user=esWyOI4AAAAJ" target="_blank" rel="noopener noreferrer" className="text-amber-700 underline">Google Scholar</a> · arXiv: zambiz01
+            <a href="https://scholar.google.com/citations?user=esWyOI4AAAAJ" target="_blank" rel="noopener noreferrer" className="text-navy-700 underline">Google Scholar</a> · arXiv: zambiz01
           </p>
         </div>
       </div>
 
       {/* Books */}
-      <h1 className="text-4xl font-bold mb-8 border-b pb-2 text-amber-700">Book Publications</h1>
+      <h1 className="text-4xl font-bold mb-8 border-b pb-2 text-navy-700">Book Publications</h1>
       <div className="space-y-4 mb-14">
         {books.map((b, i) => (
           <motion.div
@@ -105,14 +105,14 @@ export default function PublicationsPage() {
             transition={{ duration: 0.4, delay: i * 0.08 }}
             viewport={{ once: true }}
           >
-            <p className="font-semibold text-amber-700">{b.title}</p>
+            <p className="font-semibold text-navy-700">{b.title}</p>
             <p className="text-sm text-gray-500 mt-0.5">{b.date}</p>
           </motion.div>
         ))}
       </div>
 
       {/* Press */}
-      <h2 className="text-3xl font-bold mb-6 border-b pb-2 text-amber-700">Press Publications</h2>
+      <h2 className="text-3xl font-bold mb-6 border-b pb-2 text-navy-700">Press Publications</h2>
       <div className="space-y-4 mb-14">
         {press.map((p, i) => (
           <motion.div
@@ -123,7 +123,7 @@ export default function PublicationsPage() {
             transition={{ duration: 0.4, delay: i * 0.08 }}
             viewport={{ once: true }}
           >
-            <p className="font-semibold text-amber-700">{p.title}</p>
+            <p className="font-semibold text-navy-700">{p.title}</p>
             <p className="text-sm text-gray-500 mt-0.5">
               {p.outlet} &nbsp;·&nbsp; {p.date}
             </p>
@@ -133,7 +133,7 @@ export default function PublicationsPage() {
       </div>
 
       {/* Teaching Videos */}
-      <h2 className="text-3xl font-bold mb-6 border-b pb-2 text-amber-700">Teaching Videos</h2>
+      <h2 className="text-3xl font-bold mb-6 border-b pb-2 text-navy-700">Teaching Videos</h2>
       <div className="space-y-3">
         {videos.map((v, i) => (
           <motion.div

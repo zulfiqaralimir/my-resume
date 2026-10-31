@@ -327,28 +327,28 @@ export default function ProjectsPage() {
       transition={{ duration: 0.8 }}
     >
       {/* Featured Projects */}
-      <h1 className="text-4xl font-bold mb-6 border-b pb-2 text-amber-700">
+      <h1 className="text-4xl font-bold mb-6 border-b pb-2 text-navy-700">
         Featured Projects
       </h1>
       <div className="space-y-8 mb-14">
         {featuredProjects.map((project, idx) => (
           <motion.div
             key={idx}
-            className="bg-white border-2 border-amber-300 p-6 rounded-xl shadow-lg"
+            className="bg-white border-2 border-navy-300 p-6 rounded-xl shadow-lg"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: idx * 0.1 }}
             viewport={{ once: true }}
           >
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
-              <h2 className="text-xl font-bold text-amber-700">{project.title}</h2>
+              <h2 className="text-xl font-bold text-navy-700">{project.title}</h2>
               <div className="flex gap-3 items-center">
                 {project.url && (
                   <a
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-amber-600 hover:underline font-medium whitespace-nowrap"
+                    className="text-sm text-navy-600 hover:underline font-medium whitespace-nowrap"
                   >
                     {project.url.replace("https://", "")} ↗
                   </a>
@@ -358,7 +358,7 @@ export default function ProjectsPage() {
                     href={project.github as string}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-gray-500 hover:text-amber-600 hover:underline font-medium whitespace-nowrap"
+                    className="text-sm text-gray-500 hover:text-navy-600 hover:underline font-medium whitespace-nowrap"
                   >
                     GitHub ↗
                   </a>
@@ -366,7 +366,7 @@ export default function ProjectsPage() {
               </div>
             </div>
             {"tagline" in project && project.tagline && (
-              <p className="text-sm font-medium text-amber-800 italic mb-3">{renderTagline(project.tagline)}</p>
+              <p className="text-sm font-medium text-navy-800 italic mb-3">{renderTagline(project.tagline)}</p>
             )}
             <ul className="list-disc pl-5 space-y-1.5 text-sm text-gray-700 mb-4">
               {project.bullets.map((b, i) => (
@@ -375,7 +375,7 @@ export default function ProjectsPage() {
             </ul>
             <div className="flex flex-wrap gap-2 mt-3">
               {project.stack.map((s, i) => (
-                <span key={i} className="bg-amber-50 text-amber-700 text-xs font-medium px-3 py-1 rounded-full border border-amber-200">
+                <span key={i} className="bg-navy-50 text-navy-700 text-xs font-medium px-3 py-1 rounded-full border border-navy-200">
                   {s}
                 </span>
               ))}
@@ -385,7 +385,7 @@ export default function ProjectsPage() {
       </div>
 
       {/* Research Projects */}
-      <h2 className="text-4xl font-bold mb-8 border-b pb-2 text-amber-700">
+      <h2 className="text-4xl font-bold mb-8 border-b pb-2 text-navy-700">
         Research &amp; Coding Projects
       </h2>
       <div className="space-y-4 mb-14">
@@ -398,14 +398,14 @@ export default function ProjectsPage() {
             transition={{ duration: 0.4, delay: i * 0.04 }}
             viewport={{ once: true }}
           >
-            <p className="font-semibold text-amber-700">{p.title}</p>
+            <p className="font-semibold text-navy-700">{p.title}</p>
             {p.desc && <p className="text-sm text-gray-600 mt-1">{p.desc}</p>}
           </motion.div>
         ))}
       </div>
 
       {/* Conference Presentations */}
-      <h2 className="text-3xl font-bold mb-6 border-b pb-2 text-amber-700">
+      <h2 className="text-3xl font-bold mb-6 border-b pb-2 text-navy-700">
         Conference Presentations
       </h2>
       <div className="space-y-4 mb-14">
@@ -418,7 +418,7 @@ export default function ProjectsPage() {
             transition={{ duration: 0.4, delay: i * 0.05 }}
             viewport={{ once: true }}
           >
-            <p className="font-semibold text-amber-700">{c.title}</p>
+            <p className="font-semibold text-navy-700">{c.title}</p>
             <p className="text-sm text-gray-700 mt-1"><em>{c.paper}</em></p>
             {c.details && <p className="text-sm text-gray-500 mt-1">{c.details}</p>}
           </motion.div>
@@ -426,7 +426,7 @@ export default function ProjectsPage() {
       </div>
 
       {/* AI Hackathons */}
-      <h2 className="text-3xl font-bold mb-6 border-b pb-2 text-amber-700">
+      <h2 className="text-3xl font-bold mb-6 border-b pb-2 text-navy-700">
         AI Projects &amp; Hackathons
       </h2>
       <div className="space-y-4">
@@ -439,7 +439,7 @@ export default function ProjectsPage() {
             transition={{ duration: 0.4, delay: i * 0.04 }}
             viewport={{ once: true }}
           >
-            <div className="flex justify-between font-semibold text-amber-700">
+            <div className="flex justify-between font-semibold text-navy-700">
               <span>{h.event}</span>
               <span className="text-sm text-gray-500">{h.org}{h.period ? ` · ${h.period}` : ""}</span>
             </div>

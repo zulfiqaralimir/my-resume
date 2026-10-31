@@ -315,7 +315,7 @@ export default function StartupProfilePage() {
 
       {/* Nav row + download buttons */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
-        <Link href="/resume" className="text-sm text-amber-600 hover:text-amber-700 font-medium transition">
+        <Link href="/resume" className="text-sm text-navy-600 hover:text-navy-700 font-medium transition">
           ← All CVs
         </Link>
 
@@ -323,7 +323,7 @@ export default function StartupProfilePage() {
           <button
             onClick={handlePDF}
             disabled={generating !== null}
-            className="bg-amber-600 hover:bg-amber-700 disabled:opacity-60 text-white font-semibold px-5 py-2 rounded-lg shadow transition flex items-center gap-2 text-sm"
+            className="bg-navy-600 hover:bg-navy-700 disabled:opacity-60 text-white font-semibold px-5 py-2 rounded-lg shadow transition flex items-center gap-2 text-sm"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -333,7 +333,7 @@ export default function StartupProfilePage() {
           <button
             onClick={handleDocx}
             disabled={generating !== null}
-            className="bg-white hover:bg-gray-50 disabled:opacity-60 text-amber-700 font-semibold px-5 py-2 rounded-lg shadow border border-amber-300 transition flex items-center gap-2 text-sm"
+            className="bg-white hover:bg-gray-50 disabled:opacity-60 text-navy-700 font-semibold px-5 py-2 rounded-lg shadow border border-navy-300 transition flex items-center gap-2 text-sm"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -346,25 +346,25 @@ export default function StartupProfilePage() {
       <div>
 
         {/* ── HEADER ── */}
-        <div className="flex items-center gap-6 mb-6 pb-5 border-b-2 border-amber-600">
+        <div className="flex items-center gap-6 mb-6 pb-5 border-b-2 border-navy-600">
           <Image
             src="/profile-startup.jpg"
             alt="Zulfiqar Ali Mir"
             width={90}
             height={90}
-            className="rounded-full border-2 border-amber-600 shrink-0 object-cover"
+            className="rounded-full border-2 border-navy-600 shrink-0 object-cover"
           />
           <div>
-            <h1 className="text-3xl font-extrabold text-amber-700 tracking-tight">Zulfiqar Ali Mir</h1>
+            <h1 className="text-3xl font-extrabold text-navy-700 tracking-tight">Zulfiqar Ali Mir</h1>
             <p className="text-gray-600 mt-0.5 font-medium">
               Founder &amp; Chairman, Black Iron Quantum AI (Pvt.) Ltd. — Incubated at National Incubation Center (NIC), Islamabad
             </p>
-            <p className="text-amber-700 text-sm font-semibold mt-0.5">
+            <p className="text-navy-700 text-sm font-semibold mt-0.5">
               Quantitative Researcher · AI Engineer · Financial Strategist
             </p>
             <div className="flex flex-wrap gap-1.5 mt-2">
               {badges.map((b, i) => (
-                <span key={i} className="bg-amber-50 border border-amber-200 text-amber-700 text-xs font-medium px-2 py-0.5 rounded-full">{b}</span>
+                <span key={i} className="bg-navy-50 border border-navy-200 text-navy-700 text-xs font-medium px-2 py-0.5 rounded-full">{b}</span>
               ))}
             </div>
             <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-xs text-gray-500">
@@ -378,13 +378,13 @@ export default function StartupProfilePage() {
 
         {/* ── SHORT BIO ── */}
         <section className="mb-6">
-          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-2 border-b border-gray-200 pb-1">Short Bio</h2>
+          <h2 className="text-lg font-bold text-navy-700 uppercase tracking-wider mb-2 border-b border-gray-200 pb-1">Short Bio</h2>
           <p className="text-sm text-gray-700 leading-relaxed">{bio}</p>
         </section>
 
         {/* ── EDUCATION ── */}
         <section className="mb-6">
-          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-2 border-b border-gray-200 pb-1">Education</h2>
+          <h2 className="text-lg font-bold text-navy-700 uppercase tracking-wider mb-2 border-b border-gray-200 pb-1">Education</h2>
           <ul className="list-disc pl-4 space-y-1 text-sm text-gray-700">
             {education.map((e, i) => <li key={i}>{e}</li>)}
           </ul>
@@ -392,7 +392,7 @@ export default function StartupProfilePage() {
 
         {/* ── CORE EXPERTISE ── */}
         <section className="mb-6">
-          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-2 border-b border-gray-200 pb-1">Core Expertise</h2>
+          <h2 className="text-lg font-bold text-navy-700 uppercase tracking-wider mb-2 border-b border-gray-200 pb-1">Core Expertise</h2>
           <ul className="list-disc pl-4 space-y-1 text-sm text-gray-700">
             {coreExpertise.map((e, i) => <li key={i}>{e}</li>)}
           </ul>
@@ -400,7 +400,7 @@ export default function StartupProfilePage() {
 
         {/* ── EXPERIENCE ── */}
         <section className="mb-6">
-          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-2 border-b border-gray-200 pb-1">Experience</h2>
+          <h2 className="text-lg font-bold text-navy-700 uppercase tracking-wider mb-2 border-b border-gray-200 pb-1">Experience</h2>
           <ul className="list-disc pl-4 space-y-1 text-sm text-gray-700">
             {experience.map((e, i) => <li key={i}>{e}</li>)}
           </ul>
@@ -408,7 +408,7 @@ export default function StartupProfilePage() {
 
         {/* ── KEY GRC & AI PROJECTS ── */}
         <section className="mb-6">
-          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-2 border-b border-gray-200 pb-1">Key GRC &amp; AI Projects</h2>
+          <h2 className="text-lg font-bold text-navy-700 uppercase tracking-wider mb-2 border-b border-gray-200 pb-1">Key GRC &amp; AI Projects</h2>
           <ul className="space-y-1.5 text-sm text-gray-700">
             {grcProjects.map((p, i) => (
               <li key={i}>
@@ -420,7 +420,7 @@ export default function StartupProfilePage() {
 
         {/* ── RECOGNITION ── */}
         <section className="mb-6">
-          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-2 border-b border-gray-200 pb-1">Recognition</h2>
+          <h2 className="text-lg font-bold text-navy-700 uppercase tracking-wider mb-2 border-b border-gray-200 pb-1">Recognition</h2>
           <ul className="list-disc pl-4 space-y-1 text-sm text-gray-700">
             {recognition.map((r, i) => <li key={i}>{r}</li>)}
           </ul>

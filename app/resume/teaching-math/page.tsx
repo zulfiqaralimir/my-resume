@@ -375,7 +375,7 @@ export default function TeachingMathResumePage() {
 
       {/* Nav row + download buttons */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
-        <Link href="/resume" className="text-sm text-amber-600 hover:text-amber-700 font-medium transition">
+        <Link href="/resume" className="text-sm text-navy-600 hover:text-navy-700 font-medium transition">
           ← All CVs
         </Link>
 
@@ -383,7 +383,7 @@ export default function TeachingMathResumePage() {
           <button
             onClick={handlePDF}
             disabled={generating !== null}
-            className="bg-amber-600 hover:bg-amber-700 disabled:opacity-60 text-white font-semibold px-5 py-2 rounded-lg shadow transition flex items-center gap-2 text-sm"
+            className="bg-navy-600 hover:bg-navy-700 disabled:opacity-60 text-white font-semibold px-5 py-2 rounded-lg shadow transition flex items-center gap-2 text-sm"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -393,7 +393,7 @@ export default function TeachingMathResumePage() {
           <button
             onClick={handleDocx}
             disabled={generating !== null}
-            className="bg-white hover:bg-gray-50 disabled:opacity-60 text-amber-700 font-semibold px-5 py-2 rounded-lg shadow border border-amber-300 transition flex items-center gap-2 text-sm"
+            className="bg-white hover:bg-gray-50 disabled:opacity-60 text-navy-700 font-semibold px-5 py-2 rounded-lg shadow border border-navy-300 transition flex items-center gap-2 text-sm"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -407,20 +407,20 @@ export default function TeachingMathResumePage() {
       <div ref={containerRef}>
 
         {/* ── HEADER ── */}
-        <div className="flex items-center gap-6 mb-6 pb-5 border-b-2 border-amber-600">
+        <div className="flex items-center gap-6 mb-6 pb-5 border-b-2 border-navy-600">
           <Image
             src="/profile.jpg"
             alt="Zulfiqar Ali Mir"
             width={90}
             height={90}
-            className="rounded-full border-2 border-amber-600 shrink-0"
+            className="rounded-full border-2 border-navy-600 shrink-0"
           />
           <div>
-            <h1 className="text-3xl font-extrabold text-amber-700 tracking-tight">Zulfiqar Ali Mir</h1>
+            <h1 className="text-3xl font-extrabold text-navy-700 tracking-tight">Zulfiqar Ali Mir</h1>
             <p className="text-gray-600 mt-0.5 font-medium">Mathematics Educator · IGCSE &amp; A-Level Specialist · Cambridge Certified</p>
             <div className="flex flex-wrap gap-1.5 mt-2">
               {badges.map((b, i) => (
-                <span key={i} className="bg-amber-50 border border-amber-200 text-amber-700 text-xs font-medium px-2 py-0.5 rounded-full">{b}</span>
+                <span key={i} className="bg-navy-50 border border-navy-200 text-navy-700 text-xs font-medium px-2 py-0.5 rounded-full">{b}</span>
               ))}
             </div>
             <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-xs text-gray-500">
@@ -434,7 +434,7 @@ export default function TeachingMathResumePage() {
 
         {/* ── PROFILE SUMMARY ── */}
         <section className="mb-6">
-          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-2 border-b border-gray-200 pb-1">Profile</h2>
+          <h2 className="text-lg font-bold text-navy-700 uppercase tracking-wider mb-2 border-b border-gray-200 pb-1">Profile</h2>
           <p className="text-sm text-gray-700 leading-relaxed">
             Dedicated mathematics educator with over 15 years of classroom experience teaching Cambridge IGCSE and A-Level Mathematics in Pakistan&apos;s leading schools.
             Holds a Ph.D. in Econometrics and a B.Sc. in Mathematics &amp; Statistics, providing deep subject-matter expertise far beyond the syllabus.
@@ -445,7 +445,7 @@ export default function TeachingMathResumePage() {
 
         {/* ── TEACHING EXPERIENCE ── */}
         <section className="mb-6">
-          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Teaching Experience</h2>
+          <h2 className="text-lg font-bold text-navy-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Teaching Experience</h2>
           <div className="space-y-3">
             {teachingExperience.map((job, i) => (
               <div key={i} className="text-sm">
@@ -453,7 +453,7 @@ export default function TeachingMathResumePage() {
                   <span className="font-semibold text-gray-800">{job.org}</span>
                   <span className="text-xs text-gray-400 text-right shrink-0 ml-2">{job.location} · {job.period}</span>
                 </div>
-                <p className="text-amber-700 font-medium">{job.title}</p>
+                <p className="text-navy-700 font-medium">{job.title}</p>
                 {job.bullets.length > 0 && (
                   <ul className="list-disc pl-4 mt-1 space-y-0.5 text-gray-600">
                     {job.bullets.map((b, j) => <li key={j}>{b}</li>)}
@@ -466,7 +466,7 @@ export default function TeachingMathResumePage() {
 
         {/* ── EDUCATIONAL PLATFORMS BUILT ── */}
         <section className="mb-6">
-          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Educational Platforms Built</h2>
+          <h2 className="text-lg font-bold text-navy-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Educational Platforms Built</h2>
           <div className="space-y-3">
             {edTechProjects.map((p, i) => (
               <div key={i} className="text-sm">
@@ -474,7 +474,7 @@ export default function TeachingMathResumePage() {
                   <span className="font-semibold text-gray-800">{p.title}</span>
                   <span className="text-xs text-gray-400 text-right shrink-0 ml-2">{p.org} · {p.period}</span>
                 </div>
-                {p.url && <p className="text-amber-700 text-xs font-medium">{p.url}</p>}
+                {p.url && <p className="text-navy-700 text-xs font-medium">{p.url}</p>}
                 <ul className="list-disc pl-4 mt-1 space-y-0.5 text-gray-600">
                   {p.bullets.map((b, j) => <li key={j}>{b}</li>)}
                 </ul>
@@ -485,7 +485,7 @@ export default function TeachingMathResumePage() {
 
         {/* ── EDUCATION ── */}
         <section className="mb-6">
-          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Education</h2>
+          <h2 className="text-lg font-bold text-navy-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Education</h2>
           <div className="space-y-2">
             {education.map((e, i) => (
               <div key={i} className="text-sm">
@@ -493,7 +493,7 @@ export default function TeachingMathResumePage() {
                   <span className="font-semibold text-gray-800">{e.school}</span>
                   <span className="text-xs text-gray-400 shrink-0 ml-2">{e.period}</span>
                 </div>
-                <p className="text-amber-700">{e.degree}</p>
+                <p className="text-navy-700">{e.degree}</p>
                 {e.thesis && <p className="text-gray-500 text-xs mt-0.5">Thesis: {e.thesis}</p>}
               </div>
             ))}
@@ -502,7 +502,7 @@ export default function TeachingMathResumePage() {
 
         {/* ── SKILLS ── */}
         <section className="mb-6">
-          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Subject Knowledge &amp; Skills</h2>
+          <h2 className="text-lg font-bold text-navy-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Subject Knowledge &amp; Skills</h2>
           <div className="grid grid-cols-2 gap-x-6 gap-y-2">
             {mathSkills.map((g, i) => (
               <div key={i} className="text-sm">
@@ -515,7 +515,7 @@ export default function TeachingMathResumePage() {
 
         {/* ── TEACHING CERTIFICATIONS ── */}
         <section className="mb-6">
-          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Teaching Certifications</h2>
+          <h2 className="text-lg font-bold text-navy-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Teaching Certifications</h2>
           <ul className="list-disc pl-4 space-y-1 text-sm text-gray-700">
             {teachingCerts.map((c, i) => <li key={i}>{c}</li>)}
           </ul>
@@ -523,7 +523,7 @@ export default function TeachingMathResumePage() {
 
         {/* ── HONORS ── */}
         <section className="mb-6">
-          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Honors &amp; Recognition</h2>
+          <h2 className="text-lg font-bold text-navy-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Honors &amp; Recognition</h2>
           <div className="space-y-2">
             {honors.map((h, i) => (
               <div key={i} className="text-sm">
@@ -537,7 +537,7 @@ export default function TeachingMathResumePage() {
 
         {/* ── TEACHING VIDEOS ── */}
         <section className="mb-6">
-          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Teaching Content &amp; Videos</h2>
+          <h2 className="text-lg font-bold text-navy-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Teaching Content &amp; Videos</h2>
           <div className="space-y-1">
             {teachingVideos.map((v, i) => (
               <div key={i} className="text-sm">

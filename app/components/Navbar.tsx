@@ -41,14 +41,14 @@ export default function Navbar() {
   return (
     <nav className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
       <div className="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
-        <h1 className="font-bold text-xl text-amber-700">Zulfiqar Ali Mir</h1>
+        <h1 className="font-bold text-xl text-navy-700">Zulfiqar Ali Mir</h1>
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-5">
           <ul className="flex space-x-5 text-sm font-medium text-gray-700">
             {links.map((l) => (
               <li key={l.href}>
-                <Link href={l.href} className="hover:text-amber-600 transition-colors">
+                <Link href={l.href} className="hover:text-navy-600 transition-colors">
                   {l.label}
                 </Link>
               </li>
@@ -59,7 +59,7 @@ export default function Navbar() {
           <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setCvOpen(!cvOpen)}
-              className="flex items-center gap-1.5 bg-amber-600 hover:bg-amber-700 text-white text-sm font-semibold px-4 py-1.5 rounded-lg transition"
+              className="flex items-center gap-1.5 bg-navy-600 hover:bg-navy-700 text-white text-sm font-semibold px-4 py-1.5 rounded-lg transition"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -76,7 +76,7 @@ export default function Navbar() {
                   <Link
                     key={cv.href}
                     href={cv.href}
-                    className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-amber-50 hover:text-amber-700 transition-colors"
+                    className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-navy-50 hover:text-navy-700 transition-colors"
                     onClick={() => setCvOpen(false)}
                   >
                     {cv.label}
@@ -92,7 +92,7 @@ export default function Navbar() {
                         key={doc.id}
                         href={doc.fileUrl}
                         download
-                        className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-amber-50 hover:text-amber-700 transition-colors"
+                        className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-navy-50 hover:text-navy-700 transition-colors"
                         onClick={() => setCvOpen(false)}
                       >
                         {doc.title}
@@ -128,7 +128,7 @@ export default function Navbar() {
             <li key={l.href}>
               <Link
                 href={l.href}
-                className="block py-1 hover:text-amber-600 transition-colors"
+                className="block py-1 hover:text-navy-600 transition-colors"
                 onClick={() => setOpen(false)}
               >
                 {l.label}
@@ -141,7 +141,7 @@ export default function Navbar() {
               <Link
                 key={cv.href}
                 href={cv.href}
-                className="block py-1 text-amber-600 font-semibold hover:text-amber-700 transition-colors"
+                className="block py-1 text-navy-600 font-semibold hover:text-navy-700 transition-colors"
                 onClick={() => setOpen(false)}
               >
                 {cv.label}
@@ -155,7 +155,7 @@ export default function Navbar() {
                     key={doc.id}
                     href={doc.fileUrl}
                     download
-                    className="block py-1 text-amber-600 font-semibold hover:text-amber-700 transition-colors"
+                    className="block py-1 text-navy-600 font-semibold hover:text-navy-700 transition-colors"
                     onClick={() => setOpen(false)}
                   >
                     {doc.title}

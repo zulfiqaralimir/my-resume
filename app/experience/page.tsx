@@ -217,7 +217,7 @@ export default function ExperiencePage() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-      <h1 className="text-4xl font-bold mb-8 border-b pb-2 text-amber-700">
+      <h1 className="text-4xl font-bold mb-8 border-b pb-2 text-navy-700">
         Professional Experience
       </h1>
 
@@ -231,7 +231,7 @@ export default function ExperiencePage() {
             transition={{ duration: 0.5, delay: i * 0.05 }}
             viewport={{ once: true }}
           >
-            <div className="flex justify-between font-semibold text-amber-700">
+            <div className="flex justify-between font-semibold text-navy-700">
               <span>{job.org}</span>
               <span className="text-sm text-gray-500">{job.location} · {job.period}</span>
             </div>
@@ -269,7 +269,7 @@ export default function ExperiencePage() {
         ))}
       </div>
 
-      <h1 className="text-4xl font-bold mt-12 mb-8 border-b pb-2 text-amber-700">
+      <h1 className="text-4xl font-bold mt-12 mb-8 border-b pb-2 text-navy-700">
         Research Fellowships
       </h1>
       <div className="space-y-6">
@@ -282,7 +282,7 @@ export default function ExperiencePage() {
             transition={{ duration: 0.5, delay: i * 0.05 }}
             viewport={{ once: true }}
           >
-            <div className="flex justify-between font-semibold text-amber-700">
+            <div className="flex justify-between font-semibold text-navy-700">
               <span>{f.org}</span>
               <span className="text-sm text-gray-500">{f.location} · {f.period}</span>
             </div>
