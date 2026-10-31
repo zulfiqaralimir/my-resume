@@ -3,12 +3,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import HeroBackground from "./components/HeroBackground";
 
 const badges = [
   "National AI FinTech Winner 2025",
   "Stanford Section Leader",
   "Ph.D. Econometrics",
+  "Trade Policy Consultant",
   "LLM Trainer · Turing",
+  "Author · 3 Books",
+  "Educator · 15+ Yrs",
   "HEC AI Judge 2026",
 ];
 
@@ -80,6 +84,7 @@ export default function Home() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
       >
+        <HeroBackground />
         {/* subtle background circles */}
         <div className="absolute -top-10 -right-10 w-64 h-64 bg-white/10 rounded-full" />
         <div className="absolute -bottom-16 -left-10 w-80 h-80 bg-white/5 rounded-full" />
@@ -118,7 +123,7 @@ export default function Home() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.45 }}
             >
-              Quantitative Researcher · AI Engineer · Financial Strategist
+              Quantitative Researcher · Trade Policy &amp; Economic Modelling · AI Engineer · Financial Strategist
             </motion.p>
 
             {/* Badges */}
@@ -150,6 +155,12 @@ export default function Home() {
                 className="bg-white text-amber-700 font-semibold text-sm px-5 py-2.5 rounded-lg shadow hover:bg-amber-50 transition"
               >
                 View Projects
+              </Link>
+              <Link
+                href="/resume"
+                className="border border-white/60 text-white font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-white/10 transition"
+              >
+                Research &amp; Papers
               </Link>
               <a
                 href="mailto:manager.equity.finance@gmail.com"
