@@ -157,7 +157,7 @@ export default function Home() {
                 View Projects
               </Link>
               <Link
-                href="/resume"
+                href="/resume#research"
                 className="border border-white/60 text-white font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-white/10 transition"
               >
                 Research &amp; Papers

@@ -20,7 +20,10 @@ const badges = [
   "National AI FinTech Winner 2025",
   "Stanford Section Leader",
   "Ph.D. Econometrics",
+  "Trade Policy Consultant",
   "LLM Trainer · Turing",
+  "Author · 3 Books",
+  "Educator · 15+ Yrs",
   "HEC AI Judge 2026",
 ];
 
@@ -575,8 +578,8 @@ async function downloadPDF() {
   style(22, true, NAVY);
   doc.setFont("times", "bold"); // closest built-in serif to Playfair Display
   doc.text("Zulfiqar Ali Mir", W / 2, y, { align: "center" }); y += 8;
-  style(10, false, G600);
-  doc.text("Quantitative Researcher · AI Engineer · Financial Strategist", W / 2, y, { align: "center" }); y += 5;
+  style(9, false, G600);
+  doc.text("Quantitative Researcher · Trade Policy & Economic Modelling · AI Engineer · Financial Strategist", W / 2, y, { align: "center" }); y += 5;
   style(8.5, false, NAVY);
   writeWrapped(badges.join(" · "), M, CW, 4);
   style(8, false, G500);
@@ -804,7 +807,7 @@ async function downloadDocx() {
       alignment: AlignmentType.CENTER,
     }),
     new Paragraph({
-      children: [new TextRun({ text: "Quantitative Researcher · AI Engineer · Financial Strategist", size: 22 })],
+      children: [new TextRun({ text: "Quantitative Researcher · Trade Policy & Economic Modelling · AI Engineer · Financial Strategist", size: 22 })],
       alignment: AlignmentType.CENTER,
     }),
     new Paragraph({
@@ -1153,7 +1156,7 @@ export default function ResumePage() {
           />
           <div>
             <h1 className="text-4xl text-navy-800 tracking-tight">Zulfiqar Ali Mir</h1>
-            <p className="text-gray-600 mt-0.5">Quantitative Researcher · AI Engineer · Financial Strategist</p>
+            <p className="text-gray-600 mt-0.5">Quantitative Researcher · Trade Policy &amp; Economic Modelling · AI Engineer · Financial Strategist</p>
             <div className="flex flex-wrap gap-1.5 mt-2">
               {badges.map((b, i) => (
                 <span key={i} className="bg-navy-50 border border-navy-200 text-navy-700 text-xs font-medium px-2 py-0.5 rounded-full">{b}</span>
@@ -1244,7 +1247,7 @@ export default function ResumePage() {
         </section>
 
         {/* ── RESEARCH & PUBLICATIONS ── */}
-        <section className="mb-6">
+        <section id="research" className="mb-6 scroll-mt-20">
           <h2 className="text-lg font-bold text-navy-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Research &amp; Publications</h2>
           <p className="text-sm font-semibold text-gray-700 mb-1">Working Papers (SSRN)</p>
           <p className="text-sm text-gray-800 mb-3">
