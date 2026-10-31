@@ -79,7 +79,7 @@ export default function Home() {
 
       {/* ── HERO ── */}
       <motion.section
-        className="relative bg-gradient-to-br from-navy-700 via-navy-600 to-navy-500 rounded-2xl shadow-xl px-8 py-12 mb-14 text-white overflow-hidden"
+        className="relative bg-gradient-to-br from-[#00132c] via-[#011735] to-[#0b2447] rounded-2xl shadow-xl px-8 py-12 mb-14 text-white overflow-hidden"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
@@ -118,7 +118,7 @@ export default function Home() {
             </motion.h1>
 
             <motion.p
-              className="text-navy-100 text-lg sm:text-xl font-medium mb-5"
+              className="text-[#f2d27a] text-lg sm:text-xl font-medium mb-5"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.45 }}
@@ -136,7 +136,7 @@ export default function Home() {
               {badges.map((b, i) => (
                 <span
                   key={i}
-                  className="bg-white/20 border border-white/30 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-sm"
+                  className="bg-white/10 border border-[#d4a73a]/50 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-sm"
                 >
                   {b}
                 </span>
