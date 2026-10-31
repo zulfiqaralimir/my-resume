@@ -40,7 +40,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="sticky top-0 z-50 bg-[#4a6db5] border-b border-[#d4a73a]/50 shadow-md">
+    <nav className="sticky top-0 z-50 bg-navy-800 border-b border-[#d4a73a]/50 shadow-md">
       <div className="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-3">
           <Image src="/logo-128.png" alt="ZAM logo" width={44} height={44} className="rounded-full" />
@@ -127,7 +127,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <ul className="md:hidden px-4 pb-4 space-y-2 text-sm font-medium text-white bg-[#4a6db5] border-t border-white/10">
+        <ul className="md:hidden px-4 pb-4 space-y-2 text-sm font-medium text-white bg-navy-800 border-t border-white/10">
           {links.map((l) => (
             <li key={l.href}>
               <Link
