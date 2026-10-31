@@ -537,7 +537,7 @@ async function downloadPDF() {
   const CW = W - 2 * M;
   let y = M;
 
-  // amber-700, gray-800, gray-600, gray-500, gray-400
+  // navy-700, gray-800, gray-600, gray-500, gray-400
   const AMBER: [number, number, number] = [180, 83, 9];
   const G800: [number, number, number] = [31, 41, 55];
   const G600: [number, number, number] = [75, 85, 99];
@@ -1096,19 +1096,19 @@ export default function ResumePage() {
           <span className="text-sm text-gray-500 self-center">Specialised CVs:</span>
           <Link
             href="/resume/startup-profile"
-            className="text-sm bg-amber-50 border border-amber-200 text-amber-700 font-medium px-3 py-1 rounded-full hover:bg-amber-100 transition"
+            className="text-sm bg-navy-50 border border-navy-200 text-navy-700 font-medium px-3 py-1 rounded-full hover:bg-navy-100 transition"
           >
             Startup Profile — Black Iron Quantum AI
           </Link>
           <Link
             href="/resume/teaching-math"
-            className="text-sm bg-amber-50 border border-amber-200 text-amber-700 font-medium px-3 py-1 rounded-full hover:bg-amber-100 transition"
+            className="text-sm bg-navy-50 border border-navy-200 text-navy-700 font-medium px-3 py-1 rounded-full hover:bg-navy-100 transition"
           >
             Teaching Mathematics (IGCSE &amp; A-Level)
           </Link>
           <Link
             href="/resume/qia"
-            className="text-sm bg-amber-50 border border-amber-200 text-amber-700 font-medium px-3 py-1 rounded-full hover:bg-amber-100 transition"
+            className="text-sm bg-navy-50 border border-navy-200 text-navy-700 font-medium px-3 py-1 rounded-full hover:bg-navy-100 transition"
           >
             Quantitative Research Analyst / Risk &amp; Financial Modeling Analyst
           </Link>
@@ -1118,7 +1118,7 @@ export default function ResumePage() {
           <button
             onClick={handlePDF}
             disabled={generating !== null}
-            className="bg-amber-600 hover:bg-amber-700 disabled:opacity-60 text-white font-semibold px-5 py-2 rounded-lg shadow transition flex items-center gap-2 text-sm"
+            className="bg-navy-700 hover:bg-navy-700 disabled:opacity-60 text-white font-semibold px-5 py-2 rounded-lg shadow transition flex items-center gap-2 text-sm"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -1128,7 +1128,7 @@ export default function ResumePage() {
           <button
             onClick={handleDocx}
             disabled={generating !== null}
-            className="bg-white hover:bg-gray-50 disabled:opacity-60 text-amber-700 font-semibold px-5 py-2 rounded-lg shadow border border-amber-300 transition flex items-center gap-2 text-sm"
+            className="bg-white hover:bg-gray-50 disabled:opacity-60 text-navy-700 font-semibold px-5 py-2 rounded-lg shadow border border-navy-300 transition flex items-center gap-2 text-sm"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -1139,23 +1139,23 @@ export default function ResumePage() {
       </div>
 
       {/* Resume content captured for PDF */}
-      <div ref={containerRef}>
+      <div ref={containerRef} className="resume-doc">
 
         {/* ── HEADER ── */}
-        <div className="flex items-center gap-6 mb-6 pb-5 border-b-2 border-amber-600">
+        <div className="flex items-center gap-6 mb-6 pb-5 border-b-2 border-navy-700">
           <Image
             src="/profile.jpg"
             alt="Zulfiqar Ali Mir"
             width={90}
             height={90}
-            className="rounded-full border-2 border-amber-600 shrink-0"
+            className="rounded-full border-2 border-navy-700 shrink-0"
           />
           <div>
-            <h1 className="text-3xl font-extrabold text-amber-700 tracking-tight">Zulfiqar Ali Mir</h1>
+            <h1 className="text-4xl text-navy-800 tracking-tight">Zulfiqar Ali Mir</h1>
             <p className="text-gray-600 mt-0.5">Quantitative Researcher · AI Engineer · Financial Strategist</p>
             <div className="flex flex-wrap gap-1.5 mt-2">
               {badges.map((b, i) => (
-                <span key={i} className="bg-amber-50 border border-amber-200 text-amber-700 text-xs font-medium px-2 py-0.5 rounded-full">{b}</span>
+                <span key={i} className="bg-navy-50 border border-navy-200 text-navy-700 text-xs font-medium px-2 py-0.5 rounded-full">{b}</span>
               ))}
             </div>
             <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-xs text-gray-500">
@@ -1169,7 +1169,7 @@ export default function ResumePage() {
 
         {/* ── EXPERIENCE ── */}
         <section className="mb-6">
-          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Professional Experience</h2>
+          <h2 className="text-lg font-bold text-navy-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Professional Experience</h2>
           <div className="space-y-3">
             {jobs.map((job, i) => (
               <div key={i} className="text-sm">
@@ -1177,7 +1177,7 @@ export default function ResumePage() {
                   <span className="font-semibold text-gray-800">{job.org}</span>
                   <span className="text-xs text-gray-400 text-right shrink-0 ml-2">{job.location} · {job.period}</span>
                 </div>
-                <p className="text-amber-700 font-medium">{job.title}</p>
+                <p className="text-navy-700 font-medium">{job.title}</p>
                 {job.project && <p className="text-gray-700 mt-1">{renderBullet(job.project)}</p>}
                 {job.groups?.map((g, gi) => (
                   <div key={gi} className="mt-2">
@@ -1206,7 +1206,7 @@ export default function ResumePage() {
 
         {/* ── RESEARCH FELLOWSHIPS ── */}
         <section className="mb-6">
-          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Research Fellowships</h2>
+          <h2 className="text-lg font-bold text-navy-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Research Fellowships</h2>
           <div className="space-y-3">
             {fellowships.map((f, i) => (
               <div key={i} className="text-sm">
@@ -1214,7 +1214,7 @@ export default function ResumePage() {
                   <span className="font-semibold text-gray-800">{f.org}</span>
                   <span className="text-xs text-gray-400 text-right shrink-0 ml-2">{f.location} · {f.period}</span>
                 </div>
-                <p className="text-amber-700 font-medium">{f.title}</p>
+                <p className="text-navy-700 font-medium">{f.title}</p>
                 {f.bullets.length > 0 && (
                   <ul className="list-disc pl-4 mt-1 space-y-0.5 text-gray-600">
                     {f.bullets.map((b, j) => <li key={j}>{b}</li>)}
@@ -1227,7 +1227,7 @@ export default function ResumePage() {
 
         {/* ── EDUCATION ── */}
         <section className="mb-6">
-          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Education</h2>
+          <h2 className="text-lg font-bold text-navy-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Education</h2>
           <div className="space-y-2">
             {education.map((e, i) => (
               <div key={i} className="text-sm">
@@ -1235,7 +1235,7 @@ export default function ResumePage() {
                   <span className="font-semibold text-gray-800">{e.school}</span>
                   <span className="text-xs text-gray-400 shrink-0 ml-2">{e.period}</span>
                 </div>
-                <p className="text-amber-700">{e.degree}</p>
+                <p className="text-navy-700">{e.degree}</p>
                 {e.thesis && <p className="text-gray-500 text-xs mt-0.5">Thesis: {e.thesis}</p>}
               </div>
             ))}
@@ -1244,11 +1244,11 @@ export default function ResumePage() {
 
         {/* ── RESEARCH & PUBLICATIONS ── */}
         <section className="mb-6">
-          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Research &amp; Publications</h2>
+          <h2 className="text-lg font-bold text-navy-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Research &amp; Publications</h2>
           <p className="text-sm font-semibold text-gray-700 mb-1">Working Papers (SSRN)</p>
           <p className="text-sm text-gray-800 mb-3">
             <strong>Mir, Z. A.</strong>, Naqvi, H. A., &amp; Abbas, A. (2026). Hormuz energy shock and Pakistan: A CGE analysis. <em>SSRN Working Paper</em>.{" "}
-            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7653420" className="text-amber-700 underline break-all">
+            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7653420" className="text-navy-700 underline break-all">
               https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7653420
             </a>
           </p>
@@ -1260,7 +1260,7 @@ export default function ResumePage() {
           <ul className="text-sm text-gray-800 space-y-0.5">
             <li>
               Google Scholar:{" "}
-              <a href="https://scholar.google.com/citations?user=esWyOI4AAAAJ" className="text-amber-700 underline break-all">
+              <a href="https://scholar.google.com/citations?user=esWyOI4AAAAJ" className="text-navy-700 underline break-all">
                 https://scholar.google.com/citations?user=esWyOI4AAAAJ
               </a>
             </li>
@@ -1270,7 +1270,7 @@ export default function ResumePage() {
 
         {/* ── SKILLS ── */}
         <section className="mb-6">
-          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Technical Skills</h2>
+          <h2 className="text-lg font-bold text-navy-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Technical Skills</h2>
           <div className="grid grid-cols-2 gap-x-6 gap-y-2">
             {skillGroups.map((g, i) => (
               <div key={i} className="text-sm">
@@ -1283,7 +1283,7 @@ export default function ResumePage() {
 
         {/* ── FEATURED PROJECTS ── */}
         <section className="mb-6">
-          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Featured Projects</h2>
+          <h2 className="text-lg font-bold text-navy-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Featured Projects</h2>
           <div className="space-y-4">
             {featuredProjects.map((p, i) => (
               <div key={i} className="text-sm">
@@ -1296,13 +1296,13 @@ export default function ResumePage() {
                   </p>
                 )}
                 {"tagline" in p && p.tagline && (
-                  <p className="text-xs italic text-amber-800 mt-1">{renderTagline(p.tagline)}</p>
+                  <p className="text-xs italic text-navy-800 mt-1">{renderTagline(p.tagline)}</p>
                 )}
                 <ul className="list-disc pl-4 mt-1 space-y-0.5 text-gray-600">
                   {p.bullets.map((b, j) => <li key={j}>{b}</li>)}
                 </ul>
                 {p.stack.length > 0 && (
-                  <p className="text-xs text-amber-700 mt-1">Stack: {p.stack.join(", ")}</p>
+                  <p className="text-xs text-navy-700 mt-1">Stack: {p.stack.join(", ")}</p>
                 )}
               </div>
             ))}
@@ -1311,7 +1311,7 @@ export default function ResumePage() {
 
         {/* ── RESEARCH PROJECTS ── */}
         <section className="mb-6">
-          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Research &amp; Coding Projects</h2>
+          <h2 className="text-lg font-bold text-navy-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Research &amp; Coding Projects</h2>
           <div className="space-y-1">
             {researchProjects.map((p, i) => (
               <div key={i} className="text-sm">
@@ -1324,7 +1324,7 @@ export default function ResumePage() {
 
         {/* ── CONFERENCE PRESENTATIONS ── */}
         <section className="mb-6">
-          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Conference Presentations</h2>
+          <h2 className="text-lg font-bold text-navy-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Conference Presentations</h2>
           <div className="space-y-2">
             {conferences.map((c, i) => (
               <div key={i} className="text-sm">
@@ -1338,7 +1338,7 @@ export default function ResumePage() {
 
         {/* ── HACKATHONS ── */}
         <section className="mb-6">
-          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">AI Projects &amp; Hackathons</h2>
+          <h2 className="text-lg font-bold text-navy-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">AI Projects &amp; Hackathons</h2>
           <div className="space-y-2">
             {hackathons.map((h, i) => (
               <div key={i} className="text-sm">
@@ -1354,7 +1354,7 @@ export default function ResumePage() {
 
         {/* ── HONORS ── */}
         <section className="mb-6">
-          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Honors &amp; Distinctions</h2>
+          <h2 className="text-lg font-bold text-navy-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Honors &amp; Distinctions</h2>
           <div className="space-y-2">
             {honors.map((h, i) => (
               <div key={i} className="text-sm">
@@ -1378,7 +1378,7 @@ export default function ResumePage() {
 
         {/* ── PUBLICATIONS ── */}
         <section className="mb-6">
-          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Publications</h2>
+          <h2 className="text-lg font-bold text-navy-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Publications</h2>
           <p className="text-sm font-semibold text-gray-700 mb-1">Books</p>
           <div className="space-y-1 mb-3">
             {books.map((b, i) => (
@@ -1411,7 +1411,7 @@ export default function ResumePage() {
 
         {/* ── CERTIFICATIONS ── */}
         <section className="mb-6">
-          <h2 className="text-lg font-bold text-amber-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Certifications &amp; Training</h2>
+          <h2 className="text-lg font-bold text-navy-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Certifications &amp; Training</h2>
           <div className="space-y-2">
             {certGroups.map((g, i) => (
               <div key={i} className="text-sm">

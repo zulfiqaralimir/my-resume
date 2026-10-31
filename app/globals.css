@@ -9,6 +9,16 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
+  --font-display: var(--font-playfair), Georgia, serif;
+  --font-heading: var(--font-montserrat), "Segoe UI", sans-serif;
+  --font-body: Aptos, Calibri, "Segoe UI", system-ui, sans-serif;
+  --color-navy-50: #f3f5f9;
+  --color-navy-100: #e4e8f0;
+  --color-navy-200: #c9d1e0;
+  --color-navy-300: #9aa8c4;
+  --color-navy-600: #1f3a68;
+  --color-navy-700: #14284b;
+  --color-navy-800: #0e1d38;
   --font-mono: var(--font-geist-mono);
 }
 
@@ -25,3 +35,25 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+
+/* Comprehensive Resume typography: Aptos body, Montserrat sections,
+   Playfair name, Arial for tables and technical details. */
+.resume-doc {
+  font-family: var(--font-body);
+  color: #2b2f36;
+  line-height: 1.55;
+}
+.resume-doc h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+.resume-doc h2 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+.resume-doc table,
+.resume-doc code,
+.resume-doc pre {
+  font-family: Arial, Helvetica, sans-serif;
+}
