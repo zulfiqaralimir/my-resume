@@ -89,7 +89,7 @@ export default function Home() {
         <div className="absolute -top-10 -right-10 w-64 h-64 bg-white/10 rounded-full" />
         <div className="absolute -bottom-16 -left-10 w-80 h-80 bg-white/5 rounded-full" />
 
-        <div className="relative flex flex-col sm:flex-row items-center gap-8">
+        <div className="relative flex flex-col sm:flex-row items-center gap-8 lg:pr-44">
           {/* Photo */}
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
@@ -171,6 +171,15 @@ export default function Home() {
             </motion.div>
           </div>
         </div>
+
+        {/* Logo */}
+        <Image
+          src="/logo-512.png"
+          alt="ZAM — Zulfiqar Ali Mir logo"
+          width={170}
+          height={170}
+          className="hidden lg:block absolute top-8 right-8 rounded-full shadow-lg"
+        />
 
         {/* Contact row */}
         <motion.div

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { downloadableDocuments } from "../documents/documentsConfig";
@@ -41,7 +42,10 @@ export default function Navbar() {
   return (
     <nav className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
       <div className="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
-        <h1 className="font-bold text-xl text-navy-700">Zulfiqar Ali Mir</h1>
+        <Link href="/" className="flex items-center gap-3">
+          <Image src="/logo-128.png" alt="ZAM logo" width={44} height={44} className="rounded-full" />
+          <h1 className="font-bold text-xl text-navy-700">Zulfiqar Ali Mir</h1>
+        </Link>
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-5">
