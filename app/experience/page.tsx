@@ -141,6 +141,7 @@ const jobs = [
   },
   {
     org: "iCodeGuru (San Jose, California)",
+    logo: { src: "/logos/icodeguru.png", w: 200, h: 200 },
     location: "Remote",
     period: "June 2024 – Present",
     title: "Teacher and Trainer",

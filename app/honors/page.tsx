@@ -26,7 +26,7 @@ const honors = [
   },
   {
     title: "Generative AI Instructor / Mentor / Judge Certificate – NCEAC–HEC Cohort 2 (Jan–Feb 2026)",
-    logos: [{ src: "/logos/nceac.png", w: 698, h: 545, alt: "NCEAC - Higher Education Commission" }, { src: "/logos/aspire.png", w: 394, h: 394, alt: "ASPIRE Pakistan" }],
+    logos: [{ src: "/logos/nceac.png", w: 698, h: 545, alt: "NCEAC - Higher Education Commission" }, { src: "/logos/aspire.png", w: 394, h: 394, alt: "ASPIRE Pakistan" }, { src: "/logos/ulef.png", w: 474, h: 474, alt: "UETIANS Lahore Endowment Foundation" }, { src: "/logos/icodeguru.png", w: 200, h: 200, alt: "iCodeGuru" }],
     org: "Higher Education Commission (HEC) Pakistan & National Computing Education Accreditation Council (NCEAC)",
     details:
       "Recognized for contributions as Instructor, Mentor, and Judge for the NCEAC–HEC Generative AI Training Cohort 2 (Jan–Feb 2026). Helped aspiring professionals build practical Generative AI skills and evaluated AI innovation projects. Collaborating partners: iCodeGuru, Pak Angels, ASPIRE Pakistan, HEC Pakistan, NCEAC, and UETIANS Lahore Endowment Foundation (ULEF), USA.",
@@ -50,6 +50,7 @@ const honors = [
   },
   {
     title: "Speaker – WordPress Hackathon 2024",
+    logos: [{ src: "/logos/icodeguru.png", w: 200, h: 200, alt: "iCodeGuru" }],
     org: "WPBrigade & iCodeGuru (Silicon Valley)",
     details: "Topic: AI Leadership and LLM Innovation at Turing.",
   },
