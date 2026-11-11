@@ -71,6 +71,7 @@ const honors = [
   },
   {
     title: "Claude Partner Network — Registered Partner",
+    logos: [{ src: "/logos/claudepartner.png", w: 474, h: 254, alt: "Claude Partner Network Member" }],
     org: "Black Iron Quantum AI (Private) Limited",
     details: "Accepted into the Claude Partner Network, expanding engagement with the Claude ecosystem and supporting the company's work in AI applications, agentic systems, and production-oriented AI solutions.",
   },
