@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Rocket, FlaskConical, Presentation, Cpu } from "lucide-react";
 import { Card, CardGrid, PageHero, PageShell, SectionHeading, IconChip, Tag, LinkPill } from "../components/fx";
 
@@ -399,6 +400,9 @@ export default function ProjectsPage() {
       <CardGrid className="grid gap-4 sm:grid-cols-2">
         {hackathons.map((h, i) => (
           <Card key={i} className="!p-5">
+            {h.org === "lablab.ai" && (
+              <Image src="/logos/lablab.png" width={164} height={167} alt="lablab.ai" className="mb-2 h-10 w-auto" />
+            )}
             <p className="font-heading text-xs uppercase tracking-widest text-navy-400">
               {h.org}{h.period ? ` · ${h.period}` : ""}
             </p>
