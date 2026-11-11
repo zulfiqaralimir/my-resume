@@ -386,6 +386,9 @@ export default function ProjectsPage() {
             <div className="flex items-start gap-4">
               <IconChip icon={Presentation} motionType="sway" delay={i * 0.2} />
               <div>
+                {c.details?.includes("Quaid-i-Azam University") && (
+                  <Image src="/logos/qau.png" width={556} height={695} alt="Quaid-i-Azam University" className="mb-2 h-16 w-auto" />
+                )}
                 <p className="font-display text-lg font-bold leading-snug text-navy-700">{c.title}</p>
                 <p className="mt-1 text-sm text-gray-700"><em>{c.paper}</em></p>
                 {c.details && <p className="mt-1 text-sm text-gray-500">{c.details}</p>}
@@ -400,8 +403,14 @@ export default function ProjectsPage() {
       <CardGrid className="grid gap-4 sm:grid-cols-2">
         {hackathons.map((h, i) => (
           <Card key={i} className="!p-5">
-            {h.org === "lablab.ai" && (
-              <Image src="/logos/lablab.png" width={164} height={167} alt="lablab.ai" className="mb-2 h-10 w-auto" />
+            {h.org.includes("lablab.ai") && (
+              <Image src="/logos/lablab.png" width={164} height={167} alt="lablab.ai" className="mb-2 mr-4 inline-block h-10 w-auto align-middle" />
+            )}
+            {h.org.includes("DeepMind") && (
+              <Image src="/logos/deepmind.png" width={700} height={92} alt="Google DeepMind" className="mb-2 inline-block h-8 w-auto align-middle" />
+            )}
+            {h.org.includes("Bright Data") && (
+              <Image src="/logos/brightdata.png" width={700} height={168} alt="Bright Data" className="mb-2 inline-block h-8 w-auto align-middle" />
             )}
             <p className="font-heading text-xs uppercase tracking-widest text-navy-400">
               {h.org}{h.period ? ` · ${h.period}` : ""}
