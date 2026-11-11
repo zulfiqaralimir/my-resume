@@ -133,6 +133,7 @@ const groupLogos: Record<string, Logo[]> = {
   ],
   "Big Data, Data Science & AI": [
     ["deeplearning", 510, 343, "DeepLearning.AI", "h-14"],
+    ["google", 700, 229, "Google", "h-9"],
     ["ibm", 448, 179, "IBM", "h-9"],
     ["udemy", 358, 135, "Udemy", "h-9"],
   ],
