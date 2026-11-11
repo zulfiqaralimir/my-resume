@@ -73,6 +73,14 @@ export default function PublicationsPage() {
       <h1 className="text-4xl font-bold mb-8 border-b pb-2 text-navy-700">Research &amp; Working Papers</h1>
       <div className="space-y-4 mb-14">
         <div className="bg-white p-5 rounded-lg shadow">
+          <p className="font-semibold text-gray-800">Publications &amp; Media</p>
+          <p className="text-sm text-gray-600 mt-1">
+            <strong>Mir, Z. A.</strong> (2026, November 11). Whose jobs will AI hit? <em>The News (Pakistan)</em>, Opinion.{" "}
+            <a href="https://www.thenews.pk/print/1448000-whose-jobs-will-ai-hit" target="_blank" rel="noopener noreferrer" className="text-navy-700 underline break-all">https://www.thenews.pk/print/1448000-whose-jobs-will-ai-hit</a>
+          </p>
+          <p className="text-xs text-gray-500 mt-1">Op-ed on how AI threatens entry-level jobs in Pakistan, with four policy steps to protect youth employment.</p>
+        </div>
+        <div className="bg-white p-5 rounded-lg shadow">
           <p className="font-semibold text-gray-800">Working Papers (SSRN)</p>
           <p className="text-sm text-gray-600 mt-1">
             <strong>Mir, Z. A.</strong>, Naqvi, H. A., &amp; Abbas, A. (2026). Hormuz energy shock and Pakistan: A CGE analysis. <em>SSRN Working Paper</em>.{" "}
