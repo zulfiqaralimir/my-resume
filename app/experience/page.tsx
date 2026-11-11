@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { Briefcase, Building2, Landmark, Rocket, GraduationCap, Users, TrendingUp, Microscope } from "lucide-react";
-import { Card, CardGrid, PageHero, PageShell, SectionHeading, IconChip, Meta, type IconMotion } from "../components/fx";
+import { Briefcase, Building2, Landmark, Rocket, GraduationCap, Users, TrendingUp } from "lucide-react";
+import { Card, CardGrid, PageHero, PageShell, IconChip, Meta, type IconMotion } from "../components/fx";
 
 const jobIcons = [Landmark, Rocket, Briefcase, Users, Building2, GraduationCap, TrendingUp];
 const jobAnims: IconMotion[] = ["float", "wiggle", "sway", "pulse"];
@@ -72,6 +72,7 @@ const jobs = [
   },
   {
     org: "Turing (Palo Alto, California)",
+    logo: { src: "/logos/turing.png", w: 474, h: 119 },
     location: "Remote",
     period: "Sept 2024 – Present",
     title: "Research Analyst / LLM Trainer / Advanced Maths Subject Expert",
@@ -84,6 +85,7 @@ const jobs = [
   },
   {
     org: "Turing (Palo Alto, California)",
+    logo: { src: "/logos/turing.png", w: 474, h: 119 },
     location: "Remote",
     period: "2024 – Present",
     title: "Subject Matter Expert (Mathematics) & AI Evaluator – Pelican Paper STEM Project (Paper Assist)",
@@ -163,6 +165,7 @@ const jobs = [
   },
   {
     org: "Beaconhouse School System, BMI",
+    logo: { src: "/logos/beaconhouse.png", w: 593, h: 513 },
     location: "Islamabad, PK",
     period: "Aug 2017 – Sept 2022",
     title: "Teacher of Mathematics",
@@ -199,22 +202,6 @@ const jobs = [
   },
 ];
 
-const fellowships = [
-  {
-    org: "Social Policy Resource Center (SPRC)",
-    location: "Islamabad, PK",
-    period: "2026 – Present",
-    title: "Research Fellow",
-    bullets: [
-      "Selected for a competitive Research Fellowship at SPRC — a leading public policy and social development think tank committed to evidence-based policymaking in Pakistan.",
-      "Conduct policy-oriented research on social protection, public finance, poverty, inequality, governance, and sustainable development to inform evidence-based policy.",
-      "Apply advanced econometric and quantitative research methods to analyze economic and social datasets, evaluate policy outcomes, and assess development interventions.",
-      "Contribute to policy briefs, working papers, research reports, and stakeholder presentations addressing socioeconomic challenges through interdisciplinary research.",
-      "Collaborate with researchers, policymakers, and development sector professionals on high-impact public policy analysis and impact evaluation projects.",
-    ],
-  },
-];
-
 export default function ExperiencePage() {
   return (
     <PageShell>
@@ -237,7 +224,7 @@ export default function ExperiencePage() {
               <IconChip icon={jobIcons[i % jobIcons.length]} motionType={jobAnims[i % jobAnims.length]} delay={i * 0.15} />
               <div className="flex-1">
                 {job.logo && (
-                  <Image src={job.logo.src} width={job.logo.w} height={job.logo.h} alt={job.org} className="mb-3 h-10 w-auto" />
+                  <Image src={job.logo.src} width={job.logo.w} height={job.logo.h} alt={job.org} className={`mb-3 w-auto ${job.logo.w / job.logo.h < 1.6 ? "h-16" : "h-10"}`} />
                 )}
                 <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
                   <p className="font-display text-lg font-bold leading-snug text-navy-700">{job.org}</p>
@@ -271,33 +258,6 @@ export default function ExperiencePage() {
                 {job.bullets.length > 0 && (
                   <ul className="list-disc pl-5 mt-2 space-y-1 text-sm text-gray-600">
                     {job.bullets.map((b, j) => (
-                      <li key={j}>{b}</li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            </div>
-          </Card>
-        ))}
-      </CardGrid>
-
-      <SectionHeading icon={Microscope} eyebrow="Think tank" title="Research Fellowships" motionType="sway" mascot="scientist" />
-      <CardGrid className="grid gap-5">
-        {fellowships.map((f, i) => (
-          <Card key={i}>
-            <div className="flex items-start gap-4">
-              <IconChip icon={Microscope} motionType="sway" />
-              <div className="flex-1">
-                <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
-                  <p className="font-display text-lg font-bold leading-snug text-navy-700">{f.org}</p>
-                  <span className="shrink-0 rounded-full bg-navy-50 px-3 py-1 text-xs font-medium text-navy-600 ring-1 ring-navy-100">
-                    {f.location} · {f.period}
-                  </span>
-                </div>
-                <p className="mt-1 font-heading text-sm font-semibold text-gray-700">{f.title}</p>
-                {f.bullets.length > 0 && (
-                  <ul className="list-disc pl-5 mt-2 space-y-1 text-sm text-gray-600">
-                    {f.bullets.map((b, j) => (
                       <li key={j}>{b}</li>
                     ))}
                   </ul>

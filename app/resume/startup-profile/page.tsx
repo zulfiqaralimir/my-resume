@@ -34,7 +34,6 @@ const coreExpertise = [
 
 const experience = [
   "Research Analyst, LLM Trainer & Advanced Mathematics Subject Expert, Turing Inc., USA (clients: Apple, Meta, Anthropic)",
-  "Researcher, Social Policy Resource Center (SPRC), conducting policy-oriented research",
   "Section Leader, Python Programming, Stanford University (2025)",
   "25+ years across equity markets (PSX), banking, credit control and research",
 ];

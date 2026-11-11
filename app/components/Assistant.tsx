@@ -8,7 +8,7 @@ import { X } from "lucide-react";
 const tips: Record<string, string[]> = {
   "/": ["Hi! I'm Dr. ZAM. Let me show you around.", "Use the menu above to explore each section."],
   "/education": ["From B.Sc. to a Ph.D. in Econometrics!", "Currently studying Financial Engineering."],
-  "/experience": ["Over two decades of policy, AI and teaching.", "Scroll down for the research fellowship."],
+  "/experience": ["Over two decades of policy, AI and teaching.", "Scroll down for the full career timeline."],
   "/projects": ["Try the live demos, they're linked on each card.", "Hover a tag to see it pop."],
   "/skills": ["Python, R, LangGraph and much more.", "Hover a skill tag for a little bounce."],
   "/courses": ["Certificates across AI, finance and teaching.", "Lifelong learner, always adding more."],
