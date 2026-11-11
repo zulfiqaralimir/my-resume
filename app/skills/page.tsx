@@ -136,6 +136,7 @@ export default function SkillsPage() {
               {group.category === "Data Science Libraries" && (
                 <div className="mb-4 flex flex-wrap items-center gap-x-5 gap-y-3">
                   <Image src="/logos/leetcode.png" width={948} height={228} alt="LeetCode" className="h-8 w-auto" />
+                  <Image src="/logos/ggplot2.png" width={432} height={500} alt="ggplot2" className="h-14 w-auto" />
                 </div>
               )}
               {group.category === "Cloud & Dev Tools" && (
