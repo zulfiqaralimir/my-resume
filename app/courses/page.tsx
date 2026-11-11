@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { BadgeCheck, Bot, Landmark, Database, Code2, Cloud, ShieldCheck, Lightbulb, GraduationCap, FlaskConical, type LucideIcon } from "lucide-react";
 import { Card, CardGrid, PageHero, PageShell, IconChip, type IconMotion } from "../components/fx";
 
@@ -140,6 +141,11 @@ export default function CoursesPage() {
                 <IconChip icon={Icon} motionType={anim} delay={i * 0.2} />
                 <h2 className="font-heading text-sm font-semibold uppercase tracking-wider text-navy-700">{group.category}</h2>
               </div>
+              {group.category === "Big Data, Data Science & AI" && (
+                <div className="mb-4 flex flex-wrap items-center gap-x-5 gap-y-3">
+                  <Image src="/logos/deeplearning.png" width={510} height={343} alt="DeepLearning.AI" className="h-14 w-auto" />
+                </div>
+              )}
               <ul className="space-y-2 text-sm text-gray-700">
                 {group.items.map((item, j) => (
                   <li key={j} className="flex items-start gap-2">
