@@ -141,6 +141,12 @@ export default function CoursesPage() {
                 <IconChip icon={Icon} motionType={anim} delay={i * 0.2} />
                 <h2 className="font-heading text-sm font-semibold uppercase tracking-wider text-navy-700">{group.category}</h2>
               </div>
+              {group.category === "Cloud Computing & Infrastructure" && (
+                <div className="mb-4 flex flex-wrap items-center gap-x-5 gap-y-3">
+                  <Image src="/logos/microsoft.png" width={700} height={436} alt="Microsoft" className="h-14 w-auto" />
+                  <Image src="/logos/ibm.png" width={448} height={179} alt="IBM" className="h-9 w-auto" />
+                </div>
+              )}
               {group.category === "Banking, Finance & Quantitative Modeling" && (
                 <div className="mb-4 flex flex-wrap items-center gap-x-5 gap-y-3">
                   <Image src="/logos/coursera.png" width={742} height={95} alt="Coursera" className="h-7 w-auto" />
