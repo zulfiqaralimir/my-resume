@@ -150,49 +150,48 @@ export default function Assistant() {
           }
           transition={jump ? { duration: 0.7 } : { duration: mood === "sleepy" ? 4 : 2.4, repeat: Infinity, ease: "easeInOut" }}
         >
-          {/* white coat */}
-          <path d="M14 130 C14 88 86 88 86 130 Z" fill="#ffffff" stroke="#c5d0e4" strokeWidth="2" />
-          <path d="M50 94 L50 130" stroke="#c5d0e4" strokeWidth="2" />
-          <path d="M40 92 L50 106 L60 92" fill="#2f4b82" />
+          {/* ribcage (skeleton body) */}
+          <path d="M18 130 C18 98 82 98 82 130 Z" fill="#f4efe2" stroke="#b9b29c" strokeWidth="1.5" />
+          <path d="M36 98 L50 104 L64 98" fill="none" stroke="#b9b29c" strokeWidth="2.5" strokeLinecap="round" />
+          <path d="M50 96 L50 130" stroke="#b9b29c" strokeWidth="3" strokeLinecap="round" />
+          {[0, 1, 2].map((n) => (
+            <g key={n} fill="none" stroke="#b9b29c" strokeWidth="2.2" strokeLinecap="round">
+              <path d={`M50 ${106 + n * 7} C38 ${104 + n * 7} 30 ${110 + n * 7} 28 ${116 + n * 7}`} />
+              <path d={`M50 ${106 + n * 7} C62 ${104 + n * 7} 70 ${110 + n * 7} 72 ${116 + n * 7}`} />
+            </g>
+          ))}
           {/* stethoscope */}
-          <path d="M36 94 C30 112 42 118 50 112 C58 118 70 112 64 94" fill="none" stroke="#183463" strokeWidth="3" strokeLinecap="round" />
+          <path d="M38 92 C30 112 42 120 50 114 C58 120 70 112 62 92" fill="none" stroke="#183463" strokeWidth="3" strokeLinecap="round" />
+          <path d="M38 92 C40 84 44 82 46 86 M62 92 C60 84 56 82 54 86" fill="none" stroke="#183463" strokeWidth="2.5" strokeLinecap="round" />
           <motion.circle
             cx="50"
-            cy="113"
+            cy="115"
             r="4.5"
             fill="#93a6c9"
             stroke="#183463"
             strokeWidth="2"
-            style={{ originX: "50px", originY: "113px" }}
+            style={{ originX: "50px", originY: "115px" }}
             animate={{ scale: [1, 1.25, 1] }}
             transition={{ duration: 0.9, repeat: Infinity }}
           />
-          {/* waving arm */}
+          {/* waving bone arm */}
           <motion.g
             style={{ originX: "84px", originY: "106px" }}
             animate={{ rotate: [0, -30, 0, -30, 0] }}
             transition={{ duration: 2.4, repeat: Infinity, repeatDelay: 1.5 }}
           >
-            <rect x="80" y="76" width="10" height="30" rx="5" fill="#ffffff" stroke="#c5d0e4" strokeWidth="2" />
-            <circle cx="85" cy="74" r="6.5" fill="#f6d5b8" />
+            <rect x="81" y="76" width="6" height="30" rx="3" fill="#f4efe2" stroke="#b9b29c" strokeWidth="1.5" />
+            <circle cx="84" cy="90" r="4" fill="#f4efe2" stroke="#b9b29c" strokeWidth="1.5" />
+            <circle cx="84" cy="73" r="6" fill="#f4efe2" stroke="#b9b29c" strokeWidth="1.5" />
+            <path d="M80 69 L80 66 M84 68 L84 65 M88 69 L88 66" stroke="#b9b29c" strokeWidth="2" strokeLinecap="round" />
           </motion.g>
-          {/* head */}
-          <circle cx="50" cy="56" r="26" fill="#f6d5b8" />
-          <path d="M24 52 C24 24 76 24 76 52 C68 40 32 40 24 52 Z" fill="#3a2a22" />
-          {/* head mirror */}
-          <circle cx="50" cy="32" r="8" fill="#e2e8f2" stroke="#93a6c9" strokeWidth="2" />
-          <motion.path
-            d="M45 30 L50 27"
-            stroke="#fff"
-            strokeWidth="2"
-            strokeLinecap="round"
-            animate={{ opacity: [0.2, 1, 0.2] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          />
-          {/* glasses */}
-          <circle cx="41" cy="58" r="7.5" fill="none" stroke="#183463" strokeWidth="2" />
-          <circle cx="59" cy="58" r="7.5" fill="none" stroke="#183463" strokeWidth="2" />
-          <path d="M48.5 58 H51.5" stroke="#183463" strokeWidth="2" />
+          {/* skull */}
+          <path d="M26 58 C26 30 74 30 74 58 C74 68 70 72 66 74 L66 82 C66 85 62 86 60 86 L40 86 C38 86 34 85 34 82 L34 74 C30 72 26 68 26 58 Z" fill="#f4efe2" stroke="#b9b29c" strokeWidth="2" />
+          {/* eye sockets */}
+          <ellipse cx="41" cy="58" rx="8" ry="8.5" fill="#1d2a44" />
+          <ellipse cx="59" cy="58" rx="8" ry="8.5" fill="#1d2a44" />
+          {/* nose hole */}
+          <path d="M47.5 66 L50 71 L52.5 66 Z" fill="#3b3b3b" />
           {/* brows */}
           {mood === "angry" && (
             <>
@@ -209,8 +208,8 @@ export default function Assistant() {
           {/* eyes */}
           {mood === "sleepy" && (
             <>
-              <path d="M36 58 Q41 62 46 58" stroke="#1a1a1a" strokeWidth="2.5" fill="none" strokeLinecap="round" />
-              <path d="M54 58 Q59 62 64 58" stroke="#1a1a1a" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+              <path d="M36 58 Q41 62 46 58" stroke="#f8f6ee" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+              <path d="M54 58 Q59 62 64 58" stroke="#f8f6ee" strokeWidth="2.5" fill="none" strokeLinecap="round" />
             </>
           )}
           {mood === "love" && (
@@ -227,8 +226,8 @@ export default function Assistant() {
           )}
           {mood === "wink" && (
             <>
-              <circle cx="41" cy="58" r="2.8" fill="#1a1a1a" />
-              <path d="M54 58 Q59 54 64 58" stroke="#1a1a1a" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+              <circle cx="41" cy="58" r="2.8" fill="#f8f6ee" />
+              <path d="M54 58 Q59 54 64 58" stroke="#f8f6ee" strokeWidth="2.5" fill="none" strokeLinecap="round" />
             </>
           )}
           {(mood === "happy" || mood === "thinking" || mood === "surprised" || mood === "angry") && (
@@ -249,22 +248,23 @@ export default function Assistant() {
                   : { duration: 3.5, repeat: Infinity, times: [0, 0.45, 0.5, 0.55, 1] }
               }
             >
-              <circle cx="41" cy="58" r="2.8" fill="#1a1a1a" />
-              <circle cx="59" cy="58" r="2.8" fill="#1a1a1a" />
+              <circle cx="41" cy="58" r="2.8" fill="#f8f6ee" />
+              <circle cx="59" cy="58" r="2.8" fill="#f8f6ee" />
             </motion.g>
           )}
           {/* mouth */}
           <path
             d={mouths[mood]}
-            stroke="#a5513a"
+            stroke="#3b3b3b"
             strokeWidth="2.5"
             fill={mood === "excited" || mood === "surprised" ? "#7a2e1d" : "none"}
             strokeLinecap="round"
           />
+          <path d="M44 70 V77 M47.5 70 V78 M52.5 70 V78 M56 70 V77" stroke="#3b3b3b" strokeWidth="1.2" opacity="0.65" />
           {(mood === "love" || mood === "excited" || mood === "wink") && (
             <>
-              <circle cx="33" cy="66" r="4" fill="#f2a8a0" opacity="0.8" />
-              <circle cx="67" cy="66" r="4" fill="#f2a8a0" opacity="0.8" />
+              <circle cx="33" cy="66" r="4" fill="#f2a8a0" opacity="0.35" />
+              <circle cx="67" cy="66" r="4" fill="#f2a8a0" opacity="0.35" />
             </>
           )}
           {/* mood extras */}

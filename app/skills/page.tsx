@@ -142,6 +142,7 @@ export default function SkillsPage() {
               {group.category === "Cloud & Dev Tools" && (
                 <div className="mb-4 flex flex-wrap items-center gap-x-5 gap-y-3">
                   <Image src="/logos/latex.png" width={724} height={270} alt="LaTeX" className="h-9 w-auto" />
+                  <Image src="/logos/markdown.png" width={400} height={258} alt="Markdown" className="h-9 w-auto" />
                 </div>
               )}
               {group.category === "Statistical & Analytical Software" && (
