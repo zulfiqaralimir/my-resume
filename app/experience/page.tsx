@@ -100,6 +100,7 @@ const jobs = [
   },
   {
     org: "Stanford University",
+    logo: { src: "/logos/stanford.png", w: 610, h: 700 },
     location: "Remote",
     period: "May 2025 – June 2025",
     title: "Section Leader – Python Programming",
