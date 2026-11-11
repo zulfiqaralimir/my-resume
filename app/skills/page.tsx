@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Code2, Brain, BarChart3, Cpu, Cloud, Database, Scale, Landmark, Wrench, type LucideIcon } from "lucide-react";
 import { Card, CardGrid, PageHero, PageShell, Tag, IconChip, type IconMotion } from "../components/fx";
 
@@ -120,6 +121,15 @@ export default function SkillsPage() {
                 <IconChip icon={Icon} motionType={anim} delay={i * 0.2} />
                 <h2 className="font-heading text-sm font-semibold uppercase tracking-wider text-navy-700">{group.category}</h2>
               </div>
+              {group.category === "Programming Languages" && (
+                <div className="mb-4 flex flex-wrap items-center gap-x-5 gap-y-3">
+                  <Image src="/logos/python.png" width={300} height={300} alt="Python" className="h-10 w-auto" />
+                  <Image src="/logos/rlang.png" width={600} height={463} alt="R" className="h-10 w-auto" />
+                  <Image src="/logos/typescript.png" width={540} height={131} alt="TypeScript" className="h-8 w-auto" />
+                  <Image src="/logos/javascript.png" width={554} height={600} alt="JavaScript" className="h-12 w-auto" />
+                  <Image src="/logos/fastapi.png" width={600} height={111} alt="FastAPI" className="h-7 w-auto" />
+                </div>
+              )}
               <div className="flex flex-wrap gap-2">
                 {group.items.map((skill, j) => (
                   <Tag key={j}>{skill}</Tag>
