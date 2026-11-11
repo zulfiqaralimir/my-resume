@@ -173,6 +173,7 @@ const jobs = [
   },
   {
     org: "Bank Alfalah Limited",
+    logo: { src: "/logos/bankalfalah.png", w: 800, h: 460 },
     location: "Wah Cantt, PK",
     period: "June 2008 – July 2010",
     title: "Operations Officer",
@@ -195,6 +196,7 @@ const jobs = [
   },
   {
     org: "Pakistan Stock Exchange",
+    logo: { src: "/logos/psx.png", w: 433, h: 519 },
     location: "Islamabad, PK",
     period: "1999 – 2004",
     title: "Equity Investment and Portfolio Management",
@@ -224,7 +226,7 @@ export default function ExperiencePage() {
               <IconChip icon={jobIcons[i % jobIcons.length]} motionType={jobAnims[i % jobAnims.length]} delay={i * 0.15} />
               <div className="flex-1">
                 {job.logo && (
-                  <Image src={job.logo.src} width={job.logo.w} height={job.logo.h} alt={job.org} className={`mb-3 w-auto ${job.logo.w / job.logo.h < 1.6 ? "h-16" : "h-10"}`} />
+                  <Image src={job.logo.src} width={job.logo.w} height={job.logo.h} alt={job.org} className={`mb-3 w-auto ${job.logo.w / job.logo.h < 2 ? "h-16" : "h-10"}`} />
                 )}
                 <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
                   <p className="font-display text-lg font-bold leading-snug text-navy-700">{job.org}</p>
