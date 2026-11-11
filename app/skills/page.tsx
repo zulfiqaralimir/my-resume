@@ -146,6 +146,13 @@ export default function SkillsPage() {
               {group.category === "Statistical & Analytical Software" && (
                 <div className="mb-4 flex flex-wrap items-center gap-x-5 gap-y-3">
                   <Image src="/logos/matlab.png" width={700} height={174} alt="MATLAB" className="h-9 w-auto" />
+                  <Image src="/logos/msoffice.png" width={700} height={252} alt="Microsoft Office" className="h-9 w-auto" />
+                  <Image src="/logos/powerbi.png" width={382} height={294} alt="Power BI" className="h-12 w-auto" />
+                </div>
+              )}
+              {group.category === "AI / ML Frameworks" && (
+                <div className="mb-4 flex flex-wrap items-center gap-x-5 gap-y-3">
+                  <Image src="/logos/langgraph.png" width={600} height={368} alt="LangGraph" className="h-12 w-auto" />
                 </div>
               )}
               <div className="flex flex-wrap gap-2">
