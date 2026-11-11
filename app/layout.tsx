@@ -3,6 +3,7 @@ import { Geist, Playfair_Display, Montserrat } from "next/font/google";
 import "./globals.css"; // ✅ This works
 
 import Navbar from "./components/Navbar";
+import Assistant from "./components/Assistant";
 
 
 const geistSans = Geist({
@@ -37,6 +38,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${playfair.variable} ${montserrat.variable} font-sans`}>
         <Navbar />
         <main className="p-6">{children}</main>
+        <Assistant />
       </body>
     </html>
   );

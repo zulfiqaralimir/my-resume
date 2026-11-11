@@ -1,109 +1,59 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { GraduationCap, BookOpen, Award, Landmark, Calculator, School, CalendarDays } from "lucide-react";
+import { AnimatedIcon, Card, CardGrid, PageHero, PageShell, Meta, type IconMotion } from "../components/fx";
+
+const degrees: {
+  school: string;
+  period: string;
+  degree: React.ReactNode;
+  thesis: string;
+  Icon: typeof GraduationCap;
+  anim: IconMotion;
+}[] = [
+  { school: "World Quant University (USA)", period: "Jan 2025 – Present", degree: <>Master&apos;s in Financial Engineering <em>(In Progress)</em></>, thesis: "", Icon: GraduationCap, anim: "float" },
+  { school: "Pakistan Institute of Development Economics (PIDE)", period: "Aug 2016 – Aug 2022", degree: <>Ph.D., Econometrics &nbsp;·&nbsp; CGPA 3.36</>, thesis: "Causal Discovery using Modified Riz PC Algorithm from Observational and Latent Variables Data", Icon: Landmark, anim: "sway" },
+  { school: "Pakistan Institute of Development Economics (PIDE)", period: "Aug 2014 – Aug 2016", degree: <>M.Phil., Economics and Finance &nbsp;·&nbsp; CGPA 3.21</>, thesis: "The Impact of Macroeconomic Volatility on Stock Returns Volatility: Evidence from Pakistani Stock Market", Icon: Landmark, anim: "pulse" },
+  { school: "Allama Iqbal Open University", period: "Aug 2006 – Sept 2009", degree: <>MBA, Human Resource Management</>, thesis: "Report on Bank Alfalah Limited", Icon: School, anim: "wiggle" },
+  { school: "Institute of Cost and Management Accountants in Pakistan", period: "2006 – 2010", degree: <>Master, Chartered Management Accountant</>, thesis: "", Icon: Award, anim: "float" },
+  { school: "F.G. Degree College, Wah Cantt", period: "June 1990 – June 1992", degree: <>B.Sc., Mathematics &amp; Statistics</>, thesis: "", Icon: Calculator, anim: "sway" },
+];
 
 export default function EducationPage() {
   return (
-    <motion.section
-      className="max-w-4xl mx-auto py-12 px-6 text-gray-800"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-    >
-      <h1 className="text-4xl font-bold mb-8 border-b pb-2 text-navy-700">Education</h1>
-
-      <div className="space-y-8">
-        <motion.div
-          className="bg-white p-5 rounded-lg shadow hover:shadow-md transition"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
-          <div className="flex justify-between font-semibold text-navy-700">
-            <span>World Quant University (USA)</span>
-            <span>Jan 2025 – Present</span>
-          </div>
-          <p className="mt-1">Master&apos;s in Financial Engineering <em>(In Progress)</em></p>
-        </motion.div>
-
-        <motion.div
-          className="bg-white p-5 rounded-lg shadow hover:shadow-md transition"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          viewport={{ once: true }}
-        >
-          <div className="flex justify-between font-semibold text-navy-700">
-            <span>Pakistan Institute of Development Economics (PIDE)</span>
-            <span>Aug 2016 – Aug 2022</span>
-          </div>
-          <p className="mt-1">Ph.D., Econometrics &nbsp;·&nbsp; CGPA 3.36</p>
-          <p className="mt-1 text-sm text-gray-600">
-            <strong>Thesis:</strong> Causal Discovery using Modified Riz PC Algorithm from Observational and Latent Variables Data
-          </p>
-        </motion.div>
-
-        <motion.div
-          className="bg-white p-5 rounded-lg shadow hover:shadow-md transition"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.15 }}
-          viewport={{ once: true }}
-        >
-          <div className="flex justify-between font-semibold text-navy-700">
-            <span>Pakistan Institute of Development Economics (PIDE)</span>
-            <span>Aug 2014 – Aug 2016</span>
-          </div>
-          <p className="mt-1">M.Phil., Economics and Finance &nbsp;·&nbsp; CGPA 3.21</p>
-          <p className="mt-1 text-sm text-gray-600">
-            <strong>Thesis:</strong> The Impact of Macroeconomic Volatility on Stock Returns Volatility: Evidence from Pakistani Stock Market
-          </p>
-        </motion.div>
-
-        <motion.div
-          className="bg-white p-5 rounded-lg shadow hover:shadow-md transition"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
-          <div className="flex justify-between font-semibold text-navy-700">
-            <span>Allama Iqbal Open University</span>
-            <span>Aug 2006 – Sept 2009</span>
-          </div>
-          <p className="mt-1">MBA, Human Resource Management</p>
-          <p className="mt-1 text-sm text-gray-600"><strong>Thesis:</strong> Report on Bank Alfalah Limited</p>
-        </motion.div>
-
-        <motion.div
-          className="bg-white p-5 rounded-lg shadow hover:shadow-md transition"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.25 }}
-          viewport={{ once: true }}
-        >
-          <div className="flex justify-between font-semibold text-navy-700">
-            <span>Institute of Cost and Management Accountants in Pakistan</span>
-            <span>2006 – 2010</span>
-          </div>
-          <p className="mt-1">Master, Chartered Management Accountant</p>
-        </motion.div>
-
-        <motion.div
-          className="bg-white p-5 rounded-lg shadow hover:shadow-md transition"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          viewport={{ once: true }}
-        >
-          <div className="flex justify-between font-semibold text-navy-700">
-            <span>F.G. Degree College, Wah Cantt</span>
-            <span>June 1990 – June 1992</span>
-          </div>
-          <p className="mt-1">B.Sc., Mathematics &amp; Statistics</p>
-        </motion.div>
-      </div>
-    </motion.section>
+    <PageShell>
+      <PageHero
+        eyebrow="Academic Record"
+        title="Education"
+        subtitle="From mathematics and management accounting to a Ph.D. in econometrics, and now financial engineering."
+        icons={[
+          { icon: GraduationCap, motionType: "float" },
+          { icon: BookOpen, motionType: "wiggle" },
+          { icon: Award, motionType: "pulse" },
+        ]}
+        mascot="student"
+      />
+      <CardGrid className="grid gap-5">
+        {degrees.map((d, i) => (
+          <Card key={i}>
+            <div className="flex items-start gap-4">
+              <span className="mt-1 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-navy-500 to-navy-800 text-white">
+                <AnimatedIcon icon={d.Icon} motionType={d.anim} delay={i * 0.3} />
+              </span>
+              <div className="flex-1">
+                <p className="font-display text-lg sm:text-xl font-bold text-navy-700">{d.school}</p>
+                <Meta icon={CalendarDays}>{d.period}</Meta>
+                <p className="mt-2 font-heading text-sm font-semibold text-gray-800">{d.degree}</p>
+                {d.thesis && (
+                  <p className="mt-1 text-sm text-gray-600">
+                    <strong>Thesis:</strong> {d.thesis}
+                  </p>
+                )}
+              </div>
+            </div>
+          </Card>
+        ))}
+      </CardGrid>
+    </PageShell>
   );
 }

@@ -1,6 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { Briefcase, Building2, Landmark, Rocket, GraduationCap, Users, TrendingUp, Microscope } from "lucide-react";
+import { Card, CardGrid, PageHero, PageShell, SectionHeading, IconChip, Meta, type IconMotion } from "../components/fx";
+
+const jobIcons = [Landmark, Rocket, Briefcase, Users, Building2, GraduationCap, TrendingUp];
+const jobAnims: IconMotion[] = ["float", "wiggle", "sway", "pulse"];
 
 function renderBold(text: string) {
   return text.split(/\*\*(.+?)\*\*/g).map((p, i) =>
@@ -211,92 +215,93 @@ const fellowships = [
 
 export default function ExperiencePage() {
   return (
-    <motion.section
-      className="max-w-4xl mx-auto py-12 px-6 text-gray-800"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-    >
-      <h1 className="text-4xl font-bold mb-8 border-b pb-2 text-navy-700">
-        Professional Experience
-      </h1>
+    <PageShell>
+      <PageHero
+        eyebrow="Career"
+        title="Professional Experience"
+        subtitle="Economic policy, AI product leadership, teaching, banking and markets across more than two decades."
+        icons={[
+          { icon: Briefcase, motionType: "sway" },
+          { icon: TrendingUp, motionType: "float" },
+          { icon: Building2, motionType: "pulse" },
+        ]}
+        mascot="worker"
+      />
 
-      <div className="space-y-6">
+      <CardGrid className="grid gap-5">
         {jobs.map((job, i) => (
-          <motion.div
-            key={i}
-            className="bg-white p-5 rounded-lg shadow hover:shadow-md transition"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: i * 0.05 }}
-            viewport={{ once: true }}
-          >
-            <div className="flex justify-between font-semibold text-navy-700">
-              <span>{job.org}</span>
-              <span className="text-sm text-gray-500">{job.location} · {job.period}</span>
-            </div>
-            <p className="mt-1 font-medium text-gray-700">{job.title}</p>
-            {job.project && <p className="mt-2 text-sm text-gray-700">{renderBold(job.project)}</p>}
-            {job.groups?.map((g, gi) => (
-              <div key={gi} className="mt-3 text-sm">
-                <p className="font-semibold text-gray-800">{g.icon} {g.heading}</p>
-                <ul className="list-disc pl-5 mt-1 space-y-1 text-gray-600">
-                  {g.bullets.map((b, j) => (
-                    <li key={j}>{renderBold(b)}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-            {job.publication && (
-              <div className="mt-3 text-sm">
-                <p className="font-semibold text-gray-800">📄 Publications / Working Papers</p>
-                <p className="text-gray-600">{job.publication}</p>
-              </div>
-            )}
-            {job.skills && (
-              <p className="mt-3 text-sm text-gray-600">
-                <strong className="font-semibold text-gray-800">Skills:</strong> {job.skills}
-              </p>
-            )}
-            {job.bullets.length > 0 && (
-              <ul className="list-disc pl-5 mt-2 space-y-1 text-sm text-gray-600">
-                {job.bullets.map((b, j) => (
-                  <li key={j}>{b}</li>
+          <Card key={i}>
+            <div className="flex items-start gap-4">
+              <IconChip icon={jobIcons[i % jobIcons.length]} motionType={jobAnims[i % jobAnims.length]} delay={i * 0.15} />
+              <div className="flex-1">
+                <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
+                  <p className="font-display text-lg font-bold leading-snug text-navy-700">{job.org}</p>
+                  <span className="shrink-0 rounded-full bg-navy-50 px-3 py-1 text-xs font-medium text-navy-600 ring-1 ring-navy-100">
+                    {job.location} · {job.period}
+                  </span>
+                </div>
+                <p className="mt-1 font-heading text-sm font-semibold text-gray-700">{job.title}</p>
+                {job.project && <p className="mt-2 text-sm text-gray-700">{renderBold(job.project)}</p>}
+                {job.groups?.map((g, gi) => (
+                  <div key={gi} className="mt-3 text-sm">
+                    <p className="font-semibold text-gray-800">{g.icon} {g.heading}</p>
+                    <ul className="list-disc pl-5 mt-1 space-y-1 text-gray-600">
+                      {g.bullets.map((b, j) => (
+                        <li key={j}>{renderBold(b)}</li>
+                      ))}
+                    </ul>
+                  </div>
                 ))}
-              </ul>
-            )}
-          </motion.div>
+                {job.publication && (
+                  <div className="mt-3 text-sm">
+                    <p className="font-semibold text-gray-800">📄 Publications / Working Papers</p>
+                    <p className="text-gray-600">{job.publication}</p>
+                  </div>
+                )}
+                {job.skills && (
+                  <p className="mt-3 text-sm text-gray-600">
+                    <strong className="font-semibold text-gray-800">Skills:</strong> {job.skills}
+                  </p>
+                )}
+                {job.bullets.length > 0 && (
+                  <ul className="list-disc pl-5 mt-2 space-y-1 text-sm text-gray-600">
+                    {job.bullets.map((b, j) => (
+                      <li key={j}>{b}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </div>
+          </Card>
         ))}
-      </div>
+      </CardGrid>
 
-      <h1 className="text-4xl font-bold mt-12 mb-8 border-b pb-2 text-navy-700">
-        Research Fellowships
-      </h1>
-      <div className="space-y-6">
+      <SectionHeading icon={Microscope} eyebrow="Think tank" title="Research Fellowships" motionType="sway" mascot="scientist" />
+      <CardGrid className="grid gap-5">
         {fellowships.map((f, i) => (
-          <motion.div
-            key={i}
-            className="bg-white p-5 rounded-lg shadow hover:shadow-md transition"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: i * 0.05 }}
-            viewport={{ once: true }}
-          >
-            <div className="flex justify-between font-semibold text-navy-700">
-              <span>{f.org}</span>
-              <span className="text-sm text-gray-500">{f.location} · {f.period}</span>
+          <Card key={i}>
+            <div className="flex items-start gap-4">
+              <IconChip icon={Microscope} motionType="sway" />
+              <div className="flex-1">
+                <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
+                  <p className="font-display text-lg font-bold leading-snug text-navy-700">{f.org}</p>
+                  <span className="shrink-0 rounded-full bg-navy-50 px-3 py-1 text-xs font-medium text-navy-600 ring-1 ring-navy-100">
+                    {f.location} · {f.period}
+                  </span>
+                </div>
+                <p className="mt-1 font-heading text-sm font-semibold text-gray-700">{f.title}</p>
+                {f.bullets.length > 0 && (
+                  <ul className="list-disc pl-5 mt-2 space-y-1 text-sm text-gray-600">
+                    {f.bullets.map((b, j) => (
+                      <li key={j}>{b}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
             </div>
-            <p className="mt-1 font-medium text-gray-700">{f.title}</p>
-            {f.bullets.length > 0 && (
-              <ul className="list-disc pl-5 mt-2 space-y-1 text-sm text-gray-600">
-                {f.bullets.map((b, j) => (
-                  <li key={j}>{b}</li>
-                ))}
-              </ul>
-            )}
-          </motion.div>
+          </Card>
         ))}
-      </div>
-    </motion.section>
+      </CardGrid>
+    </PageShell>
   );
 }

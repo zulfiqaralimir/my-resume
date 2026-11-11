@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useSpring, type Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   Newspaper,
   BookOpen,
@@ -8,12 +8,19 @@ import {
   Presentation,
   PlayCircle,
   GraduationCap,
-  ExternalLink,
   FileText,
   Library,
-  CalendarDays,
-  type LucideIcon,
 } from "lucide-react";
+import {
+  AnimatedIcon,
+  Card,
+  IconChip,
+  LinkPill,
+  Meta,
+  ScrollProgress,
+  SectionHeading,
+  container,
+} from "../components/fx";
 
 const books = [
   {
@@ -74,307 +81,10 @@ const videos = [
   { title: "Bootstrap Sampling Using Excel", platform: "IGCSE / A-Level", date: "" },
 ];
 
-const container: Variants = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.09, delayChildren: 0.05 } },
-};
-
-const item: Variants = {
-  hidden: { opacity: 0, y: 24, scale: 0.98 },
-  show: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 90, damping: 16 } },
-};
-
-type Motion = "float" | "wiggle" | "pulse" | "sway" | "spin";
-
-const loops: Record<Motion, { animate: Record<string, number[]>; duration: number }> = {
-  float: { animate: { y: [0, -4, 0] }, duration: 2.6 },
-  wiggle: { animate: { rotate: [0, -10, 10, -6, 0] }, duration: 3.2 },
-  pulse: { animate: { scale: [1, 1.18, 1] }, duration: 2.2 },
-  sway: { animate: { rotate: [-6, 6, -6], y: [0, -2, 0] }, duration: 3.4 },
-  spin: { animate: { rotate: [0, 360] }, duration: 14 },
-};
-
-/* Continuously animated icon; reacts harder on hover. */
-function AnimatedIcon({
-  icon: Icon,
-  size = 20,
-  motionType = "float",
-  delay = 0,
-  className = "",
-}: {
-  icon: LucideIcon;
-  size?: number;
-  motionType?: Motion;
-  delay?: number;
-  className?: string;
-}) {
-  const loop = loops[motionType];
-  return (
-    <motion.span
-      className={`inline-flex ${className}`}
-      animate={loop.animate}
-      transition={{
-        duration: loop.duration,
-        repeat: Infinity,
-        ease: "easeInOut",
-        delay,
-        repeatDelay: motionType === "wiggle" ? 1.5 : 0,
-      }}
-      whileHover={{ scale: 1.3, rotate: 12 }}
-    >
-      <Icon size={size} strokeWidth={1.8} />
-    </motion.span>
-  );
-}
-
-type Mascot = "scientist" | "reader" | "reporter" | "teacher";
-
-/* Little animated SVG character: bobs, blinks, waves, and holds a prop per section. */
-function Character({ kind }: { kind: Mascot }) {
-  const skin = "#f6d5b8";
-  const navy = "#0b2447";
-  return (
-    <motion.svg
-      viewBox="0 0 100 110"
-      className="h-24 w-24 shrink-0 drop-shadow-md"
-      initial={{ opacity: 0, y: 30, scale: 0.6 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true }}
-      transition={{ type: "spring", stiffness: 140, damping: 12, delay: 0.3 }}
-      aria-hidden="true"
-    >
-      <motion.g animate={{ y: [0, -4, 0] }} transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}>
-        {/* body */}
-        <path d="M22 108 C22 78 78 78 78 108 Z" fill={navy} />
-        <path d="M44 82 L50 96 L56 82 Z" fill="#fff" />
-        {/* waving arm */}
-        <motion.g
-          style={{ originX: "76px", originY: "88px" }}
-          animate={{ rotate: [0, -28, 0, -28, 0] }}
-          transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut", repeatDelay: 1.2 }}
-        >
-          <rect x="74" y="64" width="9" height="26" rx="4.5" fill={navy} />
-          <circle cx="78.5" cy="62" r="6" fill={skin} />
-        </motion.g>
-        {/* head */}
-        <circle cx="50" cy="52" r="24" fill={skin} />
-        {/* hair */}
-        <path d="M26 50 C26 24 74 24 74 50 C66 38 34 38 26 50 Z" fill="#3a2a22" />
-        {/* eyes with blink */}
-        <motion.g
-          style={{ originX: "50px", originY: "54px" }}
-          animate={{ scaleY: [1, 1, 0.1, 1, 1] }}
-          transition={{ duration: 3.5, repeat: Infinity, times: [0, 0.45, 0.5, 0.55, 1] }}
-        >
-          <circle cx="41" cy="54" r="3" fill="#1a1a1a" />
-          <circle cx="59" cy="54" r="3" fill="#1a1a1a" />
-        </motion.g>
-        <path d="M43 64 Q50 71 57 64" stroke="#a5513a" strokeWidth="2.5" fill="none" strokeLinecap="round" />
-        <circle cx="35" cy="62" r="3.5" fill="#f2a8a0" opacity="0.6" />
-        <circle cx="65" cy="62" r="3.5" fill="#f2a8a0" opacity="0.6" />
-
-        {kind === "scientist" && (
-          <>
-            {/* graduation cap */}
-            <path d="M24 34 L50 22 L76 34 L50 46 Z" fill="#183463" />
-            <rect x="40" y="40" width="20" height="6" fill="#183463" />
-            <motion.path
-              d="M76 34 L82 52"
-              stroke="#e0b341"
-              strokeWidth="2"
-              style={{ originX: "76px", originY: "34px" }}
-              animate={{ rotate: [0, 8, -8, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
-            <circle cx="82" cy="53" r="3" fill="#e0b341" />
-            {/* flask with bubbles */}
-            <path d="M12 86 L18 72 L18 62 L28 62 L28 72 L34 86 Z" fill="#8fd3f4" stroke="#fff" strokeWidth="2" />
-            {[0, 1, 2].map((n) => (
-              <motion.circle
-                key={n}
-                cx={20 + n * 3}
-                cy={60}
-                r={1.8}
-                fill="#8fd3f4"
-                animate={{ y: [0, -14], opacity: [1, 0] }}
-                transition={{ duration: 1.6, repeat: Infinity, delay: n * 0.5 }}
-              />
-            ))}
-          </>
-        )}
-
-        {kind === "reader" && (
-          <>
-            {/* glasses */}
-            <circle cx="41" cy="54" r="7" fill="none" stroke="#183463" strokeWidth="2" />
-            <circle cx="59" cy="54" r="7" fill="none" stroke="#183463" strokeWidth="2" />
-            <path d="M48 54 H52" stroke="#183463" strokeWidth="2" />
-            {/* open book flipping */}
-            <path d="M14 92 L34 88 L34 74 L14 78 Z" fill="#fff" stroke="#183463" strokeWidth="1.5" />
-            <path d="M34 88 L54 92 L54 78 L34 74 Z" fill="#e2e8f2" stroke="#183463" strokeWidth="1.5" />
-            <motion.path
-              d="M34 88 L34 74 L50 77 L50 90 Z"
-              fill="#fff"
-              stroke="#183463"
-              strokeWidth="1"
-              style={{ originX: "34px", originY: "82px" }}
-              animate={{ scaleX: [1, -1, 1] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            />
-          </>
-        )}
-
-        {kind === "reporter" && (
-          <>
-            {/* press cap */}
-            <path d="M26 40 C26 18 74 18 74 40 Z" fill="#183463" />
-            <rect x="22" y="38" width="56" height="5" rx="2.5" fill="#0b2447" />
-            <rect x="42" y="26" width="16" height="8" rx="2" fill="#fff" />
-            <text x="50" y="33" fontSize="6" fontWeight="700" textAnchor="middle" fill="#0b2447">PRESS</text>
-            {/* newspaper */}
-            <motion.g
-              style={{ originX: "24px", originY: "86px" }}
-              animate={{ rotate: [-4, 4, -4] }}
-              transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <rect x="8" y="68" width="30" height="22" rx="2" fill="#fff" stroke="#183463" strokeWidth="1.5" />
-              <rect x="12" y="72" width="22" height="4" fill="#183463" />
-              <path d="M12 80 H34 M12 84 H34 M12 88 H28" stroke="#93a6c9" strokeWidth="1.5" />
-            </motion.g>
-          </>
-        )}
-
-        {kind === "teacher" && (
-          <>
-            {/* headphones */}
-            <path d="M24 52 C24 22 76 22 76 52" fill="none" stroke="#183463" strokeWidth="4" />
-            <rect x="19" y="48" width="8" height="14" rx="4" fill="#183463" />
-            <rect x="73" y="48" width="8" height="14" rx="4" fill="#183463" />
-            {/* play screen */}
-            <rect x="8" y="68" width="34" height="22" rx="3" fill="#0b2447" />
-            <motion.path
-              d="M20 73 L32 79 L20 85 Z"
-              fill="#fff"
-              style={{ originX: "26px", originY: "79px" }}
-              animate={{ scale: [1, 1.25, 1] }}
-              transition={{ duration: 1.6, repeat: Infinity }}
-            />
-          </>
-        )}
-      </motion.g>
-    </motion.svg>
-  );
-}
-
-function SectionHeading({
-  icon,
-  eyebrow,
-  title,
-  motionType,
-  mascot,
-}: {
-  icon: LucideIcon;
-  eyebrow: string;
-  title: string;
-  motionType: Motion;
-  mascot: Mascot;
-}) {
-  return (
-    <motion.div
-      className="mb-8 mt-16 first:mt-0"
-      initial={{ opacity: 0, x: -30 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-    >
-      <div className="flex items-center gap-4">
-        <motion.span
-          className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-navy-500 to-navy-800 text-white shadow-lg shadow-navy-700/30"
-          initial={{ scale: 0, rotate: -90 }}
-          whileInView={{ scale: 1, rotate: 0 }}
-          viewport={{ once: true }}
-          transition={{ type: "spring", stiffness: 200, damping: 14 }}
-        >
-          <motion.span
-            className="absolute inset-0 rounded-2xl ring-2 ring-navy-400"
-            animate={{ scale: [1, 1.5], opacity: [0.6, 0] }}
-            transition={{ duration: 2.2, repeat: Infinity, ease: "easeOut" }}
-          />
-          <AnimatedIcon icon={icon} size={24} motionType={motionType} />
-        </motion.span>
-        <div className="flex-1">
-          <p className="font-heading text-xs uppercase tracking-[0.25em] text-navy-400">{eyebrow}</p>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold text-navy-700 leading-tight">{title}</h2>
-        </div>
-        <Character kind={mascot} />
-      </div>
-      <motion.div
-        className="mt-4 h-1 origin-left rounded-full bg-gradient-to-r from-navy-600 via-navy-300 to-transparent"
-        initial={{ scaleX: 0 }}
-        whileInView={{ scaleX: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
-      />
-    </motion.div>
-  );
-}
-
-function Card({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return (
-    <motion.div
-      variants={item}
-      whileHover={{ y: -6 }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className={`group relative overflow-hidden rounded-2xl border border-navy-100 bg-white p-6 shadow-[0_2px_16px_rgba(11,36,71,0.06)] hover:shadow-[0_14px_40px_rgba(11,36,71,0.16)] transition-shadow ${className}`}
-    >
-      <span className="absolute left-0 top-0 h-full w-1.5 bg-gradient-to-b from-navy-300 to-navy-700 opacity-70 group-hover:opacity-100 transition-opacity" />
-      <span className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-navy-100/60 blur-2xl group-hover:bg-navy-200/70 transition-colors" />
-      <div className="relative pl-2">{children}</div>
-    </motion.div>
-  );
-}
-
-function IconChip({ icon, motionType, delay = 0 }: { icon: LucideIcon; motionType: Motion; delay?: number }) {
-  return (
-    <span className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-navy-50 text-navy-600">
-      <AnimatedIcon icon={icon} motionType={motionType} delay={delay} />
-    </span>
-  );
-}
-
-function LinkPill({ href, label }: { href: string; label: string }) {
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group/pill inline-flex items-center gap-1.5 rounded-full bg-navy-50 px-3 py-1.5 text-xs font-medium text-navy-600 ring-1 ring-navy-100 transition hover:bg-navy-700 hover:text-white hover:ring-navy-700"
-    >
-      {label}
-      <ExternalLink size={12} className="transition-transform duration-300 group-hover/pill:-translate-y-0.5 group-hover/pill:translate-x-0.5" />
-    </a>
-  );
-}
-
-function Meta({ children }: { children: React.ReactNode }) {
-  return (
-    <p className="mt-1.5 flex items-center gap-1.5 text-sm text-navy-400">
-      <AnimatedIcon icon={CalendarDays} size={14} motionType="pulse" />
-      <span>{children}</span>
-    </p>
-  );
-}
-
 export default function PublicationsPage() {
-  const { scrollYProgress } = useScroll();
-  const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 24 });
-
   return (
     <>
-      <motion.div
-        className="fixed left-0 right-0 top-0 z-50 h-1 origin-left bg-gradient-to-r from-navy-400 to-navy-700"
-        style={{ scaleX: progress }}
-      />
+      <ScrollProgress />
       <motion.section
         className="relative max-w-4xl mx-auto py-10 px-2 sm:px-6 text-gray-800"
         initial={{ opacity: 0, y: 20 }}

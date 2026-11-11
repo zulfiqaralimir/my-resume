@@ -1,6 +1,18 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { Code2, Brain, BarChart3, Cpu, Cloud, Database, Scale, Landmark, Wrench, type LucideIcon } from "lucide-react";
+import { Card, CardGrid, PageHero, PageShell, Tag, IconChip, type IconMotion } from "../components/fx";
+
+const skillIcons: { Icon: LucideIcon; anim: IconMotion }[] = [
+  { Icon: Code2, anim: "float" },
+  { Icon: BarChart3, anim: "pulse" },
+  { Icon: Brain, anim: "sway" },
+  { Icon: Cpu, anim: "wiggle" },
+  { Icon: Cloud, anim: "float" },
+  { Icon: Database, anim: "pulse" },
+  { Icon: Scale, anim: "sway" },
+  { Icon: Landmark, anim: "wiggle" },
+];
 
 const skillGroups = [
   {
@@ -87,38 +99,36 @@ const skillGroups = [
 
 export default function SkillsPage() {
   return (
-    <motion.section
-      className="max-w-4xl mx-auto py-12 px-6 text-gray-800"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-    >
-      <h1 className="text-4xl font-bold mb-8 border-b pb-2 text-navy-700">Technical Skills</h1>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {skillGroups.map((group, i) => (
-          <motion.div
-            key={i}
-            className="bg-white p-5 rounded-lg shadow hover:shadow-md transition"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: i * 0.08 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="font-semibold text-navy-700 mb-3">{group.category}</h2>
-            <div className="flex flex-wrap gap-2">
-              {group.items.map((skill, j) => (
-                <span
-                  key={j}
-                  className="bg-navy-50 text-navy-700 text-xs font-medium px-3 py-1 rounded-full border border-navy-200"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </motion.section>
+    <PageShell>
+      <PageHero
+        eyebrow="Toolkit"
+        title="Technical Skills"
+        subtitle="Languages, analytics, AI frameworks, cloud and the policy and finance know-how behind them."
+        icons={[
+          { icon: Code2, motionType: "float" },
+          { icon: Brain, motionType: "pulse" },
+          { icon: Wrench, motionType: "wiggle" },
+        ]}
+        mascot="coder"
+      />
+      <CardGrid className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        {skillGroups.map((group, i) => {
+          const { Icon, anim } = skillIcons[i % skillIcons.length];
+          return (
+            <Card key={i}>
+              <div className="mb-4 flex items-center gap-3">
+                <IconChip icon={Icon} motionType={anim} delay={i * 0.2} />
+                <h2 className="font-heading text-sm font-semibold uppercase tracking-wider text-navy-700">{group.category}</h2>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {group.items.map((skill, j) => (
+                  <Tag key={j}>{skill}</Tag>
+                ))}
+              </div>
+            </Card>
+          );
+        })}
+      </CardGrid>
+    </PageShell>
   );
 }

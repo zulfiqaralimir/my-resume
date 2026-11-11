@@ -1,6 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { Trophy, Medal, Star, Award } from "lucide-react";
+import { Card, CardGrid, PageHero, PageShell, IconChip, type IconMotion } from "../components/fx";
+
+const honorIcons = [Trophy, Medal, Award, Star];
+const honorAnims: IconMotion[] = ["wiggle", "pulse", "float", "sway"];
 
 const honors = [
   {
@@ -70,42 +74,42 @@ const honors = [
 
 export default function HonorsPage() {
   return (
-    <motion.section
-      className="max-w-4xl mx-auto py-12 px-6 text-gray-800"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-    >
-      <h1 className="text-4xl font-bold mb-8 border-b pb-2 text-navy-700">
-        Honors &amp; Distinctions
-      </h1>
-
-      <div className="space-y-6">
+    <PageShell>
+      <PageHero
+        eyebrow="Recognition"
+        title="Honors & Distinctions"
+        subtitle="National wins, judging and mentoring roles, speaking invitations and programmes completed."
+        icons={[
+          { icon: Trophy, motionType: "wiggle" },
+          { icon: Medal, motionType: "pulse" },
+          { icon: Star, motionType: "spin" },
+        ]}
+        mascot="champion"
+      />
+      <CardGrid className="grid gap-5">
         {honors.map((h, i) => (
-          <motion.div
-            key={i}
-            className="bg-white p-5 rounded-lg shadow hover:shadow-md transition"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: i * 0.06 }}
-            viewport={{ once: true }}
-          >
-            <p className="font-semibold text-navy-700">{h.title}</p>
-            <p className="text-sm text-gray-500 mt-0.5">{h.org}</p>
-            {h.details && (
-              <p className="text-sm text-gray-600 mt-2">
-                {h.bold
-                  ? h.details.split(h.bold).flatMap((part, idx, arr) =>
-                      idx < arr.length - 1
-                        ? [part, <strong key={idx}>{h.bold}</strong>]
-                        : [part]
-                    )
-                  : h.details}
-              </p>
-            )}
-          </motion.div>
+          <Card key={i}>
+            <div className="flex items-start gap-4">
+              <IconChip icon={honorIcons[i % honorIcons.length]} motionType={honorAnims[i % honorAnims.length]} delay={i * 0.2} />
+              <div>
+                <p className="font-display text-lg font-bold leading-snug text-navy-700">{h.title}</p>
+                <p className="mt-1 font-heading text-xs uppercase tracking-wider text-navy-400">{h.org}</p>
+                {h.details && (
+                  <p className="mt-2 text-sm text-gray-600">
+                    {h.bold
+                      ? h.details.split(h.bold).flatMap((part, idx, arr) =>
+                          idx < arr.length - 1
+                            ? [part, <strong key={idx}>{h.bold}</strong>]
+                            : [part]
+                        )
+                      : h.details}
+                  </p>
+                )}
+              </div>
+            </div>
+          </Card>
         ))}
-      </div>
-    </motion.section>
+      </CardGrid>
+    </PageShell>
   );
 }

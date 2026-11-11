@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { Rocket, FlaskConical, Presentation, Cpu } from "lucide-react";
+import { Card, CardGrid, PageHero, PageShell, SectionHeading, IconChip, Tag, LinkPill } from "../components/fx";
 
 function renderTagline(text: string) {
   const parts = text.split(/\*\*(.+?)\*\*/g);
@@ -320,133 +321,92 @@ const hackathons = [
 
 export default function ProjectsPage() {
   return (
-    <motion.section
-      className="max-w-4xl mx-auto py-12 px-6 text-gray-800"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-    >
+    <PageShell>
+      <PageHero
+        eyebrow="Build Log"
+        title="Projects"
+        subtitle="Production AI apps, research and coding work, conference talks and hackathon builds."
+        icons={[
+          { icon: Rocket, motionType: "float" },
+          { icon: Cpu, motionType: "pulse" },
+          { icon: FlaskConical, motionType: "sway" },
+        ]}
+        mascot="coder"
+      />
+
       {/* Featured Projects */}
-      <h1 className="text-4xl font-bold mb-6 border-b pb-2 text-navy-700">
-        Featured Projects
-      </h1>
-      <div className="space-y-8 mb-14">
+      <SectionHeading icon={Rocket} eyebrow="Shipped" title="Featured Projects" motionType="float" mascot="coder" />
+      <CardGrid className="grid gap-6">
         {featuredProjects.map((project, idx) => (
-          <motion.div
-            key={idx}
-            className="bg-white border-2 border-navy-300 p-6 rounded-xl shadow-lg"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: idx * 0.1 }}
-            viewport={{ once: true }}
-          >
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
-              <h2 className="text-xl font-bold text-navy-700">{project.title}</h2>
-              <div className="flex gap-3 items-center">
-                {project.url && (
-                  <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-navy-600 hover:underline font-medium whitespace-nowrap"
-                  >
-                    {project.url.replace("https://", "")} ↗
-                  </a>
-                )}
-                {"github" in project && project.github && (
-                  <a
-                    href={project.github as string}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-gray-500 hover:text-navy-600 hover:underline font-medium whitespace-nowrap"
-                  >
-                    GitHub ↗
-                  </a>
-                )}
+          <Card key={idx}>
+            <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+              <div className="flex items-start gap-4">
+                <IconChip icon={Rocket} motionType={idx % 2 ? "wiggle" : "float"} delay={idx * 0.3} />
+                <h3 className="font-display text-xl font-bold leading-snug text-navy-700">{project.title}</h3>
+              </div>
+              <div className="flex shrink-0 flex-wrap items-center gap-2">
+                {project.url && <LinkPill href={project.url} label={project.url.replace("https://", "").replace(/\/$/, "")} />}
+                {"github" in project && project.github && <LinkPill href={project.github as string} label="GitHub" />}
               </div>
             </div>
             {"tagline" in project && project.tagline && (
-              <p className="text-sm font-medium text-navy-800 italic mb-3">{renderTagline(project.tagline)}</p>
+              <p className="mb-3 text-sm font-medium italic text-navy-800">{renderTagline(project.tagline)}</p>
             )}
-            <ul className="list-disc pl-5 space-y-1.5 text-sm text-gray-700 mb-4">
+            <ul className="mb-4 list-disc space-y-1.5 pl-5 text-sm text-gray-700">
               {project.bullets.map((b, i) => (
                 <li key={i}>{b}</li>
               ))}
             </ul>
-            <div className="flex flex-wrap gap-2 mt-3">
-              {project.stack.map((s, i) => (
-                <span key={i} className="bg-navy-50 text-navy-700 text-xs font-medium px-3 py-1 rounded-full border border-navy-200">
-                  {s}
-                </span>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {project.stack.map((st, i) => (
+                <Tag key={i}>{st}</Tag>
               ))}
             </div>
-          </motion.div>
+          </Card>
         ))}
-      </div>
+      </CardGrid>
 
       {/* Research Projects */}
-      <h2 className="text-4xl font-bold mb-8 border-b pb-2 text-navy-700">
-        Research &amp; Coding Projects
-      </h2>
-      <div className="space-y-4 mb-14">
+      <SectionHeading icon={FlaskConical} eyebrow="Research" title="Research & Coding Projects" motionType="sway" mascot="scientist" />
+      <CardGrid className="grid gap-4 sm:grid-cols-2">
         {researchProjects.map((p, i) => (
-          <motion.div
-            key={i}
-            className="bg-white p-4 rounded-lg shadow hover:shadow-md transition"
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: i * 0.04 }}
-            viewport={{ once: true }}
-          >
-            <p className="font-semibold text-navy-700">{p.title}</p>
-            {p.desc && <p className="text-sm text-gray-600 mt-1">{p.desc}</p>}
-          </motion.div>
+          <Card key={i} className="!p-5">
+            <p className="font-heading text-sm font-semibold leading-snug text-navy-700">{p.title}</p>
+            {p.desc && <p className="mt-1.5 text-sm text-gray-600">{p.desc}</p>}
+          </Card>
         ))}
-      </div>
+      </CardGrid>
 
       {/* Conference Presentations */}
-      <h2 className="text-3xl font-bold mb-6 border-b pb-2 text-navy-700">
-        Conference Presentations
-      </h2>
-      <div className="space-y-4 mb-14">
+      <SectionHeading icon={Presentation} eyebrow="On stage" title="Conference Presentations" motionType="wiggle" mascot="teacher" />
+      <CardGrid className="grid gap-4">
         {conferences.map((c, i) => (
-          <motion.div
-            key={i}
-            className="bg-white p-4 rounded-lg shadow hover:shadow-md transition"
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: i * 0.05 }}
-            viewport={{ once: true }}
-          >
-            <p className="font-semibold text-navy-700">{c.title}</p>
-            <p className="text-sm text-gray-700 mt-1"><em>{c.paper}</em></p>
-            {c.details && <p className="text-sm text-gray-500 mt-1">{c.details}</p>}
-          </motion.div>
+          <Card key={i} className="!p-5">
+            <div className="flex items-start gap-4">
+              <IconChip icon={Presentation} motionType="sway" delay={i * 0.2} />
+              <div>
+                <p className="font-display text-lg font-bold leading-snug text-navy-700">{c.title}</p>
+                <p className="mt-1 text-sm text-gray-700"><em>{c.paper}</em></p>
+                {c.details && <p className="mt-1 text-sm text-gray-500">{c.details}</p>}
+              </div>
+            </div>
+          </Card>
         ))}
-      </div>
+      </CardGrid>
 
       {/* AI Hackathons */}
-      <h2 className="text-3xl font-bold mb-6 border-b pb-2 text-navy-700">
-        AI Projects &amp; Hackathons
-      </h2>
-      <div className="space-y-4">
+      <SectionHeading icon={Cpu} eyebrow="Competitions" title="AI Projects & Hackathons" motionType="pulse" mascot="champion" />
+      <CardGrid className="grid gap-4 sm:grid-cols-2">
         {hackathons.map((h, i) => (
-          <motion.div
-            key={i}
-            className="bg-white p-4 rounded-lg shadow hover:shadow-md transition"
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: i * 0.04 }}
-            viewport={{ once: true }}
-          >
-            <div className="flex justify-between font-semibold text-navy-700">
-              <span>{h.event}</span>
-              <span className="text-sm text-gray-500">{h.org}{h.period ? ` · ${h.period}` : ""}</span>
-            </div>
-            <p className="text-sm text-gray-600 mt-1">{h.project}</p>
-          </motion.div>
+          <Card key={i} className="!p-5">
+            <p className="font-heading text-xs uppercase tracking-widest text-navy-400">
+              {h.org}{h.period ? ` · ${h.period}` : ""}
+            </p>
+            <p className="mt-1.5 font-display text-lg font-bold text-navy-700">{h.event}</p>
+            <p className="mt-1 text-sm text-gray-600">{h.project}</p>
+          </Card>
         ))}
-      </div>
-    </motion.section>
+      </CardGrid>
+    </PageShell>
   );
 }

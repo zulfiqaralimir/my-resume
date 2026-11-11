@@ -1,6 +1,19 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { BadgeCheck, Bot, Landmark, Database, Code2, Cloud, ShieldCheck, Lightbulb, GraduationCap, FlaskConical, type LucideIcon } from "lucide-react";
+import { Card, CardGrid, PageHero, PageShell, IconChip, type IconMotion } from "../components/fx";
+
+const certIcons: { Icon: LucideIcon; anim: IconMotion }[] = [
+  { Icon: Bot, anim: "wiggle" },
+  { Icon: Landmark, anim: "float" },
+  { Icon: Database, anim: "pulse" },
+  { Icon: Code2, anim: "sway" },
+  { Icon: Cloud, anim: "float" },
+  { Icon: ShieldCheck, anim: "pulse" },
+  { Icon: Lightbulb, anim: "wiggle" },
+  { Icon: GraduationCap, anim: "sway" },
+  { Icon: FlaskConical, anim: "float" },
+];
 
 const certGroups = [
   {
@@ -106,35 +119,39 @@ const certGroups = [
 
 export default function CoursesPage() {
   return (
-    <motion.section
-      className="max-w-4xl mx-auto py-12 px-6 text-gray-800"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-    >
-      <h1 className="text-4xl font-bold mb-8 border-b pb-2 text-navy-700">
-        Certifications &amp; Training
-      </h1>
-
-      <div className="space-y-8">
-        {certGroups.map((group, i) => (
-          <motion.div
-            key={i}
-            className="bg-white p-5 rounded-lg shadow hover:shadow-md transition"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: i * 0.06 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="font-semibold text-navy-700 mb-3">{group.category}</h2>
-            <ul className="list-disc pl-5 space-y-1 text-sm text-gray-700">
-              {group.items.map((item, j) => (
-                <li key={j}>{item}</li>
-              ))}
-            </ul>
-          </motion.div>
-        ))}
-      </div>
-    </motion.section>
+    <PageShell>
+      <PageHero
+        eyebrow="Lifelong Learning"
+        title="Certifications & Training"
+        subtitle="Professional certificates across AI, data, finance, cloud, teaching and research methods."
+        icons={[
+          { icon: BadgeCheck, motionType: "pulse" },
+          { icon: GraduationCap, motionType: "float" },
+          { icon: Bot, motionType: "wiggle" },
+        ]}
+        mascot="certified"
+      />
+      <CardGrid className="grid gap-5">
+        {certGroups.map((group, i) => {
+          const { Icon, anim } = certIcons[i % certIcons.length];
+          return (
+            <Card key={i}>
+              <div className="mb-4 flex items-center gap-3">
+                <IconChip icon={Icon} motionType={anim} delay={i * 0.2} />
+                <h2 className="font-heading text-sm font-semibold uppercase tracking-wider text-navy-700">{group.category}</h2>
+              </div>
+              <ul className="space-y-2 text-sm text-gray-700">
+                {group.items.map((item, j) => (
+                  <li key={j} className="flex items-start gap-2">
+                    <BadgeCheck size={16} className="mt-0.5 shrink-0 text-navy-400" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+          );
+        })}
+      </CardGrid>
+    </PageShell>
   );
 }
