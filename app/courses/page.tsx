@@ -118,6 +118,41 @@ const certGroups = [
   },
 ];
 
+type Logo = [file: string, width: number, height: number, alt: string, h: string];
+const groupLogos: Record<string, Logo[]> = {
+  "AI & Agent Frameworks": [
+    ["pakangels", 594, 132, "Pak Angels", "h-8"],
+    ["langchain", 870, 135, "LangChain", "h-8"],
+    ["crewai", 700, 350, "CrewAI", "h-10"],
+  ],
+  "Banking, Finance & Quantitative Modeling": [
+    ["coursera", 742, 95, "Coursera", "h-7"],
+    ["psx", 433, 519, "Pakistan Stock Exchange", "h-12"],
+    ["bankalfalah", 800, 460, "Bank Alfalah", "h-10"],
+    ["icmap", 703, 247, "ICMAP", "h-10"],
+  ],
+  "Big Data, Data Science & AI": [
+    ["deeplearning", 510, 343, "DeepLearning.AI", "h-14"],
+    ["ibm", 448, 179, "IBM", "h-9"],
+    ["udemy", 358, 135, "Udemy", "h-9"],
+  ],
+  "Cloud Computing & Infrastructure": [
+    ["microsoft", 700, 436, "Microsoft", "h-14"],
+    ["ibm", 448, 179, "IBM", "h-9"],
+  ],
+  "Cybersecurity & Digital Safety": [["udemy", 358, 135, "Udemy", "h-9"]],
+  "Emerging Tech & Digital Innovation": [["udemy", 358, 135, "Udemy", "h-9"]],
+  "Teaching Certifications": [
+    ["beaconhouse", 593, 513, "Beaconhouse", "h-12"],
+    ["pec", 619, 700, "Pakistan Engineering Council", "h-12"],
+    ["comsats", 428, 426, "COMSATS University", "h-12"],
+  ],
+  "Research Training & Workshops": [
+    ["pide", 1920, 1091, "PIDE", "h-12"],
+    ["coursera", 742, 95, "Coursera", "h-7"],
+  ],
+};
+
 export default function CoursesPage() {
   return (
     <PageShell>
@@ -141,27 +176,11 @@ export default function CoursesPage() {
                 <IconChip icon={Icon} motionType={anim} delay={i * 0.2} />
                 <h2 className="font-heading text-sm font-semibold uppercase tracking-wider text-navy-700">{group.category}</h2>
               </div>
-              {group.category === "AI & Agent Frameworks" && (
+              {groupLogos[group.category] && (
                 <div className="mb-4 flex flex-wrap items-center gap-x-5 gap-y-3">
-                  <Image src="/logos/crewai.png" width={700} height={350} alt="CrewAI" className="h-10 w-auto" />
-                </div>
-              )}
-              {group.category === "Cloud Computing & Infrastructure" && (
-                <div className="mb-4 flex flex-wrap items-center gap-x-5 gap-y-3">
-                  <Image src="/logos/microsoft.png" width={700} height={436} alt="Microsoft" className="h-14 w-auto" />
-                  <Image src="/logos/ibm.png" width={448} height={179} alt="IBM" className="h-9 w-auto" />
-                </div>
-              )}
-              {group.category === "Banking, Finance & Quantitative Modeling" && (
-                <div className="mb-4 flex flex-wrap items-center gap-x-5 gap-y-3">
-                  <Image src="/logos/coursera.png" width={742} height={95} alt="Coursera" className="h-7 w-auto" />
-                </div>
-              )}
-              {group.category === "Big Data, Data Science & AI" && (
-                <div className="mb-4 flex flex-wrap items-center gap-x-5 gap-y-3">
-                  <Image src="/logos/deeplearning.png" width={510} height={343} alt="DeepLearning.AI" className="h-14 w-auto" />
-                  <Image src="/logos/ibm.png" width={448} height={179} alt="IBM" className="h-9 w-auto" />
-                  <Image src="/logos/udemy.png" width={358} height={135} alt="Udemy" className="h-9 w-auto" />
+                  {groupLogos[group.category].map(([file, w, h, alt, cls]) => (
+                    <Image key={file} src={`/logos/${file}.png`} width={w} height={h} alt={alt} className={`${cls} w-auto`} />
+                  ))}
                 </div>
               )}
               <ul className="space-y-2 text-sm text-gray-700">
