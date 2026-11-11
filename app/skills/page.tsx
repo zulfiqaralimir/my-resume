@@ -128,6 +128,9 @@ export default function SkillsPage() {
                   <Image src="/logos/typescript.png" width={540} height={131} alt="TypeScript" className="h-8 w-auto" />
                   <Image src="/logos/javascript.png" width={554} height={600} alt="JavaScript" className="h-12 w-auto" />
                   <Image src="/logos/fastapi.png" width={600} height={111} alt="FastAPI" className="h-7 w-auto" />
+                  <Image src="/logos/sql.png" width={720} height={378} alt="SQL" className="h-9 w-auto" />
+                  <Image src="/logos/nextjs.png" width={1028} height={610} alt="Next.js" className="h-8 w-auto" />
+                  <Image src="/logos/tailwind.png" width={948} height={328} alt="Tailwind CSS" className="h-12 w-auto" />
                 </div>
               )}
               <div className="flex flex-wrap gap-2">
