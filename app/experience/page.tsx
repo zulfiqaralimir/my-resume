@@ -161,6 +161,7 @@ const jobs = [
   },
   {
     org: "Super Nova Academy",
+    logo: { src: "/logos/supernova.png", w: 411, h: 154 },
     location: "Islamabad, PK",
     period: "2010 – Present",
     title: "Teacher – Mathematics, Statistics & SAT",
