@@ -133,6 +133,16 @@ export default function SkillsPage() {
                   <Image src="/logos/tailwind.png" width={948} height={328} alt="Tailwind CSS" className="h-12 w-auto" />
                 </div>
               )}
+              {group.category === "Data Science Libraries" && (
+                <div className="mb-4 flex flex-wrap items-center gap-x-5 gap-y-3">
+                  <Image src="/logos/leetcode.png" width={948} height={228} alt="LeetCode" className="h-8 w-auto" />
+                </div>
+              )}
+              {group.category === "Cloud & Dev Tools" && (
+                <div className="mb-4 flex flex-wrap items-center gap-x-5 gap-y-3">
+                  <Image src="/logos/latex.png" width={724} height={270} alt="LaTeX" className="h-9 w-auto" />
+                </div>
+              )}
               <div className="flex flex-wrap gap-2">
                 {group.items.map((skill, j) => (
                   <Tag key={j}>{skill}</Tag>
