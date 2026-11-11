@@ -115,7 +115,7 @@ export default function Assistant() {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.8 }}
           transition={{ type: "spring", stiffness: 220, damping: 18 }}
-          className="relative mb-14 hidden max-w-[220px] rounded-2xl border border-navy-200 bg-white px-4 py-3 text-sm text-navy-700 shadow-xl sm:block"
+          className="relative mb-20 hidden max-w-[240px] rounded-2xl border border-navy-200 bg-white px-4 py-3 text-sm text-navy-700 shadow-xl sm:block"
         >
           {mood !== "happy" && moodTips[mood] ? moodTips[mood] : list[i % list.length]}
           <button
@@ -131,7 +131,7 @@ export default function Assistant() {
 
       <motion.svg
         viewBox="0 0 100 130"
-        className="h-28 w-24 cursor-pointer select-none drop-shadow-lg"
+        className="h-40 w-36 cursor-pointer select-none drop-shadow-lg"
         onHoverStart={onHover}
         onTap={onClick}
         whileHover={{ scale: 1.12, rotate: -4 }}

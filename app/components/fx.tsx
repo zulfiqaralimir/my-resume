@@ -90,7 +90,7 @@ export type MascotKind =
 export function Character({
   kind,
   onDark = false,
-  className = "h-24 w-24",
+  className = "h-32 w-32",
 }: {
   kind: MascotKind;
   onDark?: boolean;
@@ -452,7 +452,7 @@ export function PageHero({
             ))}
           </div>
         </div>
-        <Character kind={mascot} onDark className="hidden h-32 w-32 sm:block" />
+        <Character kind={mascot} onDark className="hidden h-40 w-40 sm:block" />
       </div>
     </div>
   );
