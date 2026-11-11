@@ -141,6 +141,11 @@ export default function CoursesPage() {
                 <IconChip icon={Icon} motionType={anim} delay={i * 0.2} />
                 <h2 className="font-heading text-sm font-semibold uppercase tracking-wider text-navy-700">{group.category}</h2>
               </div>
+              {group.category === "AI & Agent Frameworks" && (
+                <div className="mb-4 flex flex-wrap items-center gap-x-5 gap-y-3">
+                  <Image src="/logos/crewai.png" width={700} height={350} alt="CrewAI" className="h-10 w-auto" />
+                </div>
+              )}
               {group.category === "Cloud Computing & Infrastructure" && (
                 <div className="mb-4 flex flex-wrap items-center gap-x-5 gap-y-3">
                   <Image src="/logos/microsoft.png" width={700} height={436} alt="Microsoft" className="h-14 w-auto" />

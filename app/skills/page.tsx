@@ -155,6 +155,7 @@ export default function SkillsPage() {
               {group.category === "AI / ML Frameworks" && (
                 <div className="mb-4 flex flex-wrap items-center gap-x-5 gap-y-3">
                   <Image src="/logos/langgraph.png" width={600} height={368} alt="LangGraph" className="h-12 w-auto" />
+                  <Image src="/logos/crewai.png" width={700} height={350} alt="CrewAI" className="h-10 w-auto" />
                   <Image src="/logos/streamlit.png" width={600} height={85} alt="Streamlit" className="h-8 w-auto" />
                 </div>
               )}
