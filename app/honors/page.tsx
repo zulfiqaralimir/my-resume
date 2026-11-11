@@ -116,7 +116,7 @@ export default function HonorsPage() {
                 {"logos" in h && h.logos && (
                   <div className="mb-3 flex flex-wrap items-center gap-6">
                     {h.logos.map((l) => (
-                      <Image key={l.src} src={l.src} width={l.w} height={l.h} alt={l.alt} className="h-10 w-auto" />
+                      <Image key={l.src} src={l.src} width={l.w} height={l.h} alt={l.alt} className="h-14 w-auto" />
                     ))}
                   </div>
                 )}
