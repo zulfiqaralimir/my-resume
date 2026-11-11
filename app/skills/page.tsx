@@ -143,6 +143,11 @@ export default function SkillsPage() {
                   <Image src="/logos/latex.png" width={724} height={270} alt="LaTeX" className="h-9 w-auto" />
                 </div>
               )}
+              {group.category === "Statistical & Analytical Software" && (
+                <div className="mb-4 flex flex-wrap items-center gap-x-5 gap-y-3">
+                  <Image src="/logos/matlab.png" width={700} height={174} alt="MATLAB" className="h-9 w-auto" />
+                </div>
+              )}
               <div className="flex flex-wrap gap-2">
                 {group.items.map((skill, j) => (
                   <Tag key={j}>{skill}</Tag>
