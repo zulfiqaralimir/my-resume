@@ -125,6 +125,7 @@ const jobs = [
   },
   {
     org: "Pakistan Engineering Council",
+    logo: { src: "/logos/pec.png", w: 619, h: 700 },
     location: "Islamabad, PK",
     period: "Dec 2024 – Jan 2025",
     title: "Mentor and Instructor – PEC Generative AI Training",
