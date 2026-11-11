@@ -26,6 +26,7 @@ const honors = [
   },
   {
     title: "Generative AI Instructor / Mentor / Judge Certificate – NCEAC–HEC Cohort 2 (Jan–Feb 2026)",
+    logos: [{ src: "/logos/nceac.png", w: 698, h: 545, alt: "NCEAC - Higher Education Commission" }],
     org: "Higher Education Commission (HEC) Pakistan & National Computing Education Accreditation Council (NCEAC)",
     details:
       "Recognized for contributions as Instructor, Mentor, and Judge for the NCEAC–HEC Generative AI Training Cohort 2 (Jan–Feb 2026). Helped aspiring professionals build practical Generative AI skills and evaluated AI innovation projects. Collaborating partners: iCodeGuru, Pak Angels, ASPIRE Pakistan, HEC Pakistan, NCEAC, and UETIANS Lahore Endowment Foundation (ULEF), USA.",
@@ -54,6 +55,7 @@ const honors = [
   },
   {
     title: "Winner – All Employees Banking Quiz",
+    logos: [{ src: "/logos/bankalfalah.png", w: 800, h: 460, alt: "Bank Alfalah Limited" }],
     org: "Bank Alfalah Limited",
     details: "June 2009.",
   },
@@ -71,7 +73,7 @@ const honors = [
   },
   {
     title: "Claude Partner Network — Registered Partner",
-    logos: [{ src: "/logos/claudepartner.png", w: 474, h: 254, alt: "Claude Partner Network Member" }],
+    logos: [{ src: "/logos/claudepartner.png", w: 474, h: 207, alt: "Claude Partner Network Member" }],
     org: "Black Iron Quantum AI (Private) Limited",
     details: "Accepted into the Claude Partner Network, expanding engagement with the Claude ecosystem and supporting the company's work in AI applications, agentic systems, and production-oriented AI solutions.",
   },
@@ -80,6 +82,12 @@ const honors = [
     logos: [{ src: "/logos/founderinstitute.png", w: 700, h: 334, alt: "Founder Institute" }],
     org: "Founder Institute, Islamabad Chapter",
     details: "Completed FI's structured founder program covering idea validation, business model design, go-to-market and fundraising. Member of the global FI alumni network.",
+  },
+  {
+    title: "NIC Islamabad Incubatee",
+    logos: [{ src: "/logos/nic.png", w: 332, h: 237, alt: "National Incubation Center Islamabad" }],
+    org: "National Incubation Center (NIC), Islamabad",
+    details: "Black Iron Quantum AI (Private) Limited is incubated at the National Incubation Center, Islamabad.",
   },
 ];
 
