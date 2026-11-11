@@ -127,16 +127,157 @@ function AnimatedIcon({
   );
 }
 
+type Mascot = "scientist" | "reader" | "reporter" | "teacher";
+
+/* Little animated SVG character: bobs, blinks, waves, and holds a prop per section. */
+function Character({ kind }: { kind: Mascot }) {
+  const skin = "#f6d5b8";
+  const navy = "#0b2447";
+  return (
+    <motion.svg
+      viewBox="0 0 100 110"
+      className="h-24 w-24 shrink-0 drop-shadow-md"
+      initial={{ opacity: 0, y: 30, scale: 0.6 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ type: "spring", stiffness: 140, damping: 12, delay: 0.3 }}
+      aria-hidden="true"
+    >
+      <motion.g animate={{ y: [0, -4, 0] }} transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}>
+        {/* body */}
+        <path d="M22 108 C22 78 78 78 78 108 Z" fill={navy} />
+        <path d="M44 82 L50 96 L56 82 Z" fill="#fff" />
+        {/* waving arm */}
+        <motion.g
+          style={{ originX: "76px", originY: "88px" }}
+          animate={{ rotate: [0, -28, 0, -28, 0] }}
+          transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut", repeatDelay: 1.2 }}
+        >
+          <rect x="74" y="64" width="9" height="26" rx="4.5" fill={navy} />
+          <circle cx="78.5" cy="62" r="6" fill={skin} />
+        </motion.g>
+        {/* head */}
+        <circle cx="50" cy="52" r="24" fill={skin} />
+        {/* hair */}
+        <path d="M26 50 C26 24 74 24 74 50 C66 38 34 38 26 50 Z" fill="#3a2a22" />
+        {/* eyes with blink */}
+        <motion.g
+          style={{ originX: "50px", originY: "54px" }}
+          animate={{ scaleY: [1, 1, 0.1, 1, 1] }}
+          transition={{ duration: 3.5, repeat: Infinity, times: [0, 0.45, 0.5, 0.55, 1] }}
+        >
+          <circle cx="41" cy="54" r="3" fill="#1a1a1a" />
+          <circle cx="59" cy="54" r="3" fill="#1a1a1a" />
+        </motion.g>
+        <path d="M43 64 Q50 71 57 64" stroke="#a5513a" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+        <circle cx="35" cy="62" r="3.5" fill="#f2a8a0" opacity="0.6" />
+        <circle cx="65" cy="62" r="3.5" fill="#f2a8a0" opacity="0.6" />
+
+        {kind === "scientist" && (
+          <>
+            {/* graduation cap */}
+            <path d="M24 34 L50 22 L76 34 L50 46 Z" fill="#183463" />
+            <rect x="40" y="40" width="20" height="6" fill="#183463" />
+            <motion.path
+              d="M76 34 L82 52"
+              stroke="#e0b341"
+              strokeWidth="2"
+              style={{ originX: "76px", originY: "34px" }}
+              animate={{ rotate: [0, 8, -8, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            />
+            <circle cx="82" cy="53" r="3" fill="#e0b341" />
+            {/* flask with bubbles */}
+            <path d="M12 86 L18 72 L18 62 L28 62 L28 72 L34 86 Z" fill="#8fd3f4" stroke="#fff" strokeWidth="2" />
+            {[0, 1, 2].map((n) => (
+              <motion.circle
+                key={n}
+                cx={20 + n * 3}
+                cy={60}
+                r={1.8}
+                fill="#8fd3f4"
+                animate={{ y: [0, -14], opacity: [1, 0] }}
+                transition={{ duration: 1.6, repeat: Infinity, delay: n * 0.5 }}
+              />
+            ))}
+          </>
+        )}
+
+        {kind === "reader" && (
+          <>
+            {/* glasses */}
+            <circle cx="41" cy="54" r="7" fill="none" stroke="#183463" strokeWidth="2" />
+            <circle cx="59" cy="54" r="7" fill="none" stroke="#183463" strokeWidth="2" />
+            <path d="M48 54 H52" stroke="#183463" strokeWidth="2" />
+            {/* open book flipping */}
+            <path d="M14 92 L34 88 L34 74 L14 78 Z" fill="#fff" stroke="#183463" strokeWidth="1.5" />
+            <path d="M34 88 L54 92 L54 78 L34 74 Z" fill="#e2e8f2" stroke="#183463" strokeWidth="1.5" />
+            <motion.path
+              d="M34 88 L34 74 L50 77 L50 90 Z"
+              fill="#fff"
+              stroke="#183463"
+              strokeWidth="1"
+              style={{ originX: "34px", originY: "82px" }}
+              animate={{ scaleX: [1, -1, 1] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            />
+          </>
+        )}
+
+        {kind === "reporter" && (
+          <>
+            {/* press cap */}
+            <path d="M26 40 C26 18 74 18 74 40 Z" fill="#183463" />
+            <rect x="22" y="38" width="56" height="5" rx="2.5" fill="#0b2447" />
+            <rect x="42" y="26" width="16" height="8" rx="2" fill="#fff" />
+            <text x="50" y="33" fontSize="6" fontWeight="700" textAnchor="middle" fill="#0b2447">PRESS</text>
+            {/* newspaper */}
+            <motion.g
+              style={{ originX: "24px", originY: "86px" }}
+              animate={{ rotate: [-4, 4, -4] }}
+              transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <rect x="8" y="68" width="30" height="22" rx="2" fill="#fff" stroke="#183463" strokeWidth="1.5" />
+              <rect x="12" y="72" width="22" height="4" fill="#183463" />
+              <path d="M12 80 H34 M12 84 H34 M12 88 H28" stroke="#93a6c9" strokeWidth="1.5" />
+            </motion.g>
+          </>
+        )}
+
+        {kind === "teacher" && (
+          <>
+            {/* headphones */}
+            <path d="M24 52 C24 22 76 22 76 52" fill="none" stroke="#183463" strokeWidth="4" />
+            <rect x="19" y="48" width="8" height="14" rx="4" fill="#183463" />
+            <rect x="73" y="48" width="8" height="14" rx="4" fill="#183463" />
+            {/* play screen */}
+            <rect x="8" y="68" width="34" height="22" rx="3" fill="#0b2447" />
+            <motion.path
+              d="M20 73 L32 79 L20 85 Z"
+              fill="#fff"
+              style={{ originX: "26px", originY: "79px" }}
+              animate={{ scale: [1, 1.25, 1] }}
+              transition={{ duration: 1.6, repeat: Infinity }}
+            />
+          </>
+        )}
+      </motion.g>
+    </motion.svg>
+  );
+}
+
 function SectionHeading({
   icon,
   eyebrow,
   title,
   motionType,
+  mascot,
 }: {
   icon: LucideIcon;
   eyebrow: string;
   title: string;
   motionType: Motion;
+  mascot: Mascot;
 }) {
   return (
     <motion.div
@@ -161,10 +302,11 @@ function SectionHeading({
           />
           <AnimatedIcon icon={icon} size={24} motionType={motionType} />
         </motion.span>
-        <div>
+        <div className="flex-1">
           <p className="font-heading text-xs uppercase tracking-[0.25em] text-navy-400">{eyebrow}</p>
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-navy-700 leading-tight">{title}</h2>
         </div>
+        <Character kind={mascot} />
       </div>
       <motion.div
         className="mt-4 h-1 origin-left rounded-full bg-gradient-to-r from-navy-600 via-navy-300 to-transparent"
@@ -283,7 +425,7 @@ export default function PublicationsPage() {
         </div>
 
         {/* Research */}
-        <SectionHeading icon={FlaskConical} eyebrow="Scholarship" title="Research & Working Papers" motionType="sway" />
+        <SectionHeading icon={FlaskConical} eyebrow="Scholarship" title="Research & Working Papers" motionType="sway" mascot="scientist" />
         <motion.div className="grid gap-5" variants={container} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-40px" }}>
           <Card>
             <div className="flex items-start gap-4">
@@ -345,7 +487,7 @@ export default function PublicationsPage() {
         </motion.div>
 
         {/* Books */}
-        <SectionHeading icon={BookOpen} eyebrow="Long form" title="Book Publications" motionType="float" />
+        <SectionHeading icon={BookOpen} eyebrow="Long form" title="Book Publications" motionType="float" mascot="reader" />
         <motion.div className="grid gap-5 sm:grid-cols-3" variants={container} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-40px" }}>
           {books.map((b, i) => (
             <Card key={i}>
@@ -359,7 +501,7 @@ export default function PublicationsPage() {
         </motion.div>
 
         {/* Press */}
-        <SectionHeading icon={Newspaper} eyebrow="In the news" title="Press Publications" motionType="wiggle" />
+        <SectionHeading icon={Newspaper} eyebrow="In the news" title="Press Publications" motionType="wiggle" mascot="reporter" />
         <motion.div className="grid gap-5 sm:grid-cols-2" variants={container} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-40px" }}>
           {press.map((p, i) => (
             <Card key={i}>
@@ -372,7 +514,7 @@ export default function PublicationsPage() {
         </motion.div>
 
         {/* Videos */}
-        <SectionHeading icon={Library} eyebrow="Teaching" title="Teaching Videos" motionType="pulse" />
+        <SectionHeading icon={Library} eyebrow="Teaching" title="Teaching Videos" motionType="pulse" mascot="teacher" />
         <motion.div className="grid gap-4 sm:grid-cols-2" variants={container} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-40px" }}>
           {videos.map((v, i) => (
             <Card key={i} className="!p-5">
