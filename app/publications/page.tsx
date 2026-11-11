@@ -49,18 +49,21 @@ const press = [
   {
     title: "Insights into Pakistan Stock Exchange's recent record high triumph",
     outlet: "The Financial Daily International",
+    logo: { src: "/logos/financialdaily.png", w: 456, h: 64 },
     date: "March 30, 2024",
     desc: "",
   },
   {
     title: "Navigate the psychological maze of inflation and make smarter investment decisions",
     outlet: "The Financial Daily International",
+    logo: { src: "/logos/financialdaily.png", w: 456, h: 64 },
     date: "March 10, 2024",
     desc: "",
   },
   {
     title: "Penny Wise Pound Foolish Approach",
     outlet: "The Financial Daily International",
+    logo: { src: "/logos/financialdaily.png", w: 456, h: 64 },
     date: "July 2022",
     desc: "",
   },
