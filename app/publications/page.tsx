@@ -42,6 +42,7 @@ const press = [
   {
     title: "Ensuring Ethical and Secure AI",
     outlet: "Pakistan Observer",
+    logo: { src: "/logos/pakobserver.png", w: 394, h: 70 },
     date: "May 25, 2024",
     desc: "Comprehensive Guide to AI Audits and Foundational LLMs.",
   },
@@ -219,6 +220,9 @@ export default function PublicationsPage() {
         <motion.div className="grid gap-5 sm:grid-cols-2" variants={container} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-40px" }}>
           {press.map((p, i) => (
             <Card key={i}>
+              {"logo" in p && p.logo && (
+                <Image src={p.logo.src} width={p.logo.w} height={p.logo.h} alt={p.outlet} className="mb-2 h-7 w-auto" />
+              )}
               <p className="font-heading text-xs uppercase tracking-widest text-navy-400">{p.outlet}</p>
               <p className="mt-2 font-display text-lg font-bold leading-snug text-navy-700">{p.title}</p>
               <Meta>{p.date}</Meta>
