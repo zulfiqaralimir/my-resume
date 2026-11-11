@@ -25,7 +25,15 @@ const badges = [
   "Author · 3 Books",
   "Educator · 15+ Yrs",
   "HEC AI Judge 2026",
+  "Op-ed contributor, The News",
 ];
+
+const oped = {
+  lead: "Mir, Z. A.",
+  rest: " (2026, November 11). Whose jobs will AI hit? The News (Pakistan), Opinion. https://www.thenews.pk/print/1448000-whose-jobs-will-ai-hit",
+  url: "https://www.thenews.pk/print/1448000-whose-jobs-will-ai-hit",
+  note: "Op-ed on how AI threatens entry-level jobs in Pakistan, with four policy steps to protect youth employment.",
+};
 
 const jobs = [
   {
@@ -752,6 +760,8 @@ async function downloadPDF() {
 
   // ── PUBLICATIONS ──
   section("PUBLICATIONS");
+  boldLeadEntry(oped.lead, oped.rest);
+  style(8, false, G500); writeWrapped(oped.note, M, CW, 3.8); y += 1.5;
   style(9, true, G800); doc.text("Books", M, y); y += 4;
   books.forEach(b => {
     br(5); style(8.5, false, G800);
@@ -1011,6 +1021,11 @@ async function downloadDocx() {
     ]),
 
     heading("PUBLICATIONS"),
+    new Paragraph({
+      children: [new TextRun({ text: oped.lead, bold: true, size: 18 }), new TextRun({ text: oped.rest, size: 18 })],
+      spacing: { before: 60 },
+    }),
+    new Paragraph({ children: [new TextRun({ text: oped.note, size: 16, color: "6b7280" })] }),
     new Paragraph({ children: [new TextRun({ text: "Books", bold: true, size: 20 })], spacing: { before: 80 } }),
     ...books.map(
       (b) =>
@@ -1383,6 +1398,13 @@ export default function ResumePage() {
         {/* ── PUBLICATIONS ── */}
         <section className="mb-6">
           <h2 className="text-lg font-bold text-navy-700 uppercase tracking-wider mb-3 border-b border-gray-200 pb-1">Publications</h2>
+          <div className="text-sm mb-3">
+            <p className="text-gray-800">
+              <strong>{oped.lead}</strong> (2026, November 11). Whose jobs will AI hit? <em>The News (Pakistan)</em>, Opinion.{" "}
+              <a href={oped.url} target="_blank" rel="noopener noreferrer" className="text-navy-700 underline break-all">{oped.url}</a>
+            </p>
+            <p className="text-gray-500 text-xs mt-0.5">{oped.note}</p>
+          </div>
           <p className="text-sm font-semibold text-gray-700 mb-1">Books</p>
           <div className="space-y-1 mb-3">
             {books.map((b, i) => (
