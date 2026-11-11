@@ -107,6 +107,7 @@ const jobs = [
   },
   {
     org: "COMSATS University",
+    logo: { src: "/logos/comsats.png", w: 428, h: 426 },
     location: "Islamabad, PK",
     period: "Oct 2024",
     title: "Instructor – Python for Mathematicians",
