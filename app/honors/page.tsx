@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Trophy, Medal, Star, Award } from "lucide-react";
 import { Card, CardGrid, PageHero, PageShell, IconChip, type IconMotion } from "../components/fx";
 
@@ -9,6 +10,10 @@ const honorAnims: IconMotion[] = ["wiggle", "pulse", "float", "sway"];
 const honors = [
   {
     title: "National Winner – AI FinTech Projects (2025)",
+    logos: [
+      { src: "/logos/moitt.png", w: 433, h: 128, alt: "Ministry of Information Technology & Telecom" },
+      { src: "/logos/adb.png", w: 862, h: 178, alt: "Asian Development Bank" },
+    ],
     org: "National Technology Fund (MoITT) & Asian Development Bank (ADB)",
     details:
       "Built AFIW–ZulfiQode: Agentic Financial Intelligence Wrapper. Technologies: LangGraph, FastAPI, Neo4j. Features: RAG pipelines for financial statement summarization and ESG scoring, RLHF and SFT for adaptive reasoning, ML and econometric models for volatility, causal, rumour, and reversal detection, Streamlit dashboards with real-time monitoring.",
@@ -93,6 +98,13 @@ export default function HonorsPage() {
               <IconChip icon={honorIcons[i % honorIcons.length]} motionType={honorAnims[i % honorAnims.length]} delay={i * 0.2} />
               <div>
                 <p className="font-display text-lg font-bold leading-snug text-navy-700">{h.title}</p>
+                {"logos" in h && h.logos && (
+                  <div className="mb-3 flex flex-wrap items-center gap-6">
+                    {h.logos.map((l) => (
+                      <Image key={l.src} src={l.src} width={l.w} height={l.h} alt={l.alt} className="h-10 w-auto" />
+                    ))}
+                  </div>
+                )}
                 <p className="mt-1 font-heading text-xs uppercase tracking-wider text-navy-400">{h.org}</p>
                 {h.details && (
                   <p className="mt-2 text-sm text-gray-600">
