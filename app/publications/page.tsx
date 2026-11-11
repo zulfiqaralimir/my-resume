@@ -77,6 +77,9 @@ export default function PublicationsPage() {
           <p className="text-sm text-gray-600 mt-1">
             <strong>Mir, Z. A.</strong> (2026, November 11). Whose jobs will AI hit? <em>The News (Pakistan)</em>, Opinion.{" "}
             <a href="https://www.thenews.pk/print/1448000-whose-jobs-will-ai-hit" target="_blank" rel="noopener noreferrer" className="text-navy-700 underline break-all">https://www.thenews.pk/print/1448000-whose-jobs-will-ai-hit</a>
+            <br />
+            Print edition (Karachi, page 6):{" "}
+            <a href="https://e.thenews.pk/karachi/11-11-2026/page6" target="_blank" rel="noopener noreferrer" className="text-navy-700 underline break-all">https://e.thenews.pk/karachi/11-11-2026/page6</a>
           </p>
           <p className="text-xs text-gray-500 mt-1">Op-ed on how AI threatens entry-level jobs in Pakistan, with four policy steps to protect youth employment.</p>
         </div>
