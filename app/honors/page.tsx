@@ -20,6 +20,7 @@ const honors = [
   },
   {
     title: "Create Apps Championship 2025–26",
+    logos: [{ src: "/logos/dubaichamber.png", w: 312, h: 136, alt: "Dubai Chamber of Digital Economy" }],
     org: "Dubai Chamber of Digital Economy, UAE",
     details: "Certificate of Participation.",
   },
@@ -42,6 +43,7 @@ const honors = [
   },
   {
     title: "McKinsey Forward Program Participant",
+    logos: [{ src: "/logos/mckinsey.png", w: 283, h: 280, alt: "McKinsey Forward Program" }],
     org: "McKinsey & Company",
     details: "Dec 2024. Focus: Problem-solving, leadership, digital transformation skills.",
   },
@@ -57,6 +59,7 @@ const honors = [
   },
   {
     title: "Featured Educator – Abako Calculators (2024)",
+    logos: [{ src: "/logos/abako.png", w: 600, h: 195, alt: "Abako Scientific Calculators" }],
     org: "Abako Scientific Calculators",
     details: "Top educator and brand ambassador.",
   },
