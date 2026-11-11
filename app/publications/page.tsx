@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   Newspaper,
@@ -142,6 +143,7 @@ export default function PublicationsPage() {
               <IconChip icon={Newspaper} motionType="wiggle" />
               <div>
                 <p className="font-heading text-xs uppercase tracking-widest text-navy-400">Publications &amp; Media</p>
+                <Image src="/logos/thenews.png" width={273} height={73} alt="The News International" className="mt-3 h-9 w-auto" />
                 <p className="mt-2 font-display text-xl font-bold text-navy-700">Whose jobs will AI hit?</p>
                 <p className="mt-1 text-sm text-gray-600">
                   <strong>Mir, Z. A.</strong> (2026, November 11). <em>The News (Pakistan)</em>, Opinion.
@@ -160,6 +162,7 @@ export default function PublicationsPage() {
               <IconChip icon={FileText} motionType="float" delay={0.3} />
               <div>
                 <p className="font-heading text-xs uppercase tracking-widest text-navy-400">Working Papers (SSRN)</p>
+                <Image src="/logos/ssrn.png" width={471} height={282} alt="Elsevier SSRN" className="mt-3 h-14 w-auto" />
                 <p className="mt-2 font-display text-xl font-bold text-navy-700">Hormuz energy shock and Pakistan: A CGE analysis</p>
                 <p className="mt-1 text-sm text-gray-600">
                   <strong>Mir, Z. A.</strong>, Naqvi, H. A., &amp; Abbas, A. (2026). <em>SSRN Working Paper</em>.
