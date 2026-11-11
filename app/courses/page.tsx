@@ -141,9 +141,16 @@ export default function CoursesPage() {
                 <IconChip icon={Icon} motionType={anim} delay={i * 0.2} />
                 <h2 className="font-heading text-sm font-semibold uppercase tracking-wider text-navy-700">{group.category}</h2>
               </div>
+              {group.category === "Banking, Finance & Quantitative Modeling" && (
+                <div className="mb-4 flex flex-wrap items-center gap-x-5 gap-y-3">
+                  <Image src="/logos/coursera.png" width={742} height={95} alt="Coursera" className="h-7 w-auto" />
+                </div>
+              )}
               {group.category === "Big Data, Data Science & AI" && (
                 <div className="mb-4 flex flex-wrap items-center gap-x-5 gap-y-3">
                   <Image src="/logos/deeplearning.png" width={510} height={343} alt="DeepLearning.AI" className="h-14 w-auto" />
+                  <Image src="/logos/ibm.png" width={448} height={179} alt="IBM" className="h-9 w-auto" />
+                  <Image src="/logos/udemy.png" width={358} height={135} alt="Udemy" className="h-9 w-auto" />
                 </div>
               )}
               <ul className="space-y-2 text-sm text-gray-700">
