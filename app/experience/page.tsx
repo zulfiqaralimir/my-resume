@@ -184,6 +184,7 @@ const jobs = [
   },
   {
     org: "City Lights Trading",
+    logo: { src: "/logos/citylights.png", w: 166, h: 190 },
     location: "Dubai, UAE",
     period: "Jan 2005 – Dec 2005",
     title: "Credit Controller",
