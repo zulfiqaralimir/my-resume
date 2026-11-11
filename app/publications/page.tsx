@@ -177,6 +177,7 @@ export default function PublicationsPage() {
               <IconChip icon={Presentation} motionType="sway" delay={0.6} />
               <div>
                 <p className="font-heading text-xs uppercase tracking-widest text-navy-400">Conference Papers</p>
+                <Image src="/logos/sprc.png" width={341} height={209} alt="Social Policy Resource Centre" className="mt-3 h-14 w-auto rounded-md" />
                 <p className="mt-2 font-display text-xl font-bold text-navy-700">Algorithmic inclusion</p>
                 <p className="mt-1 text-sm text-gray-600">
                   <strong>Mir, Z. A.</strong> (2026). AI-driven targeting and adaptive delivery for Pakistan&apos;s social protection system. Accepted for presentation at the SPRC 6th Annual Conference, &ldquo;Need of New Social Protection Paradigms,&rdquo; Social Policy Resource Centre, Islamabad, 30 December 2026.
