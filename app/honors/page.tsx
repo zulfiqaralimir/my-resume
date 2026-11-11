@@ -77,6 +77,7 @@ const honors = [
   },
   {
     title: "Startup Accelerator Graduate (2026)",
+    logos: [{ src: "/logos/founderinstitute.png", w: 700, h: 334, alt: "Founder Institute" }],
     org: "Founder Institute, Islamabad Chapter",
     details: "Completed FI's structured founder program covering idea validation, business model design, go-to-market and fundraising. Member of the global FI alumni network.",
   },
