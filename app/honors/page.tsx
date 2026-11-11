@@ -65,6 +65,7 @@ const honors = [
   },
   {
     title: "CALICO Fall '24",
+    logos: [{ src: "/logos/calico.png", w: 505, h: 117, alt: "CALICO Fall 24" }],
     org: "UC Berkeley",
     details: "Dec 2024. Focus: Reasoning and Problem-solving.",
   },
