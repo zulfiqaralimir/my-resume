@@ -133,6 +133,7 @@ const jobs = [
   },
   {
     org: "Pak Angels (San Jose, California)",
+    logo: { src: "/logos/pakangels.png", w: 594, h: 132 },
     location: "Remote",
     period: "Aug – Sept 2024",
     title: "Mentor and Judge – Essential Generative AI Training",
