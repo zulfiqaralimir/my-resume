@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Briefcase, Building2, Landmark, Rocket, GraduationCap, Users, TrendingUp, Microscope } from "lucide-react";
 import { Card, CardGrid, PageHero, PageShell, SectionHeading, IconChip, Meta, type IconMotion } from "../components/fx";
 
@@ -56,6 +57,7 @@ const jobs = [
   },
   {
     org: "Black Iron Quantum AI (Private) Limited",
+    logo: { src: "/logos/blackiron.png", w: 1512, h: 302 },
     location: "Islamabad, PK",
     period: "2026 – Present",
     title: "Director – Accounting ERP SaaS Platform Development",
@@ -234,6 +236,9 @@ export default function ExperiencePage() {
             <div className="flex items-start gap-4">
               <IconChip icon={jobIcons[i % jobIcons.length]} motionType={jobAnims[i % jobAnims.length]} delay={i * 0.15} />
               <div className="flex-1">
+                {job.logo && (
+                  <Image src={job.logo.src} width={job.logo.w} height={job.logo.h} alt={job.org} className="mb-3 h-10 w-auto" />
+                )}
                 <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
                   <p className="font-display text-lg font-bold leading-snug text-navy-700">{job.org}</p>
                   <span className="shrink-0 rounded-full bg-navy-50 px-3 py-1 text-xs font-medium text-navy-600 ring-1 ring-navy-100">
