@@ -386,6 +386,9 @@ export default function ProjectsPage() {
             <div className="flex items-start gap-4">
               <IconChip icon={Presentation} motionType="sway" delay={i * 0.2} />
               <div>
+                {c.title.includes("SPRC") && (
+                  <Image src="/logos/sprc.png" width={341} height={209} alt="Social Policy Resource Centre" className="mb-2 h-14 w-auto rounded-md" />
+                )}
                 {c.details?.includes("Quaid-i-Azam University") && (
                   <Image src="/logos/qau.png" width={556} height={695} alt="Quaid-i-Azam University" className="mb-2 h-16 w-auto" />
                 )}
