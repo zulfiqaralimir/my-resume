@@ -134,7 +134,7 @@ export default function Home() {
         <div className="absolute -top-10 -right-10 w-64 h-64 bg-white/10 rounded-full" />
         <div className="absolute -bottom-16 -left-10 w-80 h-80 bg-white/5 rounded-full" />
 
-        <div className="relative max-w-6xl mx-auto px-8 py-12 lg:min-h-[680px] lg:flex lg:flex-col lg:justify-center">
+        <div className="relative max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-16 py-8 lg:min-h-[calc(100svh-9rem)] lg:flex lg:flex-col lg:justify-center">
         <HeroGlobe />
         <div className="relative flex flex-col sm:flex-row items-center gap-8 lg:pr-[26rem]">
           {/* Photo */}
@@ -158,7 +158,7 @@ export default function Home() {
             <HeroTitle />
 
             <motion.p
-              className="text-[#f2d27a] text-xl font-medium mb-5"
+              style={{ fontFamily: "var(--font-cormorant), Georgia, serif" }} className="text-[#f2d27a] text-lg sm:text-xl lg:text-2xl font-medium uppercase tracking-[0.14em] leading-snug mb-6 max-w-2xl"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.45 }}
@@ -214,7 +214,7 @@ export default function Home() {
 
         {/* Contact row */}
         <motion.div
-          className="relative mt-8 pt-6 border-t border-white/20 flex flex-wrap justify-center sm:justify-start gap-x-8 gap-y-3 text-base text-navy-100"
+          className="relative mt-6 pt-5 border-t border-white/20 flex flex-wrap justify-center sm:justify-start gap-x-8 gap-y-3 text-base text-navy-100"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.75 }}
