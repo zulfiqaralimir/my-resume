@@ -103,7 +103,7 @@ export default function HeroGlobe() {
 
   if (!show) return null;
   return (
-    <div aria-hidden="true" className="pointer-events-none absolute right-6 top-6 h-72 w-72">
+    <div aria-hidden="true" className="pointer-events-none absolute right-2 top-1/2 h-96 w-96 -translate-y-1/2">
       <Canvas camera={{ position: [0, 0, 5], fov: 45 }} dpr={[1, 1.5]} gl={{ alpha: true, antialias: true }}>
         <ambientLight intensity={1.6} />
         <directionalLight position={[3, 2, 4]} intensity={2.2} />

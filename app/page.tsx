@@ -137,7 +137,7 @@ export default function Home() {
 
         <div className="relative max-w-6xl mx-auto px-8 py-12">
         <HeroGlobe />
-        <div className="relative flex flex-col sm:flex-row items-center gap-8 lg:pr-72">
+        <div className="relative flex flex-col sm:flex-row items-center gap-8 lg:pr-96">
           {/* Photo */}
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
@@ -157,7 +157,7 @@ export default function Home() {
           {/* Text */}
           <div className="text-center sm:text-left">
             <motion.h1
-              className="hero-name text-xl sm:text-3xl lg:text-4xl leading-tight mb-4"
+              className="hero-name text-xl sm:text-2xl lg:text-3xl leading-tight mb-4"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
