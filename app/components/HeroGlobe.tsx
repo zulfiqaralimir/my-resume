@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import * as THREE from "three";
 
 const RADIUS = 1.6;
@@ -18,6 +18,8 @@ const accents: [number, number][] = [
 ];
 
 function Globe({ reduce }: { reduce: boolean }) {
+  const earth = useLoader(THREE.TextureLoader, "/earth.jpg");
+  earth.colorSpace = THREE.SRGBColorSpace;
   const group = useRef<THREE.Group>(null);
   const hotMat = useRef<THREE.PointsMaterial>(null);
   const ring = useRef<THREE.Mesh>(null);
@@ -70,14 +72,12 @@ function Globe({ reduce }: { reduce: boolean }) {
     <group ref={group}>
       <mesh>
         <sphereGeometry args={[RADIUS * 0.985, 64, 64]} />
-        <meshStandardMaterial color="#1f5fd6" roughness={0.55} metalness={0.1} />
+        <meshStandardMaterial map={earth} emissiveMap={earth} emissive="#ffffff" emissiveIntensity={0.55} roughness={0.8} metalness={0} />
       </mesh>
-      <points>
-        <bufferGeometry>
-          <bufferAttribute attach="attributes-position" args={[dots, 3]} />
-        </bufferGeometry>
-        <pointsMaterial color="#8fb8ff" size={0.022} sizeAttenuation transparent opacity={0.55} depthWrite={false} />
-      </points>
+      <mesh scale={1.06}>
+        <sphereGeometry args={[RADIUS, 48, 48]} />
+        <meshBasicMaterial color="#4da3ff" transparent opacity={0.18} side={THREE.BackSide} depthWrite={false} />
+      </mesh>
       <mesh ref={ring} rotation={[1.2, 0.3, 0]}>
         <torusGeometry args={[RADIUS * 1.17, 0.008, 8, 128]} />
         <meshBasicMaterial color="#8fb8ff" transparent opacity={0.45} />
@@ -105,7 +105,7 @@ export default function HeroGlobe() {
   return (
     <div aria-hidden="true" className="pointer-events-none absolute right-6 top-6 h-72 w-72">
       <Canvas camera={{ position: [0, 0, 5], fov: 45 }} dpr={[1, 1.5]} gl={{ alpha: true, antialias: true }}>
-        <ambientLight intensity={0.9} />
+        <ambientLight intensity={1.6} />
         <directionalLight position={[3, 2, 4]} intensity={2.2} />
         <Globe reduce={reduce} />
       </Canvas>
