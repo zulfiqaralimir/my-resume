@@ -40,6 +40,10 @@ export default function Assistant3D() {
   const [mood, setMood] = useState<Mood>("happy");
   const [poke, setPoke] = useState(0);
   const [action, setAction] = useState<SoldierAction>("Idle");
+  const [desktop, setDesktop] = useState(false);
+  useEffect(() => {
+    setDesktop(window.matchMedia("(min-width: 768px)").matches);
+  }, []);
   const hover = useRef(false);
   const running = useRef(false);
   const syncAction = () => setAction(running.current ? "Run" : hover.current ? "Walk" : "Idle");
@@ -121,7 +125,7 @@ export default function Assistant3D() {
         role="img"
         aria-label="Interactive 3D character. Hover to make it walk, click to make it run."
       >
-        <Soldier3D action={action} />
+        {desktop && <Soldier3D action={action} />}
       </div>
     </div>
   );

@@ -166,7 +166,7 @@ export default function HeroGlobe() {
     <div
       ref={wrap}
       aria-hidden="true"
-      className="pointer-events-none relative mx-auto mb-4 h-64 w-64 sm:h-80 sm:w-80 lg:absolute lg:right-4 lg:top-1/2 lg:mb-0 lg:h-[560px] lg:w-[560px] lg:-translate-y-1/2"
+      className="pointer-events-none relative mx-auto mb-2 h-52 w-52 sm:h-80 sm:w-80 lg:absolute lg:right-4 lg:top-1/2 lg:mb-0 lg:h-[560px] lg:w-[560px] lg:-translate-y-1/2"
     >
       <Canvas
         frameloop={visible ? "always" : "never"}
