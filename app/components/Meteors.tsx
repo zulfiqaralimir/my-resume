@@ -6,6 +6,14 @@ type Meteor = { id: number; left: number; top: number; dx: number; dy: number; r
 
 const rand = (a: number, b: number) => a + Math.random() * (b - a);
 
+/** Mix of speeds: some fast, some medium, some slow and drifting. */
+const pickDuration = () => {
+  const r = Math.random();
+  if (r < 0.3) return rand(0.6, 1.0);
+  if (r < 0.65) return rand(1.3, 1.9);
+  return rand(2.4, 3.4);
+};
+
 /** Occasional, random, fast shooting stars: one at a time, irregular gaps, varied angle/length/speed. */
 export default function Meteors() {
   const [list, setList] = useState<Meteor[]>([]);
@@ -30,7 +38,7 @@ export default function Meteors() {
         dy,
         rot,
         len: rand(70, 140),
-        dur: rand(0.55, 1.05),
+        dur: pickDuration(),
       };
       setList((l) => [...l, m]);
       // sometimes a second one shortly after, like a small shower
