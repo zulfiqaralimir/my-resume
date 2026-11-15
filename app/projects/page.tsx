@@ -16,6 +16,7 @@ const featuredProjects = [
     url: "https://firepulse-ai.vercel.app",
     github: "https://github.com/zulfiqaralimir/firepulse-ai",
     methodology: "https://firepulse-ai.vercel.app/methodology",
+    certificate: "https://drive.google.com/file/d/15zMxCnBP8WTkGLa14WH4fxkwyUT2ZQd-/view?usp=sharing",
     challenge: "https://www.spaceappschallenge.org/2026/challenges/modis-and-viirs-hot-spots/?tab=details",
     tagline: "**NASA Space Apps Challenge 2026 · Challenge #1: Harmonization of MODIS and VIIRS Hot Spots**",
     bullets: [
@@ -366,6 +367,7 @@ export default function ProjectsPage() {
                 {"github" in project && project.github && <LinkPill href={project.github as string} label={"methodology" in project ? "GitHub Repository" : "GitHub"} />}
                 {"methodology" in project && project.methodology && <LinkPill href={project.methodology as string} label="Methodology" />}
                 {"challenge" in project && project.challenge && <LinkPill href={project.challenge as string} label="NASA Challenge" />}
+                {"certificate" in project && project.certificate && <LinkPill href={project.certificate as string} label="Participation Certificate" />}
               </div>
             </div>
             {"methodology" in project && (
