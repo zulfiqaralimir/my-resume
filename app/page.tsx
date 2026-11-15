@@ -9,22 +9,20 @@ import {
   BookOpen,
   Building2,
   Clock,
-  Code,
   ExternalLink,
   FileText,
   Handshake,
   Landmark,
-  Mail,
   Phone,
   Presentation,
   Rocket,
   Trophy,
   Users,
-  Link2,
 } from "lucide-react";
 import dynamic from "next/dynamic";
 import HeroBackground from "./components/HeroBackground";
 import Meteors from "./components/Meteors";
+import { GmailIcon, LinkedInIcon, GitHubIcon, LeetCodeIcon } from "./components/BrandIcons";
 
 const HeroGlobe = dynamic(() => import("./components/HeroGlobe"), { ssr: false });
 
@@ -228,17 +226,19 @@ export default function Home() {
           transition={{ duration: 0.5, delay: 0.75 }}
         >
           <a href="mailto:manager.equity.finance@gmail.com" className="hover:text-white transition">
-            <Mail size={15} className="inline -mt-0.5 mr-1.5" />manager.equity.finance@gmail.com
+            <span className="inline-flex h-6 w-6 items-center justify-center rounded-md bg-white mr-2 align-middle"><GmailIcon className="h-4 w-4 text-[#EA4335]" /></span>manager.equity.finance@gmail.com
           </a>
-          <span><Phone size={15} className="inline -mt-0.5 mr-1.5" />+92 322 5150501</span>
-          <a href="https://www.linkedin.com/in/zulfiqar-ali-mir/" target="_blank" className="hover:text-white transition">
-            <Link2 size={15} className="inline -mt-0.5 mr-1.5" />LinkedIn <ExternalLink size={12} className="inline -mt-0.5" />
+          <a href="tel:+923225150501" className="hover:text-white transition">
+            <span className="inline-flex h-6 w-6 items-center justify-center rounded-md bg-white mr-2 align-middle"><Phone size={14} className="text-[#0645bd]" /></span>+92 322 5150501
           </a>
-          <a href="https://github.com/zulfiqaralimir" target="_blank" className="hover:text-white transition">
-            <Code size={15} className="inline -mt-0.5 mr-1.5" />GitHub <ExternalLink size={12} className="inline -mt-0.5" />
+          <a href="https://www.linkedin.com/in/zulfiqar-ali-mir/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" className="hover:text-white transition">
+            <span className="inline-flex h-6 w-6 items-center justify-center rounded-md bg-white mr-2 align-middle"><LinkedInIcon className="h-4 w-4 text-[#0A66C2]" /></span>LinkedIn <ExternalLink size={12} className="inline -mt-0.5" />
           </a>
-          <a href="https://leetcode.com/u/xBe6uVINlF/" target="_blank" className="hover:text-white transition">
-            <Trophy size={15} className="inline -mt-0.5 mr-1.5" />LeetCode <ExternalLink size={12} className="inline -mt-0.5" />
+          <a href="https://github.com/zulfiqaralimir" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" className="hover:text-white transition">
+            <span className="inline-flex h-6 w-6 items-center justify-center rounded-md bg-white mr-2 align-middle"><GitHubIcon className="h-4 w-4 text-[#181717]" /></span>GitHub <ExternalLink size={12} className="inline -mt-0.5" />
+          </a>
+          <a href="https://leetcode.com/u/xBe6uVINlF/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode profile" className="hover:text-white transition">
+            <span className="inline-flex h-6 w-6 items-center justify-center rounded-md bg-white mr-2 align-middle"><LeetCodeIcon className="h-4 w-4 text-[#FFA116]" /></span>LeetCode <ExternalLink size={12} className="inline -mt-0.5" />
           </a>
         </motion.div>
         </div>

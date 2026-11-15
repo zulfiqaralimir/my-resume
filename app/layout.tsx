@@ -3,7 +3,7 @@ import { Geist, Playfair_Display, Montserrat, Press_Start_2P } from "next/font/g
 import "./globals.css"; // ✅ This works
 
 import Navbar from "./components/Navbar";
-import Assistant from "./components/Assistant";
+import Assistant from "./components/Assistant3D";
 
 
 const geistSans = Geist({

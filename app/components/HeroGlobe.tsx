@@ -62,8 +62,8 @@ const atmosphereVertex = /* glsl */ `
 const atmosphereFragment = /* glsl */ `
   varying vec3 vNormal;
   void main() {
-    float i = pow(max(0.0, 0.72 - dot(vNormal, vec3(0.0, 0.0, 1.0))), 3.0);
-    gl_FragColor = vec4(0.09, 0.65, 1.0, 1.0) * i * 1.6;
+    float i = pow(max(0.0, 0.66 - dot(vNormal, vec3(0.0, 0.0, 1.0))), 4.0);
+    gl_FragColor = vec4(0.09, 0.65, 1.0, 1.0) * i * 0.9;
   }
 `;
 
@@ -96,20 +96,20 @@ function Globe({ reduce }: { reduce: boolean }) {
   return (
     <>
       {/* orbital rings behind the globe */}
-      <group ref={rings} rotation={[1.15, 0.25, 0]}>
+      <group ref={rings} rotation={[1.4, 0.2, 0]}>
         <mesh>
           <torusGeometry args={[R * 1.14, 0.004, 8, 160]} />
-          <meshBasicMaterial color="#7fd0ff" transparent opacity={0.45} />
+          <meshBasicMaterial color="#7fd0ff" transparent opacity={0.22} />
         </mesh>
         <mesh>
           <torusGeometry args={[R * 1.22, 0.003, 8, 160]} />
-          <meshBasicMaterial color="#7fd0ff" transparent opacity={0.25} />
+          <meshBasicMaterial color="#7fd0ff" transparent opacity={0.1} />
         </mesh>
       </group>
 
       {/* atmosphere glow */}
       <mesh>
-        <sphereGeometry args={[R * 1.13, 64, 64]} />
+        <sphereGeometry args={[R * 1.1, 64, 64]} />
         <shaderMaterial
           vertexShader={atmosphereVertex}
           fragmentShader={atmosphereFragment}
@@ -166,7 +166,7 @@ export default function HeroGlobe() {
     <div
       ref={wrap}
       aria-hidden="true"
-      className="pointer-events-none relative mx-auto mb-4 h-64 w-64 sm:h-80 sm:w-80 lg:absolute lg:-right-28 lg:top-1/2 lg:mb-0 lg:h-[660px] lg:w-[660px] lg:-translate-y-1/2"
+      className="pointer-events-none relative mx-auto mb-4 h-64 w-64 sm:h-80 sm:w-80 lg:absolute lg:-right-12 lg:top-1/2 lg:mb-0 lg:h-[560px] lg:w-[560px] lg:-translate-y-1/2"
     >
       <Canvas
         frameloop={visible ? "always" : "never"}
