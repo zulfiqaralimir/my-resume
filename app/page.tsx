@@ -22,7 +22,10 @@ import {
   Users,
   Link2,
 } from "lucide-react";
+import dynamic from "next/dynamic";
 import HeroBackground from "./components/HeroBackground";
+
+const HeroGlobe = dynamic(() => import("./components/HeroGlobe"), { ssr: false });
 
 const badges = [
   "National AI FinTech Winner 2025",
@@ -126,6 +129,7 @@ export default function Home() {
         transition={{ duration: 0.7 }}
       >
         <HeroBackground />
+        <HeroGlobe />
         {/* subtle background circles */}
         <div className="absolute -top-10 -right-10 w-64 h-64 bg-white/10 rounded-full" />
         <div className="absolute -bottom-16 -left-10 w-80 h-80 bg-white/5 rounded-full" />

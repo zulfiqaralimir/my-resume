@@ -10,6 +10,7 @@
     "generate:docx": "node scripts/generate-docx/biqai-training-response.js"
   },
   "dependencies": {
+    "@react-three/fiber": "^9.8.2",
     "docx": "^9.6.1",
     "framer-motion": "^12.7.4",
     "html2canvas-pro": "^2.4.5",
@@ -17,7 +18,8 @@
     "lucide-react": "^1.65.0",
     "next": "^15.3.9",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "three": "^0.187.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -25,6 +27,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/three": "^0.187.0",
     "eslint": "^9",
     "eslint-config-next": "^15.3.9",
     "tailwindcss": "^4",
