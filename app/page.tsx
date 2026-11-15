@@ -119,7 +119,7 @@ const jobs = [
 
 export default function Home() {
   return (
-    <div className="max-w-4xl mx-auto px-6 py-10 text-gray-800">
+    <div className="max-w-6xl mx-auto px-6 py-10 text-gray-800">
 
       {/* ── HERO ── */}
       <motion.section
@@ -134,7 +134,7 @@ export default function Home() {
         <div className="absolute -top-10 -right-10 w-64 h-64 bg-white/10 rounded-full" />
         <div className="absolute -bottom-16 -left-10 w-80 h-80 bg-white/5 rounded-full" />
 
-        <div className="relative flex flex-col sm:flex-row items-center gap-8 lg:pr-44">
+        <div className="relative flex flex-col sm:flex-row items-center gap-8 lg:pr-72">
           {/* Photo */}
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
@@ -223,7 +223,7 @@ export default function Home() {
           alt="ZAM — Zulfiqar Ali Mir logo"
           width={170}
           height={170}
-          className="hidden lg:block absolute top-8 right-8 rounded-full shadow-lg"
+          className="hidden lg:block absolute top-[83px] right-[83px] rounded-full shadow-lg"
         />
 
         {/* Contact row */}

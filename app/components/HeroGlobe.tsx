@@ -58,11 +58,15 @@ function Globe({ reduce }: { reduce: boolean }) {
 
   return (
     <group ref={group}>
+      <mesh>
+        <sphereGeometry args={[RADIUS * 0.985, 64, 64]} />
+        <meshStandardMaterial color="#1f5fd6" roughness={0.55} metalness={0.1} />
+      </mesh>
       <points>
         <bufferGeometry>
           <bufferAttribute attach="attributes-position" args={[dots, 3]} />
         </bufferGeometry>
-        <pointsMaterial color="#93a6c9" size={0.028} sizeAttenuation transparent opacity={0.85} depthWrite={false} />
+        <pointsMaterial color="#8fb8ff" size={0.022} sizeAttenuation transparent opacity={0.55} depthWrite={false} />
       </points>
       <points>
         <bufferGeometry>
@@ -85,8 +89,10 @@ export default function HeroGlobe() {
 
   if (!show) return null;
   return (
-    <div aria-hidden="true" className="pointer-events-none absolute -right-10 top-1/2 h-80 w-80 -translate-y-1/2 opacity-70">
+    <div aria-hidden="true" className="pointer-events-none absolute right-6 top-6 h-72 w-72">
       <Canvas camera={{ position: [0, 0, 5], fov: 45 }} dpr={[1, 1.5]} gl={{ alpha: true, antialias: true }}>
+        <ambientLight intensity={0.9} />
+        <directionalLight position={[3, 2, 4]} intensity={2.2} />
         <Globe reduce={reduce} />
       </Canvas>
     </div>
