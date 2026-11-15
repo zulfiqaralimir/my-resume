@@ -342,7 +342,7 @@ const featuredProjects = [
       "Analyzed detection relationships using a defined temporal matching window and nominal pixel-footprint assumptions, separating cross-sensor, same-sensor/different-satellite, same-satellite same-overpass, and same-satellite repeat-coverage relationships, with Recharts breakdowns",
       "Documented methodology and limitations transparently: detection groups are analytical relationships, not confirmed unique wildfire incidents; active-fire detections are not necessarily confirmed wildfires; the platform does not predict wildfires; Suomi-NPP is excluded from the live feeds",
       "Built with Next.js App Router Route Handlers calling the NASA FIRMS API server-side (no keys exposed to the client), deployed on Vercel, with Python supporting the scientific analysis",
-      "Methodology: https://firepulse-ai.vercel.app/methodology · Challenge: https://www.spaceappschallenge.org/2026/challenges/modis-and-viirs-hot-spots/?tab=details",
+      "Methodology: https://firepulse-ai.vercel.app/methodology · Challenge: https://www.spaceappschallenge.org/2026/challenges/modis-and-viirs-hot-spots/?tab=details · Participation certificate: https://drive.google.com/file/d/15zMxCnBP8WTkGLa14WH4fxkwyUT2ZQd-/view?usp=sharing",
     ],
     stack: ["Next.js App Router", "React", "TypeScript", "Tailwind CSS", "shadcn/ui", "MapLibre GL JS", "Recharts", "NASA FIRMS API", "Route Handlers", "Vercel", "Python"],
   },
