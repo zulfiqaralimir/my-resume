@@ -217,15 +217,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Logo */}
-        <Image
-          src="/logo-512.png"
-          alt="ZAM — Zulfiqar Ali Mir logo"
-          width={170}
-          height={170}
-          className="hidden lg:block absolute top-[83px] right-[83px] rounded-full shadow-lg"
-        />
-
         {/* Contact row */}
         <motion.div
           className="relative mt-8 pt-6 border-t border-white/20 flex flex-wrap justify-center sm:justify-start gap-x-6 gap-y-2 text-sm text-navy-100"

@@ -19,6 +19,8 @@ const accents: [number, number][] = [
 
 function Globe({ reduce }: { reduce: boolean }) {
   const group = useRef<THREE.Group>(null);
+  const hotMat = useRef<THREE.PointsMaterial>(null);
+  const ring = useRef<THREE.Mesh>(null);
   const pointer = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -49,10 +51,18 @@ function Globe({ reduce }: { reduce: boolean }) {
     return arr;
   }, []);
 
-  useFrame((_, dt) => {
+  useFrame(({ clock }, dt) => {
     const g = group.current;
     if (!g) return;
-    if (!reduce) g.rotation.y += dt * 0.12;
+    if (!reduce) {
+      g.rotation.y += dt * 0.35;
+      const t = clock.elapsedTime;
+      if (hotMat.current) {
+        hotMat.current.size = 0.1 + 0.05 * Math.sin(t * 3);
+        hotMat.current.opacity = 0.7 + 0.3 * Math.sin(t * 3);
+      }
+      if (ring.current) ring.current.rotation.z += dt * 0.25;
+    }
     g.rotation.x += (pointer.current.y * 0.25 + 0.3 - g.rotation.x) * 0.04;
   });
 
@@ -68,11 +78,15 @@ function Globe({ reduce }: { reduce: boolean }) {
         </bufferGeometry>
         <pointsMaterial color="#8fb8ff" size={0.022} sizeAttenuation transparent opacity={0.55} depthWrite={false} />
       </points>
+      <mesh ref={ring} rotation={[1.2, 0.3, 0]}>
+        <torusGeometry args={[RADIUS * 1.17, 0.008, 8, 128]} />
+        <meshBasicMaterial color="#8fb8ff" transparent opacity={0.45} />
+      </mesh>
       <points>
         <bufferGeometry>
           <bufferAttribute attach="attributes-position" args={[hot, 3]} />
         </bufferGeometry>
-        <pointsMaterial color="#ff7a1a" size={0.1} sizeAttenuation transparent opacity={0.95} depthWrite={false} />
+        <pointsMaterial ref={hotMat} color="#ff7a1a" size={0.1} sizeAttenuation transparent opacity={0.95} depthWrite={false} />
       </points>
     </group>
   );
