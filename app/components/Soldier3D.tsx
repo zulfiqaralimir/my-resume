@@ -56,13 +56,14 @@ function Soldier({ action, gltf }: { action: SoldierAction; gltf: GLTF }) {
     mixer.update(dt);
     // turn toward the cursor (character looks left/right with the mouse)
     if (root.current) {
-      const target = -pointer.current.x * 0.7;
+      // model faces away from the camera, so turn it to face front, angled into the page (left), then follow the cursor
+      const target = Math.PI - 0.6 + pointer.current.x * 0.6;
       root.current.rotation.y += (target - root.current.rotation.y) * 0.06;
     }
   });
 
   return (
-    <group ref={root} position={[0, -0.95, 0]}>
+    <group ref={root} position={[0, -0.95, 0]} rotation={[0, Math.PI - 0.6, 0]}>
       <primitive object={gltf.scene} />
     </group>
   );

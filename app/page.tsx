@@ -6,9 +6,7 @@ import { motion } from "framer-motion";
 import {
   Award,
   Briefcase,
-  BookOpen,
   Building2,
-  Clock,
   ExternalLink,
   FileText,
   Handshake,
@@ -23,6 +21,7 @@ import dynamic from "next/dynamic";
 import HeroBackground from "./components/HeroBackground";
 import Meteors from "./components/Meteors";
 import HeroTitle from "./components/HeroTitle";
+import StatCards from "./components/StatCards";
 import { GmailIcon, LinkedInIcon, GitHubIcon, LeetCodeIcon } from "./components/BrandIcons";
 
 const HeroGlobe = dynamic(() => import("./components/HeroGlobe"), { ssr: false });
@@ -123,7 +122,7 @@ export default function Home() {
 
       {/* ── HERO ── */}
       <motion.section
-        className="relative bg-gradient-to-br from-[#04297a] via-[#0645bd] to-[#0a58dc] shadow-xl mb-14 text-white overflow-hidden w-screen ml-[calc(50%-50vw)]"
+        className="relative bg-gradient-to-br from-[#04297a] via-[#0645bd] to-[#0a58dc] shadow-xl mb-14 text-white overflow-hidden w-screen ml-[calc(50%-50vw)] -mt-[126px]"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
@@ -134,7 +133,7 @@ export default function Home() {
         <div className="absolute -top-10 -right-10 w-64 h-64 bg-white/10 rounded-full" />
         <div className="absolute -bottom-16 -left-10 w-80 h-80 bg-white/5 rounded-full" />
 
-        <div className="relative max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-16 py-8 lg:min-h-[calc(100svh-9rem)] lg:flex lg:flex-col lg:justify-center">
+        <div className="relative max-w-[1560px] mx-auto px-6 sm:px-10 lg:px-16 pt-28 pb-8 lg:min-h-[calc(100svh-2rem)] lg:flex lg:flex-col lg:justify-center">
         <HeroGlobe />
         <div className="relative flex flex-col sm:flex-row items-center gap-8 lg:pr-[26rem]">
           {/* Photo */}
@@ -239,26 +238,7 @@ export default function Home() {
       </motion.section>
 
       {/* ── QUICK STATS ── */}
-      <motion.div
-        className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-14"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-      >
-        {[
-          { label: "Experience", value: "25+ yrs", Icon: Clock },
-          { label: "Books Published", value: "3", Icon: BookOpen },
-          { label: "Hackathons Led", value: "9+", Icon: Award },
-          { label: "Daily Requests", value: "100K+", Icon: Rocket },
-        ].map((s, i) => (
-          <div key={i} className="bg-white rounded-xl shadow p-4 text-center border border-gray-100">
-            <s.Icon size={22} className="mx-auto mb-1.5 text-[#d4a73a]" />
-            <p className="font-heading text-2xl text-navy-700">{s.value}</p>
-            <p className="text-xs text-gray-500 mt-1">{s.label}</p>
-          </div>
-        ))}
-      </motion.div>
+      <StatCards />
 
       {/* ── LATEST ACHIEVEMENTS ── */}
       <motion.h2
