@@ -9,6 +9,14 @@ const honorAnims: IconMotion[] = ["wiggle", "pulse", "float", "sway"];
 
 const honors = [
   {
+    title: "Galactic Problem Solver – 2026 NASA Space Apps Challenge",
+    logos: [{ src: "/logos/spaceapps.png", w: 440, h: 172, alt: "NASA International Space Apps Challenge", dark: true }],
+    org: "NASA Space Apps Challenge · November 14–15, 2026",
+    details:
+      "Certificate awarded for outstanding participation and efforts to address challenges on Earth and in space. Project: FirePulse AI (Challenge #1: Harmonization of MODIS and VIIRS Hot Spots).",
+    cert: "/certificates/nasa-space-apps-2026.png",
+  },
+  {
     title: "National Winner – AI FinTech Projects (2025)",
     logos: [
       { src: "/logos/moitt.png", w: 433, h: 128, alt: "Ministry of Information Technology & Telecom" },
@@ -116,7 +124,7 @@ export default function HonorsPage() {
                 {"logos" in h && h.logos && (
                   <div className="mb-3 flex flex-wrap items-center gap-6">
                     {h.logos.map((l) => (
-                      <Image key={l.src} src={l.src} width={l.w} height={l.h} alt={l.alt} className="h-14 w-auto" />
+                      <Image key={l.src} src={l.src} width={l.w} height={l.h} alt={l.alt} className={"h-14 w-auto" + ("dark" in l && l.dark ? " rounded-lg bg-navy-700 px-3 py-1" : "")} />
                     ))}
                   </div>
                 )}
@@ -131,6 +139,16 @@ export default function HonorsPage() {
                         )
                       : h.details}
                   </p>
+                )}
+                {"cert" in h && h.cert && (
+                  <a
+                    href={h.cert}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 inline-block rounded-full bg-navy-50 px-3 py-1.5 text-xs font-medium text-navy-600 ring-1 ring-navy-100 transition hover:bg-navy-700 hover:text-white"
+                  >
+                    View certificate
+                  </a>
                 )}
               </div>
             </div>
