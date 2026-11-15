@@ -183,6 +183,7 @@ const skillGroups = [
 ];
 
 const honors = [
+  { title: "Galactic Problem Solver – 2026 NASA Space Apps Challenge", org: "NASA Space Apps Challenge · November 14–15, 2026", details: "Certificate awarded for outstanding participation and efforts to address challenges on Earth and in space. Project: FirePulse AI (Challenge #1: Harmonization of MODIS and VIIRS Hot Spots)." },
   { title: "Claude Partner Network — Registered Partner", org: "Black Iron Quantum AI (Private) Limited", details: "Accepted into the Claude Partner Network, expanding engagement with the Claude ecosystem and supporting the company's work in AI applications, agentic systems, and production-oriented AI solutions." },
   { title: "Startup Accelerator Graduate (2026)", org: "Founder Institute, Islamabad Chapter", details: "Completed FI's structured founder program covering idea validation, business model design, go-to-market and fundraising. Member of the global FI alumni network." },
   { title: "National Winner – AI FinTech Projects (2025)", org: "National Technology Fund (MoITT) & Asian Development Bank (ADB)", details: "Built AFIW–ZulfiQode: Agentic Financial Intelligence Wrapper. Technologies: LangGraph, FastAPI, Neo4j. Features: RAG pipelines for financial statement summarization and ESG scoring, RLHF and SFT for adaptive reasoning, ML and econometric models for volatility, causal, rumour, and reversal detection, Streamlit dashboards with real-time monitoring." },
@@ -330,6 +331,21 @@ const certGroups = [
 ];
 
 const featuredProjects = [
+  {
+    title: "FirePulse AI – Global Wildfire Intelligence & Monitoring Platform",
+    url: "https://firepulse-ai.vercel.app",
+    github: "https://github.com/zulfiqaralimir/firepulse-ai",
+    tagline: "**NASA Space Apps Challenge 2026 · Challenge #1: Harmonization of MODIS and VIIRS Hot Spots**",
+    bullets: [
+      "Built FirePulse AI, a global wildfire intelligence and monitoring platform that harmonizes NASA MODIS and VIIRS active-fire satellite observations, turning NASA FIRMS data into an interactive dashboard with live FIRMS data integration",
+      "Visualized global active-fire hotspots on an interactive MapLibre GL JS map with satellite-specific filtering (MODIS, NOAA-20, NOAA-21), regional and geographic filtering, and raw-detection vs. harmonized-group statistics",
+      "Analyzed detection relationships using a defined temporal matching window and nominal pixel-footprint assumptions, separating cross-sensor, same-sensor/different-satellite, same-satellite same-overpass, and same-satellite repeat-coverage relationships, with Recharts breakdowns",
+      "Documented methodology and limitations transparently: detection groups are analytical relationships, not confirmed unique wildfire incidents; active-fire detections are not necessarily confirmed wildfires; the platform does not predict wildfires; Suomi-NPP is excluded from the live feeds",
+      "Built with Next.js App Router Route Handlers calling the NASA FIRMS API server-side (no keys exposed to the client), deployed on Vercel, with Python supporting the scientific analysis",
+      "Methodology: https://firepulse-ai.vercel.app/methodology · Challenge: https://www.spaceappschallenge.org/2026/challenges/modis-and-viirs-hot-spots/?tab=details",
+    ],
+    stack: ["Next.js App Router", "React", "TypeScript", "Tailwind CSS", "shadcn/ui", "MapLibre GL JS", "Recharts", "NASA FIRMS API", "Route Handlers", "Vercel", "Python"],
+  },
   {
     title: "AuditIQ AI – AI-Powered General Ledger Anomaly Detection for Audit Workflows",
     url: "https://auditiq-mvp.vercel.app/",

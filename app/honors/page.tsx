@@ -14,7 +14,7 @@ const honors = [
     org: "NASA Space Apps Challenge · November 14–15, 2026",
     details:
       "Certificate awarded for outstanding participation and efforts to address challenges on Earth and in space. Project: FirePulse AI (Challenge #1: Harmonization of MODIS and VIIRS Hot Spots).",
-    cert: "/certificates/nasa-space-apps-2026.png",
+    cert: "https://drive.google.com/file/d/15zMxCnBP8WTkGLa14WH4fxkwyUT2ZQd-/view?usp=sharing",
   },
   {
     title: "National Winner – AI FinTech Projects (2025)",
