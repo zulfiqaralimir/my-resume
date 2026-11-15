@@ -15,7 +15,21 @@ function Soldier({ action, gltf }: { action: SoldierAction; gltf: GLTF }) {
     const map: Partial<Record<SoldierAction, THREE.AnimationAction>> = {};
     for (const name of ["Idle", "Walk", "Run"] as const) {
       const clip = THREE.AnimationClip.findByName(gltf.animations, name);
-      if (clip) map[name] = mixer.clipAction(clip);
+      if (clip) {
+        // lock root motion: keep the hips from travelling sideways/forward so the character stays in place
+        clip.tracks.forEach((t) => {
+          if (/Hips\.position$/.test(t.name)) {
+            const v = t.values;
+            const x0 = v[0];
+            const z0 = v[2];
+            for (let i = 0; i < v.length; i += 3) {
+              v[i] = x0;
+              v[i + 2] = z0;
+            }
+          }
+        });
+        map[name] = mixer.clipAction(clip);
+      }
     }
     return map;
   }, [gltf, mixer]);

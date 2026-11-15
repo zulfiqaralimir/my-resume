@@ -99,7 +99,7 @@ export default function Assistant3D() {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.8 }}
           transition={{ type: "spring", stiffness: 220, damping: 18 }}
-          className="relative mb-40 hidden max-w-[240px] rounded-2xl border border-navy-200 bg-white px-4 py-3 text-sm text-navy-700 shadow-xl sm:block"
+          className="relative mb-12 hidden max-w-[240px] rounded-2xl border border-navy-200 bg-white px-4 py-3 text-sm text-navy-700 shadow-xl sm:block"
         >
           {mood !== "happy" && moodTips[mood] ? moodTips[mood] : list[i % list.length]}
           <button

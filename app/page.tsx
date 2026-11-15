@@ -135,7 +135,7 @@ export default function Home() {
 
         <div className="relative max-w-6xl mx-auto px-8 py-12 lg:min-h-[680px] lg:flex lg:flex-col lg:justify-center">
         <HeroGlobe />
-        <div className="relative flex flex-col sm:flex-row items-center gap-8 lg:pr-[30rem]">
+        <div className="relative flex flex-col sm:flex-row items-center gap-8 lg:pr-[26rem]">
           {/* Photo */}
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
@@ -146,8 +146,8 @@ export default function Home() {
             <Image
               src="/profile.jpg"
               alt="Zulfiqar Ali Mir"
-              width={120}
-              height={120}
+              width={144}
+              height={144}
               className="rounded-full border-4 border-white/80 shadow-lg"
             />
           </motion.div>
@@ -164,7 +164,7 @@ export default function Home() {
             </motion.h1>
 
             <motion.p
-              className="text-[#f2d27a] text-lg sm:text-xl font-medium mb-5"
+              className="text-[#f2d27a] text-xl font-medium mb-5"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.45 }}
@@ -182,7 +182,7 @@ export default function Home() {
               {badges.map((b, i) => (
                 <span
                   key={i}
-                  className="bg-white/10 border border-[#d4a73a]/50 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-sm"
+                  className="bg-white/10 border border-[#d4a73a]/50 text-white text-[13px] font-semibold px-3.5 py-1.5 rounded-full backdrop-blur-sm"
                 >
                   {b}
                 </span>
@@ -198,19 +198,19 @@ export default function Home() {
             >
               <Link
                 href="/projects"
-                className="bg-white text-navy-700 font-semibold text-sm px-5 py-2.5 rounded-lg shadow hover:bg-navy-50 transition"
+                className="bg-white text-navy-700 font-semibold text-[15px] px-5 py-2.5 rounded-lg shadow hover:bg-navy-50 transition"
               >
                 View Projects
               </Link>
               <Link
                 href="/resume#research"
-                className="border border-white/60 text-white font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-white/10 transition"
+                className="border border-white/60 text-white font-semibold text-[15px] px-5 py-2.5 rounded-lg hover:bg-white/10 transition"
               >
                 Research &amp; Papers
               </Link>
               <a
                 href="mailto:manager.equity.finance@gmail.com"
-                className="border border-white/60 text-white font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-white/10 transition"
+                className="border border-white/60 text-white font-semibold text-[15px] px-5 py-2.5 rounded-lg hover:bg-white/10 transition"
               >
                 Contact Me
               </a>
@@ -220,25 +220,25 @@ export default function Home() {
 
         {/* Contact row */}
         <motion.div
-          className="relative mt-8 pt-6 border-t border-white/20 flex flex-wrap justify-center sm:justify-start gap-x-6 gap-y-2 text-sm text-navy-100"
+          className="relative mt-8 pt-6 border-t border-white/20 flex flex-wrap justify-center sm:justify-start gap-x-8 gap-y-3 text-base text-navy-100"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.75 }}
         >
           <a href="mailto:manager.equity.finance@gmail.com" className="hover:text-white transition">
-            <span className="inline-flex h-6 w-6 items-center justify-center rounded-md bg-white mr-2 align-middle"><GmailIcon className="h-4 w-4 text-[#EA4335]" /></span>manager.equity.finance@gmail.com
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white mr-2.5 align-middle"><GmailIcon className="h-5 w-5 text-[#EA4335]" /></span>manager.equity.finance@gmail.com
           </a>
           <a href="tel:+923225150501" className="hover:text-white transition">
-            <span className="inline-flex h-6 w-6 items-center justify-center rounded-md bg-white mr-2 align-middle"><Phone size={14} className="text-[#0645bd]" /></span>+92 322 5150501
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white mr-2.5 align-middle"><Phone size={18} className="text-[#0645bd]" /></span>+92 322 5150501
           </a>
           <a href="https://www.linkedin.com/in/zulfiqar-ali-mir/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" className="hover:text-white transition">
-            <span className="inline-flex h-6 w-6 items-center justify-center rounded-md bg-white mr-2 align-middle"><LinkedInIcon className="h-4 w-4 text-[#0A66C2]" /></span>LinkedIn <ExternalLink size={12} className="inline -mt-0.5" />
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white mr-2.5 align-middle"><LinkedInIcon className="h-5 w-5 text-[#0A66C2]" /></span>LinkedIn <ExternalLink size={12} className="inline -mt-0.5" />
           </a>
           <a href="https://github.com/zulfiqaralimir" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" className="hover:text-white transition">
-            <span className="inline-flex h-6 w-6 items-center justify-center rounded-md bg-white mr-2 align-middle"><GitHubIcon className="h-4 w-4 text-[#181717]" /></span>GitHub <ExternalLink size={12} className="inline -mt-0.5" />
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white mr-2.5 align-middle"><GitHubIcon className="h-5 w-5 text-[#181717]" /></span>GitHub <ExternalLink size={12} className="inline -mt-0.5" />
           </a>
           <a href="https://leetcode.com/u/xBe6uVINlF/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode profile" className="hover:text-white transition">
-            <span className="inline-flex h-6 w-6 items-center justify-center rounded-md bg-white mr-2 align-middle"><LeetCodeIcon className="h-4 w-4 text-[#FFA116]" /></span>LeetCode <ExternalLink size={12} className="inline -mt-0.5" />
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white mr-2.5 align-middle"><LeetCodeIcon className="h-5 w-5 text-[#FFA116]" /></span>LeetCode <ExternalLink size={12} className="inline -mt-0.5" />
           </a>
         </motion.div>
         </div>
