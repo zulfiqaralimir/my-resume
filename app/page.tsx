@@ -22,6 +22,7 @@ import {
 import dynamic from "next/dynamic";
 import HeroBackground from "./components/HeroBackground";
 import Meteors from "./components/Meteors";
+import HeroTitle from "./components/HeroTitle";
 import { GmailIcon, LinkedInIcon, GitHubIcon, LeetCodeIcon } from "./components/BrandIcons";
 
 const HeroGlobe = dynamic(() => import("./components/HeroGlobe"), { ssr: false });
@@ -154,14 +155,7 @@ export default function Home() {
 
           {/* Text */}
           <div className="text-center sm:text-left">
-            <motion.h1
-              className="hero-name text-xl sm:text-2xl lg:text-2xl leading-tight mb-4"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              Zulfiqar Ali Mir<span className="hero-cursor" aria-hidden="true">_</span>
-            </motion.h1>
+            <HeroTitle />
 
             <motion.p
               className="text-[#f2d27a] text-xl font-medium mb-5"
