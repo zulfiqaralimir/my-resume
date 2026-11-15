@@ -57,7 +57,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-5">
+        <div className="hidden lg:flex items-center gap-5">
           <ul className="flex items-center gap-0.5 text-sm font-medium text-white">
             {links.map((l) => (
               <li key={l.href} className="relative">
@@ -131,7 +131,7 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-[#f2d27a] focus:outline-none"
+          className="lg:hidden text-[#f2d27a] focus:outline-none"
           onClick={() => setOpen(!open)}
           aria-label="Open menu" aria-expanded={open}
         >
@@ -149,7 +149,7 @@ export default function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
-            className="md:hidden fixed inset-0 z-[60] overflow-y-auto bg-navy-900/95 backdrop-blur-xl px-6 pt-6 pb-10"
+            className="lg:hidden fixed inset-0 z-[60] overflow-y-auto bg-navy-900/95 backdrop-blur-xl px-6 pt-6 pb-10"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

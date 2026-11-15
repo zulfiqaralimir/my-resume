@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Playfair_Display, Montserrat } from "next/font/google";
+import { Geist, Playfair_Display, Montserrat, Press_Start_2P } from "next/font/google";
 import "./globals.css"; // ✅ This works
 
 import Navbar from "./components/Navbar";
@@ -15,6 +15,12 @@ const playfair = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
   weight: "700",
+});
+
+const pixel = Press_Start_2P({
+  variable: "--font-pixel",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 const montserrat = Montserrat({
@@ -35,9 +41,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${playfair.variable} ${montserrat.variable} font-sans`}>
+      <body className={`${geistSans.variable} ${playfair.variable} ${montserrat.variable} ${pixel.variable} font-sans`}>
         <Navbar />
-        <main className="p-6">{children}</main>
+        <main className="p-6 overflow-x-clip">{children}</main>
         <Assistant />
       </body>
     </html>

@@ -124,18 +124,19 @@ export default function Home() {
 
       {/* ── HERO ── */}
       <motion.section
-        className="relative bg-gradient-to-br from-[#00132c] via-[#011735] to-[#0b2447] rounded-2xl shadow-xl px-8 py-12 mb-14 text-white overflow-hidden"
+        className="relative bg-gradient-to-br from-[#00123a] via-[#00298a] to-[#004bcf] shadow-xl mb-14 text-white overflow-hidden w-screen ml-[calc(50%-50vw)]"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
       >
         <HeroBackground />
         <Meteors />
-        <HeroGlobe />
         {/* subtle background circles */}
         <div className="absolute -top-10 -right-10 w-64 h-64 bg-white/10 rounded-full" />
         <div className="absolute -bottom-16 -left-10 w-80 h-80 bg-white/5 rounded-full" />
 
+        <div className="relative max-w-6xl mx-auto px-8 py-12">
+        <HeroGlobe />
         <div className="relative flex flex-col sm:flex-row items-center gap-8 lg:pr-72">
           {/* Photo */}
           <motion.div
@@ -156,12 +157,12 @@ export default function Home() {
           {/* Text */}
           <div className="text-center sm:text-left">
             <motion.h1
-              className="font-display text-4xl sm:text-5xl tracking-tight mb-2"
+              className="hero-name text-xl sm:text-3xl lg:text-4xl leading-tight mb-4"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              Zulfiqar Ali Mir
+              Zulfiqar Ali Mir<span className="hero-cursor" aria-hidden="true">_</span>
             </motion.h1>
 
             <motion.p
@@ -240,6 +241,7 @@ export default function Home() {
             <Trophy size={15} className="inline -mt-0.5 mr-1.5" />LeetCode <ExternalLink size={12} className="inline -mt-0.5" />
           </a>
         </motion.div>
+        </div>
       </motion.section>
 
       {/* ── QUICK STATS ── */}

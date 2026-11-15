@@ -12,16 +12,17 @@
   --font-display: var(--font-playfair), Georgia, serif;
   --font-heading: var(--font-montserrat), "Segoe UI", sans-serif;
   --font-body: Aptos, Calibri, "Segoe UI", system-ui, sans-serif;
-  --color-navy-50: #f2f5fa;
-  --color-navy-100: #e2e8f2;
-  --color-navy-200: #c5d0e4;
-  --color-navy-300: #93a6c9;
-  --color-navy-400: #5870a0;
-  --color-navy-500: #2f4b82;
-  --color-navy-600: #183463;
-  --color-navy-700: #0b2447;
-  --color-navy-800: #011735;
-  --color-navy-900: #00132c;
+  --color-navy-50: #eef4ff;
+  --color-navy-100: #dce8ff;
+  --color-navy-200: #bcd2fb;
+  --color-navy-300: #84a9ee;
+  --color-navy-400: #3d7ae0;
+  --color-navy-500: #004bcf;
+  --color-navy-600: #0040b3;
+  --color-navy-700: #00338f;
+  --color-navy-800: #001f5c;
+  --color-navy-900: #00123a;
+  --color-nasa: #004bcf;
   --font-mono: var(--font-geist-mono);
 }
 
@@ -105,4 +106,26 @@ h2, h3 { font-family: var(--font-heading); }
 }
 @media (prefers-reduced-motion: reduce) {
   .meteor { display: none; }
+}
+
+/* Arcade-style hero name */
+.hero-name {
+  font-family: var(--font-pixel), monospace;
+  letter-spacing: 0.02em;
+  background: linear-gradient(180deg, #fff6c9 0%, #f2d27a 45%, #d4a73a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(3px 3px 0 #7a4b00) drop-shadow(0 0 14px rgba(242, 210, 122, 0.45));
+}
+.hero-cursor {
+  display: inline-block;
+  margin-left: 0.15em;
+  animation: hero-blink 1s steps(2, start) infinite;
+}
+@keyframes hero-blink {
+  to { visibility: hidden; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-cursor { animation: none; }
 }
