@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 import dynamic from "next/dynamic";
 import HeroBackground from "./components/HeroBackground";
+import Meteors from "./components/Meteors";
 
 const HeroGlobe = dynamic(() => import("./components/HeroGlobe"), { ssr: false });
 
@@ -129,6 +130,7 @@ export default function Home() {
         transition={{ duration: 0.7 }}
       >
         <HeroBackground />
+        <Meteors />
         <HeroGlobe />
         {/* subtle background circles */}
         <div className="absolute -top-10 -right-10 w-64 h-64 bg-white/10 rounded-full" />

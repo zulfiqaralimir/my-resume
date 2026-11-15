@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { downloadableDocuments } from "../documents/documentsConfig";
 
@@ -28,6 +30,8 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [cvOpen, setCvOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+  const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -39,9 +43,14 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
+
   return (
-    <nav className="sticky top-0 z-50 bg-navy-800 border-b border-[#d4a73a]/50 shadow-md">
-      <div className="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+    <nav className="sticky top-3 z-50 px-3 sm:px-4" aria-label="Main">
+      <div className="max-w-6xl mx-auto px-4 py-2 flex justify-between items-center rounded-2xl border border-white/15 bg-navy-800/90 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,19,44,0.45)] ring-1 ring-[#d4a73a]/30">
         <Link href="/" className="flex items-center gap-3">
           <Image src="/logo-128.png" alt="ZAM logo" width={44} height={44} className="rounded-full" />
           <h1 className="font-display font-bold text-xl text-[#f2d27a]">Zulfiqar Ali Mir</h1>
@@ -49,10 +58,21 @@ export default function Navbar() {
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-5">
-          <ul className="flex space-x-5 text-sm font-medium text-white">
+          <ul className="flex items-center gap-0.5 text-sm font-medium text-white">
             {links.map((l) => (
-              <li key={l.href}>
-                <Link href={l.href} className="hover:text-[#f2d27a] transition-colors">
+              <li key={l.href} className="relative">
+                {isActive(l.href) && (
+                  <motion.span
+                    layoutId="nav-pill"
+                    className="absolute inset-0 rounded-full bg-[#d4a73a]/20 ring-1 ring-[#d4a73a]/60"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+                <Link
+                  href={l.href}
+                  aria-current={isActive(l.href) ? "page" : undefined}
+                  className={"relative block rounded-full px-3 py-1.5 transition-colors hover:text-[#f2d27a] " + (isActive(l.href) ? "text-[#f2d27a]" : "")}
+                >
                   {l.label}
                 </Link>
               </li>
@@ -113,7 +133,7 @@ export default function Navbar() {
         <button
           className="md:hidden text-[#f2d27a] focus:outline-none"
           onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
+          aria-label="Open menu" aria-expanded={open}
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             {open ? (
@@ -125,51 +145,63 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile menu */}
-      {open && (
-        <ul className="md:hidden px-4 pb-4 space-y-2 text-sm font-medium text-white bg-navy-800 border-t border-white/10">
-          {links.map((l) => (
-            <li key={l.href}>
-              <Link
-                href={l.href}
-                className="block py-1 hover:text-[#f2d27a] transition-colors"
-                onClick={() => setOpen(false)}
-              >
-                {l.label}
-              </Link>
-            </li>
-          ))}
-          <li className="pt-1 border-t border-white/20">
-            <p className="text-xs text-navy-200 mb-1.5">Download CV</p>
-            {cvOptions.map((cv) => (
-              <Link
-                key={cv.href}
-                href={cv.href}
-                className="block py-1 text-[#f2d27a] font-semibold hover:text-white transition-colors"
-                onClick={() => setOpen(false)}
-              >
-                {cv.label}
-              </Link>
-            ))}
-            {downloadableDocuments.length > 0 && (
-              <>
-                <p className="text-xs text-navy-200 mb-1.5 mt-2">Documents</p>
-                {downloadableDocuments.map((doc) => (
-                  <a
-                    key={doc.id}
-                    href={doc.fileUrl}
-                    download
-                    className="block py-1 text-[#f2d27a] font-semibold hover:text-white transition-colors"
+      {/* Mobile full-screen menu */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            className="md:hidden fixed inset-0 z-[60] overflow-y-auto bg-navy-900/95 backdrop-blur-xl px-6 pt-6 pb-10"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+          >
+            <div className="flex items-center justify-between mb-8">
+              <span className="font-display font-bold text-xl text-[#f2d27a]">Menu</span>
+              <button onClick={() => setOpen(false)} aria-label="Close menu" className="text-[#f2d27a]">
+                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <ul className="space-y-1">
+              {links.map((l, i) => (
+                <motion.li
+                  key={l.href}
+                  initial={{ opacity: 0, x: -24 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.05 + i * 0.04 }}
+                >
+                  <Link
+                    href={l.href}
                     onClick={() => setOpen(false)}
+                    className={"block font-display text-3xl py-1.5 transition-colors " + (isActive(l.href) ? "text-[#f2d27a]" : "text-white hover:text-[#f2d27a]")}
                   >
-                    {doc.title}
-                  </a>
-                ))}
-              </>
-            )}
-          </li>
-        </ul>
-      )}
+                    {l.label}
+                  </Link>
+                </motion.li>
+              ))}
+            </ul>
+            <div className="mt-8 pt-5 border-t border-white/20">
+              <p className="text-xs uppercase tracking-widest text-navy-200 mb-2">Download CV</p>
+              {cvOptions.map((cv) => (
+                <Link key={cv.href} href={cv.href} className="block py-1.5 text-[#f2d27a] font-semibold hover:text-white transition-colors" onClick={() => setOpen(false)}>
+                  {cv.label}
+                </Link>
+              ))}
+              {downloadableDocuments.length > 0 && (
+                <>
+                  <p className="text-xs uppercase tracking-widest text-navy-200 mb-2 mt-5">Documents</p>
+                  {downloadableDocuments.map((doc) => (
+                    <a key={doc.id} href={doc.fileUrl} download className="block py-1.5 text-[#f2d27a] font-semibold hover:text-white transition-colors" onClick={() => setOpen(false)}>
+                      {doc.title}
+                    </a>
+                  ))}
+                </>
+              )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }
