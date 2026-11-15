@@ -357,12 +357,12 @@ export default function ProjectsPage() {
       <CardGrid className="grid gap-6">
         {featuredProjects.map((project, idx) => (
           <Card key={idx}>
-            <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+            <div className={"mb-4 flex flex-col gap-3" + ("methodology" in project ? "" : " sm:flex-row sm:items-start sm:justify-between")}>
               <div className="flex items-start gap-4">
                 <IconChip icon={Rocket} motionType={idx % 2 ? "wiggle" : "float"} delay={idx * 0.3} />
                 <h3 className="font-display text-xl font-bold leading-snug text-navy-700">{project.title}</h3>
               </div>
-              <div className="flex shrink-0 flex-wrap items-center gap-2">
+              <div className={"flex flex-wrap items-center gap-2" + ("methodology" in project ? " sm:pl-14" : " shrink-0")}>
                 {project.url && <LinkPill href={project.url} label={"methodology" in project ? "Live Dashboard" : project.url.replace("https://", "").replace(/\/$/, "")} />}
                 {"github" in project && project.github && <LinkPill href={project.github as string} label={"methodology" in project ? "GitHub Repository" : "GitHub"} />}
                 {"methodology" in project && project.methodology && <LinkPill href={project.methodology as string} label="Methodology" />}
