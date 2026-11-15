@@ -124,7 +124,7 @@ export default function Home() {
 
       {/* ── HERO ── */}
       <motion.section
-        className="relative bg-gradient-to-br from-[#00123a] via-[#00298a] to-[#004bcf] shadow-xl mb-14 text-white overflow-hidden w-screen ml-[calc(50%-50vw)]"
+        className="relative bg-gradient-to-br from-[#04297a] via-[#0645bd] to-[#0a58dc] shadow-xl mb-14 text-white overflow-hidden w-screen ml-[calc(50%-50vw)]"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
@@ -135,9 +135,9 @@ export default function Home() {
         <div className="absolute -top-10 -right-10 w-64 h-64 bg-white/10 rounded-full" />
         <div className="absolute -bottom-16 -left-10 w-80 h-80 bg-white/5 rounded-full" />
 
-        <div className="relative max-w-6xl mx-auto px-8 py-12">
+        <div className="relative max-w-6xl mx-auto px-8 py-12 lg:min-h-[680px] lg:flex lg:flex-col lg:justify-center">
         <HeroGlobe />
-        <div className="relative flex flex-col sm:flex-row items-center gap-8 lg:pr-96">
+        <div className="relative flex flex-col sm:flex-row items-center gap-8 lg:pr-[30rem]">
           {/* Photo */}
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
@@ -157,7 +157,7 @@ export default function Home() {
           {/* Text */}
           <div className="text-center sm:text-left">
             <motion.h1
-              className="hero-name text-xl sm:text-2xl lg:text-3xl leading-tight mb-4"
+              className="hero-name text-xl sm:text-2xl lg:text-2xl leading-tight mb-4"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
